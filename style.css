@@ -1,6 +1,14 @@
 
 :root {
 --color-blue:#4589ff;
+--color-lightblue:#d2e3ff;
+--color-darkblue:#42526e;
+--color-white:#ffffff;
+--color-urgent:#ff3d00;
+--color-medium:#ffa800;
+--color-low:#7ae229;
+--color-lightgrey:#d1d1d1;
+--color-black:#000000;
 }
 
 * {
