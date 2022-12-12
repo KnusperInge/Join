@@ -14,18 +14,21 @@
 
 <body>
 
+
     <div class="loading-page" style="display: none;">
         <img src="./img/icon_white.png">
     </div>
-    
+
     <!-- Login Screen -->
-    <main>
-        <img class="login_logo_blue" src="./img/icon_blue.png">
-        <div>
-            <span>Not a Join user?</pspan>
-            <button>Sign up</button>
-        </div>
-        <div>
+
+    <img class="login_logo_blue" src="./img/icon_blue.png">
+    <div class="sign_up">
+        <span>Not a Join user?</pspan>
+        <button>Sign up</button>
+    </div>
+
+    <main class="login_screen flex_column">
+        <div class="login_form flex_column">
             <span>Log in</span>
             <div>
                 <form>
@@ -38,7 +41,7 @@
                 </form>
             </div>
         </div>
-        <div>
+        <div class="login_options">
             <div>
                 <input type="checkbox">
                 <span>Remember me</span>
@@ -50,8 +53,8 @@
             <button>Guest log in</button>
         </div>
     </main>
-<!-- Import JS -->
-<script src="./js/script.js"></script>
+    <!-- Import JS -->
+    <script src="./js/script.js"></script>
 </body>
 
 
