@@ -218,6 +218,7 @@ background-color: var(--color-blue);
     font-size: 33px;
     line-height: 120%;
     color: var(--color-white);
+    transition: 0.25s;
 }
 
 #urgentTask-container img {
