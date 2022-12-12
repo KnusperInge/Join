@@ -1,7 +1,5 @@
 :root {
   --color-blue: #4589ff;
-
-  --color-blue: #4589ff;
   --color-lightblue: #d2e3ff;
   --color-darkblue: #42526e;
   --color-white: #ffffff;
@@ -24,28 +22,6 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   height: 100vh;
-}
-
-.button_blue {
-    padding: 10px 35px;
-    height: 48px;
-    border-radius: 8px;
-    background: var(--color-blue);
-    color: var(--color-white);
-    text-align: center;
-    font-size: 23px;
-    border: none;
-}
-
-.button_clear {
-    padding: 10px 35px;
-    height: 48px;
-    background: none;
-    color: var(--color-black);
-    text-align: center;
-    font-size: 23px;
-    border: 1px solid #647188;
-    border-radius: 8px;
 }
 
 /* index.html */
