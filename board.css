@@ -1,0 +1,27 @@
+.board-content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 45px;
+  flex-wrap: wrap;
+}
+
+.board-content h2 {
+  padding-bottom: 8px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.board-task {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  width: 250px;
+  height: 550px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(233, 233, 241);
+  box-shadow: 0.5px 0.5px 4px 0.5px #b9b9b9;
+}
