@@ -18,17 +18,12 @@
 
 }
 
-/* Default classes */
-.flex_column {
-    display: flex;
-    flex-direction: column;
-}
+
 body {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     height: 100vh;
-    flex-direction: column;
 }
 
 /* index.html */
@@ -38,6 +33,12 @@ body {
     width: 100vw;
 }
 
+/* Login Page */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 .loading-page>* {
     position: absolute;
     top: 50%;
@@ -45,52 +46,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* Login Page */
 .login_logo_blue {
     position: absolute;
     top: 80px;
     left: 80px;
     width: 100px;
 
-}
-
-.sign_up {
-    position: absolute;
-    top: 80px;
-    right: 80px;
-}
-
-.login_screen {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    align-items: center;
-    justify-content: center;
-    padding: 35px 115px;
-    gap: 35px;
-    width: 652px;
-    height: 457px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
-    border-radius: 30px;
-}
-
-.login_form {
-    align-items: center;
-    width: 100%;
-}
-.login_form form {
-    width: 100%;
-}
-.login_form input {
-    width: 100%;
-}
-
-.login_options {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 
 /* ANCHOR Header*/
