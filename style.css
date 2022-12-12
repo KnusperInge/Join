@@ -1,10 +1,9 @@
+:root {
 
-/* ANCHOR Body*/
-
-body {
-background-color:var(--text-blue);
-    dasdas
 }
-:root{
---text-blue:color:#000000;
+
+* {
+    display: block;
+    margin: 0;
+    padding: 0;
 }
