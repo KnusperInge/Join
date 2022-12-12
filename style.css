@@ -17,6 +17,7 @@
     padding: 0;
 }
 
+
 body {
     display: flex;
     align-items: flex-end;
@@ -329,7 +330,6 @@ main {
     align-items: center;
     width: 925px;
     height: 191px;
-
     margin-top: 35px;
 }
 
@@ -348,6 +348,7 @@ main {
     font-size: 33px;
     line-height: 120%;
     color: var(--color-white);
+    transition: 0.25s;
 }
 
 #urgentTask-container img {
@@ -384,103 +385,127 @@ main {
     border-left: 2px solid var(--color-white);
     padding-left: 36px;
 }
-
-.ToDo-Container {
-    background-color: var(--color-lightblue);
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 30px;
-    width: 208px;
-    height: 191px;
+.ToDo-Container{
+background-color:var(--color-lightblue);
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+border-radius: 30px;
+width: 208px;
+height: 191px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-left: 60px;
+transition: 0.25s;
+}
+.ToDo-Container div{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 60px;
+  
 }
-
-.ToDo-Container div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ToDo-Container div img {
+.ToDo-Container div img{
     width: 76px;
     height: 76px;
     margin-right: 20px;
     margin-bottom: 7px;
 }
-
-.ToDo-Container div>span {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 120%;
-    color: var(--color-black);
+.ToDo-Container div> span{
+font-size: 48px;
+font-weight: 700;
+line-height: 120%;
+color: var(--color-black);
 }
-
-.ToDo-Container>span {
+.ToDo-Container> span{
     font-size: 23px;
-    font-weight: 400;
-    line-height: 120%;
-    color: var(--color-blue);
+font-weight: 400;
+line-height: 120%;
+color: var(--color-blue);
 }
 
-.third-line {
+.third-line{
+   display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 35px;
+width: 921px;
+height: 219px;
+margin-top:35px
+}
+
+.third-line div{
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 35px;
-    width: 921px;
-    height: 219px;
-    margin-top: 35px;
+
+justify-content: center;
+align-items: center;
+padding: 40px;
+
+width: 204px;
+height: 219px;
+
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+border-radius: 30px;
+transition: 0.25s;
 }
 
-.third-line div {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-
-    width: 204px;
-    height: 219px;
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
-    border-radius: 30px;
-}
-
-.card {
+.card{
     display: flex;
     align-items: center;
     text-align: center;
     flex-direction: column;
     justify-content: center;
     padding: 0;
+   
 }
-
-.card span {
+.card span{
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 23px;
     line-height: 120%;
-    padding-top: 7px;
-    text-align: center;
-    color: var(--color-blue);
+    padding-top:7px;
+   text-align: center;
+ color: var(--color-blue);    
+  color: var(--color-blue);
+ color: var(--color-blue);    
 }
+.cardhead{
+   border: none;
+   box-shadow: none !important; 
+  box-shadow: none !important;
+   box-shadow: none !important; 
 
-.cardhead {
-    border: none;
-    box-shadow: none !important;
+padding:0 !important;
 
-    padding: 0 !important;
 }
-
-.cardhead span {
+.cardhead span{
     font-weight: 700;
     font-size: 48px;
     line-height: 120%;
     margin-left: 20px;
     color: var(--color-black);
+}
+
+
+.card:hover{
+    cursor: pointer;
+    border-top-left-radius: 0;
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    scale: 1.1;
+}
+.third-line div:hover span{
+    color: var(--color-white);
+}
+.third-line div:hover img{
+    border: 3px solid var(--color-white);
+    border-radius: 50%;
+}
+#urgentTask-container:hover, .ToDo-Container:hover{
+    cursor: pointer;
+    background-color: var(--color-white);
+    color: var(--color-blue);
+    border-top-left-radius: 0;
+    scale: 1.1;
 }
