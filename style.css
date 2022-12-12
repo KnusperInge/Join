@@ -18,6 +18,13 @@
 
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 /* index.html */
 .loading-page {
     background-color: var(--color-blue);
@@ -25,22 +32,15 @@
     width: 100vw;
 }
 
+/* Login Page */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 .loading-page > * {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-/* ANCHOR Header*/
-header{
-    background-color:var(--color-blue);
-    height: 97,3px;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    padding: 20px 39px;
-}
-header div img{
-    width: 47px;
-    height:57,3px;
 }
