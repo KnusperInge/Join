@@ -347,5 +347,6 @@ padding:0 !important;
     font-size: 48px;
     line-height: 120%;
     margin-left: 20px;
+    color: var(--color-black);
 }
 
