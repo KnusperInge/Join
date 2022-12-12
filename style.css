@@ -196,18 +196,20 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 925px;
+    height: 191px;
+    
+    
     margin-top: 35px;
 }
 
 #urgentTask-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 28px 48px;
-    gap: 35px;
-    background-color: var(--color-blue);
+background-color: var(--color-blue);
     width: 682px;
     height: 191px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
@@ -232,6 +234,9 @@ main {
 
 
     font-size: 48px;
+}
+#urgentTask-container div{
+    padding: 23px;
 }
 
 .taskdescription {
@@ -285,3 +290,62 @@ font-weight: 400;
 line-height: 120%;
 color: var(--color-blue);
 }
+
+.third-line{
+   display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 35px;
+width: 921px;
+height: 219px;
+margin-top:35px
+}
+
+.third-line div{
+    display: flex;
+
+justify-content: center;
+align-items: center;
+padding: 40px;
+
+width: 204px;
+height: 219px;
+
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+border-radius: 30px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+   
+}
+.card span{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 120%;
+    padding-top:7px;
+   text-align: center;
+ color: var(--color-blue);    
+}
+.cardhead{
+   border: none;
+   box-shadow: none !important; 
+
+padding:0 !important;
+
+}
+.cardhead span{
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    margin-left: 20px;
+}
+
