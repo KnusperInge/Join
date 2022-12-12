@@ -17,14 +17,14 @@
     padding: 0;
 
 }
-
+/*
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
-
+*/
 /* index.html */
 .loading-page {
     background-color: var(--color-blue);
@@ -51,13 +51,34 @@ header{
     width: 100vw;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px 39px;
+    color: var(--color-white);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 22.8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+}
+header div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 header div img{
     width: 47px;
     height:57,3px;
 }
-
+.header-icon{
+    width: 31px;
+    margin-right: 13px;
+    margin-left: 26px;
+}
+.user-icon{
+    border: 3px solid var(--color-white); 
+    border-radius: 50%;
+    width: 49px;
+    margin-left: 13px;
+}
 .login_logo_blue {
     position: absolute;
     top: 80px;
