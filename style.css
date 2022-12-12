@@ -23,6 +23,28 @@
     flex-direction: column;
 }
 
+.button_blue {
+    padding: 10px 35px;
+    height: 48px;
+    border-radius: 8px;
+    background: var(--color-blue);
+    color: var(--color-white);
+    text-align: center;
+    font-size: 23px;
+    border: none;
+}
+
+.button_clear {
+    padding: 10px 35px;
+    height: 48px;
+    background: none;
+    color: var(--color-black);
+    text-align: center;
+    font-size: 23px;
+    border: 1px solid #647188;
+    border-radius: 8px;
+}
+
 /* index.html */
 .loading-page {
     background-color: var(--color-blue);
@@ -47,9 +69,16 @@
 }
 
 .sign_up {
+    display: flex;
+    align-items: center;
     position: absolute;
-    top: 80px;
-    right: 80px;
+    right: 86px;
+    top: 67px;
+}
+
+.sign_up span {
+    font-size: 23px;
+    padding-right: 35px;
 }
 
 .login_screen {
@@ -72,17 +101,76 @@
     align-items: center;
     width: 100%;
 }
-.login_form form {
+
+.login_form div {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
+
+.login_form span {
+    width: 315px;
+    height: 58px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    text-align: center;
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.login_form form {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .login_form input {
     width: 100%;
+    height: 49px;
+    border: 0;
+    border-bottom: 1px solid var(--color-lightgrey);
+    font-size: 19px;
+    color: var(--color-lightgrey);
+}
+
+.login_form img {
+    position: absolute;
+    right: 21px;
+    width: 20px;
 }
 
 .login_options {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
+}
+
+.login_options input {
+    margin-right: 20px;
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-lightgrey) 100%);
+    border: 2px solid var(--color-blue);
+    border-radius: 3px;
+}
+
+.login_options span {
+    font-size: 19px;
+}
+
+.login_options a {
+    color: var(--color-blue);
+}
+
+.login_buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }
 
 /* ANCHOR Header*/
