@@ -31,3 +31,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/* ANCHOR Header*/
+header{
+    background-color:var(--color-blue);
+    height: 97,3px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 20px 39px;
+}
+header div img{
+    width: 47px;
+    height:57,3px;
+}
