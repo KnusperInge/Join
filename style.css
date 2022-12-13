@@ -87,7 +87,7 @@ nav {
    background-color: var(--color-white);
     width: fit-content;
     height: 100%;
-    padding: 20px;
+    padding: 5px;
    box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
     display: flex;
     flex-direction: column;
@@ -101,7 +101,7 @@ nav {
 }
 
 nav ul {
-    width: 186px;
+    width: 166px;
     height: 229px;
     list-style: none;
     display: flex;
@@ -117,9 +117,9 @@ nav>ul li {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 8px 30px;
-    gap: 20px;
-    width: 186px;
+    padding: 8px 20px;
+    gap: 10px;
+    width: 166px;
     height: 46px;
 }
 nav>ul li a{
@@ -202,7 +202,7 @@ width: 100%;
     padding: 28px 48px;
     background-color: var(--color-blue);
     width: fit-content;
-    height: 191px;
+    height: 160px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
     font-weight: 700;
@@ -228,7 +228,7 @@ width: 100%;
 }
 
 #urgentTask-container div {
-    padding: 23px;
+    padding: 5px 10px 10px;
 }
 
 .taskdescription {
@@ -251,8 +251,8 @@ width: 100%;
     background-color: var(--color-lightblue);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
-    width: 208px;
-    height: 191px;
+    width: 190px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -309,12 +309,10 @@ width: 100%;
 
     justify-content: center;
     align-items: center;
-    padding: 40px;
-
-    width: 204px;
-    height: 219px;
-
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+    
+ width: 190px;
+    height: 160px;
+box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
     transition: 0.25s;
 }
@@ -325,7 +323,7 @@ width: 100%;
     text-align: center;
     flex-direction: column;
     justify-content: center;
-    padding: 0;
+    padding: 40px 0;
 
 }
 
