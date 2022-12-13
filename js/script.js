@@ -1,6 +1,7 @@
+let navItems;
 document.addEventListener("DOMContentLoaded", () => {
     includeHtml();
-   
+   checkNav();
 })
 
 
@@ -15,5 +16,11 @@ async function includeHtml() {
         } else {
             element.innerHTML = 'Element not Found';
         }
+    }
+}
+
+function checkNav(){
+    if(document.querySelector("nav").innerHTML==""){
+       console.log(document.querySelector("nav"));
     }
 }

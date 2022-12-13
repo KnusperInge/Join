@@ -294,9 +294,7 @@ nav div {
     height: 289px;
 }
 
-nav>ul li:active {
-    
-}
+
 .active{
     background-color: var(--color-lightblue);
     border-radius: 8px;
