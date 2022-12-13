@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Marko",
+        "surname": "Manson",
+        "icon": "./img/contacts/###.png",
+        "addedTasks": ["task1", "task2"],
+        "email": "marko.manson@join.de",
+        "nummer": [
+            {
+                "landline": "+49 03652 827377"
+            },
+            {
+                "mobil": "+49 126 283746"
+            }
+        ]
+    }
+]
