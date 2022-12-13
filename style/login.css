@@ -21,6 +21,9 @@
     border-radius: 8px;
     transition: all 225ms ease-in-out;
     transition-property: color, border-width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button_blue:hover {
@@ -187,9 +190,6 @@ main {
     font-size: 19px;
 }
 
-.login_options div {
-    display: flex;
-}
 
 .login_options input {
     margin-right: 20px;
