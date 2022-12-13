@@ -6,33 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="board.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="js/script.js"></script>
   </head>
-  <body>
+  <body item="Board">
     <header include-html="Temp/header.html"></header>
     <nav include-html="Temp/navbar.html"></nav>
-    <div>
-      <input />
-      <button>Add Task +</button>
-    </div>
-    <div class="board-content">
-      <div>
-        <h2>To Do</h2>
-        <div class="board-task"></div>
+    <main>
+      <div class="search-boxBg">
+        <form class="search-box">
+          <input placeholder="Find Task" /> |
+          <img class="icon-magnifying" src="img/magnifying-icon.png" />
+        </form>
+        <button class="button-task">
+          <span>Add task +</span>
+        </button>
       </div>
-      <div>
-        <h2>In progress</h2>
-        <div class="board-task"></div>
+      <div class="board-content">
+        <div>
+          <h2>To Do</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+          <div class="board-task"></div>
+        </div>
+        <div>
+          <h2>In progress</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+          <div class="board-task"></div>
+        </div>
+        <div>
+          <h2>Await feedback</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+          <div class="board-task"></div>
+        </div>
+        <div>
+          <h2>Done</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+          <div class="board-task"></div>
+        </div>
       </div>
-      <div>
-        <h2>Await feedback</h2>
-        <div class="board-task"></div>
-      </div>
-      <div>
-        <h2>Done</h2>
-        <div class="board-task"></div>
-      </div>
-    </div>
+    </main>
   </body>
 </html>
