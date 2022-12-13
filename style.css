@@ -55,10 +55,11 @@ header div {
 
 header div img {
     width: 47px;
-    height: 57, 3px;
+    height: 57.3px;
 }
 
 .header-icon {
+   height: 31px;
     width: 31px;
     margin-right: 13px;
     margin-left: 26px;
@@ -68,6 +69,7 @@ header div img {
     border: 3px solid var(--color-white);
     border-radius: 50%;
     width: 49px;
+    height: 49px;
     margin-left: 13px;
 }
 /*ANCHOR Mainsection*/
