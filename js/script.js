@@ -1,10 +1,10 @@
-let navItems=[];
-let page="";
-document.addEventListener("DOMContentLoaded", async() => {
-   await includeHtml();
-   navItems=checkNavItem(); 
-  page= checkItems();
-setActivelink();
+let navItems = [];
+let page = "";
+document.addEventListener("DOMContentLoaded", async () => {
+    await includeHtml();
+    navItems = checkNavItem();
+    page = checkItems();
+    setActivelink();
     console.log(navItems);
 })
 
@@ -23,18 +23,18 @@ async function includeHtml() {
     }
 }
 
-function checkNavItem(){
+function checkNavItem() {
     return document.querySelectorAll("nav ul li");
 }
 
-function checkItems(){
-     let item= document.querySelector('[item]');
-    let element =item.getAttribute("item");
+function checkItems() {
+    let item = document.querySelector('[item]');
+    let element = item.getAttribute("item");
     return element;
 }
-function setActivelink(){
-    navItems.forEach((item)=>{
-        if(item.textContent==page){
+function setActivelink() {
+    navItems.forEach((item) => {
+        if (item.textContent == page) {
             item.classList.add('active');
         }
     })
