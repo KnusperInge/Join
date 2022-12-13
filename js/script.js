@@ -1,6 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-    includeHtml();
-   
+let navItems=[];
+let page="";
+document.addEventListener("DOMContentLoaded", async() => {
+   await includeHtml();
+   navItems=checkNavItem(); 
+  page= checkItems();
+setActivelink();
+    console.log(navItems);
 })
 
 
@@ -16,4 +21,21 @@ async function includeHtml() {
             element.innerHTML = 'Element not Found';
         }
     }
+}
+
+function checkNavItem(){
+    return document.querySelectorAll("nav ul li");
+}
+
+function checkItems(){
+     let item= document.querySelector('[item]');
+    let element =item.getAttribute("item");
+    return element;
+}
+function setActivelink(){
+    navItems.forEach((item)=>{
+        if(item.textContent==page){
+            item.classList.add('active');
+        }
+    })
 }

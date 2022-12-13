@@ -94,7 +94,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding: 35px 115px;
     gap: 35px;
     width: 652px;
@@ -119,8 +119,8 @@ main {
 }
 
 .login_form span {
-    width: 315px;
-    height: 58px;
+    width: 150px;
+    height: 82px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
@@ -129,8 +129,10 @@ main {
     text-align: center;
     color: #000000;
     flex: none;
-    order: 0;
     flex-grow: 0;
+    border-bottom: 3px solid var(--color-blue);
+    margin-top: -20px;
+    margin-bottom: 35px;
 }
 
 .login_form form {
@@ -159,8 +161,7 @@ main {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    top: 80px;
-    left: 80px;
+    font-size: 19px;
 }
 
 .login_options div {
@@ -174,12 +175,9 @@ main {
     border-radius: 3px;
 }
 
-.login_options span {
-    font-size: 19px;
-}
-
 .login_options a {
     color: var(--color-blue);
+    text-decoration: none;
 }
 
 .login_buttons {
@@ -296,9 +294,7 @@ nav div {
     height: 289px;
 }
 
-nav>ul li:active {
-    
-}
+
 .active{
     background-color: var(--color-lightblue);
     border-radius: 8px;
