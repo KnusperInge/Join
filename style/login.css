@@ -25,6 +25,31 @@
     background-color: var(--color-blue);
     height: 100vh;
     width: 100vw;
+    z-index: 100;
+    animation: clear-screen 1s ease-in forwards 225ms;
+}
+
+.loading-page img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 234px;
+    animation: white-logo 1s ease-in forwards 225ms;
+}
+
+@keyframes clear-screen {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes white-logo {
+    100% {
+        top: 80px;
+        left: 80px;
+        width: 100px;
+    }
 }
 
 /* Login Page */
@@ -42,10 +67,20 @@ main {
 
 .login_logo_blue {
     position: absolute;
-    top: 80px;
-    left: 80px;
-    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 234px;
+    z-index: 2;
+    animation: blue-logo 1s ease-in forwards 225ms;
+}
 
+@keyframes blue-logo {
+    100% {
+        top: 80px;
+        left: 80px;
+        width: 100px;
+    }
 }
 
 .sign_up {
