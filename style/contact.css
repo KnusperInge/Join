@@ -1,0 +1,10 @@
+.content dl {
+    position: fixed;
+    top: 98px;
+    left: 230px;
+    height: 100%;
+    width: 453px;
+    overflow-y: auto;
+    padding: 0 48px;
+}
+
