@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     navItems = checkNavItem();
     page = checkItems();
     setActivelink();
-    console.log(navItems);
 })
 
 
@@ -38,4 +37,7 @@ function setActivelink() {
             item.classList.add('active');
         }
     })
+}
+function openboard(){
+open("/board.html","_self");
 }

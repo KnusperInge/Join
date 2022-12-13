@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <title>Join</title>
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body item="Summary">
@@ -22,9 +22,9 @@
     <span>Martin</span>
   </div>
   <div class="second-line">
-   <div id="urgentTask-container">
-    <div>
-        <div class="icons">
+   <div id="urgentTask-container" onclick="openboard()">
+    <div >
+        <div class="icons" >
          <img src="img/Urgent.png">  
          <span>1</span>
         </div>
@@ -37,7 +37,7 @@
      </div>
 
    </div>
-    <div class="ToDo-Container">
+    <div class="ToDo-Container"onclick="openboard()" >
 <div>
     <img src="img/Board.png">
     <span>1</span>
@@ -48,28 +48,28 @@
  
  
   <div class="third-line">
-    <div class="card">
+    <div class="card"onclick="openboard()">
       <div class="cardhead">
         <img src="img/Board.png">
         <span>5</span>
       </div>
          <span>Task in Board</span>
     </div>
-    <div class="card">
+    <div class="card" onclick="openboard()">
         <div class="cardhead">
           <img src="img/In Progress.png">
           <span>2</span>
         </div>
            <span>Task in Progress</span>
       </div>
-      <div class="card">
+      <div class="card" onclick="openboard()">
         <div class="cardhead">
           <img src="img/Awaiting feedback.png">
           <span>2</span>
         </div>
            <span>Awaiting Feedback</span>
       </div>
-      <div class="card">
+      <div class="card" onclick="openboard()">
         <div class="cardhead">
           <img src="img/Done.png">
           <span>1</span>
