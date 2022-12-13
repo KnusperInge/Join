@@ -1,7 +1,16 @@
+main {
+  display: block;
+  justify-content: flex-start !important;
+}
+
+.container-Bord {
+  margin-left: 50px;
+}
+
 .search-box {
   width: 229px;
   border: 1px solid lightgrey;
-  background-color: var(--white);
+  background-color: white;
   border-radius: 10px;
   padding: 5px 10px;
   display: flex;
@@ -41,8 +50,11 @@
 }
 
 .plus-Icon {
+  height: 15px;
+
   border-radius: 4px;
   border: 2px solid #4589ff;
+  padding: 1px;
 }
 .board-content {
   display: flex;
@@ -53,9 +65,17 @@
 }
 
 .board-content h2 {
-  padding-bottom: 8px;
-  font-size: 17px;
+  font-size: 23px;
   text-align: center;
+  color: #42526e;
+  margin-right: 10px;
+}
+
+.card-status {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-bottom: 36px;
 }
 
 .board-task {
