@@ -9,6 +9,7 @@ main {
 
 .search-box {
   width: 229px;
+  height: 50px;
   border: 1px solid lightgrey;
   background-color: white;
   border-radius: 10px;
@@ -34,23 +35,26 @@ main {
   outline: none;
 }
 
+.vector {
+  border: 0.1px solid #d1d1d1;
+  height: 30px;
+}
 .icon-magnifying {
   padding-left: 10px;
 }
 
 .button-task {
-  min-width: 129px;
-  max-width: 200px;
-  background-color: #4589ff;
+  font-size: 22px;
   color: white;
+  border: 1px solid #4589ff;
   border-radius: 10px;
-  border-color: transparent;
-  padding: 16px;
-  font-size: 23px;
+  background-color: #4589ff;
+  width: 140px;
+  height: 50px;
 }
 
 .plus-Icon {
-  height: 15px;
+  height: 20px;
 
   border-radius: 4px;
   border: 2px solid #4589ff;
@@ -59,13 +63,15 @@ main {
 .board-content {
   display: flex;
   width: 100%;
-  justify-content: center;
   padding-top: 45px;
   flex-wrap: wrap;
+  gap: 5px;
 }
 
 .board-content h2 {
-  font-size: 23px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 120%;
   text-align: center;
   color: #42526e;
   margin-right: 10px;
@@ -75,7 +81,7 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .board-task {
@@ -90,4 +96,13 @@ main {
   flex-direction: column;
   background-color: rgb(233, 233, 241);
   box-shadow: 0.5px 0.5px 4px 0.5px #b9b9b9;
+}
+
+.board-Box {
+  box-shadow: 0px 0px 8px 3px rgb(0 0 0 / 5%);
+  height: 200px;
+  width: 140px;
+  border: 1px solid #d1d1d1;
+  border-radius: 1em;
+  background-color: #ffffff;
 }
