@@ -20,16 +20,15 @@
 
 body {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+   flex-direction: column;
     height: 100vh;
 }
 
 /* ANCHOR Header*/
 header {
-    position: absolute;
-    top: 0;
-    z-index: 1;
+    
     background-color: var(--color-blue);
     height: 97.3px;
     width: 100vw;
@@ -67,16 +66,25 @@ header div img {
     width: 49px;
     margin-left: 13px;
 }
+/*ANCHOR Mainsection*/
+main {
+    height:100%;
+    width: 100%;
+    color: var(--color-black);
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: aliceblue;
+   
+}
 
 /*ANCHOR Nabvar*/
 nav {
-   position: fixed;
-    background-color: var(--color-white);
-    width: 232px;
-    height: 90%;
-   left: 0;
-   
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
+   background-color: var(--color-white);
+    width: fit-content;
+    height: 100%;
+    padding: 20px;
+   box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -138,38 +146,34 @@ nav div {
     border-radius: 8px;
 }
 
-/*ANCHOR Mainsection*/
-main {
-    height:fit-content;
-    width: 100%;
-    
-   
-    left: 186px;
-padding-left:232px;
-    color: #000000;
-    flex-wrap: wrap;
+/*ANCHOR Section*/
+.content{
     display: flex;
     justify-content: center;
     align-items: center;
-   
+    flex-direction: column;
+width: 100%;
 }
-
-#greetings-container {
-    width: 745px;
+/*First Line*/
+.first-line {
+    width: 100%;
     height: 77px;
     font-size: 48px;
     line-height: 120%;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#greetings-container span:nth-child(2) {
+.first-line span:nth-child(2) {
     color: #4589ff;
     font-weight: 700;
     font-size: 64px;
     line-height: 120%;
     font-family: 'Open Sans';
 }
-
+/*Second Line*/
 .second-line {
     display: flex;
     justify-content: center;
@@ -178,8 +182,6 @@ padding-left:232px;
     width: 100%;
     height: fit-content;
     margin-top: 35px;
-    
-    
 }
 
 #urgentTask-container {
@@ -189,7 +191,7 @@ padding-left:232px;
     align-items: center;
     padding: 28px 48px;
     background-color: var(--color-blue);
-    width: 682px;
+    width: 49%;
     height: 191px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
     border-radius: 30px;
@@ -276,7 +278,7 @@ padding-left:232px;
     line-height: 120%;
     color: var(--color-blue);
 }
-
+/*Third Line*/
 .third-line {
     display: flex;
     flex-direction: row;
@@ -286,8 +288,9 @@ padding-left:232px;
     padding: 0px;
     gap: 35px;
     width: 100%;
-    height: 219px;
+    height: fit-content;
     margin-top: 35px;
+   
    
 }
 
