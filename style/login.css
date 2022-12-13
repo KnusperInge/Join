@@ -7,6 +7,7 @@
     text-align: center;
     font-size: 23px;
     border: none;
+    transition: background-color 225ms ease-in-out;
 }
 
 .button_clear {
@@ -18,10 +19,24 @@
     font-size: 23px;
     border: 1px solid #647188;
     border-radius: 8px;
+    transition: all 225ms ease-in-out;
+    transition-property: color, border-width;
+}
+
+.button_blue:hover {
+    background-color: #2b69d5;
+    cursor: pointer;
+}
+
+.button_clear:hover {
+    border: 2px solid var(--color-blue);
+    color: var(--color-blue);
+    box-shadow: 1px 4px 15px -5px rgba(0,0,0,0.75);
+    cursor: pointer;
 }
 
 /* ANCHOR index */
-.loading-page {
+#loading-page {
     background-color: var(--color-blue);
     height: 100vh;
     width: 100vw;
@@ -29,7 +44,7 @@
     animation: clear-screen 1s ease-in forwards 225ms;
 }
 
-.loading-page img {
+#loading-page img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -58,7 +73,7 @@ main {
     flex-direction: column;
 }
 
-.loading-page>* {
+#loading-page>* {
     position: absolute;
     top: 50%;
     left: 50%;

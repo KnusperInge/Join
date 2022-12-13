@@ -1,6 +1,9 @@
-let arrayJ = [];
+let contacts = [];
 
-async function test() {
-    arrayJ = await fetch('./json/contact.json');
-    arrayJ = await arrayJ.json()
+
+addEventListener('animationend', () => document.getElementById('loading-page').style = 'display: none;');
+
+async function loadContacts() {
+    contacts = await fetch('./json/contact.json');
+    contacts = await contacts.json()
 }
