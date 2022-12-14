@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./style/contact.css">
     <link rel="stylesheet" href="./style/fonts.css">
-    <script src="/js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/contact.js"></script>
 </head>
 
-<body item="Contacts">
+<body item="Contacts" onload="loadContactList()">
     <header id="active" include-html="Temp/header.html"></header>
 
     <main>
@@ -21,15 +22,17 @@
         <section class="content">
 
 
-            <div class="contact-list">
+            <div id="contact-list">
                 <div class="contact-lettercompartment">
                     <span>A</span>
                     <hr>
-                    <div class="listed-contact">
-                        <img src="./img/info.png">
-                        <div>
-                            <span>Anton Mayer</span>
-                            <span>E-Mail</span>
+                    <div id="a-list">
+                        <div class="listed-contact">
+                            <img src="./img/info.png">
+                            <div>
+                                <span>Anton Mayer</span>
+                                <span>E-Mail</span>
+                            </div>
                         </div>
                     </div>
                 </div>
