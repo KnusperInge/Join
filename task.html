@@ -1,21 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join</title>
-    <link rel="stylesheet" href="./style.css">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
+  <link rel="stylesheet" href="./style.css">
   <script src="/js/script.js"></script>
 </head>
 
 <body item="AddTask">
-    <header id="active" include-html="Temp/header.html"></header>
-  
-    <main>
-        <nav include-html="Temp/navbar.html"></nav>  
- <section class="content">
- 
-</section>
-</main>
+  <header id="active" include-html="Temp/header.html"></header>
+
+  <main>
+    <nav include-html="Temp/navbar.html"></nav>
+    <section class="content">
+      <div class="left-Container">
+     
+        <input type="text" class="input-title" placeholder="Enter a title">
+        <select name="employeeInput" id="employeeInput" >
+          <option value="">Select contacts to assign</option>
+          <option value="">Person 1</option>
+          <option value="">Person 2</option>
+          <option value="">Person 3</option>
+          <option value="">Person 4</option>
+        </select>
+
+        <div id="date-input-container">
+          <h3>Due date</h3>
+          <input id="date-input" type="date">
+        </div>
+        <div>
+          <h3>Category</h3>
+          <select name="department" id="department-input" >
+            <option value="">Select task category</option>
+            <option value="">Marketing</option>
+            <option value="">Development</option>
+            <option value="">Sales</option>
+            <option value="">IT</option>
+          </select>
+        </div>
+        <div class="priority-container">
+         
+          <div class="priority">
+            <span>Urgent</span>
+            <img src="/img/urgent_icon.png">
+          </div>
+        
+          <div class="priority">
+            <span>Medium</span>
+            <img src="/img/medium_icon.png">
+          </div>
+        
+          <div class="priority">
+            <span>Low</span>
+            <img src="/img/low_icon.png">
+          </div>
+
+        </div>
+        <div>
+          <h3>Description</h3>
+          <textarea name="" id="" cols="30" rows="10">Enter a Description </textarea>
+        </div>
+        <div>
+          <h3>Subtasks</h3>
+          <input  id="subtask-input"type="text" placeholder="Add new subtask">
+        </div>
+      </div>
+      <div class="right-Container">
+        <button>X Clear</button>
+        <button>Create Task</button>
+      </div>
+    </section>
+  </main>
+
 </html>

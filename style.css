@@ -407,3 +407,122 @@ color: var(--color-blue);
 padding-top: 35px;
 padding-bottom: 10px;
 }
+
+/*ANCHOR AddTask*/
+.content{
+    flex-direction: row;
+}
+
+.left-Container{
+    width: 100%;
+    height: 100%;
+   padding-left: 30px;
+    display: flex;
+    gap:25px;
+    flex-direction: column;
+
+}
+.right-Container{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(90, 172, 79);
+}
+
+.input-title{
+    outline: none;
+   border: none;
+    border-bottom: 1px solid var(--color-lightgrey);
+    padding: 10px;
+    font-weight: 400;
+font-size: 30px;
+line-height: 120%;
+color: var(--color-lightgrey);
+width: 300px;
+}
+h3{
+    color:var(--color-darkblue);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 120%;
+    padding-bottom: 5px;
+}
+
+select ,#subtask-input{
+    outline: none;
+    border: none;
+     border-bottom: 1px solid var(--color-lightgrey);
+     padding: 10px;
+     font-weight: 400;
+ font-size: 15px;
+ line-height: 120%;
+width:300px ;
+ -moz-appearance:none;
+ -webkit-appearance: none;
+
+}
+#employeeInput{
+   background: transparent url(/img/down_icon.png);
+   background-repeat: no-repeat;
+   background-size: 10px;
+ background-position: 95%;
+}
+
+#date-input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--color-lightgrey);
+    background:transparent url(/img/calendar_icon.png);
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 95% 25%;
+    width: 300px;
+    padding-bottom: 5px;
+     -webkit-calendar-picker-indicator:none;
+    -moz-calendar-picker-indicator:none;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 120%;
+    color: var(--color-lightgrey);
+}
+#department-input{
+ background: transparent url(/img/down_icon.png);
+ background-size: 10px;
+ background-repeat: no-repeat;
+ background-position: 95%;
+}
+
+.priority-container{
+    display: flex;
+    gap:10px
+}
+.priority{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-lightgrey);
+    padding: 8px 10px;
+    border-radius: 8px;
+    width:100px;
+    gap: 10px;
+}
+.priority img{
+    width: 15px;
+    height: 10px;
+}
+.priority:hover{
+    cursor: pointer;
+    background-color: var(--color-lightgrey);   
+}
+textarea{
+    width: 300px;
+    height: 80px;
+    color: var(--color-lightgrey);
+    padding: 10px;
+}
+#subtask-input{
+    background: transparent url(/img/plus_Icon.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+  background-position: 95%;
+  color: var(--color-lightgrey);
+}
