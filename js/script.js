@@ -38,6 +38,17 @@ function setActivelink() {
         }
     })
 }
-function openboard(){
-open("/board.html","_self");
+function openboard() {
+    open("/board.html", "_self");
 }
+
+function show(item, id) {
+  let box=  document.querySelectorAll('.textBox');
+box[id].value=item;
+}
+function openlist(id) {
+    let dropdown = document.querySelectorAll('.dropdown');
+    dropdown[id].classList.toggle('active');
+}
+
+
