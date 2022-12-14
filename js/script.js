@@ -38,6 +38,26 @@ function setActivelink() {
         }
     })
 }
-function openboard(){
-open("/board.html","_self");
+function openboard() {
+    open("/board.html", "_self");
 }
+
+function show(item, id) {
+  let box=  document.querySelectorAll('.textBox');
+box[id].value=item;
+}
+function openlist(id) {
+    let dropdown = document.querySelectorAll('.dropdown');
+    dropdown[id].classList.toggle('active');
+}
+function checkInput(){
+  let  input= document.querySelector('.input-title');
+    if(input.value){
+       console.log('test');
+        input.classList.add('black');
+    }else{
+        input.classList.remove('black');
+    }
+  
+}
+
