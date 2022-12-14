@@ -23,11 +23,11 @@
         <input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput()" required>
       
         <div class="dropdown" onclick="openlist(0)">
-          <input type="text" class="textBox" placeholder="Select contacts to assign" readonly>
+          <input type="text" class="textBox" placeholder="Select contacts to assign" readonly required>
           <div class="option">
-            <div onclick="show('Person 1',0)">Person 1</div>
-            <div onclick="show('Person 2',0)">Person 2</div>
-            <div onclick="show('Person 3',0)">Person 3</div>
+            <div onclick="show('Person 1',0)"><span>Person 1</span><input type="checkbox" name="" id=""></div>
+            <div onclick="show('Person 2',0)"><span>Person 2</span><input type="checkbox" name="" id=""></div>
+            <div onclick="show('Person 3',0)"><span>Person 3</span><input type="checkbox" name="" id=""></div>
             <div onclick="show('new Contact',0)">new Contact</div>
           </div>
         </div>
