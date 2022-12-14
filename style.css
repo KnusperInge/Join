@@ -452,7 +452,7 @@ form {
     display: flex;
     gap: 25px;
  flex-direction: column;
- padding-left: 40px;
+ padding-left: 80px;
  padding-top: 20px;
 
 }
@@ -465,6 +465,7 @@ form {
     height:100%;
     gap: 20px;
     padding: 40px;
+    padding-right: 80px;
 }
 
 .input-title {
@@ -546,12 +547,20 @@ display: none;
     border-bottom-right-radius: 8px;    
 }
 .dropdown .option div{
+   width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 8px 20px;
     cursor: pointer;
     border-radius: 10px;
     font-weight: 400;
     font-size: 15px;
     line-height: 120%;
+}
+.dropdown .option div input{
+    width: fit-content;
+    outline-color: #7ae229;
 }
 .dropdown .option div:hover{
     background-color: var(--color-blue);
