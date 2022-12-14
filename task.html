@@ -8,7 +8,7 @@
   <title>Join</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./style/fonts.css">
-  <script src="/js/script.js"></script>
+ 
 </head>
 
 <body item="AddTask">
@@ -25,9 +25,9 @@
         <div class="dropdown" onclick="openlist(0)">
           <input type="text" class="textBox" placeholder="Select contacts to assign" readonly required>
           <div class="option">
-            <div onclick="show('Person 1',0)"><span>Person 1</span><input type="checkbox" name="" id=""></div>
-            <div onclick="show('Person 2',0)"><span>Person 2</span><input type="checkbox" name="" id=""></div>
-            <div onclick="show('Person 3',0)"><span>Person 3</span><input type="checkbox" name="" id=""></div>
+            <div onclick="show('Person 1',0)"><span>Person 1</span><input type="checkbox" name="Person 1" id=""></div>
+            <div onclick="show('Person 2',0)"><span>Person 2</span><input type="checkbox" name="Person 2" id=""></div>
+            <div onclick="show('Person 3',0)"><span>Person 3</span><input type="checkbox" name="Person 3" id=""></div>
             <div onclick="show('new Contact',0)">new Contact</div>
           </div>
         </div>
@@ -79,10 +79,12 @@
 
       <div class="right-Container">
         <button>Clear<img src="img/cross_icon.png"></button>
-        <button>Create Task<img src="img/checked_icon_white.png "></button>
+        <button class="AddButton">Create Task<img src="img/checked_icon_white.png "></button>
       </div>
     </form>
     </section>
   </main>
-
+ 
+  <script src="/js/script.js"></script>
+</body>
 </html>

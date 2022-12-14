@@ -560,7 +560,7 @@ display: none;
 }
 .dropdown .option div input{
     width: fit-content;
-    outline-color: #7ae229;
+    
 }
 .dropdown .option div:hover{
     background-color: var(--color-blue);
@@ -639,6 +639,7 @@ textarea {
     height: 80px;
     color: var(--color-lightgrey);
     padding: 10px;
+    resize: none;
 }
 
 #subtask-input {

@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     page = checkItems();
     setActivelink();
 })
+const AddBtn=document.querySelector(".AddButton");
+AddBtn.addEventListener("click",addTask);
 
 
 async function includeHtml() {
@@ -31,6 +33,7 @@ function checkItems() {
     let element = item.getAttribute("item");
     return element;
 }
+
 function setActivelink() {
     navItems.forEach((item) => {
         if (item.textContent == page) {
@@ -43,21 +46,38 @@ function openboard() {
 }
 
 function show(item, id) {
-  let box=  document.querySelectorAll('.textBox');
-box[id].value=item;
+    let box = document.querySelectorAll('.textBox');
+    let input = document.querySelectorAll(".option div input");
+    input.forEach(item => {
+        if (item.checked) {
+            box[id].value = item.name;
+            console.log(item);
+        }else{
+            box[id].value="Select";
+        }
+    })
 }
+
 function openlist(id) {
     let dropdown = document.querySelectorAll('.dropdown');
     dropdown[id].classList.toggle('active');
 }
-function checkInput(){
-  let  input= document.querySelector('.input-title');
-    if(input.value){
-       console.log('test');
+
+function checkInput() {
+    let input = document.querySelector('.input-title');
+    if (input.value) {
+        console.log('test');
         input.classList.add('black');
-    }else{
+    } else {
         input.classList.remove('black');
     }
-  
+
 }
+
+
+
+function addTask(){
+    console.log(AddBtn);
+}
+
 
