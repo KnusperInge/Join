@@ -3,8 +3,14 @@ main {
   justify-content: flex-start !important;
 }
 
+form {
+  gap: 0 !important;
+}
+
 .container-Bord {
-  margin-left: 50px;
+  position: absolute;
+  top: 133px;
+  left: 285px;
 }
 
 .search-box {
@@ -21,7 +27,6 @@ main {
 
 .search-boxBg {
   position: relative;
-  top: 20px;
   display: flex;
 }
 
@@ -44,6 +49,8 @@ main {
 }
 
 .button-task {
+  position: relative;
+  left: 250px;
   font-size: 22px;
   color: white;
   border: 1px solid #4589ff;
@@ -51,12 +58,13 @@ main {
   background-color: #4589ff;
   width: 140px;
   height: 50px;
+  cursor: pointer;
 }
 
 .plus-Icon {
   height: 20px;
 
-  border-radius: 4px;
+  border-radius: 7px;
   border: 2px solid #4589ff;
   padding: 1px;
 }
@@ -85,24 +93,28 @@ main {
 }
 
 .board-task {
+  overflow: hidden;
   position: relative;
-  margin-left: 10px;
   margin-right: 10px;
   padding: 5px;
-  width: 150px;
-  height: 400px;
+  width: 170px;
+  height: 100%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(233, 233, 241);
-  box-shadow: 0.5px 0.5px 4px 0.5px #b9b9b9;
+  background-color: transparent;
+  box-shadow: 0.5px 0.5px 4px 0.5px transparent;
 }
 
 .board-Box {
   box-shadow: 0px 0px 8px 3px rgb(0 0 0 / 5%);
   height: 200px;
-  width: 140px;
+  width: 160px;
   border: 1px solid #d1d1d1;
   border-radius: 1em;
   background-color: #ffffff;
+}
+
+.d-none {
+  display: none;
 }
