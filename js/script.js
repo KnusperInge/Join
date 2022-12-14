@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     page = checkItems();
     setActivelink();
 })
+const AddBtn=document.querySelector(".AddButton");
+AddBtn.addEventListener("click",addTask);
 
 
 async function includeHtml() {
@@ -31,6 +33,7 @@ function checkItems() {
     let element = item.getAttribute("item");
     return element;
 }
+
 function setActivelink() {
     navItems.forEach((item) => {
         if (item.textContent == page) {
@@ -53,9 +56,8 @@ function show(item, id) {
             box[id].value="Select";
         }
     })
-
-    //box[id].value=item;
 }
+
 function openlist(id) {
     let dropdown = document.querySelectorAll('.dropdown');
     dropdown[id].classList.toggle('active');
@@ -70,6 +72,12 @@ function checkInput() {
         input.classList.remove('black');
     }
 
+}
+
+
+
+function addTask(){
+    console.log(AddBtn);
 }
 
 
