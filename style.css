@@ -639,6 +639,7 @@ textarea {
     height: 80px;
     color: var(--color-lightgrey);
     padding: 10px;
+    resize: none;
 }
 
 #subtask-input {

@@ -49,6 +49,8 @@ function show(item, id) {
         if (item.checked) {
             box[id].value = item.name;
             console.log(item);
+        }else{
+            box[id].value="Select";
         }
     })
 
