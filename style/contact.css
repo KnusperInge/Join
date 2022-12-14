@@ -37,6 +37,13 @@
     width: 100%;
     padding: 0 37px;
     display: flex;
+    align-items: center;
+}
+
+.listed-contact:hover {
+    cursor: pointer;
+    background-color: #4589ff57;;
+    border-radius: 10px;
 }
 
 .listed-contact img {
@@ -47,10 +54,12 @@
 .listed-contact-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-left: 35px;
+    height: 77px;
 }
 
-.contact-mail {
+.contact-list-mail {
     font-size: 16px !important;
     color: var(--color-blue);
 }
@@ -61,7 +70,7 @@
 
 
 
-.contact-informations {
+#contact-informations {
     position: absolute;
     top: 156px;
     left: 696px;
@@ -140,4 +149,30 @@
 
 .contact-mail span:nth-child(2) {
     color: var(--color-blue);
+}
+
+.add-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    right: 48px;
+    bottom: 64px;
+    width: 197px;
+    padding: 18px 10px;
+}
+
+.button-blue {
+    height: 48px;
+    border-radius: 8px;
+    background: var(--color-blue);
+    color: var(--color-white);
+    font-size: 23px;
+    border: none;
+    transition: background-color 225ms ease-in-out;
+}
+
+.button-blue:hover {
+    background-color: #2b69d5;
+    cursor: pointer;
 }
