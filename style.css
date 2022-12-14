@@ -409,16 +409,30 @@ padding-bottom: 10px;
 }
 
 /*ANCHOR AddTask*/
-.content{
+.content-task{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+width: 100%;
+    
     flex-direction: row;
 }
-
+form{
+    height: 100%;
+    width: 100%;
+  
+    display: flex;
+    flex-direction: column;
+    gap:27px;
+    padding: 40px;
+}
 .left-Container{
     width: 100%;
     height: 100%;
-   padding: 40px;
+   
     display: flex;
-    gap:25px;
+   
     flex-direction: column;
 
 }
@@ -441,7 +455,7 @@ padding-bottom: 10px;
 font-size: 30px;
 line-height: 120%;
 color: var(--color-lightgrey);
-width: 300px;
+width: 320px;
 }
 h3{
     color:var(--color-darkblue);
@@ -459,7 +473,7 @@ select ,#subtask-input{
      font-weight: 400;
  font-size: 15px;
  line-height: 120%;
-width:300px ;
+width:320px ;
  -moz-appearance:none;
  -webkit-appearance: none;
 
@@ -479,7 +493,7 @@ width:300px ;
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: 95% 25%;
-    width: 300px;
+    width: 320px;
     padding-bottom: 5px;
      -webkit-calendar-picker-indicator:none;
     -moz-calendar-picker-indicator:none;
@@ -508,17 +522,24 @@ width:300px ;
     border-radius: 8px;
     width:100px;
     gap: 10px;
+    cursor: pointer;
 }
 .priority img{
     width: 15px;
     height: 10px;
 }
-.priority:hover{
-    cursor: pointer;
-    background-color: var(--color-lightgrey);   
+
+.priority:nth-child(1):hover{
+     box-shadow: 0 2px   1px var(--color-urgent);
+}
+.priority:nth-child(2):hover{
+    box-shadow: 0 2px   1px var(--color-medium);
+}
+.priority:nth-child(3):hover{
+    box-shadow: 0 2px   1px var(--color-low);
 }
 textarea{
-    width: 300px;
+    width: 320px;
     height: 80px;
     color: var(--color-lightgrey);
     padding: 10px;
@@ -531,7 +552,7 @@ textarea{
   color: var(--color-lightgrey);
 }
 .right-Container button{
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 10px 20px;
 }
 .right-Container button:nth-child(1){
@@ -549,4 +570,13 @@ textarea{
     height: 12px;
     margin-left: 5px;
 }
-
+.right-Container button:nth-child(1):hover{
+   cursor: pointer;
+    border: 1px solid var(--color-blue);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) ;
+}
+.right-Container button:nth-child(2):hover{
+    cursor: pointer;
+    background-color: #1769f7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) ;
+}
