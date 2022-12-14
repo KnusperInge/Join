@@ -477,6 +477,9 @@ form {
     color: var(--color-lightgrey);
     width: 320px;
 }
+.input-title.black {
+color: #000000 !important;
+}
 
 h3 {
     color: var(--color-darkblue);
