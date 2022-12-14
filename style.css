@@ -1,9 +1,4 @@
 /*ANCHOR CSS Properties */
-@font-face {
-    font-family: 'Open Sans';
-    src: url(./fonts);
-}
-
 :root {
     --color-blue: #4589ff;
     --color-lightblue: #d2e3ff;
@@ -19,7 +14,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'OpenSans-Regular';
     margin: 0;
     padding: 0;
 }
