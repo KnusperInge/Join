@@ -48,22 +48,24 @@ function openContactInfo(currentMail) {
 }
 
 document.querySelector(".add-contact").addEventListener("click", () => {
-    document.getElementById('new-contact').classList.toggle('active');
-    document.getElementById('overlay').classList.toggle('active')
+    document.getElementById('new-contact').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('open')
+    setTimeout(() => {document.getElementById('new-contact-content').classList.toggle('open')}, 300)
 })
 
-document.querySelector("#overlay").addEventListener("click", () => {
-    document.getElementById('new-contact').classList.toggle('active');
-    document.getElementById('overlay').classList.toggle('active')
+document.querySelector(".cross-icon").addEventListener("click", () => {
+    document.getElementById('new-contact').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('open')
+    document.getElementById('new-contact-content').classList.toggle('open')
 })
 
 // ANCHOR IF questions
 function includesLetter(letter) {
-   return letters.includes(letter);
+    return letters.includes(letter);
 }
 
 function getSurChar(contact) {
-   return  contact.surname.charAt(0);
+    return contact.surname.charAt(0);
 }
 
 
