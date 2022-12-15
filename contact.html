@@ -38,7 +38,7 @@
             <div id="new-contact">
                 <div id="new-contact-content">
                     <div class="content-header">
-                        <img class="cross-icon" src="./img/cross_icon_white.png">
+                        <img class="cross-icon cancel_add" src="./img/cross_icon_white.png">
                         <img class="contact-join-icon" src="./img/icon_white.png">
                         <span>Add contact</span>
                         <span>Tasks are better with a team!</span>
@@ -46,13 +46,13 @@
                     <div class="content-body">
                         <img class="content-body-profileIMG" src="./img/planc_profileIcon.png">
                         <form class="new-content-form">
-                            <input>
-                            <input>
-                            <input>
+                            <input id="input-name" type="text" placeholder="Name:">
+                            <input id="input-phone" type="number" placeholder="Phone:">
+                            <input id="input-email" type="email" placeholder="E-Mail:">
                         </form>
                         <div class="new-contact-buttons">
-                            <button class="button-clear">Cancel</button>
-                            <button class="button-blue">Create contact</button>
+                            <button class="button-clear cancel_add">Cancel</button>
+                            <button class="button-blue" onclick="createNewContact()">Create contact</button>
                         </div>
                     </div>
                 </div>

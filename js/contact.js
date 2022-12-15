@@ -1,9 +1,6 @@
 let contactArray = [];
 let letters = [];
 
-//ask if true
-let newContactOpen = false;
-
 async function loadContactList() {
     contactArray = await fetch('../json/contact.json');
     contactArray = await contactArray.json();
@@ -53,7 +50,51 @@ document.querySelector(".add-contact").addEventListener("click", () => {
     setTimeout(() => {document.getElementById('new-contact-content').classList.toggle('open')}, 300)
 })
 
-document.querySelector(".cross-icon").addEventListener("click", () => {
+// ANCHOR add new contact
+function createNewContact() {
+    let inputs = document.querySelector(".new-content-form");
+    let name = inputs.children[0];
+    name = name.value.split(' ');
+
+    let firstName = name.slice(0, 1);
+    let surName = name.slice(1);
+    let phone = inputs.children[1];
+    let email = inputs.children[2];
+
+    let contactArrayToPush = {
+        "name": `${firstName}`,
+        "surname": `${surName}`,
+        "icon": "./img/info.png",
+        "addedTasks": [],
+        "email": `${email}`,
+        "number": [
+            {
+                "landline": ""
+            },
+            {
+                "mobile": `${phone}`
+            }
+        ]
+    };
+
+    console.log(contactArrayToPush)
+
+    name.value = '';
+    phone.value = '';
+    email.value = '';
+
+    loadContactList()
+}
+
+// ANCHOR close new contact
+let cancelAdd = document.querySelectorAll(".cancel_add");
+cancelAdd[0].addEventListener("click", () => {
+    document.getElementById('new-contact').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('open')
+    document.getElementById('new-contact-content').classList.toggle('open')
+})
+
+cancelAdd[1].addEventListener("click", () => {
     document.getElementById('new-contact').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('open')
     document.getElementById('new-contact-content').classList.toggle('open')
@@ -67,7 +108,6 @@ function includesLetter(letter) {
 function getSurChar(contact) {
     return contact.surname.charAt(0);
 }
-
 
 // ANCHOR HTML include
 function generateLetterHTML(letter, letterSmall) {

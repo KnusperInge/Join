@@ -299,13 +299,31 @@
     gap: unset;
 }
 
-.new-content-form input {
+.new-content-form>* {
     width: 422px !important;
     height: 49px !important;
     border: 0;
     border-bottom: 1px solid #D1D1D1;
     padding: 13px 21px;
     margin-bottom: 49px;
+}
+
+#input-name {
+    background-image: url(../img/add_c_perso.png);
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+#input-phone {
+    background-image: url(../img/add_c_phone.png);
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+#input-email {
+    background-image: url(../img/add_c_mail.png);
+    background-repeat: no-repeat;
+    background-position: 95%;
 }
 
 .new-contact-buttons {
