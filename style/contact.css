@@ -18,11 +18,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: rgb(193, 192, 192);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgb(128, 128, 128);
 }
 
 .contact-lettercompartment>span {
@@ -175,4 +175,36 @@
 .button-blue:hover {
     background-color: #2b69d5;
     cursor: pointer;
+}
+
+#new-contact {
+    background-color: #2b69d5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    z-index: 50;
+    transition: all 0.3s ease-in-out;
+    border-radius: 30px;
+    border-top-left-radius: 0;
+}
+
+#new-contact.active {
+    width: 580px;
+}
+
+#overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 49;
+    background-color: rgba(255, 255, 255, 0.487);
+    display: none;
+}
+
+#overlay.active {
+    display: unset;
 }

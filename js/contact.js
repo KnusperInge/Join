@@ -1,6 +1,9 @@
 let contactArray = [];
 let letters = [];
 
+//ask if true
+let newContactOpen = false;
+
 async function loadContactList() {
     contactArray = await fetch('../json/contact.json');
     contactArray = await contactArray.json();
@@ -8,9 +11,9 @@ async function loadContactList() {
 }
 
 function loadLetters() {
-    loadLettersArray()
+    loadLettersArray();
     letters.sort();
-    generateLetterList()
+    generateLetterList();
 }
 
 function loadLettersArray() {
@@ -25,9 +28,9 @@ function loadLettersArray() {
 
 function generateLetterList() {
     letters.forEach(letter => {
-        letterSmall = letter.toLowerCase()
+        letterSmall = letter.toLowerCase();
         document.getElementById('contact-list').innerHTML += generateLetterHTML(letter, letterSmall);
-        loadContacts(letter)
+        loadContacts(letter);
     });
 }
 
@@ -40,19 +43,27 @@ function loadContacts(letter) {
 }
 
 function openContactInfo(currentMail) {
-    let contact = contactArray.find(contactArray => contactArray.email === currentMail)
+    let contact = contactArray.find(contactArray => contactArray.email === currentMail);
     document.getElementById('contact-informations').innerHTML = generateContactInfoHTML(contact);
 }
 
+document.querySelector(".add-contact").addEventListener("click", () => {
+    document.getElementById('new-contact').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active')
+})
 
+document.querySelector("#overlay").addEventListener("click", () => {
+    document.getElementById('new-contact').classList.toggle('active');
+    document.getElementById('overlay').classList.toggle('active')
+})
 
 // ANCHOR IF questions
 function includesLetter(letter) {
-   return letters.includes(letter)
+   return letters.includes(letter);
 }
 
 function getSurChar(contact) {
-   return  contact.surname.charAt(0)
+   return  contact.surname.charAt(0);
 }
 
 
