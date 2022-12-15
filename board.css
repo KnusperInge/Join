@@ -196,3 +196,8 @@ progress {
   justify-content: space-between;
   margin-right: 31.5px;
 }
+
+.search-input {
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+}
