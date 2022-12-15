@@ -97,7 +97,7 @@ form {
   position: relative;
   margin-right: 10px;
   padding: 5px;
-  width: 170px;
+  width: 270px;
   height: 100%;
   border-radius: 10px;
   display: flex;
@@ -108,8 +108,8 @@ form {
 
 .board-Box {
   box-shadow: 0px 0px 8px 3px rgb(0 0 0 / 5%);
-  height: 200px;
-  width: 160px;
+  height: 241px;
+  width: 250px;
   border: 1px solid #d1d1d1;
   border-radius: 1em;
   background-color: #ffffff;
@@ -117,4 +117,82 @@ form {
 
 .d-none {
   display: none;
+}
+
+.category-taskBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 25px;
+  width: 101px;
+  height: 27px;
+  background-color: #ff7a00;
+  border-radius: 8px;
+  margin-top: 18px;
+  margin-left: 18.5px;
+  margin-right: 130.5px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 16px;
+}
+
+.title-task {
+  color: #4589ff;
+  font-size: 16px;
+  line-height: 120%;
+  font-weight: 700;
+  width: 138px;
+  height: 19px;
+  margin-left: 18.5px;
+  margin-bottom: 10px;
+}
+
+.description-task {
+  color: #a8a8a8;
+  margin-left: 18.5px;
+  padding-top: 10px;
+  display: flex;
+  margin-right: 24.5px;
+  flex-wrap: wrap;
+}
+.progress-status {
+  padding-bottom: 21.5px;
+}
+progress {
+  margin-left: 18.5px;
+  width: 138px;
+  height: 8px;
+  margin-right: 20px;
+}
+
+.progress-status span {
+  width: 55px;
+  height: 16px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 120%;
+}
+
+[data-letters]:before {
+  content: attr(data-letters);
+  display: inline-block;
+  font-size: 1em;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  text-align: center;
+  border-radius: 50%;
+  background: #0190e0;
+  vertical-align: middle;
+  margin-right: 1em;
+  color: white;
+  margin-left: 18.5px;
+}
+
+.conteiner-user {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 31.5px;
 }
