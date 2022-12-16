@@ -7,6 +7,7 @@ class Task {
   Priority;
   Subtaks = [];
   Status;
+ 
 
   constructor() {
     this.test();
@@ -67,4 +68,5 @@ class Task {
     });
     contactList = [];
   }
+
 }
