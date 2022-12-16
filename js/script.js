@@ -2,20 +2,20 @@ let Tasks=[];
 let navItems = [];
 let contactList=[];
 let page = "";
-let selectedConacts=document.querySelector('.selectedConacts');
+let selectedContacts=document.querySelector('.selectedContacts');
 let newTask= new Task();
 
 function openboard() {
     open("/board.html", "_self");
 }
 
-function checkInput() {
-    let input = document.querySelector('.input-title');
+function checkInput(field) {
+    let input = document.querySelector(`.${field}`);
     if (input.value) {
-        console.log('test');
-        input.classList.add('black');
+        
+        input.classList.add('blackTextColor');
     } else {
-        input.classList.remove('black');
+        input.classList.remove('blackTextColor');
     }
 }
 
@@ -33,13 +33,19 @@ function changePriority(str) {
 // Script for Dropdown Menus
 function openList(id) {
    let dropdowns= document.querySelectorAll(".left-Container .dropdown .list");
-   dropdowns[id].classList.toggle('active');
+   if(id==3){
+   false
+   }else{
+    dropdowns[id].classList.toggle('active');
+   }
+   
+
     if (!document.querySelector(".dropdown .active") && contactList.length > 0) {
       renderIcons();
-      selectedConacts.classList.toggle("active");
+      selectedContacts.classList.toggle("active");
     } else {
-        selectedConacts.classList.remove("active");
-        selectedConacts.innerHTML = "";
+        selectedContacts.classList.remove("active");
+        selectedContacts.innerHTML = "";
     }
   }
 
@@ -63,7 +69,7 @@ function openList(id) {
   function renderIcons() {
     contactList.forEach((element) => {
       let firstletter = element.charAt(0).toUpperCase();
-      selectedConacts.innerHTML += `<span>${firstletter}</span>`;
+      selectedContacts.innerHTML += `<span>${firstletter}</span>`;
     });
   }
 
@@ -81,10 +87,25 @@ function openList(id) {
     newTask.init();
     Tasks.push(newTask);
     newTask.clearForm();
-    console.log(Tasks);
+   
   }
 
   document.querySelector("#clear-btn").addEventListener("click", (event) => {
     event.preventDefault();
     newTask.clearForm();
   });
+
+  function addCategory(id){
+   let input=document.querySelector('.cagetorgy-input');
+    //input.innerHTML="";
+    let Category= checkCategory(id);
+    input.value=Category;
+    if(!input.value==""){
+       newTask.Category=Category; 
+    }
+  }
+
+  function checkCategory(id){
+  let catlist= document.querySelectorAll('.category div');
+  return catlist[id].textContent;
+  }

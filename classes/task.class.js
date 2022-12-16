@@ -2,6 +2,7 @@ class Task {
   Title;
   Contacts = [];
   Deadline;
+  Category;
   Description;
   Priority;
   Subtaks = [];
@@ -21,12 +22,12 @@ class Task {
     this.Description = document.getElementById("description-input").value;
     this.Status = "toDo";
     this.Contacts = contactList;
-    console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
+    //console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
   }
 
   checkpriority() {
-    if (document.querySelector(".priority .active")) {
-      return document.querySelector(".priority .active").textContent;
+    if (document.querySelector(".priority-container .active")) {
+      return document.querySelector(".priority-container .active span").textContent;
     }
     return false;
   }
@@ -34,12 +35,12 @@ class Task {
     document.getElementById("urgent-btn").className = "priority";
     document.getElementById("medium-btn").className = "priority";
     document.getElementById("low-btn").className = "priority";
-   document.getElementById('selectedConacts').innerHTML="";
+   document.querySelector('.selectedContacts').innerHTML="";
     document.querySelector('.input-title').value= "";
     document.getElementById("date-input").value = "";
     document.getElementById("description-input").value = "";
     this.deactivtedContactDropdown();
-    openList();
+    openList(3);
   }
   aktivateUrgent() {
     document.getElementById("urgent-btn").classList.toggle("urgent");
@@ -60,9 +61,10 @@ class Task {
     document.getElementById("medium-btn").className = "priority";
   }
   deactivtedContactDropdown() {
-    document.querySelectorAll(".list div").forEach((element) => {
-      element.lastElementChild.checked = false;
-      contactList = [];
+    document.querySelectorAll(".contacts div input").forEach((element) => {
+      element.checked = false;
+      
     });
+    contactList = [];
   }
 }

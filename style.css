@@ -483,8 +483,9 @@ form {
     color: var(--color-lightgrey);
     width: 320px;
 }
-.input-title.black {
-color: var(--color-black) !important;
+
+.blackTextColor{
+    color: var(--color-black) !important;
 }
 
 h3 {

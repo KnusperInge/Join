@@ -18,16 +18,17 @@
     <section class="content-task">
       <form id="TaskForm">
         <div class="left-Container">
-          <input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput()" required />
+          <input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput('input-title')"
+            required />
 
           <div class="dropdown">
             <input type="text" class="textBox" id="dropdownContacts" placeholder="Select contacts to assign" readonly
               required onclick="openList(0)" />
 
             <input class="d-none" type="text" name="" id="searchContacts" placeholder="Enter Name or Email" />
-            <div class="selectedConacts"></div>
+            <div class="selectedContacts"></div>
 
-            <div class="list">
+            <div class="list contacts">
               <div onclick="addContact(0)">
                 <span>Person 1</span><input type="checkbox" id="" />
               </div>
@@ -44,20 +45,23 @@
 
           <div id="date-input-container">
             <h3>Due date</h3>
-            <input id="date-input" type="date" required />
+            <input class="date-input" id="date-input" type="date" required onclick="checkInput('date-input')" />
           </div>
+
           <div>
             <h3>Category</h3>
             <div class="dropdown" onclick="openList(1)">
-              <input type="text" class="textBox" placeholder="Select task category" readonly />
-              <div class="list">
-                <div onclick="show('Sales',1)">Sales</div>
-                <div onclick="show('Marketing',1)">Marketing</div>
-                <div onclick="show('Development',1)">Development</div>
-                <div onclick="show('new Contact',1)">add new Category</div>
+              <input type="text" class="textBox cagetorgy-input" placeholder="Select task category" readonly
+                onclick="checkInput('cagetorgy-input')" />
+              <div class="list category">
+                <div onclick="addCategory(0)">Sales</div>
+                <div onclick="addCategory(1)">Marketing</div>
+                <div onclick="addCategory(2)">Development</div>
+                <div onclick="addCategory(4)">add new Category</div>
               </div>
             </div>
           </div>
+
           <div class="priority-container">
             <div class="priority" id="urgent-btn" onclick="changePriority(1)">
               <span>Urgent</span>
@@ -76,7 +80,8 @@
           </div>
           <div>
             <h3>Description</h3>
-            <textarea name="" id="description-input" cols="30" rows="10" required>
+            <textarea name="" class="description-input" id="description-input" onkeyup="checkInput('description-input')"
+              cols="30" rows="10" required>
 Enter a Description </textarea>
           </div>
           <div>
