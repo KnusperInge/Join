@@ -11,6 +11,13 @@
     --color-black: #000000;
     --height: 97.3px;
 }
+.d-none{
+    display: none;
+}
+.activeNavItem{
+    background-color: var(--color-lightblue);
+    border-radius: 8px;
+}
 
 * {
     font-family: 'OpenSans-Regular';
@@ -19,10 +26,7 @@
     padding: 0;
 }
 
-.active {
-    background-color: var(--color-lightblue);
-    border-radius: 8px;
-}
+
 
 body {
     display: flex;
@@ -506,73 +510,62 @@ h3 {
     -webkit-appearance: none;
 
 }
+/* ANCHOR Dorpdown Menu */
 .dropdown{
-    display: block;
-    flex-direction: column;
-width: 320px;
-    height: 50px;
- transition: 0.25ms ease-in-out;
-
+    width: 320px;
+    height: fit-content;
    
 }
 .dropdown input{
     cursor: pointer;
-    width: 100%;
-    height: 18px;
-    padding: 20px 10px;
-    background: transparent url(/img/down_icon.png);
-    background-repeat: no-repeat;
-    background-size: 10px;
-    background-position: 95%; 
-  outline:none;
+    outline: none;
     border: none;
     border-bottom: 1px solid var(--color-lightgrey);
-    font-weight: 400;
+    width: 100%;
+    height: 30px;
+    padding: 20px 10px;
     font-size: 15px;
+    font-weight: 400;
     line-height: 120%;
+    color: var(--color-lightgrey);
 }
-.dropdown .option{
- width: 100%;  
-display: none;   
+.list{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
-.dropdown.active{
-  height: 100%;
-  background-color: var(--color-white)
-  
+.dropdown .list.active{
+    display: flex;
 }
-.dropdown.active .option{
-    display: block; 
-    box-shadow: 1px 2px 5px var(--color-lightgrey);
-    border-bottom-left-radius: 8px;  
-    border-bottom-right-radius: 8px;    
-}
-.dropdown .option div{
+.list div{
    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 20px;
-    cursor: pointer;
-    border-radius: 10px;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 120%;
-}
-.dropdown .option div input{
-    width: fit-content;
-    
-}
-.dropdown .option div:hover{
-    background-color: var(--color-blue);
-    color: var(--color-white);
-}
-#employeeInput {
-    background: transparent url(/img/down_icon.png);
-    background-repeat: no-repeat;
-    background-size: 10px;
-    background-position: 95%;
+    padding: 5px 20px; 
+    transition: all 0.25s ease-in-out;
 }
 
+.list div input{
+    width: 12px;
+
+}
+.list div:hover{
+    cursor: pointer;
+    background-color: var(--color-blue);
+    border-radius: 8px;
+}
+.textBox{
+    background: transparent url(img/down_icon.png);
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: center;
+}
+/* ANCHOR Datefield */
 #date-input {
     outline: none;
     border: none;
@@ -592,14 +585,14 @@ display: none;
     -webkit-calendar-picker-indicator:none;
     -moz-calendar-picker-indicator:none;
 }
-
+/* ANCHOR Category Select Dorpdown */
 #department-input {
     background: transparent url(/img/down_icon.png);
     background-size: 10px;
     background-repeat: no-repeat;
     background-position: 95%;
 }
-
+/* ANCHOR Priority Properites */
 .priority-container {
     display: flex;
     gap: 10px
@@ -634,6 +627,15 @@ display: none;
     box-shadow: 0 2px 1px var(--color-low);
 }
 
+.urgent{
+background-color: var(--color-urgent);
+}
+.medium{
+background-color: var(--color-medium);
+}
+.low{
+background-color: var(--color-low);
+}
 textarea {
     width: 320px;
     height: 80px;

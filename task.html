@@ -6,9 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./style/fonts.css">
- 
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style/fonts.css" />
 </head>
 
 <body item="AddTask">
@@ -17,74 +16,87 @@
   <main>
     <nav include-html="Temp/navbar.html"></nav>
     <section class="content-task">
-      <form action="">
-      <div class="left-Container">
-    
-        <input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput()" required>
-      
-        <div class="dropdown" onclick="openlist(0)">
-          <input type="text" class="textBox" placeholder="Select contacts to assign" readonly required>
-          <div class="option">
-            <div onclick="show('Person 1',0)"><span>Person 1</span><input type="checkbox" name="Person 1" id=""></div>
-            <div onclick="show('Person 2',0)"><span>Person 2</span><input type="checkbox" name="Person 2" id=""></div>
-            <div onclick="show('Person 3',0)"><span>Person 3</span><input type="checkbox" name="Person 3" id=""></div>
-            <div onclick="show('new Contact',0)">new Contact</div>
-          </div>
-        </div>
-       
-        <div id="date-input-container">
-          <h3>Due date</h3>
-          <input id="date-input" type="date" required>
-        </div>
-        <div>
-          <h3>Category</h3>
-          <div class="dropdown" onclick="openlist(1)">
-            <input type="text" class="textBox" placeholder="Select task category" readonly>
-            <div class="option">
-              <div onclick="show('Sales',1)">Sales</div>
-              <div onclick="show('Marketing',1)">Marketing</div>
-              <div onclick="show('Development',1)">Development</div>
-              <div onclick="show('new Contact',1)">new Contact</div>
+      <form id="TaskForm">
+        <div class="left-Container">
+          <input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput()" required />
+
+          <div class="dropdown">
+            <input type="text" class="textBox" id="dropdownContacts" placeholder="Select contacts to assign" readonly
+              required onclick="openList(0)" />
+
+            <input class="d-none" type="text" name="" id="searchContacts" placeholder="Enter Name or Email" />
+            <div class="selectedConacts"></div>
+
+            <div class="list">
+              <div onclick="addContact(0)">
+                <span>Person 1</span><input type="checkbox" id="" />
+              </div>
+              <div onclick="addContact(1)">
+                <span>Person 2</span><input type="checkbox" id="" />
+              </div>
+              <div onclick="addContact(2)">
+                <span>Person 3</span><input type="checkbox" id="" />
+              </div>
+              <div onclick="inviteContact()">invite Contact</div>
+
             </div>
           </div>
-        </div>
-        <div class="priority-container">
-         
-          <div class="priority">
-            <span>Urgent</span>
-            <img src="/img/urgent_icon.png">
-          </div>
-        
-          <div class="priority">
-            <span>Medium</span>
-            <img src="/img/medium_icon.png">
-          </div>
-        
-          <div class="priority">
-            <span>Low</span>
-            <img src="/img/low_icon.png">
-          </div>
 
-        </div>
-        <div>
-          <h3>Description</h3>
-          <textarea name="" id="" cols="30" rows="10" required>Enter a Description </textarea>
-        </div>
-        <div>
-          <h3>Subtasks</h3>
-          <input  id="subtask-input"type="text" placeholder="Add new subtask">
-        </div>
-      
-      </div>
+          <div id="date-input-container">
+            <h3>Due date</h3>
+            <input id="date-input" type="date" required />
+          </div>
+          <div>
+            <h3>Category</h3>
+            <div class="dropdown" onclick="openList(1)">
+              <input type="text" class="textBox" placeholder="Select task category" readonly />
+              <div class="list">
+                <div onclick="show('Sales',1)">Sales</div>
+                <div onclick="show('Marketing',1)">Marketing</div>
+                <div onclick="show('Development',1)">Development</div>
+                <div onclick="show('new Contact',1)">add new Category</div>
+              </div>
+            </div>
+          </div>
+          <div class="priority-container">
+            <div class="priority" id="urgent-btn" onclick="changePriority(1)">
+              <span>Urgent</span>
+              <img src="/img/urgent_icon.png" />
+            </div>
 
-      <div class="right-Container">
-        <button>Clear<img src="img/cross_icon.png"></button>
-        <button class="AddButton">Create Task<img src="img/checked_icon_white.png "></button>
-      </div>
-    </form>
+            <div class="priority" id="medium-btn" onclick="changePriority(2)">
+              <span>Medium</span>
+              <img src="/img/medium_icon.png" />
+            </div>
+
+            <div class="priority" id="low-btn" onclick="changePriority(3)">
+              <span>Low</span>
+              <img src="/img/low_icon.png" />
+            </div>
+          </div>
+          <div>
+            <h3>Description</h3>
+            <textarea name="" id="description-input" cols="30" rows="10" required>
+Enter a Description </textarea>
+          </div>
+          <div>
+            <h3>Subtasks</h3>
+            <input id="subtask-input" type="text" placeholder="Add new subtask" />
+          </div>
+        </div>
+
+        <div class="right-Container">
+          <button id="clear-btn">Clear<img src="img/cross_icon.png" /></button>
+          <button class="AddButton">
+            Create Task<img src="img/checked_icon_white.png " />
+          </button>
+        </div>
+      </form>
     </section>
   </main>
- 
-  <script src="/js/script.js"></script>
+  <script src="classes/task.class.js"></script>
+  <script src="js/script.js"></script>
+
 </body>
+
 </html>
