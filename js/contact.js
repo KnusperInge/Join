@@ -51,8 +51,10 @@ document.querySelector(".add-contact").addEventListener("click", () => {
 })
 
 // ANCHOR add new contact
-function createNewContact() {
-    let inputs = document.querySelector(".new-content-form");
+let inputs = document.querySelector(".new-content-form");
+inputs.addEventListener("submit", createNewContact);
+function createNewContact(event) {
+    event.preventDefault();
     let name = inputs.children[0];
     name = name.value.split(' ');
 
@@ -82,8 +84,6 @@ function createNewContact() {
     name.value = '';
     phone.value = '';
     email.value = '';
-
-    loadContactList()
 }
 
 // ANCHOR close new contact
