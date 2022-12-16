@@ -565,6 +565,16 @@ h3 {
     background-position-x: 98%;
     background-position-y: center;
 }
+.selectedConacts {
+    margin-top: 18px;
+}
+.selectedConacts span{
+    background:linear-gradient(0.15turn,var(--color-medium),var(--color-white));
+    border-radius: 50%;
+    padding: 9px 13px;
+    text-align: center;
+    
+}
 /* ANCHOR Datefield */
 #date-input {
     outline: none;
@@ -573,7 +583,7 @@ h3 {
     background: transparent url(/img/calendar_icon.png);
     background-size: 15px;
     background-repeat: no-repeat;
-    background-position: 95% 25%;
+    background-position: 98% 25%;
     width: 320px;
     padding-bottom: 5px;
     -webkit-calendar-picker-indicator: none;
