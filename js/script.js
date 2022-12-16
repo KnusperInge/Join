@@ -3,7 +3,7 @@ let navItems = [];
 let contactList=[];
 let page = "";
 let selectedConacts=document.querySelector('.selectedConacts');
-let newTask=new Task();
+let newTask= new Task();
 
 document.addEventListener("DOMContentLoaded", async () => {
     await includeHtml();
@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     page = checkItems();
     setActivelink();
 })
-const AddBtn=document.querySelector(".AddButton");
-AddBtn.addEventListener("click",addTask);
 
 
 async function includeHtml() {
@@ -74,9 +72,6 @@ function changePriority(str) {
   }
 
 
-function addTask(){
-    console.log(AddBtn);
-}
 // Script for Dropdown Menus
 function openList(id) {
    let dropdowns= document.querySelectorAll(".left-Container .dropdown .list");

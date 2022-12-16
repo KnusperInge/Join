@@ -1,87 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="board.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="/js/script.js"></script>
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="./style/fonts.css" />
-    <script src="js/script.js"></script>
-  </head>
-  <body item="Board">
-    <header id="active" include-html="Temp/header.html"></header>
-    <main>
-      <nav include-html="Temp/navbar.html"></nav>
-    </main>
-    <div class="container-Bord">
-      <div class="search-boxBg">
-        <form class="search-box">
-          <input placeholder="Find Task" />
-          <div class="vector"></div>
-          <img class="icon-magnifying" src="img/magnifying-icon.png" />
-        </form>
-        <button class="button-task">
-          <span>Add task +</span>
-        </button>
-      </div>
-      <div class="board-content">
-        <div>
-          <div class="card-status">
-            <h2>To Do</h2>
-            <img class="plus-Icon" src="img/plus_Icon.png" />
-          </div>
-          <div class="board-task">
-            <div class="bordBox">
-              <div class="board-Box">
-                <div class="category-taskBg">Design</div>
-                <div>
-                  <span class="title-task">Website redesign</span>
-                  <span class="description-task"
-                    >Modify the contents of the main website..</span
-                  >
-                </div>
-                <div class="progress-status">
-                  <progress max="4" value="0"></progress>
-                  <span>1/2 Done</span>
-                </div>
-                <div class="conteiner-user">
-                  <p data-letters="SM"></p>
-                  <img src="img/low_icon.png" />
-                </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
+  <link rel="stylesheet" href="board.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="/js/script.js"></script>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./style/fonts.css" />
+
+</head>
+
+<body item="Board">
+  <header id="active" include-html="Temp/header.html"></header>
+  <main>
+    <nav include-html="Temp/navbar.html"></nav>
+  </main>
+  <div class="container-Bord">
+    <div class="search-boxBg">
+      <form class="search-box">
+        <input placeholder="Find Task" />
+        <div class="vector"></div>
+        <img class="icon-magnifying" src="img/magnifying-icon.png" />
+      </form>
+      <button class="button-task">
+        <span>Add task +</span>
+      </button>
+    </div>
+    <div class="board-content">
+      <div>
+        <div class="card-status">
+          <h2>To Do</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+        </div>
+        <div class="board-task">
+          <div class="bordBox">
+            <div class="board-Box">
+              <div class="category-taskBg">Design</div>
+              <div>
+                <span class="title-task">Website redesign</span>
+                <span class="description-task">Modify the contents of the main website..</span>
+              </div>
+              <div class="progress-status">
+                <progress max="4" value="0"></progress>
+                <span>1/2 Done</span>
+              </div>
+              <div class="conteiner-user">
+                <p data-letters="SM"></p>
+                <img src="img/low_icon.png" />
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <div class="card-status">
-            <h2>In progress</h2>
-            <img class="plus-Icon" src="img/plus_Icon.png" />
-          </div>
-          <div class="board-task">
-            <div class="board-Box"></div>
-          </div>
+      </div>
+      <div>
+        <div class="card-status">
+          <h2>In progress</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
         </div>
-        <div>
-          <div class="card-status">
-            <h2>Await feedback</h2>
-            <img class="plus-Icon" src="img/plus_Icon.png" />
-          </div>
-          <div class="board-task">
-            <div class="board-Box"></div>
-          </div>
-        </div>
-        <div>
-          <div class="card-status">
-            <h2>Done</h2>
-            <img class="plus-Icon" src="img/plus_Icon.png" />
-          </div>
-          <div class="board-task"></div>
+        <div class="board-task">
+          <div class="board-Box"></div>
         </div>
       </div>
+      <div>
+        <div class="card-status">
+          <h2>Await feedback</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+        </div>
+        <div class="board-task">
+          <div class="board-Box"></div>
+        </div>
+      </div>
+      <div>
+        <div class="card-status">
+          <h2>Done</h2>
+          <img class="plus-Icon" src="img/plus_Icon.png" />
+        </div>
+        <div class="board-task"></div>
+      </div>
+    </div>
     </main>
-  </body>
+    <script src="classes/task.class.js"></script>
+    <script src="js/loadTemplates.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+
 </html>

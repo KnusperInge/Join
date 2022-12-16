@@ -2,84 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./style/fonts.css">
-    <title>Join</title>
-    <script src="js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style/fonts.css">
+  <title>Join</title>
+  <script src="js/loadTemplates.js"></script>
+  <script src="js/script.js"></script>
 </head>
 
 <body item="Summary">
-    <header id="active" include-html="Temp/header.html"></header>
-  
-    <main>
-        <nav include-html="Temp/navbar.html"></nav>  
- <section class="content">
-   
-    <div class="first-line">
-    <span>Good morning,</span>
-    <span>Martin</span>
-  </div>
-  <div class="second-line">
-   <div id="urgentTask-container" onclick="openboard()">
-    <div >
-        <div class="icons" >
-         <img src="img/Urgent.png">  
-         <span>1</span>
-        </div>
-        <span class="taskdescription">Tasks Urgent</span>
-     </div>
+  <header id="active" include-html="Temp/header.html"></header>
 
-     <div class="timestamp-container">
-         <span>October16, 2022</span>
-         <span class="taskdescription">Upcoming Deadline</span>
-     </div>
+  <main>
+    <nav include-html="Temp/navbar.html"></nav>
+    <section class="content">
 
-   </div>
-    <div class="ToDo-Container"onclick="openboard()" >
-<div>
-    <img src="img/Board.png">
-    <span>1</span>
-</div>
-<span>Tasks To-do</span>
-    </div>
-  </div>
- 
- 
-  <div class="third-line">
-    <div class="card"onclick="openboard()">
-      <div class="cardhead">
-        <img src="img/Board.png">
-        <span>5</span>
+      <div class="first-line">
+        <span>Good morning,</span>
+        <span>Martin</span>
       </div>
-         <span>Task in Board</span>
-    </div>
-    <div class="card" onclick="openboard()">
-        <div class="cardhead">
-          <img src="img/In Progress.png">
-          <span>2</span>
+      <div class="second-line">
+        <div id="urgentTask-container" onclick="openboard()">
+          <div>
+            <div class="icons">
+              <img src="img/Urgent.png">
+              <span>1</span>
+            </div>
+            <span class="taskdescription">Tasks Urgent</span>
+          </div>
+
+          <div class="timestamp-container">
+            <span>October16, 2022</span>
+            <span class="taskdescription">Upcoming Deadline</span>
+          </div>
+
         </div>
-           <span>Task in Progress</span>
-      </div>
-      <div class="card" onclick="openboard()">
-        <div class="cardhead">
-          <img src="img/Awaiting feedback.png">
-          <span>2</span>
+        <div class="ToDo-Container" onclick="openboard()">
+          <div>
+            <img src="img/Board.png">
+            <span>1</span>
+          </div>
+          <span>Tasks To-do</span>
         </div>
-           <span>Awaiting Feedback</span>
       </div>
-      <div class="card" onclick="openboard()">
-        <div class="cardhead">
-          <img src="img/Done.png">
-          <span>1</span>
+
+
+      <div class="third-line">
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/Board.png">
+            <span>5</span>
+          </div>
+          <span>Task in Board</span>
         </div>
-           <span>Tasks Done</span>
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/In Progress.png">
+            <span>2</span>
+          </div>
+          <span>Task in Progress</span>
+        </div>
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/Awaiting feedback.png">
+            <span>2</span>
+          </div>
+          <span>Awaiting Feedback</span>
+        </div>
+        <div class="card" onclick="openboard()">
+          <div class="cardhead">
+            <img src="img/Done.png">
+            <span>1</span>
+          </div>
+          <span>Tasks Done</span>
+        </div>
       </div>
-  </div>
-</section>
-</main>
+    </section>
+  </main>
 </body>
 
 </html>
