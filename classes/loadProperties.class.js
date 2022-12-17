@@ -1,6 +1,7 @@
 class Loading extends Task {
   allTasksArr;
-
+  urgentTasksarr = [];
+  dates = [];
   constructor() {
     super();
     this.allTasksArr = Tasks;
@@ -10,11 +11,19 @@ class Loading extends Task {
   }
 
   checkUrgent() {
+    //Check Main Arr for urgent
     this.allTasksArr.forEach(arr => {
       if (arr.Priority == "Urgent") {
-        console.log("Ich bin das wichtige JSON", arr);
+        this.urgentTasksarr.push(arr);
       }
     })
+    document.getElementById('urgentTasks').innerText = this.urgentTasksarr.length;
+    this.urgentTasksarr.forEach(date => {
+      this.dates.push(Date.parse(date.Deadline));
+    })
+    var highstestDate = Math.max(this.dates);
+
+    console.log('Höchstes Datum:', this.dates);
   }
 
 
