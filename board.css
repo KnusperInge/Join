@@ -1,203 +1,62 @@
-main {
-  display: block;
-  justify-content: flex-start !important;
+.bord-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bord-search-container {
+  position: absolute;
+  top: 171px;
+  left: 302px;
 }
 
 form {
-  gap: 0 !important;
+  height: 50% !important;
+  width: 50% !important;
 }
 
-.container-Bord {
-  position: absolute;
-  top: 133px;
-  left: 285px;
-}
-
-.search-box {
-  width: 229px;
-  height: 50px;
-  border: 1px solid lightgrey;
-  background-color: white;
+.bord-search-container__input {
+  background: transparent url(img/magnifying-icon.png);
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
   border-radius: 10px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  margin-right: 35px;
+  border: 1px solid #a8a8a8;
+  height: 51px;
+  width: 251px;
+  padding-right: 2em;
+  padding-left: 21px;
 }
 
-.search-boxBg {
-  position: relative;
-  display: flex;
+.bord-search-container__input::placeholder {
+  color: #d1d1d1;
 }
 
-.search-boxBg input {
-  background-color: none;
-  border: 0px solid;
-  height: 30px;
-  width: 260px;
-}
-.search-boxBg input:focus {
-  outline: none;
-}
-
-.vector {
-  border: 0.1px solid #d1d1d1;
-  height: 30px;
-}
-.icon-magnifying {
-  padding-left: 10px;
-}
-
-.button-task {
-  position: relative;
-  left: 250px;
+.bord-search-container__button {
+  text-align: center;
   font-size: 22px;
   color: white;
   border: 1px solid #4589ff;
   border-radius: 10px;
   background-color: #4589ff;
-  width: 140px;
-  height: 50px;
+  width: 138px;
+  height: 51px;
   cursor: pointer;
 }
 
-.plus-Icon {
-  height: 20px;
-
-  border-radius: 7px;
-  border: 2px solid #4589ff;
-  padding: 1px;
-}
-.board-content {
+.bord-tasks {
   display: flex;
-  width: 100%;
-  padding-top: 45px;
-  flex-wrap: wrap;
-  gap: 5px;
+  position: absolute;
+  top: 321px;
+  left: 302px;
 }
 
-.board-content h2 {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 120%;
-  text-align: center;
-  color: #42526e;
-  margin-right: 10px;
-}
-
-.card-status {
+.bord-tasks-container {
   display: flex;
-  justify-content: space-around;
-  align-items: baseline;
-  margin-bottom: 30px;
 }
 
-.board-task {
-  overflow: hidden;
-  position: relative;
-  margin-right: 10px;
-  padding: 5px;
-  width: 270px;
-  height: 100%;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  box-shadow: 0.5px 0.5px 4px 0.5px transparent;
-}
-
-.board-Box {
-  box-shadow: 0px 0px 8px 3px rgb(0 0 0 / 5%);
-  height: 241px;
+.bord-tasks-container__stage {
   width: 250px;
-  border: 1px solid #d1d1d1;
-  border-radius: 1em;
-  background-color: #ffffff;
-}
-
-.d-none {
-  display: none;
-}
-
-.category-taskBg {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px 25px;
-  width: 101px;
-  height: 27px;
-  background-color: #ff7a00;
-  border-radius: 8px;
-  margin-top: 18px;
-  margin-left: 18.5px;
-  margin-right: 130.5px;
-  margin-bottom: 20px;
-  color: white;
-  font-size: 16px;
-}
-
-.title-task {
-  color: #4589ff;
-  font-size: 16px;
-  line-height: 120%;
-  font-weight: 700;
-  width: 138px;
-  height: 19px;
-  margin-left: 18.5px;
-  margin-bottom: 10px;
-}
-
-.description-task {
-  color: #a8a8a8;
-  margin-left: 18.5px;
-  padding-top: 10px;
-  display: flex;
-  margin-right: 24.5px;
-  flex-wrap: wrap;
-}
-.progress-status {
-  padding-bottom: 21.5px;
-}
-progress {
-  margin-left: 18.5px;
-  width: 138px;
-  height: 8px;
-  margin-right: 20px;
-}
-
-.progress-status span {
-  width: 55px;
-  height: 16px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 120%;
-}
-
-[data-letters]:before {
-  content: attr(data-letters);
-  display: inline-block;
-  font-size: 1em;
-  width: 2.5em;
-  height: 2.5em;
-  line-height: 2.5em;
-  text-align: center;
-  border-radius: 50%;
-  background: #0190e0;
-  vertical-align: middle;
-  margin-right: 1em;
-  color: white;
-  margin-left: 18.5px;
-}
-
-.conteiner-user {
   display: flex;
   justify-content: space-between;
-  margin-right: 31.5px;
-}
-
-.search-input {
-  border: 1px solid #a8a8a8;
-  border-radius: 10px;
 }

@@ -1,16 +1,16 @@
 let Tasks = [];
 let navItems = [];
 let contactList = [];
-let page = "";
+let page = '';
 let selectedContacts = document.querySelector('.selectedContacts');
 let newTask = new Task();
-let loadingPrps = "";
+let loadingPrps = '';
 
 //Loading Element
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   await getStorage();
   loadingPrps = new Loading();
-})
+});
 
 function checkInput(field) {
   let input = document.querySelector(`.${field}`);
@@ -31,28 +31,26 @@ function changePriority(str) {
   }
 }
 
-
 // Script for Dropdown Menus
 function openList(id) {
-  let dropdowns = document.querySelectorAll(".left-Container .dropdown .list");
+  let dropdowns = document.querySelectorAll('.left-Container .dropdown .list');
   if (id == 3) {
-    false
+    false;
   } else {
     dropdowns[id].classList.toggle('active');
   }
 
-
-  if (!document.querySelector(".dropdown .active") && contactList.length > 0) {
+  if (!document.querySelector('.dropdown .active') && contactList.length > 0) {
     renderIcons();
-    selectedContacts.classList.toggle("active");
+    selectedContacts.classList.toggle('active');
   } else {
-    selectedContacts.classList.remove("active");
-    selectedContacts.innerHTML = "";
+    selectedContacts.classList.remove('active');
+    selectedContacts.innerHTML = '';
   }
 }
 
 function addContact(id) {
-  let selectableObject = document.querySelectorAll(".list div");
+  let selectableObject = document.querySelectorAll('.list div');
   let checkedChild = selectableObject[id].lastElementChild;
   let contact = selectableObject[id].innerText;
   if (!checkedChild.checked && !checkArr(contact)) {
@@ -76,13 +74,13 @@ function renderIcons() {
 }
 
 function inviteContact() {
-  document.getElementById("searchContacts").classList.remove("d-none");
-  document.getElementById("dropdownContacts").classList.add("d-none");
+  document.getElementById('searchContacts').classList.remove('d-none');
+  document.getElementById('dropdownContacts').classList.add('d-none');
   openList();
 }
 
 // handle Task Forms
-document.getElementById("TaskForm").addEventListener("submit", handleForm);
+document.getElementById('TaskForm').addEventListener('submit', handleForm);
 
 function handleForm(event) {
   event.preventDefault();
@@ -90,10 +88,9 @@ function handleForm(event) {
   Tasks.push(newTask);
   setStorage();
   newTask.clearForm();
-
 }
 
-document.querySelector("#clear-btn").addEventListener("click", (event) => {
+document.querySelector('#clear-btn').addEventListener('click', (event) => {
   event.preventDefault();
   newTask.clearForm();
 });
@@ -103,7 +100,7 @@ function addCategory(id) {
   //input.innerHTML="";
   let Category = checkCategory(id);
   input.value = Category;
-  if (!input.value == "") {
+  if (!input.value == '') {
     newTask.Category = Category;
   }
 }
