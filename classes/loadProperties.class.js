@@ -1,7 +1,12 @@
 class Loading extends Task {
   allTasksArr;
-  urgentTasksarr = [];
+  urgentTasksArr = [];
   dates = [];
+  MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+  YEAR = 0;
+  MONTH = "";
+  DAY = 0;
+  FinalDate = "";
   constructor() {
     super();
     this.allTasksArr = Tasks;
@@ -14,23 +19,33 @@ class Loading extends Task {
     //Check Main Arr for urgent
     this.allTasksArr.forEach(arr => {
       if (arr.Priority == "Urgent") {
-        this.urgentTasksarr.push(arr);
+        this.urgentTasksArr.push(arr);
       }
-    })
-    document.getElementById('urgentTasks').innerText = this.urgentTasksarr.length;
-    this.urgentTasksarr.forEach(date => {
+    });
+    this.urgentTasksArr.forEach(date => {
       this.dates.push(Date.parse(date.Deadline));
-    })
-    var highstestDate = Math.max(this.dates);
+    });
 
-    console.log('Höchstes Datum:', this.dates);
+
+    //Nummeric sort of the Dates
+    this.dates.sort((a, b) => {
+      return a - b;
+    });
+    document.getElementById('urgentTasks').innerText = this.urgentTasksArr.length;
+    document.getElementById('upcomingDeadline').innerText = this.createDate();
   }
 
 
   init() {
     document.getElementById('AllTask').innerText = this.allTasksArr.length;
+
   }
 
-
+  createDate() {
+    this.YEAR = new Date(this.dates[0]).getFullYear();
+    this.MONTH = this.MONTHS[new Date(this.dates[0]).getMonth()];
+    this.DAY = new Date(this.dates[0]).getDate();
+    return this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`;
+  }
 
 }
