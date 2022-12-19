@@ -1,107 +1,107 @@
 [
-    {
-        "name": "Marko",
-        "surname": "Manson",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "marko.manson@join.de",
-        "number": [
-            {
-                "landline": "+49 03652w 827377"
-            },
-            {
-                "mobile": "+49 126 28w3746"
-            }
-        ]
-    },
-    {
-        "name": "Berta",
-        "surname": "Vert",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "Berta.Vert@join.de",
-        "number": [
-            {
-                "landline": "+49 03652 82d7377"
-            },
-            {
-                "mobile": "+49 126 2833746"
-            }
-        ]
-    },
-    {
-        "name": "Visual",
-        "surname": "Studio",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "Visual.Visual@join.de",
-        "number": [
-            {
-                "landline": "+49 03652 12827377"
-            },
-            {
-                "mobile": "+49 126 28q3746"
-            }
-        ]
-    },
-    {
-        "name": "Test",
-        "surname": "Test",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "Test.Test@join.de",
-        "number": [
-            {
-                "landline": "+49w 03652 827377"
-            },
-            {
-                "mobile": "+49 126 28a3746"
-            }
-        ]
-    },
-    {
-        "name": "Anke",
-        "surname": "Anto",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "Anke.Anto@join.de",
-        "number": [
-            {
-                "landline": "+49 0365d2 827377"
-            },
-            {
-                "mobile": "+49 126 283746"
-            }
-        ]
-    },
-    {
-        "name": "Moin",
-        "surname": "Meister",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "Moin.Meister@join.de",
-        "number": [
-            {
-                "landline": "+49 03w652 827377"
-            },
-            {
-                "mobile": "+49 126 283d746"
-            }
-        ]
-    },
-    {
-        "name": "Daniel",
-        "surname": "Peters",
-        "icon": "./img/info.png",
-        "addedTasks": ["task1", "task2"],
-        "email": "Daniel@join.de",
-        "number": [
-            {
-                "landline": "+49 03652 827dqwd377"
-            },
-            {
-                "mobile": "+49 126 28awd3746"
-            }
-        ]
-    }
+  {
+    "name": "Marko",
+    "surname": "Manson",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "marko.manson@join.de",
+    "number": [
+      {
+        "landline": "+49 03652w 827377"
+      },
+      {
+        "mobile": "+49 126 28w3746"
+      }
+    ]
+  },
+  {
+    "name": "Berta",
+    "surname": "Vert",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "Berta.Vert@join.de",
+    "number": [
+      {
+        "landline": "+49 03652 82d7377"
+      },
+      {
+        "mobile": "+49 126 2833746"
+      }
+    ]
+  },
+  {
+    "name": "Visual",
+    "surname": "Studio",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "Visual.Visual@join.de",
+    "number": [
+      {
+        "landline": "+49 03652 12827377"
+      },
+      {
+        "mobile": "+49 126 28q3746"
+      }
+    ]
+  },
+  {
+    "name": "Test",
+    "surname": "Test",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "Test.Test@join.de",
+    "number": [
+      {
+        "landline": "+49w 03652 827377"
+      },
+      {
+        "mobile": "+49 126 28a3746"
+      }
+    ]
+  },
+  {
+    "name": "Anke",
+    "surname": "Anto",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "Anke.Anto@join.de",
+    "number": [
+      {
+        "landline": "+49 0365d2 827377"
+      },
+      {
+        "mobile": "+49 126 283746"
+      }
+    ]
+  },
+  {
+    "name": "Moin",
+    "surname": "Meister",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "Moin.Meister@join.de",
+    "number": [
+      {
+        "landline": "+49 03w652 827377"
+      },
+      {
+        "mobile": "+49 126 283d746"
+      }
+    ]
+  },
+  {
+    "name": "Daniel",
+    "surname": "Peters",
+    "icon": "./img/info.png",
+    "addedTasks": ["task1", "task2"],
+    "email": "Daniel@join.de",
+    "number": [
+      {
+        "landline": "+49 03652 827dqwd377"
+      },
+      {
+        "mobile": "+49 126 28awd3746"
+      }
+    ]
+  }
 ]
