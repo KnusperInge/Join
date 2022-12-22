@@ -2,8 +2,8 @@ let Tasks = [];
 let navItems = [];
 let contactList = [];
 let page = '';
-let selectedContacts;
-let clearBtn;
+let selectedContacts = document.querySelector('.selectedContacts');
+
 let newTask = new Task();
 let loadingPrps;
 
@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadingPrps = new Loading();
   }
 
-  initQuerySelector();
+  //initQuerySelector();
 
 
 });
 
 function initQuerySelector() {
-  selectedContacts = document.querySelector('.selectedContacts');
-  clearBtn = document.querySelector('#clear-btn');
+
+
 }
 
 function checkInput(field) {
@@ -106,7 +106,7 @@ function handleForm(event) {
   newTask.clearForm();
 }
 
-clearBtn.addEventListener('click', (event) => {
+document.querySelector('#clear-btn').addEventListener('click', (event) => {
   event.preventDefault();
   newTask.clearForm();
 });
