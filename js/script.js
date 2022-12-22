@@ -2,15 +2,31 @@ let Tasks = [];
 let navItems = [];
 let contactList = [];
 let page = '';
-let selectedContacts = document.querySelector('.selectedContacts');
+let selectedContacts;
+let clearBtn;
 let newTask = new Task();
-let loadingPrps = '';
+let loadingPrps;
+
+function openboard() {
+  window.open(href = "./board.html", "_self");
+}
 
 //Loading Element
 document.addEventListener('DOMContentLoaded', async () => {
   await getStorage();
-  loadingPrps = new Loading();
+  if (!document.querySelector("[item]").getAttribute("item") == "AddTask") {
+    loadingPrps = new Loading();
+  }
+
+  initQuerySelector();
+
+
 });
+
+function initQuerySelector() {
+  selectedContacts = document.querySelector('.selectedContacts');
+  clearBtn = document.querySelector('#clear-btn');
+}
 
 function checkInput(field) {
   let input = document.querySelector(`.${field}`);
@@ -90,7 +106,7 @@ function handleForm(event) {
   newTask.clearForm();
 }
 
-document.querySelector('#clear-btn').addEventListener('click', (event) => {
+clearBtn.addEventListener('click', (event) => {
   event.preventDefault();
   newTask.clearForm();
 });

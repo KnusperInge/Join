@@ -38,6 +38,7 @@ class Loading extends Task {
       }
     })
   }
+
   checkUrgent() {
     //Check Main Arr for urgent
     this.allTasksArr.forEach(arr => {
@@ -48,20 +49,18 @@ class Loading extends Task {
     this.urgentTasksArr.forEach(date => {
       this.dates.push(Date.parse(date.Deadline));
     });
-
-
     //Nummeric sort of the Dates
     this.dates.sort((a, b) => {
       return a - b;
     });
-
-
   }
-
-
-
+  createDate() {
+    this.YEAR = new Date(this.dates[0]).getFullYear();
+    this.MONTH = this.MONTHS[new Date(this.dates[0]).getMonth()];
+    this.DAY = new Date(this.dates[0]).getDate();
+    return this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`;
+  }
   init() {
-
     document.getElementById('urgentTasks').innerText = this.urgentTasksArr.length;
     document.getElementById('upcomingDeadline').innerText = this.createDate();
     document.getElementById('AllTask').innerText = this.allTasksArr.length;
@@ -71,11 +70,6 @@ class Loading extends Task {
     document.getElementById('done').innerText = this.doneTaskArr.length;
   }
 
-  createDate() {
-    this.YEAR = new Date(this.dates[0]).getFullYear();
-    this.MONTH = this.MONTHS[new Date(this.dates[0]).getMonth()];
-    this.DAY = new Date(this.dates[0]).getDate();
-    return this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`;
-  }
+
 
 }

@@ -7,7 +7,7 @@ class Task {
   Priority;
   Subtaks = [];
   Status;
- 
+
 
   constructor() {
     this.test();
@@ -36,8 +36,8 @@ class Task {
     document.getElementById("urgent-btn").className = "priority";
     document.getElementById("medium-btn").className = "priority";
     document.getElementById("low-btn").className = "priority";
-   document.querySelector('.selectedContacts').innerHTML="";
-    document.querySelector('.input-title').value= "";
+    document.querySelector('.selectedContacts').innerHTML = "";
+    document.querySelector('.input-title').value = "";
     document.getElementById("date-input").value = "";
     document.getElementById("description-input").value = "";
     this.deactivtedContactDropdown();
@@ -64,7 +64,7 @@ class Task {
   deactivtedContactDropdown() {
     document.querySelectorAll(".contacts div input").forEach((element) => {
       element.checked = false;
-      
+
     });
     contactList = [];
   }

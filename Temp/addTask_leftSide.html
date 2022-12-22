@@ -1,0 +1,69 @@
+<input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput('input-title')" required />
+
+<div class="dropdown">
+  <input type="text" class="textBox" id="dropdownContacts" placeholder="Select contacts to assign" readonly required
+    onclick="openList(0)" />
+
+  <input class="d-none" type="text" name="" id="searchContacts" placeholder="Enter Name or Email" />
+  <div class="selectedContacts"></div>
+
+  <div class="list contacts">
+    <div onclick="addContact(0)">
+      <span>Person 1</span><input type="checkbox" id="" />
+    </div>
+    <div onclick="addContact(1)">
+      <span>Person 2</span><input type="checkbox" id="" />
+    </div>
+    <div onclick="addContact(2)">
+      <span>Person 3</span><input type="checkbox" id="" />
+    </div>
+    <div onclick="inviteContact()">invite Contact</div>
+
+  </div>
+</div>
+
+<div id="date-input-container">
+  <h3>Due date</h3>
+  <input class="date-input" id="date-input" type="date" required onclick="checkInput('date-input')" />
+</div>
+
+<div>
+  <h3>Category</h3>
+  <div class="dropdown" onclick="openList(1)">
+    <input type="text" class="textBox cagetorgy-input" placeholder="Select task category" readonly
+      onclick="checkInput('cagetorgy-input')" />
+    <div class="list category">
+      <div onclick="addCategory(0)">Sales</div>
+      <div onclick="addCategory(1)">Marketing</div>
+      <div onclick="addCategory(2)">Development</div>
+      <div onclick="addCategory(4)">add new Category</div>
+    </div>
+  </div>
+</div>
+
+<div class="priority-container">
+  <div class="priority" id="urgent-btn" onclick="changePriority(1)">
+    <span>Urgent</span>
+    <img src="/img/urgent_icon.png" />
+  </div>
+
+  <div class="priority" id="medium-btn" onclick="changePriority(2)">
+    <span>Medium</span>
+    <img src="/img/medium_icon.png" />
+  </div>
+
+  <div class="priority" id="low-btn" onclick="changePriority(3)">
+    <span>Low</span>
+    <img src="/img/low_icon.png" />
+  </div>
+</div>
+<div>
+  <h3>Description</h3>
+  <textarea name="" class="description-input" id="description-input" onkeyup="checkInput('description-input')" cols="30"
+    rows="10" required>
+Enter a Description </textarea>
+</div>
+<div>
+  <h3>Subtasks</h3>
+  <input id="subtask-input" type="text" placeholder="Add new subtask" />
+</div>
