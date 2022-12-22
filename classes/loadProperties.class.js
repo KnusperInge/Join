@@ -1,6 +1,10 @@
 class Loading extends Task {
   allTasksArr;
   urgentTasksArr = [];
+  toDoTaskArr = [];
+  inProgressArr = [];
+  awaitArr = [];
+  doneTaskArr = [];
   dates = [];
   MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
   YEAR = 0;
@@ -11,14 +15,33 @@ class Loading extends Task {
     super();
     this.allTasksArr = Tasks;
     console.log('Hallo Arry', this.allTasksArr);
-    this.init();
-    this.checkUrgent();
-  }
 
+    this.checkUrgent();
+    this.checkStatus();
+    this.init();
+
+  }
+  checkStatus() {
+    this.allTasksArr.forEach((arr) => {
+      if (arr.Status == "toDo") {
+        this.toDoTaskArr.push(arr);
+
+      } if (arr.Status == "inProgress") {
+        this.inProgressArr.push(arr);
+
+      } if (arr.Status == "Await") {
+        this.awaitArr.push(arr);
+        document.getElementById('toDoTasks').innerText = this.toDoTaskArr.length;
+      } if (this.Status == "Done") {
+        this.doneTaskArr.push(arr);
+        document.getElementById('toDoTasks').innerText = this.toDoTaskArr.length;
+      }
+    })
+  }
   checkUrgent() {
     //Check Main Arr for urgent
     this.allTasksArr.forEach(arr => {
-      if (arr.Priority == "Urgent") {
+      if (arr.Priority == "Urgent" && arr.Status == "toDo" || arr.Status == "inProgress") {
         this.urgentTasksArr.push(arr);
       }
     });
@@ -31,14 +54,21 @@ class Loading extends Task {
     this.dates.sort((a, b) => {
       return a - b;
     });
-    document.getElementById('urgentTasks').innerText = this.urgentTasksArr.length;
-    document.getElementById('upcomingDeadline').innerText = this.createDate();
+
+
   }
 
 
-  init() {
-    document.getElementById('AllTask').innerText = this.allTasksArr.length;
 
+  init() {
+
+    document.getElementById('urgentTasks').innerText = this.urgentTasksArr.length;
+    document.getElementById('upcomingDeadline').innerText = this.createDate();
+    document.getElementById('AllTask').innerText = this.allTasksArr.length;
+    document.getElementById('toDoTasks').innerText = this.toDoTaskArr.length;
+    document.getElementById('inProgress').innerText = this.inProgressArr.length;
+    document.getElementById('awaitForFeedback').innerText = this.awaitArr.length;
+    document.getElementById('done').innerText = this.doneTaskArr.length;
   }
 
   createDate() {
