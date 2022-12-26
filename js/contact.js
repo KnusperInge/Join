@@ -110,21 +110,6 @@ cancelAdd[1].addEventListener("click", () => {
 	document.getElementById("new-contact-content").classList.toggle("open");
 });
 
-// ANCHOR add new task
-function getInfosToAddNewTask() {
-	document.querySelector(".addtask-box").addEventListener("click", () => {
-		document.getElementById("add-task").classList.toggle("open");
-		document.getElementById("overlay").classList.toggle("open");
-		document.querySelector(".cross-icon-task").classList.toggle("open");
-	});
-}
-
-document.querySelector(".cross-icon-task").addEventListener("click", () => {
-	document.getElementById("add-task").classList.toggle("open");
-	document.getElementById("overlay").classList.toggle("open");
-	document.querySelector(".cross-icon-task").classList.toggle("open");
-});
-
 // ANCHOR IF questions
 function includesLetter(letter) {
 	return letters.includes(letter);
