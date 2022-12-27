@@ -17,17 +17,12 @@
 <body item="Contacts" onload="loadContactList()">
     <header id="active" include-html="Temp/header.html"></header>
 
-    <main>
-        <nav include-html="Temp/navbar.html"></nav>
-        <section class="content">
+    <main class="full-height-width">
+        <nav class="shadow-black " include-html="Temp/navbar.html"></nav>
 
-
-            <div id="contact-list">
-            </div>
-
-
-            <div id="contact-informations">
-            </div>
+        <section class="content-contact">
+            <div id="contact-list"></div>
+            <div id="contact-informations" class="full-height-width"></div>
 
             <button class="add-contact button-blue">
                 <span>New contact</span>
@@ -59,7 +54,7 @@
             </div>
 
 
-            <div id="add-task">
+            <div id="add-task" class="d-none">
                 <div id="new-task-content">
                     <img class="cross-icon-task" src="./img/cross_icon_black.png">
                     <section class="content-task">

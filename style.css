@@ -794,3 +794,56 @@ textarea {
   width: 19px;
   height: 16px;
 }
+
+/* ANCHOR contact.html */
+
+.content-contact {
+  width: 100%;
+  height: 89vh;
+  display: flex;
+}
+/* Contactlist */
+#contact-list {
+  height: 100%;
+  min-width: 453px;
+  overflow-y: auto;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px 48px;
+}
+
+.listed-contact {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.listed-contact img {
+  width: 42px;
+  height: 42px;
+}
+.listed-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 35px;
+  height: 77px;
+}
+
+.listed-contact-info span:nth-child(2) {
+  font-size: 16px;
+  color: var(--color-blue);
+}
+
+.listed-contact:hover {
+  cursor: pointer;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  border-radius: 10px;
+}
+/* Contactinformations */
+#contact-informations {
+  display: flex;
+  flex-direction: column;
+  padding-left: 65px;
+  padding-top: 73px;
+}

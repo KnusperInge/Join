@@ -137,7 +137,7 @@ function generateContactListHTML(contact) {
             <img src="./img/info.png">
             <div class="listed-contact-info">
                 <span>${contact.name} ${contact.surname}</span>
-                <span class="contact-list-mail">${contact.email}</span>
+                <span>${contact.email}</span>
             </div>
         </div>
     `;
