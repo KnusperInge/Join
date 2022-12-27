@@ -11,8 +11,23 @@
   --color-black: #000000;
   --height: 97.3px;
 }
+
+.full-height-width {
+  width: 100%;
+  height: 100%;
+}
+.dflex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .d-none {
   display: none;
+  justify-content: center;
+  align-items: center;
+}
+.shadow-black {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
 }
 .activeNavItem {
   background-color: var(--color-lightblue);
@@ -20,7 +35,7 @@
 }
 
 * {
-  font-family: 'OpenSans-Regular';
+  font-family: "OpenSans-Regular";
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -79,8 +94,6 @@ header div img {
 
 /*ANCHOR Mainsection*/
 main {
-  height: 100%;
-  width: 100%;
   color: var(--color-black);
   display: flex;
   justify-content: space-between;
@@ -93,7 +106,6 @@ nav {
   width: fit-content;
   height: 100%;
   padding: 5px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.16);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -142,9 +154,6 @@ nav ul li img {
 }
 
 nav div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 243px 0px 0px;
   gap: 15px;
   width: 186px;
@@ -162,9 +171,6 @@ nav div {
 
 /*ANCHOR Section*/
 .content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   width: 100%;
 }
@@ -176,25 +182,19 @@ nav div {
   font-size: 48px;
   line-height: 120%;
   font-weight: 400;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .first-line span:nth-child(2) {
-  color: #4589ff;
+  color: var(--color-blue);
   font-weight: 700;
   font-size: 64px;
   line-height: 120%;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   margin-left: 8px;
 }
 
 /*Second Line*/
 .second-line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   width: 100%;
   height: fit-content;
@@ -211,7 +211,6 @@ nav div {
   background-color: var(--color-blue);
   width: fit-content;
   height: 160px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
   border-radius: 30px;
   font-weight: 700;
   font-size: 33px;
@@ -228,10 +227,6 @@ nav div {
 }
 
 #urgentTask-container .icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   font-size: 48px;
 }
 
@@ -257,22 +252,14 @@ nav div {
 
 .ToDo-Container {
   background-color: var(--color-lightblue);
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+
   border-radius: 30px;
   width: 190px;
   height: 160px;
-  display: flex;
+
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   transition: 0.25s;
-}
-
-.ToDo-Container div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .ToDo-Container div img {
@@ -298,13 +285,10 @@ nav div {
 
 /*Third Line*/
 .third-line {
-  display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   padding: 0px;
-  gap: 35px;
+  gap: 40px;
   width: 100%;
   height: fit-content;
   margin-top: 35px;
@@ -312,28 +296,24 @@ nav div {
 
 .third-line div {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   width: 190px;
   height: 160px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   transition: 0.25s;
 }
 
 .card {
   display: flex;
-  align-items: center;
   text-align: center;
   flex-direction: column;
-  justify-content: center;
   padding: 40px 0;
 }
 
 .card span {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 23px;
@@ -341,17 +321,12 @@ nav div {
   padding-top: 7px;
   text-align: center;
   color: var(--color-blue);
-  color: var(--color-blue);
-  color: var(--color-blue);
 }
 
 .cardhead {
   border: none;
   box-shadow: none !important;
-  box-shadow: none !important;
-  box-shadow: none !important;
-
-  padding: 0 !important;
+  padding: 0;
 }
 
 .cardhead span {
@@ -418,9 +393,6 @@ nav div {
 /*ANCHOR AddTask*/
 .content-task {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
   width: 100%;
   height: 100%;
@@ -430,15 +402,12 @@ form {
   position: absolute;
   bottom: 0;
   overflow: hidden;
-  height: 100%;
-  width: 100%;
+
   display: flex;
   gap: 20px;
 }
 
 .left-Container {
-  width: 100%;
-  height: 100%;
   display: flex;
   gap: 25px;
   flex-direction: column;
@@ -450,8 +419,7 @@ form {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 100%;
-  height: 100%;
+
   gap: 20px;
   padding: 40px;
   padding-right: 80px;
@@ -517,7 +485,6 @@ h3 {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -577,8 +544,6 @@ h3 {
   font-size: 15px;
   line-height: 120%;
   color: var(--color-lightgrey);
-  -webkit-calendar-picker-indicator: none;
-  -moz-calendar-picker-indicator: none;
 }
 /* ANCHOR Category Select Dorpdown */
 #department-input {
@@ -594,9 +559,6 @@ h3 {
 }
 
 .priority {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid var(--color-lightgrey);
   padding: 8px 10px;
   border-radius: 8px;
@@ -672,11 +634,9 @@ textarea {
 .right-Container button:nth-child(1):hover {
   cursor: pointer;
   border: 1px solid var(--color-blue);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
 .right-Container button:nth-child(2):hover {
   cursor: pointer;
   background-color: #1769f7;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }

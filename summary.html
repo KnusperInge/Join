@@ -14,18 +14,18 @@
 <body item="Summary">
   <header id="active" include-html="Temp/header.html"></header>
 
-  <main>
-    <nav include-html="Temp/navbar.html"></nav>
-    <section class="content">
+  <main class="full-height-width">
+    <nav class="shadow-black " include-html="Temp/navbar.html"></nav>
+    <section class="content dflex-center">
 
-      <div class="first-line">
+      <div class="first-line dflex-center">
         <span>Good morning,</span>
         <span>Martin</span>
       </div>
-      <div class="second-line">
-        <div id="urgentTask-container" onclick="openboard()">
+      <div class="second-line dflex-center">
+        <div class="shadow-black " id="urgentTask-container" onclick="openboard()">
           <div>
-            <div class="icons">
+            <div class="icons dflex-center">
               <img src="img/Urgent.png">
               <span id="urgentTasks">1</span>
             </div>
@@ -38,8 +38,8 @@
           </div>
 
         </div>
-        <div class="ToDo-Container" onclick="openboard()">
-          <div>
+        <div class="ToDo-Container dflex-center shadow-black " onclick="openboard()">
+          <div class="dflex-center">
             <img src="img/Board.png">
             <span id="toDoTasks">1</span>
           </div>
@@ -48,7 +48,7 @@
       </div>
 
 
-      <div class="third-line">
+      <div class="third-line dflex-center">
         <div class="card" onclick="openboard()">
           <div class="cardhead">
             <img src="img/Board.png">

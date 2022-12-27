@@ -12,13 +12,13 @@
 </head>
 
 <body item="AddTask">
-  <header id="active" include-html="Temp/header.html"></header>
+  <header id="active" class="" include-html="Temp/header.html"></header>
 
-  <main>
-    <nav include-html="Temp/navbar.html"></nav>
-    <section class="content-task">
-      <form id="TaskForm">
-        <div class="left-Container">
+  <main class="full-height-width">
+    <nav class="shadow-black " include-html="Temp/navbar.html"></nav>
+    <section class="content-task full-height-width dflex-center">
+      <form class="full-height-width" id="TaskForm">
+        <div class="left-Container full-height-width">
           <input type="text" class="input-title" placeholder="Enter a title" onkeyup="checkInput('input-title')"
             required />
 
@@ -29,7 +29,7 @@
             <input class="d-none" type="text" name="" id="searchContacts" placeholder="Enter Name or Email" />
             <div class="selectedContacts"></div>
 
-            <div class="list contacts">
+            <div class="list contacts shadow-black">
               <div onclick="addContact(0)">
                 <span>Person 1</span><input type="checkbox" id="" />
               </div>
@@ -54,7 +54,7 @@
             <div class="dropdown" onclick="openList(1)">
               <input type="text" class="textBox cagetorgy-input" placeholder="Select task category" readonly
                 onclick="checkInput('cagetorgy-input')" />
-              <div class="list category">
+              <div class="list category shadow-black ">
                 <div onclick="addCategory(0)">Sales</div>
                 <div onclick="addCategory(1)">Marketing</div>
                 <div onclick="addCategory(2)">Development</div>
@@ -64,17 +64,17 @@
           </div>
 
           <div class="priority-container">
-            <div class="priority" id="urgent-btn" onclick="changePriority(1)">
+            <div class="priority dflex-center" id="urgent-btn" onclick="changePriority(1)">
               <span>Urgent</span>
               <img src="/img/urgent_icon.png" />
             </div>
 
-            <div class="priority" id="medium-btn" onclick="changePriority(2)">
+            <div class="priority dflex-center" id="medium-btn" onclick="changePriority(2)">
               <span>Medium</span>
               <img src="/img/medium_icon.png" />
             </div>
 
-            <div class="priority" id="low-btn" onclick="changePriority(3)">
+            <div class="priority dflex-center" id="low-btn" onclick="changePriority(3)">
               <span>Low</span>
               <img src="/img/low_icon.png" />
             </div>
@@ -92,9 +92,9 @@
         </div>
         </div>
 
-        <div class="right-Container">
-          <button id="clear-btn">Clear<img src="img/cross_icon.png" /></button>
-          <button class="AddButton">
+        <div class="right-Container full-height-width">
+          <button class="shadow-black " id="clear-btn">Clear<img src="img/cross_icon.png" /></button>
+          <button class="AddButton shadow-black ">
             Create Task<img src="img/checked_icon_white.png " />
           </button>
         </div>
