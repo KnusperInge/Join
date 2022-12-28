@@ -43,13 +43,6 @@
   margin-bottom: 18px;
 }
 
-.addtask-box {
-  display: flex;
-  align-items: center;
-  width: 128;
-  color: var(--color-blue);
-}
-
 .addtask-box img {
   width: 15px;
   height: 15px;

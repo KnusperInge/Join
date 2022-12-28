@@ -49,7 +49,7 @@ function changePriority(str) {
 
 // Script for Dropdown Menus
 function openList(id) {
-  let dropdowns = document.querySelectorAll('.left-Container .dropdown .list');
+  let dropdowns = document.querySelectorAll('.dropdown .list');
   if (id == 3) {
     false;
   } else {
