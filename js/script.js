@@ -1,3 +1,5 @@
+setURL('https://gruppe-398.developerakademie.net/smallest_backend_ever');
+
 let Tasks = [];
 let navItems = [];
 let contactList = [];
@@ -8,25 +10,23 @@ let newTask = new Task();
 let loadingPrps;
 
 function openboard() {
-  window.open(href = "./board.html", "_self");
+  window.open((href = './board.html'), '_self');
 }
 
 //Loading Element
 document.addEventListener('DOMContentLoaded', async () => {
-  await getStorage();
-  if (!document.querySelector("[item]").getAttribute("item") == "AddTask") {
+  //await getStorage();
+  await downloadFromServer();
+  Tasks = JSON.parse(backend.getItem('Tasks')) || []; //Load from server
+  console.log('Array:', Tasks);
+  if (!document.querySelector('[item]').getAttribute('item') == 'AddTask') {
     loadingPrps = new Loading();
   }
 
   //initQuerySelector();
-
-
 });
 
-function initQuerySelector() {
-
-
-}
+function initQuerySelector() {}
 
 function checkInput(field) {
   let input = document.querySelector(`.${field}`);
@@ -128,7 +128,8 @@ function checkCategory(id) {
 
 //Save and Load Storeage
 function setStorage() {
-  localStorage.setItem('Tasks', JSON.stringify(Tasks));
+  //localStorage.setItem('Tasks', JSON.stringify(Tasks));
+  backend.setItem('Tasks', JSON.stringify(Tasks));
 }
 async function getStorage() {
   let allTasksAsString = localStorage.getItem('Tasks');
