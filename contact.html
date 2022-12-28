@@ -66,11 +66,11 @@
                 <form class="board-contact-form" id="myForm">
                     <div class="form-head dflex-center">
                         <h3>Add Task</h3>
-                        <button class="AddButton outline-border-none dflex-center">
+                        <button id="clear-btn" class="AddButton outline-border-none dflex-center">
                             Create Task<img src="img/checked_icon_white.png " />
                         </button>
                     </div>
-                    <div class="form-body full-height-width">
+                    <div class="form-body full-height-width" id="TaskForm">
                         <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
                             onkeyup="checkInput('input-title')" required />
 
@@ -152,13 +152,15 @@
             </div>
         </section>
     </main>
+    <script src="js/contact.js"></script>
+    <script src="./js/mini_backend.js"></script>
+    <script src="js/loadTemplates.js"></script>
 
     <script src="./classes/task.class.js"></script>
-    <script src="js/loadTemplates.js"></script>
-    <script src="./js/mini_backend.js"></script>
     <script src="./js/script.js"></script>
-    <script src="js/contact.js"></script>
+
     <script src="js/open_add-task.js"></script>
+
 </body>
 
 </html>

@@ -2,9 +2,11 @@ let contactArray = [];
 let letters = [];
 
 async function loadContactList() {
+	console.log("ich lade Kontakte");
 	contactArray = await fetch("../json/contact.json");
 	contactArray = await contactArray.json();
 	loadLetters();
+
 }
 
 function loadLetters() {
