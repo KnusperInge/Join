@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   //initQuerySelector();
 });
 
-function initQuerySelector() {}
+function initQuerySelector() { }
 
 function checkInput(field) {
   let input = document.querySelector(`.${field}`);

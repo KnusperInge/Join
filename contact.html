@@ -22,30 +22,36 @@
 
         <section class="content-contact">
             <div id="contact-list"></div>
-            <div id="contact-informations" class="full-height-width"></div>
+            <div class="contact-right-container">
+                <div id="contact-informations" class="full-height-width"></div>
+                <div class=" contact-btn">
+                    <button class="add-contact">
+                        <span>New contact</span>
+                        <img src="./img/contact_add.png">
+                    </button>
+                </div>
 
-            <button class="add-contact button-blue">
-                <span>New contact</span>
-                <img src="./img/contact_add.png">
-            </button>
+            </div>
+
 
             <div id="overlay"></div>
             <div id="new-contact">
                 <div id="new-contact-content">
                     <div class="content-header">
-                        <img class="cross-icon cancel_add" src="./img/cross_icon_white.png">
+                        <img class="cancel_add" src="./img/cross_icon_white.png">
                         <img class="contact-join-icon" src="./img/icon_white.png">
                         <span>Add contact</span>
                         <span>Tasks are better with a team!</span>
                     </div>
-                    <div class="content-body">
-                        <img class="content-body-profileIMG" src="./img/planc_profileIcon.png">
-                        <form class="new-content-form">
-                            <input required id="input-name" type="text" placeholder="Name:">
-                            <input required id="input-phone" type="number" placeholder="Phone:">
-                            <input required id="input-email" type="email" placeholder="E-Mail:">
+                    <div class="content-body shadow-black dflex-center">
+                        <img src="./img/planc_profileIcon.png">
+                        <form class="new-content-form dflex-center">
+                            <input class="outline-border-none" required id="input-name" type="text" placeholder="Name">
+                            <input class="outline-border-none" required id="input-phone" type="tel" placeholder="Phone">
+                            <input class="outline-border-none" required id="input-email" type="email"
+                                placeholder="E-Mail">
                             <div class="new-contact-buttons">
-                                <button class="button-clear cancel_add">Cancel</button>
+                                <button class=" dflex-center button-clear cancel_add">Cancel</button>
                                 <button class="button-blue">Create contact</button>
                             </div>
                         </form>
