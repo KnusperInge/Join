@@ -1,12 +1,14 @@
 let contactArray = [];
 let letters = [];
 
+document.addEventListener("DOMContentLoaded", () => {
+	loadContactList();
+});
 async function loadContactList() {
 	console.log("ich lade Kontakte");
 	contactArray = await fetch("../json/contact.json");
 	contactArray = await contactArray.json();
 	loadLetters();
-
 }
 
 function loadLetters() {
@@ -174,3 +176,18 @@ function generateContactInfoHTML(contact) {
         </div>
     `;
 }
+
+// ANCHOR open and close add new Task
+function getInfosToAddNewTask() {
+	document.querySelector(".addtask-box").addEventListener("click", () => {
+		document.getElementById("add-task").classList.toggle("open");
+		document.getElementById("overlay").classList.toggle("open");
+		document.querySelector(".close-icon").classList.toggle("open");
+	});
+}
+
+document.querySelector(".close-icon").addEventListener("click", () => {
+	document.getElementById("add-task").classList.toggle("open");
+	document.getElementById("overlay").classList.toggle("open");
+	document.querySelector(".close-icon").classList.toggle("open");
+});

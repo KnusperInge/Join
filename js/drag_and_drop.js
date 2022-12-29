@@ -1,8 +1,9 @@
+// ANCHOR Load List and Drag and Drop
+
 let currentDragElement;
 
 function startDragging(title) {
 	currentDragElement = title;
-	console.log("startDragging:" + currentDragElement);
 }
 
 function allowDrop(event) {
@@ -11,7 +12,6 @@ function allowDrop(event) {
 
 function drop(category) {
 	let index = Tasks.findIndex((element) => element.Title == currentDragElement);
-	console.log(index);
 	Tasks[index].Status = category;
 	loadTasks();
 }
@@ -37,7 +37,19 @@ function loadTasks() {
 		tempContent[1].innerHTML = currentTask.Category;
 		tempContent[2].innerHTML = currentTask.Title;
 		tempContent[4].innerHTML = currentTask.Description;
-		console.log(tempContent);
 		todoList.appendChild(clonedTemp);
 	}
 }
+
+// ANCHOR open and close add new task
+document.querySelector("#addTask_button").addEventListener("click", () => {
+	document.getElementById("add-task").classList.toggle("open");
+	document.getElementById("overlay").classList.toggle("open");
+	document.querySelector(".cross-icon-task").classList.toggle("open");
+});
+
+document.querySelector(".cross-icon-task").addEventListener("click", () => {
+	document.getElementById("add-task").classList.toggle("open");
+	document.getElementById("overlay").classList.toggle("open");
+	document.querySelector(".cross-icon-task").classList.toggle("open");
+});
