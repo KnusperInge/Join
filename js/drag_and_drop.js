@@ -13,32 +13,18 @@ function drop(category) {
 // ONLY FOR TESTING
 document.addEventListener("DOMContentLoaded", () => {
 	document.querySelector("#toDo").innerHTML = "";
+	const template = document.querySelector("#task_card");
+	const clonedTemp = template.content.cloneNode(true);
+
 	for (let i = 0; i < Tasks.length; i++) {
-		let currentTask = Tasks[i];
-		console.log(currentTask);
-		document.querySelector("#toDo").innerHTML += `
-            <div class="bord-tasks-container-task shadow-black" draggable="true" ondrag="startDragging(${currentTask.Title})">
-
-              <div class="bord-task-cat dflex-center">${currentTask.Category}</div>
-
-              <h4>${currentTask.Title}</h4>
-
-              <div class="bord-task-desc">
-                <span>${currentTask.Description}</span>
-              </div>
-
-              <div class="sub-progress">
-                <div class="sub-chart"></div>
-
-                <span>1/2 Done</span>
-
-              </div>
-
-              <div class="bord-task-editor">
-                <span data-letters="SM" class="">SM</span>
-                <img src="img/low_icon.png" />
-              </div>
-            </div>
-        `;
+		const currentTask = Tasks[i];
+		const todoList = document.querySelector("#" + currentTask.Status);
+		let tempContent = clonedTemp.querySelectorAll("div, h4, span, img");
+		tempContent[0].attributes[2].nodeValue = `startDragging(${currentTask.Title})`;
+		tempContent[1].innerHTML = currentTask.Category;
+		tempContent[2].innerHTML = currentTask.Title;
+		tempContent[4].innerHTML = currentTask.Description;
+		console.log(tempContent);
+		todoList.appendChild(clonedTemp);
 	}
 });
