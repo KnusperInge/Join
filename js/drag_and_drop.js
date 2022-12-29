@@ -26,19 +26,17 @@ function loadTasks() {
 	document.querySelector("#inprogress").innerHTML = "";
 	document.querySelector("#feedback").innerHTML = "";
 	document.querySelector("#done").innerHTML = "";
-	const template = document.querySelector("#task_card");
-	const clonedTemp = template.content.cloneNode(true);
 
-	for (let i = 0; i < Tasks.length; i++) {
-		const currentTask = Tasks[i];
-		const todoList = document.querySelector("#" + currentTask.Status);
-		let tempContent = clonedTemp.querySelectorAll("div, h4, span, img");
-		tempContent[0].attributes[2].nodeValue = `startDragging("${currentTask.Title}")`;
-		tempContent[1].innerHTML = currentTask.Category;
-		tempContent[2].innerHTML = currentTask.Title;
-		tempContent[4].innerHTML = currentTask.Description;
-		todoList.appendChild(clonedTemp);
-	}
+	const template = document.querySelector("#task_card").content.cloneNode(true);
+	Tasks.forEach((task) => {
+		const todoList = document.querySelector("#" + task.Status);
+		let tempContent = template.querySelectorAll("div, h4, span, img");
+		tempContent[0].attributes[2].nodeValue = `startDragging("${task.Title}")`;
+		tempContent[1].innerHTML = task.Category;
+		tempContent[2].innerHTML = task.Title;
+		tempContent[4].innerHTML = task.Description;
+		todoList.appendChild(template);
+	});
 }
 
 // ANCHOR open and close add new task
