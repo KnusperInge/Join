@@ -12,6 +12,53 @@
     <link rel="stylesheet" href="./style/fonts.css">
 
 
+
+    <template id="letter_list_template">
+        <div class="contact-lettercompartment">
+            <span></span>
+            <hr>
+            <div id="">
+            </div>
+        </div>
+    </template>
+
+    <template id="contact_inList_template">
+        <div class="listed-contact" onclick="">
+            <img src="./img/info.png">
+            <div class="listed-contact-info">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </template>
+
+    <template id="contact_info_template">
+        <div class="contact-header">
+            <img src="${contact.icon}" class="contact-img">
+            <div>
+                <span></span>
+                <div class="addtask-box">
+                    <img src="./img/plus_Icon.png">
+                    <span>Add Task</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-mid">
+            <span>Contact Information</span>
+            <div>
+                <img src="./img/pencil.png">
+                <span>Edit Contact</span>
+            </div>
+        </div>
+        <div class="contact-mail">
+            <span>E-Mail</span>
+            <span></span>
+        </div>
+        <div class="contact-number">
+            <span>Mobil</span>
+            <span></span>
+        </div>
+    </template>
 </head>
 
 <body item="Contacts">
@@ -151,53 +198,6 @@
             </div>
         </section>
     </main>
-
-    <template id="letter_list_template">
-        <div class="contact-lettercompartment">
-            <span></span>
-            <hr>
-            <div id="">
-            </div>
-        </div>
-    </template>
-
-    <template id="contact_inList_template">
-        <div class="listed-contact" onclick="openContactInfo('${contact.email}')">
-            <img src="./img/info.png">
-            <div class="listed-contact-info">
-                <span>${contact.name} ${contact.surname}</span>
-                <span>${contact.email}</span>
-            </div>
-        </div>
-    </template>
-
-    <template id="contact_info_template">
-        <div class="contact-header">
-            <img src="${contact.icon}" class="contact-img">
-            <div>
-                <span>${contact.name} ${contact.surname}</span>
-                <div class="addtask-box">
-                    <img src="./img/plus_Icon.png">
-                    <span>Add Task</span>
-                </div>
-            </div>
-        </div>
-        <div class="contact-mid">
-            <span>Contact Information</span>
-            <div>
-                <img src="./img/pencil.png">
-                <span>Edit Contact</span>
-            </div>
-        </div>
-        <div class="contact-mail">
-            <span>E-Mail</span>
-            <span>${contact.email}</span>
-        </div>
-        <div class="contact-number">
-            <span>Mobil</span>
-            <span>${contact.number[1].mobile}</span>
-        </div>
-    </template>
 
     <script src="js/contact.js"></script>
     <script src="./js/mini_backend.js"></script>

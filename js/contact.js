@@ -1,9 +1,6 @@
 let contactArray = [];
 let letters = [];
 
-// load templates
-const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
-
 document.addEventListener("DOMContentLoaded", () => {
 	loadContactList();
 });
@@ -33,7 +30,6 @@ function generateLetterList() {
 	letters.forEach((letter) => {
 		const letterTemp = document.getElementById("letter_list_template").content.cloneNode(true);
 		const tempContent = letterTemp.querySelectorAll("div, span");
-		console.log(tempContent);
 		tempContent[1].innerHTML = letter;
 		tempContent[2].id = letter + "-list";
 		document.getElementById("contact-list").appendChild(letterTemp);
@@ -45,7 +41,7 @@ function loadContacts(letter) {
 	contactArray.forEach((contact) => {
 		const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
 		const tempContent = contactListTemp.querySelectorAll("div, img, span");
-		tempContent[0].attributes.onclick.nodeValue = `openContactInfo(${contact.email})`;
+		tempContent[0].attributes.onclick.nodeValue = `openContactInfo("${contact.email}")`;
 		tempContent[3].innerHTML = contact.name + " " + contact.surname;
 		tempContent[4].innerHTML = contact.email;
 		if (getSurChar(contact) == letter) {
@@ -55,8 +51,14 @@ function loadContacts(letter) {
 }
 
 function openContactInfo(currentMail) {
-	let contact = contactArray.find((contactArray) => contactArray.email === currentMail);
-	document.getElementById("contact-informations").innerHTML = generateContactInfoHTML(contact);
+	const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
+	const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
+	const contact = contactArray.find((contactArray) => contactArray.email === currentMail);
+	tempContent[3].innerHTML = contact.name + " " + contact.surname;
+	tempContent[14].innerHTML = contact.email;
+	tempContent[17].innerHTML = contact.phone;
+	document.getElementById("contact-informations").innerHTML = "";
+	document.getElementById("contact-informations").append(contactInfoTemp);
 	getInfosToAddNewTask();
 }
 
