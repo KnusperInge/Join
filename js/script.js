@@ -155,13 +155,13 @@ function checkCategory(id) {
 function allowDrop(event) {
   event.preventDefault();
 }
-
+let test
 function startDragging(title) {
-  currentDragElement = new DragandDrop(title);
+  test = title;
 }
 function drop(category) {
-  let index = Tasks.findIndex((element) => element.Title == currentDragElement.title);
+  let index = Tasks.findIndex((element) => element.Title == test);
   Tasks[index].Status = category;
-  currentDragElement.category = category;
+  //currentDragElement.category = category;
   currentDragElement.loadTasks();
 }
