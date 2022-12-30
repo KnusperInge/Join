@@ -13,14 +13,12 @@ class DragandDrop {
     this.title = title;
     this.category = category;
     this.Tasks = Tasks;
-    console.log(this.Tasks);
   }
   loadTasks() {
     this.clearTasks();
     this.Tasks.forEach((element) => {
       this.template = document.getElementById("task_card").content.cloneNode(true);
       this.fillTemp(element);
-
     })
   }
   clearTasks() {
@@ -29,14 +27,11 @@ class DragandDrop {
     document.querySelector("#feedback").innerHTML = "";
     document.querySelector("#done").innerHTML = "";
   }
-
   checkPriority(element) {
-
     if (element.Priority == "Low") {
       return this.imgLow;
     }
     if (element.Priority == "Medium") {
-
       return this.imgMedium;
     }
     if (element.Priority == "Urgent") {
@@ -45,7 +40,6 @@ class DragandDrop {
   }
 
   fillTemp(element) {
-    console.log('Template:', this.template);
     this.draggedList = document.querySelector("#" + element.Status);
     this.template.querySelector(".bord-tasks-container-task").setAttribute("ondrag", `startDragging("${element.Title}")`);
     this.template.querySelector(".bord-task-cat").innerText = element.Category;
