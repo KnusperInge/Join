@@ -15,8 +15,6 @@ async function loadContactList() {
 
 async function loadLetters() {
 	await loadLettersArray();
-	letters.sort();
-	await generateLetterList();
 }
 
 async function loadLettersArray() {
@@ -27,26 +25,33 @@ async function loadLettersArray() {
 			letters.push(letter);
 		}
 	});
+	letters.sort();
+	generateLetterList();
 }
 
-async function generateLetterList() {
+function generateLetterList() {
 	const letterTemp = document.getElementById("letter_list_template").content.cloneNode(true);
+	const tempContent = letterTemp.querySelectorAll("div, span");
+	console.log(letters);
 	letters.forEach((letter) => {
-		let span = letterTemp.querySelectorAll("span");
-		console.log(span);
-		span[0].innerHTML = letter;
-		document.getElementById("contact-list").appendChild(letterTemp);
-
+		console.log(letter);
 		letterSmall = letter.toLowerCase();
-		loadContacts(letter);
+		tempContent[1].innerHTML = letter;
+		tempContent[2].id = letterSmall + "-list";
+		console.log(letterTemp);
+		document.getElementById("contact-list").appendChild(letterTemp);
 	});
 }
 
-function loadContacts(letter) {
+function loadContacts(letter, letterSmall) {
 	const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
+	const tempContent = contactListTemp.querySelectorAll("div, img, span");
 	contactArray.forEach((contact) => {
+		tempContent[0].attributes.onclick.nodeValue = `openContactInfo(${contact.email})`;
+		tempContent[3].innerHTML = contact.name + contact.surName;
+		tempContent[4].innerHTML = contact.email;
 		if (getSurChar(contact) == letter) {
-			document.getElementById(`${letterSmall}-list`).innerHTML += generateContactListHTML(contact);
+			document.getElementById(letterSmall + "-list").innerHTML += contactListTemp;
 		}
 	});
 }
