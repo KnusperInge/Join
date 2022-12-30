@@ -1,17 +1,6 @@
 setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 
-let Tasks = [
-  {
-    Title: "Test1",
-    Contacts: "Müller",
-    Deadline: "24.12.22",
-    Category: "Design",
-    Description: "None",
-    Priority: "Low",
-    Subtaks: 0,
-    Status: "toDo",
-  },
-];
+let Tasks = [];
 let navItems = [];
 let contactList = [];
 let page = "";
@@ -27,30 +16,31 @@ function openboard() {
 }
 
 //Loading Element
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", testinit);
 
+async function testinit() {
+  await downloadFromServer();
   //Load from server
-  currentDragElement = new DragandDrop();
   loadData();
+  currentDragElement = new DragandDrop();
   currentDragElement.loadTasks();
-  console.log("Array:", Tasks);
+  console.log("Tasks Array:", Tasks);
 
   if (!document.querySelector("[item]").getAttribute("item") == "AddTask") {
     loadingPrps = new Loading();
   }
-});
 
+}
 //Save and Load 
 function saveData() {
   backend.setItem("Tasks", JSON.stringify(Tasks));
 }
+
 async function loadData() {
-  await downloadFromServer();
+
   Tasks = JSON.parse(backend.getItem("Tasks")) || [];
+
 }
-
-
-
 
 
 //Task.html functions
@@ -162,5 +152,8 @@ function startDragging(title) {
 function drop(category) {
   let index = Tasks.findIndex((element) => element.Title == test);
   Tasks[index].Status = category;
+  saveData();
+  testinit();
+  console.log(Tasks);
   currentDragElement.loadTasks();
 }
