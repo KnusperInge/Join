@@ -13,6 +13,7 @@ class DragandDrop {
     this.title = title;
     this.category = category;
     this.Tasks = Tasks;
+    console.log(this.Tasks);
   }
   loadTasks() {
     this.clearTasks();
@@ -30,25 +31,25 @@ class DragandDrop {
 
   checkPriority(element) {
 
-    if (element.Priority == Low) {
+    if (element.Priority == "Low") {
       return this.imgLow;
     }
-    if (element.Priority == Medium) {
+    if (element.Priority == "Medium") {
 
       return this.imgMedium;
     }
-    if (element.Priority == Urgent) {
+    if (element.Priority == "Urgent") {
       return this.imgUrgent;
     }
   }
 
   fillTemp(element) {
-    this.draggedList.document.querySelector("#" + element.Status);
-    this.template.document.querySelector(".bord-tasks-container-task").setAttribute("ondrag", `startdragging(${element.title})`);
-    this.template.document.querySelector(".bord-task-cat").innerText = element.Category;
-    this.template.document.querySelector(".bord-tasks-container-task h4").innerText = element.title;
-    this.template.document.querySelector(".bord-task-desc span").innertext = element.Description;
-    this.template.document.querySelector(".bord-task-editor img").src = this.checkPriority();
+    this.draggedList = document.querySelector("#" + element.Status);
+    this.template.querySelector(".bord-tasks-container-task").setAttribute("ondrag", `startdragging("${element.Title}")`);
+    this.template.querySelector(".bord-task-cat").innerText = element.Category;
+    this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
+    this.template.querySelector(".bord-task-desc span").innertext = element.Description;
+    this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
     this.draggedList.appendChild(this.template);
   }
 

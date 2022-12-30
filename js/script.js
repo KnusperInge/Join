@@ -7,7 +7,7 @@ let Tasks = [
     Deadline: "24.12.22",
     Category: "Design",
     Description: "None",
-    Priority: "Important",
+    Priority: "Low",
     Subtaks: 0,
     Status: "toDo",
   },
@@ -30,7 +30,8 @@ function openboard() {
 document.addEventListener("DOMContentLoaded", async () => {
 
   //Load from server
-  await loadData();
+  currentDragElement = new DragandDrop();
+  loadData();
   currentDragElement.loadTasks();
   console.log("Array:", Tasks);
 
