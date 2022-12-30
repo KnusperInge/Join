@@ -71,39 +71,17 @@ document.querySelector(".add-contact").addEventListener("click", () => {
 	}, 300);
 });
 
-let inputs = document.querySelector(".new-content-form");
-inputs.addEventListener("submit", createNewContact);
+document.getElementById("submitFormNewContact").addEventListener("submit", createNewContact);
 function createNewContact(event) {
+	const inputs = document.querySelector(".new-content-form");
 	event.preventDefault();
-	let name = inputs.children[0];
-	name = name.value.split(" ");
+	let addedContact = new newContact(inputs);
 
-	let firstName = name.slice(0, 1);
-	let surName = name.slice(1);
-	let phone = inputs.children[1];
-	let email = inputs.children[2];
+	console.log(addedContact);
 
-	let contactArrayToPush = {
-		name: `${firstName}`,
-		surname: `${surName}`,
-		icon: "./img/info.png",
-		addedTasks: [],
-		email: `${email}`,
-		number: [
-			{
-				landline: "",
-			},
-			{
-				mobile: `${phone}`,
-			},
-		],
-	};
-
-	console.log(contactArrayToPush);
-
-	name.value = "";
-	phone.value = "";
-	email.value = "";
+	inputs.children[0].value = "";
+	inputs.children[1].value = "";
+	inputs.children[2].value = "";
 }
 
 // ANCHOR close new contact
