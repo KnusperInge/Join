@@ -20,25 +20,38 @@ let selectedContacts = document.querySelector(".selectedContacts");
 let newTask = new Task();
 let loadingPrps;
 
+//general functions
+
 function openboard() {
   window.open((href = "./board.html"), "_self");
 }
 
 //Loading Element
 document.addEventListener("DOMContentLoaded", async () => {
-  //await getStorage();
-  await downloadFromServer();
-  Tasks = JSON.parse(backend.getItem("Tasks")) || []; //Load from server
+
+  //Load from server
+  loadData();
   console.log("Array:", Tasks);
+
   if (!document.querySelector("[item]").getAttribute("item") == "AddTask") {
     loadingPrps = new Loading();
   }
-
-  //initQuerySelector();
 });
 
-function initQuerySelector() { }
+//Save and Load 
+function saveData() {
+  backend.setItem("Tasks", JSON.stringify(Tasks));
+}
+async function loadData() {
+  await downloadFromServer();
+  Tasks = JSON.parse(backend.getItem("Tasks")) || [];
+}
 
+
+
+
+
+//Task.html functions
 function checkInput(field) {
   let input = document.querySelector(`.${field}`);
   if (input.value) {
@@ -47,7 +60,6 @@ function checkInput(field) {
     input.classList.remove("blackTextColor");
   }
 }
-
 function changePriority(str) {
   if (str == 1) {
     newTask.aktivateUrgent();
@@ -113,7 +125,7 @@ function handleForm(event) {
   event.preventDefault();
   newTask.init();
   Tasks.push(newTask);
-  setStorage();
+  saveData();
   newTask.clearForm();
 }
 
@@ -137,13 +149,4 @@ function checkCategory(id) {
   return catlist[id].textContent;
 }
 
-//Save and Load Storeage
-function setStorage() {
-  //localStorage.setItem('Tasks', JSON.stringify(Tasks));
-  backend.setItem("Tasks", JSON.stringify(Tasks));
-}
-async function getStorage() {
-  let allTasksAsString = localStorage.getItem("Tasks");
-  let allTasks = JSON.parse(allTasksAsString);
-  Tasks = allTasks;
-}
+

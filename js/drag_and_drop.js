@@ -3,7 +3,8 @@
 let currentDragElement;
 
 function startDragging(title) {
-	currentDragElement = title;
+
+	currentDragElement = new DragandDrop(title); title;
 }
 
 function allowDrop(event) {
@@ -13,6 +14,7 @@ function allowDrop(event) {
 function drop(category) {
 	let index = Tasks.findIndex((element) => element.Title == currentDragElement);
 	Tasks[index].Status = category;
+
 	loadTasks();
 }
 
