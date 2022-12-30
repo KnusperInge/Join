@@ -1,23 +1,25 @@
 let contactArray = [];
 let letters = [];
 
+// load templates
+const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
+
 document.addEventListener("DOMContentLoaded", () => {
 	loadContactList();
 });
 async function loadContactList() {
-	console.log("ich lade Kontakte");
 	contactArray = await fetch("../json/contact.json");
 	contactArray = await contactArray.json();
-	loadLetters();
+	await loadLetters();
 }
 
-function loadLetters() {
-	loadLettersArray();
+async function loadLetters() {
+	await loadLettersArray();
 	letters.sort();
-	generateLetterList();
+	await generateLetterList();
 }
 
-function loadLettersArray() {
+async function loadLettersArray() {
 	document.getElementById("contact-list").innerHTML = "";
 	contactArray.forEach((element) => {
 		let letter = element.surname.charAt(0).toUpperCase();
@@ -27,32 +29,31 @@ function loadLettersArray() {
 	});
 }
 
-function generateLetterList() {
+async function generateLetterList() {
+	const letterTemp = document.getElementById("letter_list_template").content.cloneNode(true);
 	letters.forEach((letter) => {
+		let span = letterTemp.querySelectorAll("span");
+		console.log(span);
+		span[0].innerHTML = letter;
+		document.getElementById("contact-list").appendChild(letterTemp);
+
 		letterSmall = letter.toLowerCase();
-		document.getElementById("contact-list").innerHTML += generateLetterHTML(
-			letter,
-			letterSmall
-		);
 		loadContacts(letter);
 	});
 }
 
 function loadContacts(letter) {
+	const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
 	contactArray.forEach((contact) => {
 		if (getSurChar(contact) == letter) {
-			document.getElementById(`${letterSmall}-list`).innerHTML +=
-				generateContactListHTML(contact);
+			document.getElementById(`${letterSmall}-list`).innerHTML += generateContactListHTML(contact);
 		}
 	});
 }
 
 function openContactInfo(currentMail) {
-	let contact = contactArray.find(
-		(contactArray) => contactArray.email === currentMail
-	);
-	document.getElementById("contact-informations").innerHTML =
-		generateContactInfoHTML(contact);
+	let contact = contactArray.find((contactArray) => contactArray.email === currentMail);
+	document.getElementById("contact-informations").innerHTML = generateContactInfoHTML(contact);
 	getInfosToAddNewTask();
 }
 
@@ -121,60 +122,6 @@ function includesLetter(letter) {
 
 function getSurChar(contact) {
 	return contact.surname.charAt(0);
-}
-
-// ANCHOR HTML include
-function generateLetterHTML(letter, letterSmall) {
-	return `
-        <div class="contact-lettercompartment">
-            <span>${letter}</span>
-            <hr>
-            <div id="${letterSmall}-list">
-            </div>
-        </div>
-    `;
-}
-
-function generateContactListHTML(contact) {
-	return `
-        <div class="listed-contact" onclick="openContactInfo('${contact.email}')">
-            <img src="./img/info.png">
-            <div class="listed-contact-info">
-                <span>${contact.name} ${contact.surname}</span>
-                <span>${contact.email}</span>
-            </div>
-        </div>
-    `;
-}
-
-function generateContactInfoHTML(contact) {
-	return `
-        <div class="contact-header">
-            <img src="${contact.icon}" class="contact-img">
-            <div>
-                <span>${contact.name} ${contact.surname}</span>
-                <div class="addtask-box">
-                    <img src="./img/plus_Icon.png">
-                    <span>Add Task</span>
-                </div>
-            </div>
-        </div>
-        <div class="contact-mid">
-            <span>Contact Information</span>
-            <div>
-                <img src="./img/pencil.png">
-                <span>Edit Contact</span>
-            </div>
-        </div>
-        <div class="contact-mail">
-            <span>E-Mail</span>
-            <span>${contact.email}</span>
-        </div>
-        <div class="contact-number">
-            <span>Mobil</span>
-            <span>${contact.number[1].mobile}</span>
-        </div>
-    `;
 }
 
 // ANCHOR open and close add new Task
