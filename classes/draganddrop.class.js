@@ -4,7 +4,7 @@ class DragandDrop {
   currentDragElement;
   title;
   category;
-  template = document.querySelector("#task_card").content.cloneNode(true);
+  template = document.getElementById("task_card").content.cloneNode(true);
   imgLow = "img/low_icon.png";
   imgMedium = "img/medium_icon.png";
   imgUrgent = "img/urgent_icon.png";
@@ -45,7 +45,7 @@ class DragandDrop {
 
   fillTemp(element) {
     this.draggedList = document.querySelector("#" + element.Status);
-    this.template.querySelector(".bord-tasks-container-task").setAttribute("ondrag", `startdragging("${element.Title}")`);
+    this.template.querySelector(".bord-tasks-container-task").setAttribute("ondrag", `startDragging("${element.Title}")`);
     this.template.querySelector(".bord-task-cat").innerText = element.Category;
     this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
     this.template.querySelector(".bord-task-desc span").innertext = element.Description;
