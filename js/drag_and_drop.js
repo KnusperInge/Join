@@ -22,10 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function loadTasks() {
-	document.querySelector("#toDo").innerHTML = "";
-	document.querySelector("#inprogress").innerHTML = "";
-	document.querySelector("#feedback").innerHTML = "";
-	document.querySelector("#done").innerHTML = "";
+
 
 	const template = document.querySelector("#task_card").content.cloneNode(true);
 	Tasks.forEach((task) => {
