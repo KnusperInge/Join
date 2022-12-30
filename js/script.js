@@ -162,6 +162,5 @@ function startDragging(title) {
 function drop(category) {
   let index = Tasks.findIndex((element) => element.Title == test);
   Tasks[index].Status = category;
-  //currentDragElement.category = category;
   currentDragElement.loadTasks();
 }
