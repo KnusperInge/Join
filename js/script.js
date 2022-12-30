@@ -16,9 +16,9 @@ let navItems = [];
 let contactList = [];
 let page = "";
 let selectedContacts = document.querySelector(".selectedContacts");
-
 let newTask = new Task();
 let loadingPrps;
+let currentDragElement;
 
 //general functions
 
@@ -30,7 +30,8 @@ function openboard() {
 document.addEventListener("DOMContentLoaded", async () => {
 
   //Load from server
-  loadData();
+  await loadData();
+  currentDragElement.loadTasks();
   console.log("Array:", Tasks);
 
   if (!document.querySelector("[item]").getAttribute("item") == "AddTask") {
@@ -149,4 +150,17 @@ function checkCategory(id) {
   return catlist[id].textContent;
 }
 
+// board.html
+function allowDrop(event) {
+  event.preventDefault();
+}
 
+function startDragging(title) {
+  currentDragElement = new DragandDrop(title);
+}
+function drop(category) {
+  let index = Tasks.findIndex((element) => element.Title == currentDragElement.title);
+  Tasks[index].Status = category;
+  currentDragElement.category = category;
+  currentDragElement.loadTasks();
+}
