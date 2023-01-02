@@ -15,6 +15,17 @@ function openboard() {
   window.open((href = "./board.html"), "_self");
 }
 
+// open/close task- Sidemenu
+document.querySelector('#addTask_button').addEventListener('click', (event) => {
+  document.querySelector('.newTask').classList.remove('d-none');
+  console.log(event);
+});
+document.querySelector('.close-icon').addEventListener('click', (event) => {
+  document.querySelector('.newTask').classList.add('d-none');
+  console.log(event);
+});
+
+
 //Loading Element
 document.addEventListener("DOMContentLoaded", testinit);
 
