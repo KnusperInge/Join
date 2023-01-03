@@ -39,7 +39,7 @@
 }
 
 * {
-  font-family: 'OpenSans-Regular';
+  font-family: "OpenSans-Regular";
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -192,7 +192,7 @@ nav div {
   font-weight: 700;
   font-size: 64px;
   line-height: 120%;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   margin-left: 8px;
 }
 
@@ -316,7 +316,7 @@ nav div {
 }
 
 .card span {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 23px;
@@ -681,7 +681,7 @@ textarea {
 }
 .bord-tasks {
   display: flex;
-  gap: 26px;
+  gap: 80px;
   width: 100%;
   height: 70vh;
   padding-left: 67px;
@@ -725,7 +725,7 @@ textarea {
   width: 250px;
   height: 100%;
   padding: 5px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
