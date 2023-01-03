@@ -95,7 +95,7 @@ body {
 	cursor: pointer;
 }
 
-/* ANCHOR index */
+/* index */
 #loading-page {
 	background-color: var(--color-blue);
 	height: 100vh;
@@ -128,7 +128,7 @@ body {
 }
 
 /* Login Page */
-main {
+.login_main {
 	display: flex;
 	flex-direction: column;
 }
