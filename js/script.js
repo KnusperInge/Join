@@ -34,15 +34,18 @@ async function testinit() {
 	await downloadFromServer();
 	//Load from server
 	loadData();
-	// currentDragElement = new DragandDrop();
-	// currentDragElement.loadTasks();
+
 	// console.log("Tasks Array:", Tasks);
 	let item = document.querySelector("[item]").getAttribute("item");
+
 	if (item === "AddTask" || item === "Board") {
 		console.log('Nicht gefunden ', item);
+	}
+	if (item === "Board") {
+		currentDragElement = new DragandDrop();
+		currentDragElement.loadTasks();
 	} else {
 		loadingPrps = new Loading();
-
 	}
 }
 
@@ -156,27 +159,20 @@ function checkCategory(id) {
 }
 
 // board.html
-// let elementOnDrag;
-// function allowDrop(event) {
-// 	event.preventDefault();
-// }
 
-// function startDragging(title) {
-// 	elementOnDrag = title;
-// }
+let elementOnDrag;
+function allowDrop(event) {
+	event.preventDefault();
+}
 
-// function drop(category) {
-// 	let index = Tasks.findIndex((element) => element.Title == test);
-// 	Tasks[index].Status = category;
-// 	saveData();
-// 	testinit();
-// 	console.log(Tasks);
-// 	currentDragElement.loadTasks();
-// }
-
-// // ANCHOR Summary welcome message
-// let engMonths = ["January", "February", "March", "June", "July", "August", "September", "October", "December"];
-
-
-// // document.addEventListener("DOMContentLoaded", getTimestampInSeconds);
-
+function startDragging(title) {
+	elementOnDrag = title;
+}
+function drop(category) {
+	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
+	Tasks[index].Status = category;
+	saveData();
+	testinit();
+	console.log(Tasks);
+	currentDragElement.loadTasks();
+}
