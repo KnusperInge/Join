@@ -11,7 +11,7 @@ class Task {
 
 
   constructor() {
-    this.test();
+    // this.test();
   }
   test() {
     console.log("Ich bin ein Task");

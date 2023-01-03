@@ -34,14 +34,18 @@ async function testinit() {
 	await downloadFromServer();
 	//Load from server
 	loadData();
-	currentDragElement = new DragandDrop();
-	currentDragElement.loadTasks();
-	console.log("Tasks Array:", Tasks);
-
-	if (!document.querySelector("[item]").getAttribute("item") == "AddTask") {
+	// currentDragElement = new DragandDrop();
+	// currentDragElement.loadTasks();
+	// console.log("Tasks Array:", Tasks);
+	let item = document.querySelector("[item]").getAttribute("item");
+	if (item === "AddTask" || item === "Board") {
+		console.log('Nicht gefunden ', item);
+	} else {
 		loadingPrps = new Loading();
+
 	}
 }
+
 //Save and Load
 function saveData() {
 	backend.setItem("Tasks", JSON.stringify(Tasks));
@@ -170,26 +174,26 @@ function checkCategory(id) {
 // 	currentDragElement.loadTasks();
 // }
 
-// ANCHOR Summary welcome message
-let engMonths = ["January", "February", "March", "June", "July", "August", "September", "October", "December"];
-let dayPeriod = ["Good morning, ", "Hello, ", "Good evening, "];
+// // ANCHOR Summary welcome message
+// let engMonths = ["January", "February", "March", "June", "July", "August", "September", "October", "December"];
+// let dayPeriod = ["Good morning, ", "Hello, ", "Good evening, "];
 
-document.addEventListener("DOMContentLoaded", getTimestampInSeconds);
+// // document.addEventListener("DOMContentLoaded", getTimestampInSeconds);
 
-function getTimestampInSeconds() {
-	let today = new Date();
-	let year = today.getFullYear();
-	let month = engMonths[today.getMonth()];
-	let monthDate = today.getDate();
+// // function getTimestampInSeconds() {
+// // 	let today = new Date();
+// // 	let year = today.getFullYear();
+// // 	let month = engMonths[today.getMonth()];
+// // 	let monthDate = today.getDate();
 
-	let greeting = document.querySelector(".first-line");
-	let time = today.getHours();
+// // 	let greeting = document.querySelector(".first-line");
+// // 	let time = today.getHours();
 
-	if (time < 8) {
-		greeting.childNodes[1].innerHTML = `${dayPeriod[0]}`;
-	} else if (time > 8 && time < 14) {
-		greeting.childNodes[1].innerHTML = `${dayPeriod[1]}`;
-	} else {
-		greeting.childNodes[1].innerHTML = `${dayPeriod[2]}`;
-	}
-}
+// // 	if (time < 8) {
+// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[0]}`;
+// // 	} else if (time > 8 && time < 14) {
+// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[1]}`;
+// // 	} else {
+// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[2]}`;
+// // 	}
+// // }

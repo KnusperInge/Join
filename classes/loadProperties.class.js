@@ -15,6 +15,7 @@ class Loading extends Task {
     super();
     this.allTasksArr = Tasks;
     console.log('Hallo Arry', this.allTasksArr);
+    console.log('Datumsarry:', this.dates);
 
     this.checkUrgent();
     this.checkStatus();
