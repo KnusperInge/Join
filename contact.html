@@ -1,201 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
 
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./style/fonts.css">
-
-
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style/fonts.css" />
 
     <template id="letter_list_template">
-        <div class="contact-lettercompartment">
-            <span></span>
-            <hr>
-            <div id="">
-            </div>
-        </div>
+      <div class="contact-lettercompartment">
+        <span></span>
+        <hr />
+        <div id=""></div>
+      </div>
     </template>
 
     <template id="contact_inList_template">
-        <div class="listed-contact" onclick="">
-            <img src="./img/info.png">
-            <div class="listed-contact-info">
-                <span></span>
-                <span></span>
-            </div>
+      <div class="listed-contact" onclick="">
+        <div class="listed-contact-icon" id="contactIcon"></div>
+        <div class="listed-contact-info">
+          <span></span>
+          <span></span>
         </div>
+      </div>
     </template>
 
     <template id="contact_info_template">
-        <div class="contact-header">
-            <img src="${contact.icon}" class="contact-img">
-            <div>
-                <span></span>
-                <div class="addtask-box">
-                    <img src="./img/plus_Icon.png">
-                    <span>Add Task</span>
-                </div>
-            </div>
+      <div class="contact-header">
+        <img src="${contact.icon}" class="contact-img" />
+        <div>
+          <span></span>
+          <div class="addtask-box">
+            <img src="./img/plus_Icon.png" />
+            <span>Add Task</span>
+          </div>
         </div>
-        <div class="contact-mid">
-            <span>Contact Information</span>
-            <div>
-                <img src="./img/pencil.png">
-                <span>Edit Contact</span>
-            </div>
+      </div>
+      <div class="contact-mid">
+        <span>Contact Information</span>
+        <div>
+          <img src="./img/pencil.png" />
+          <span>Edit Contact</span>
         </div>
-        <div class="contact-mail">
-            <span>E-Mail</span>
-            <span></span>
-        </div>
-        <div class="contact-number">
-            <span>Mobil</span>
-            <span></span>
-        </div>
+      </div>
+      <div class="contact-mail">
+        <span>E-Mail</span>
+        <span></span>
+      </div>
+      <div class="contact-number">
+        <span>Mobil</span>
+        <span></span>
+      </div>
     </template>
-</head>
+  </head>
 
-<body item="Contacts">
+  <body item="Contacts">
     <header id="active" include-html="Temp/header.html"></header>
 
     <main class="full-height-width">
-        <nav class="shadow-black " include-html="Temp/navbar.html"></nav>
+      <nav class="shadow-black" include-html="Temp/navbar.html"></nav>
 
-        <section class="content-contact">
-            <div id="contact-list"></div>
-            <div class="contact-right-container">
-                <div id="contact-informations" class="full-height-width"></div>
-                <div class=" contact-btn">
-                    <button class="add-contact">
-                        <span>New contact</span>
-                        <img src="./img/contact_add.png">
-                    </button>
+      <section class="content-contact">
+        <div id="contact-list"></div>
+        <div class="contact-right-container">
+          <div id="contact-informations" class="full-height-width"></div>
+          <div class="contact-btn">
+            <button class="add-contact">
+              <span>New contact</span>
+              <img src="./img/contact_add.png" />
+            </button>
+          </div>
+        </div>
+
+        <div id="overlay"></div>
+
+        <div id="new-contact">
+          <div id="new-contact-content">
+            <div class="content-header">
+              <img class="cancel_add" src="./img/cross_icon_white.png" />
+              <img class="contact-join-icon" src="./img/icon_white.png" />
+              <span>Add contact</span>
+              <span>Tasks are better with a team!</span>
+            </div>
+            <div class="content-body shadow-black dflex-center">
+              <img src="./img/planc_profileIcon.png" />
+              <form
+                class="new-content-form dflex-center"
+                id="submitFormNewContact"
+              >
+                <input
+                  class="outline-border-none"
+                  required
+                  id="input-name"
+                  type="text"
+                  placeholder="Name"
+                />
+                <input
+                  class="outline-border-none"
+                  required
+                  id="input-phone"
+                  type="tel"
+                  placeholder="Phone"
+                />
+                <input
+                  class="outline-border-none"
+                  required
+                  id="input-email"
+                  type="email"
+                  placeholder="E-Mail"
+                />
+                <div class="new-contact-buttons">
+                  <button class="dflex-center button-clear cancel_add">
+                    Cancel
+                  </button>
+                  <button class="button-blue">Create contact</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="newTask">
+          <div class="close-icon">
+            <img src="img/cross_icon_black.png" />
+          </div>
+
+          <form class="board-contact-form" id="myForm">
+            <div class="form-head dflex-center">
+              <h3>Add Task</h3>
+              <button
+                id="clear-btn"
+                class="AddButton outline-border-none dflex-center"
+              >
+                Create Task<img src="img/checked_icon_white.png " />
+              </button>
+            </div>
+            <div class="form-body full-height-width" id="TaskForm">
+              <input
+                type="text"
+                class="input-title outline-border-none"
+                placeholder="Enter a title"
+                onkeyup="checkInput('input-title')"
+                required
+              />
+
+              <div class="dropdown">
+                <input
+                  type="text"
+                  class="textBox outline-border-none"
+                  id="dropdownContacts"
+                  placeholder="Select contacts to assign"
+                  readonly
+                  required
+                  onclick="openList(0)"
+                />
+
+                <input
+                  class="d-none outline-border-none"
+                  type="text"
+                  name=""
+                  id="searchContacts"
+                  placeholder="Enter Name or Email"
+                />
+                <div class="selectedContacts"></div>
+
+                <div class="list contacts shadow-black">
+                  <div onclick="addContact(0)">
+                    <span>Person 1</span><input type="checkbox" id="" />
+                  </div>
+                  <div onclick="addContact(1)">
+                    <span>Person 2</span><input type="checkbox" id="" />
+                  </div>
+                  <div onclick="addContact(2)">
+                    <span>Person 3</span><input type="checkbox" id="" />
+                  </div>
+                  <div onclick="inviteContact()">invite Contact</div>
+                </div>
+              </div>
+
+              <div id="date-input-container">
+                <h3>Due date</h3>
+                <input
+                  class="outline-border-none date-input"
+                  id="date-input"
+                  type="date"
+                  required
+                  onclick="checkInput('date-input')"
+                />
+              </div>
+
+              <div>
+                <h3>Category</h3>
+                <div class="dropdown" onclick="openList(1)">
+                  <input
+                    type="text"
+                    class="textBox cagetorgy-input outline-border-none"
+                    placeholder="Select task category"
+                    readonly
+                    onclick="checkInput('cagetorgy-input')"
+                  />
+                  <div class="list category shadow-black">
+                    <div onclick="addCategory(0)">Sales</div>
+                    <div onclick="addCategory(1)">Marketing</div>
+                    <div onclick="addCategory(2)">Development</div>
+                    <div onclick="addCategory(4)">add new Category</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="priority-container">
+                <div
+                  class="priority dflex-center"
+                  id="urgent-btn"
+                  onclick="changePriority(1)"
+                >
+                  <span>Urgent</span>
+                  <img src="/img/urgent_icon.png" />
                 </div>
 
-            </div>
-
-            <div id="overlay"></div>
-
-            <div id="new-contact">
-                <div id="new-contact-content">
-                    <div class="content-header">
-                        <img class="cancel_add" src="./img/cross_icon_white.png">
-                        <img class="contact-join-icon" src="./img/icon_white.png">
-                        <span>Add contact</span>
-                        <span>Tasks are better with a team!</span>
-                    </div>
-                    <div class="content-body shadow-black dflex-center">
-                        <img src="./img/planc_profileIcon.png">
-                        <form class="new-content-form dflex-center" id="submitFormNewContact">
-                            <input class="outline-border-none" required id="input-name" type="text" placeholder="Name">
-                            <input class="outline-border-none" required id="input-phone" type="tel" placeholder="Phone">
-                            <input class="outline-border-none" required id="input-email" type="email"
-                                placeholder="E-Mail">
-                            <div class="new-contact-buttons">
-                                <button class=" dflex-center button-clear cancel_add">Cancel</button>
-                                <button class="button-blue">Create contact</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="newTask">
-                <div class="close-icon">
-                    <img src="img/cross_icon_black.png">
+                <div
+                  class="priority dflex-center"
+                  id="medium-btn"
+                  onclick="changePriority(2)"
+                >
+                  <span>Medium</span>
+                  <img src="/img/medium_icon.png" />
                 </div>
 
-                <form class="board-contact-form" id="myForm">
-                    <div class="form-head dflex-center">
-                        <h3>Add Task</h3>
-                        <button id="clear-btn" class="AddButton outline-border-none dflex-center">
-                            Create Task<img src="img/checked_icon_white.png " />
-                        </button>
-                    </div>
-                    <div class="form-body full-height-width" id="TaskForm">
-                        <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
-                            onkeyup="checkInput('input-title')" required />
-
-                        <div class="dropdown">
-                            <input type="text" class="textBox outline-border-none" id="dropdownContacts"
-                                placeholder="Select contacts to assign" readonly required onclick="openList(0)" />
-
-                            <input class="d-none outline-border-none" type="text" name="" id="searchContacts"
-                                placeholder="Enter Name or Email" />
-                            <div class="selectedContacts"></div>
-
-                            <div class="list contacts shadow-black">
-                                <div onclick="addContact(0)">
-                                    <span>Person 1</span><input type="checkbox" id="" />
-                                </div>
-                                <div onclick="addContact(1)">
-                                    <span>Person 2</span><input type="checkbox" id="" />
-                                </div>
-                                <div onclick="addContact(2)">
-                                    <span>Person 3</span><input type="checkbox" id="" />
-                                </div>
-                                <div onclick="inviteContact()">invite Contact</div>
-
-                            </div>
-                        </div>
-
-                        <div id="date-input-container">
-                            <h3>Due date</h3>
-                            <input class="outline-border-none date-input" id="date-input" type="date" required
-                                onclick="checkInput('date-input')" />
-                        </div>
-
-                        <div>
-                            <h3>Category</h3>
-                            <div class="dropdown" onclick="openList(1)">
-                                <input type="text" class="textBox cagetorgy-input outline-border-none"
-                                    placeholder="Select task category" readonly
-                                    onclick="checkInput('cagetorgy-input')" />
-                                <div class="list category shadow-black ">
-                                    <div onclick="addCategory(0)">Sales</div>
-                                    <div onclick="addCategory(1)">Marketing</div>
-                                    <div onclick="addCategory(2)">Development</div>
-                                    <div onclick="addCategory(4)">add new Category</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="priority-container">
-                            <div class="priority dflex-center" id="urgent-btn" onclick="changePriority(1)">
-                                <span>Urgent</span>
-                                <img src="/img/urgent_icon.png" />
-                            </div>
-
-                            <div class="priority dflex-center" id="medium-btn" onclick="changePriority(2)">
-                                <span>Medium</span>
-                                <img src="/img/medium_icon.png" />
-                            </div>
-
-                            <div class="priority dflex-center" id="low-btn" onclick="changePriority(3)">
-                                <span>Low</span>
-                                <img src="/img/low_icon.png" />
-                            </div>
-                        </div>
-                        <div>
-                            <h3>Description</h3>
-                            <textarea name="" class="description-input" id="description-input"
-                                onkeyup="checkInput('description-input')" cols="30" rows="10" required
-                                placeholder="Enter Description">
-                         </textarea>
-                        </div>
-                        <div>
-                            <h3>Subtasks</h3>
-                            <input class="outline-border-none" id="subtask-input" type="text"
-                                placeholder="Add new subtask" />
-                        </div>
-                    </div>
-                </form>
+                <div
+                  class="priority dflex-center"
+                  id="low-btn"
+                  onclick="changePriority(3)"
+                >
+                  <span>Low</span>
+                  <img src="/img/low_icon.png" />
+                </div>
+              </div>
+              <div>
+                <h3>Description</h3>
+                <textarea
+                  name=""
+                  class="description-input"
+                  id="description-input"
+                  onkeyup="checkInput('description-input')"
+                  cols="30"
+                  rows="10"
+                  required
+                  placeholder="Enter Description"
+                >
+                </textarea>
+              </div>
+              <div>
+                <h3>Subtasks</h3>
+                <input
+                  class="outline-border-none"
+                  id="subtask-input"
+                  type="text"
+                  placeholder="Add new subtask"
+                />
+              </div>
             </div>
-        </section>
+          </form>
+        </div>
+      </section>
     </main>
 
     <script src="js/contact.js"></script>
@@ -204,6 +272,5 @@
     <script src="./classes/task.class.js"></script>
     <script src="./classes/newContact.class.js"></script>
     <script src="./js/script.js"></script>
-</body>
-
+  </body>
 </html>
