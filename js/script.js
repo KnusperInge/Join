@@ -176,24 +176,7 @@ function checkCategory(id) {
 
 // // ANCHOR Summary welcome message
 // let engMonths = ["January", "February", "March", "June", "July", "August", "September", "October", "December"];
-// let dayPeriod = ["Good morning, ", "Hello, ", "Good evening, "];
+
 
 // // document.addEventListener("DOMContentLoaded", getTimestampInSeconds);
 
-// // function getTimestampInSeconds() {
-// // 	let today = new Date();
-// // 	let year = today.getFullYear();
-// // 	let month = engMonths[today.getMonth()];
-// // 	let monthDate = today.getDate();
-
-// // 	let greeting = document.querySelector(".first-line");
-// // 	let time = today.getHours();
-
-// // 	if (time < 8) {
-// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[0]}`;
-// // 	} else if (time > 8 && time < 14) {
-// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[1]}`;
-// // 	} else {
-// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[2]}`;
-// // 	}
-// // }
