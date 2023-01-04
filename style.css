@@ -1354,3 +1354,147 @@ textarea {
   padding: 0;
   color: var(--color-lightgrey);
 }
+
+@media only screen and (min-width: 1260px) {
+}
+
+@media only screen and (min-width: 980px) {
+}
+
+@media only screen and (min-width: 600px) {
+  .login_screen {
+    top: 40%;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .sign_up {
+    top: 780px;
+    right: 20px;
+  }
+  .login_screen {
+    width: 90%;
+    height: 60%;
+  }
+
+  .login_form {
+    width: 200%;
+  }
+
+  .login_options {
+    flex-direction: column-reverse;
+    width: 200%;
+    gap: 15px;
+  }
+  .login_buttons {
+    flex-direction: column;
+    gap: 10px 0;
+    width: 150%;
+  }
+
+  .button_clear {
+    width: 100%;
+  }
+  #loading-page img {
+    width: 70px;
+  }
+  .login_logo_blue {
+    width: 70px;
+  }
+
+  @keyframes white-logo {
+    100% {
+      top: 70px;
+      left: 50px;
+      width: 70px;
+    }
+  }
+
+  @keyframes blue-logo {
+    100% {
+      top: 70px;
+      left: 50px;
+      width: 70px;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .login_screen {
+    height: 70%;
+  }
+
+  .login_form span {
+    height: 55px;
+    font-size: 30px;
+  }
+  .login_form input {
+    font-size: 16px;
+  }
+
+  .login_options {
+    font-size: 17px;
+  }
+
+  .button_blue {
+    font-size: 19px;
+  }
+
+  .button_clear {
+    padding: 0;
+    font-size: 19px;
+  }
+
+  .sign_up {
+    top: 670px;
+  }
+  .sign_up span {
+    font-size: 19px;
+  }
+
+  #loading-page img {
+    width: 60px;
+  }
+  .login_logo_blue {
+    width: 60px;
+  }
+
+  @keyframes white-logo {
+    100% {
+      top: 50px;
+      left: 50px;
+      width: 60px;
+    }
+  }
+
+  @keyframes blue-logo {
+    100% {
+      top: 50px;
+      left: 50px;
+      width: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: 391px) {
+  .sign_up {
+    top: 758px;
+    right: 40px;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  .sign_up {
+    top: 600px;
+  }
+  .login_form span {
+    margin-bottom: 13px;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  .sign_up {
+    top: 663px;
+    right: 26px;
+  }
+}
