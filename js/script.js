@@ -157,44 +157,20 @@ function checkCategory(id) {
 }
 
 // board.html
-// let elementOnDrag;
-// function allowDrop(event) {
-// 	event.preventDefault();
-// }
 
-// function startDragging(title) {
-// 	elementOnDrag = title;
-// }
+let elementOnDrag;
+function allowDrop(event) {
+  event.preventDefault();
+}
 
-// function drop(category) {
-// 	let index = Tasks.findIndex((element) => element.Title == test);
-// 	Tasks[index].Status = category;
-// 	saveData();
-// 	testinit();
-// 	console.log(Tasks);
-// 	currentDragElement.loadTasks();
-// }
-
-// // ANCHOR Summary welcome message
-// let engMonths = ["January", "February", "March", "June", "July", "August", "September", "October", "December"];
-// let dayPeriod = ["Good morning, ", "Hello, ", "Good evening, "];
-
-// // document.addEventListener("DOMContentLoaded", getTimestampInSeconds);
-
-// // function getTimestampInSeconds() {
-// // 	let today = new Date();
-// // 	let year = today.getFullYear();
-// // 	let month = engMonths[today.getMonth()];
-// // 	let monthDate = today.getDate();
-
-// // 	let greeting = document.querySelector(".first-line");
-// // 	let time = today.getHours();
-
-// // 	if (time < 8) {
-// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[0]}`;
-// // 	} else if (time > 8 && time < 14) {
-// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[1]}`;
-// // 	} else {
-// // 		greeting.childNodes[1].innerHTML = `${dayPeriod[2]}`;
-// // 	}
-// // }
+function startDragging(title) {
+  elementOnDrag = title;
+}
+function drop(category) {
+  let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
+  Tasks[index].Status = category;
+  saveData();
+  testinit();
+  console.log(Tasks);
+  currentDragElement.loadTasks();
+}

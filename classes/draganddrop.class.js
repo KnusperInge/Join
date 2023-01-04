@@ -23,9 +23,9 @@ class DragandDrop {
   }
   clearTasks() {
     document.querySelector("#toDo").innerHTML = "";
-    document.querySelector("#inprogress").innerHTML = "";
-    document.querySelector("#feedback").innerHTML = "";
-    document.querySelector("#done").innerHTML = "";
+    document.querySelector("#inProgress").innerHTML = "";
+    document.querySelector("#Await").innerHTML = "";
+    document.querySelector("#Done").innerHTML = "";
   }
   checkPriority(element) {
     if (element.Priority == "Low") {

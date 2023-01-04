@@ -7,6 +7,7 @@ class Loading extends Task {
   doneTaskArr = [];
   dates = [];
   MONTHS = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+  dayPeriod = ["Good morning, ", "Hello, ", "Good evening, "];
   YEAR = 0;
   MONTH = "";
   DAY = 0;
@@ -55,12 +56,7 @@ class Loading extends Task {
       return a - b;
     });
   }
-  createDate() {
-    this.YEAR = new Date(this.dates[0]).getFullYear();
-    this.MONTH = this.MONTHS[new Date(this.dates[0]).getMonth()];
-    this.DAY = new Date(this.dates[0]).getDate();
-    return this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`;
-  }
+
   init() {
     document.getElementById('urgentTasks').innerText = this.urgentTasksArr.length;
     document.getElementById('upcomingDeadline').innerText = this.createDate();
@@ -69,8 +65,28 @@ class Loading extends Task {
     document.getElementById('inProgress').innerText = this.inProgressArr.length;
     document.getElementById('awaitForFeedback').innerText = this.awaitArr.length;
     document.getElementById('done').innerText = this.doneTaskArr.length;
+    document.querySelector(".first-line").childNodes[1].innerText = this.getTimestampInSeconds();
   }
 
+  createDate() {
+    this.YEAR = new Date(this.dates[0]).getFullYear();
+    this.MONTH = this.MONTHS[new Date(this.dates[0]).getMonth()];
+    this.DAY = new Date(this.dates[0]).getDate();
+    return this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`;
+  }
+
+  getTimestampInSeconds() {
+    let today = new Date();
+    let time = today.getHours();
+    if (time > 4 && time < 12) {
+      return this.dayPeriod[0];
+    }
+    if (time > 12 && time < 18) {
+      return this.dayPeriod[1];
+    } else {
+      return this.dayPeriod[2];
+    }
+  }
 
 
 }
