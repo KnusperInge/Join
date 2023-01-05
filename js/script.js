@@ -65,12 +65,6 @@ function checkInput(field) {
 }
 
 
-
-
-
-
-
-
 function inviteContact() {
   document.getElementById('searchContacts').classList.remove('d-none');
   document.getElementById('dropdownContacts').classList.add('d-none');
@@ -86,20 +80,7 @@ function handleForm(event) {
   newTask.clearForm();
 }
 
-function addCategory(id) {
-  let input = document.querySelector('.cagetorgy-input');
-  //input.innerHTML="";
-  let Category = checkCategory(id);
-  input.value = Category;
-  if (!input.value == '') {
-    newTask.Category = Category;
-  }
-}
 
-function checkCategory(id) {
-  let catlist = document.querySelectorAll('.category div');
-  return catlist[id].textContent;
-}
 
 // board.html
 
