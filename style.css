@@ -1363,8 +1363,8 @@ addtask-box img {
 
 /* ANCHOR Moveable Task for Contact.html, Board.html */
 .newTask {
-	position: absolute;
-	right: 0;
+	position: fixed;
+	right: -405px;
 	top: 0;
 	z-index: 2;
 	background-color: var(--color-white);
@@ -1378,17 +1378,24 @@ addtask-box img {
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
 	box-shadow: -3px 0px 5px var(--color-lightgrey);
+	transition: right ease-in-out 225ms;
 }
+
+.newTask.open {
+	right: 0;
+}
+
 .close-icon {
-	width: 100%;
 	height: fit-content;
-	display: flex;
+	padding: 20px 20px;
+	width: 100%;
 	justify-content: flex-end;
-	padding: 10px 10px;
 }
-.close-icon {
+
+.close-icon img {
 	cursor: pointer;
 }
+
 .board-contact-form {
 	position: relative;
 	display: flex;
