@@ -13,6 +13,7 @@ class DragandDrop {
     this.title = title;
     this.category = category;
     this.Tasks = Tasks;
+    this.loadTasks();
   }
   loadTasks() {
     this.clearTasks();

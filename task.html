@@ -22,27 +22,29 @@
       <form class="full-height-width" id="TaskForm">
         <div class="left-Container full-height-width">
           <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
-            onkeyup="checkInput('input-title')" required />
+            onclick="checkInput('input-title')" required />
 
           <div class="dropdown">
-            <input type="text" class="textBox outline-border-none" id="dropdownContacts"
-              placeholder="Select contacts to assign" readonly required onclick="openList(0)" />
+            <input type="text" class="textBox outline-border-none" id="D:0" placeholder="Select contacts to assign"
+              readonly required />
 
             <input class="d-none outline-border-none" type="text" name="" id="searchContacts"
               placeholder="Enter Name or Email" />
             <div class="selectedContacts"></div>
 
             <div class="list contacts shadow-black">
-              <div onclick="addContact(0)">
-                <span>Person 1</span><input type="checkbox" id="" />
+              <div id="0">
+                <span>Person 1</span><input type="checkbox" />
               </div>
-              <div onclick="addContact(1)">
-                <span>Person 2</span><input type="checkbox" id="" />
+              <div id="1">
+                <span>Person 2</span><input type="checkbox" />
               </div>
-              <div onclick="addContact(2)">
-                <span>Person 3</span><input type="checkbox" id="" />
+              <div id="2">
+                <span>Person 3</span><input type="checkbox" />
               </div>
-              <div onclick="inviteContact()">invite Contact</div>
+              <div id="3">
+                <span>invite Contact</span>
+              </div>
 
             </div>
           </div>
@@ -55,9 +57,10 @@
 
           <div>
             <h3>Category</h3>
-            <div class="dropdown" onclick="openList(1)">
+            <div class="dropdown">
               <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task category"
-                readonly onclick="checkInput('cagetorgy-input')" />
+                id="D:1" readonly onclick="change('cagetorgy-input')" />
+
               <div class="list category shadow-black ">
                 <div onclick="addCategory(0)">Sales</div>
                 <div onclick="addCategory(1)">Marketing</div>
@@ -68,26 +71,26 @@
           </div>
 
           <div class="priority-container">
-            <div class="priority dflex-center" id="urgent-btn" onclick="changePriority(1)">
-              <span>Urgent</span>
+            <div class="priority dflex-center" id="urgent-btn">
+              <span id="0">Urgent</span>
               <img src="/img/urgent_icon.png" />
             </div>
 
-            <div class="priority dflex-center" id="medium-btn" onclick="changePriority(2)">
-              <span>Medium</span>
+            <div class="priority dflex-center" id="medium-btn">
+              <span id="1">Medium</span>
               <img src="/img/medium_icon.png" />
             </div>
 
-            <div class="priority dflex-center" id="low-btn" onclick="changePriority(3)">
-              <span>Low</span>
+            <div class="priority dflex-center" id="low-btn">
+              <span id="2">Low</span>
               <img src="/img/low_icon.png" />
             </div>
           </div>
           <div>
             <h3>Description</h3>
             <textarea name="" class="description-input" id="description-input" onkeyup="checkInput('description-input')"
-              cols="30" rows="10" required>
-          Enter a Description </textarea>
+              cols="30" rows="10" required placeholder="Enter a Description">
+           </textarea>
           </div>
           <div>
             <h3>Subtasks</h3>

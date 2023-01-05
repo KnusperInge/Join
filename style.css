@@ -684,7 +684,8 @@ form {
   font-weight: 400;
   font-size: 30px;
   line-height: 120%;
-  color: var(--color-lightgrey);
+  color: var(--color-black);
+
   width: 320px;
 }
 
@@ -840,7 +841,7 @@ h3 {
 textarea {
   width: 320px;
   height: 80px;
-  color: var(--color-lightgrey);
+  color: var(--color-black);
   padding: 10px;
   resize: none;
 }

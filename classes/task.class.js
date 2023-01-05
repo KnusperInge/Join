@@ -1,21 +1,109 @@
 class Task {
   Title;
   Contacts = [];
+  edittors = [];
+  selectedContacts;
   Deadline;
   Category;
   Description;
   Priority;
   Subtaks = [];
   Status;
-
+  prioBtns;
+  dropDownBtns;
+  contactbtns;
 
 
   constructor() {
-    // this.test();
+    this.setPriorityBtn();
+    this.setDropdownBtn();
+    this.setContactbtn();
   }
-  test() {
-    console.log("Ich bin ein Task");
+
+  setDropdownBtn() {
+    this.dropDownBtns = document.querySelectorAll('.dropdown');
+    this.dropDownBtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+
+        let rawid = event.target.id;
+        let id = rawid.split(':');
+        this.openList(id[1]);
+      });
+    });
   }
+  setContactbtn() {
+    this.selectedContacts = document.querySelector('.selectedContacts');
+    this.contactbtns = document.querySelectorAll('.contacts div');
+    this.contactbtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        let id = event.target.id;
+
+        this.addContact(id);
+        //console.log(event.target.id);
+      });
+    });
+  }
+  addContact(id) {
+
+    let checkedChild = this.contactbtns[id].lastElementChild;
+    let editor = this.contactbtns[id].innerText;
+    //console.log('bearbeiter', editor)
+    this.fillEditorsArr(editor, checkedChild);
+
+  }
+
+  fillEditorsArr(editor, checkedChild) {
+    if (!checkedChild.checked && !checkArr(editor)) {
+      checkedChild.checked = true;
+      this.edittors.push(editor);
+    } else {
+      this.edittors.splice(this.edittors.indexOf(editor), 1);
+      checkedChild.checked = false;
+    }
+  }
+
+  renderIcons() {
+    this.edittors.forEach((element) => {
+      let firstletter = element.charAt(0).toUpperCase();
+      this.selectedContacts.innerHTML += `<span>${firstletter}</span>`;
+    });
+  }
+
+  openList(id) {
+    let dropdowns = document.querySelectorAll('.dropdown > .list');
+    dropdowns[id].classList.toggle('active');
+
+    if (!document.querySelector('.dropdown .active') && this.edittors.length > 0) {
+      this.renderIcons();
+      this.selectedContacts.classList.toggle('active');
+    } else {
+      this.selectedContacts.classList.remove('active');
+      this.selectedContacts.innerHTML = '';
+    }
+  }
+
+  setPriorityBtn() {
+    this.prioBtns = document.querySelectorAll('.priority-container .priority');
+    this.prioBtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        const id = event.target.id;
+        this.aktivatePriorityBtn(id)
+      });
+    });
+  }
+
+  aktivatePriorityBtn(id) {
+    if (id == 0) {
+      this.aktivateUrgent(id);
+    }
+    else if (id == 1) {
+      this.aktivateMedium(id);
+    }
+    else {
+      this.aktivateLow(id);
+    }
+  }
+
 
   init() {
     this.Title = document.querySelector('.input-title').value;
@@ -34,34 +122,36 @@ class Task {
     return false;
   }
   clearForm() {
-    document.getElementById("urgent-btn").className = "priority";
-    document.getElementById("medium-btn").className = "priority";
-    document.getElementById("low-btn").className = "priority";
-    document.querySelector('.selectedContacts').innerHTML = "";
-    document.querySelector('.input-title').value = "";
-    document.getElementById("date-input").value = "";
-    document.getElementById("description-input").value = "";
+    this.prioBtns[0].className = "priority dflex-center";
+    this.prioBtns[1].className = "priority dflex-center";
+    this.prioBtns[2].className = "priority dflex-center";
+    document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
     openList(3);
   }
-  aktivateUrgent() {
-    document.getElementById("urgent-btn").classList.toggle("urgent");
-    document.getElementById("urgent-btn").classList.toggle("active");
-    document.getElementById("medium-btn").className = "priority";
-    document.getElementById("low-btn").className = "priority";
+
+  // Set Bg-color for Prioritybtn
+  aktivateUrgent(id) {
+    this.prioBtns[id].classList.toggle("urgent");
+    this.prioBtns[id].classList.toggle("active");
+    this.prioBtns[1].className = "priority dflex-center";
+    this.prioBtns[2].className = "priority dflex-center";
   }
-  aktivateMedium() {
-    document.getElementById("medium-btn").classList.toggle("active");
-    document.getElementById("medium-btn").classList.toggle("medium");
-    document.getElementById("urgent-btn").className = "priority";
-    document.getElementById("low-btn").className = "priority";
+
+  aktivateMedium(id) {
+    this.prioBtns[id].classList.toggle("active");
+    this.prioBtns[id].classList.toggle("medium");
+    this.prioBtns[0].className = "priority dflex-center";
+    this.prioBtns[2].className = "priority dflex-center";
   }
-  aktivateLow() {
-    document.getElementById("low-btn").classList.toggle("active");
-    document.getElementById("low-btn").classList.toggle("low");
-    document.getElementById("urgent-btn").className = "priority";
-    document.getElementById("medium-btn").className = "priority";
+
+  aktivateLow(id) {
+    this.prioBtns[id].classList.toggle("active");
+    this.prioBtns[id].classList.toggle("low");
+    this.prioBtns[0].className = "priority dflex-center";
+    this.prioBtns[1].className = "priority dflex-center";
   }
+
   deactivtedContactDropdown() {
     document.querySelectorAll(".contacts div input").forEach((element) => {
       element.checked = false;

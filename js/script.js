@@ -4,8 +4,8 @@ let Tasks = [];
 let navItems = [];
 let contactList = [];
 let page = '';
-let selectedContacts = document.querySelector('.selectedContacts');
-let newTask = new Task();
+
+let newTask;
 let loadingPrps;
 let currentDragElement;
 
@@ -30,20 +30,17 @@ function openboard() {
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
-  await downloadFromServer();
-  //Load from server
-  loadData();
-
-  currentDragElement = new DragandDrop();
-  currentDragElement.loadTasks();
-  // console.log("Tasks Array:", Tasks);
-
   let item = document.querySelector('[item]').getAttribute('item');
-  if (item === 'AddTask' || item === 'Board') {
-    console.log('Nicht gefunden ', item);
-  } else {
-    loadingPrps = new Loading();
-  }
+  await downloadFromServer();
+  loadData();
+  loadingClasses(item);
+}
+
+function loadingClasses(item) {
+  if (item == "Summary") { loadingPrps = new Loading(); }
+  else if (item == "Board") { currentDragElement = new DragandDrop(); }
+  else if (item == "AddTask") { newTask = new Task(); }
+  else { console.error('404 not found', item); }
 }
 
 //Save and Load
@@ -66,46 +63,10 @@ function checkInput(field) {
     input.classList.remove('blackTextColor');
   }
 }
-function changePriority(str) {
-  if (str == 1) {
-    newTask.aktivateUrgent();
-  } else if (str == 2) {
-    newTask.aktivateMedium();
-  } else {
-    newTask.aktivateLow();
-  }
-}
 
-// Script for Dropdown Menus
-function openList(id) {
-  let dropdowns = document.querySelectorAll('.dropdown .list');
-  if (id == 3) {
-    false;
-  } else {
-    dropdowns[id].classList.toggle('active');
-  }
 
-  if (!document.querySelector('.dropdown .active') && contactList.length > 0) {
-    renderIcons();
-    selectedContacts.classList.toggle('active');
-  } else {
-    selectedContacts.classList.remove('active');
-    selectedContacts.innerHTML = '';
-  }
-}
 
-function addContact(id) {
-  let selectableObject = document.querySelectorAll('.list div');
-  let checkedChild = selectableObject[id].lastElementChild;
-  let contact = selectableObject[id].innerText;
-  if (!checkedChild.checked && !checkArr(contact)) {
-    checkedChild.checked = true;
-    contactList.push(contact);
-  } else {
-    contactList.splice(contactList.indexOf(contact), 1);
-    checkedChild.checked = false;
-  }
-}
+
 
 function checkArr(contact) {
   return contactList.includes(contact);
