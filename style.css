@@ -1373,7 +1373,7 @@ textarea {
 	position: fixed;
 	right: -405px;
 	top: 0;
-	z-index: 2;
+	z-index: 100;
 	background-color: var(--color-white);
 	width: 400px;
 	height: 100%;

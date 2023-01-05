@@ -122,7 +122,7 @@ function getInfosToAddNewTask() {
 	document.querySelector(".addtask-box").addEventListener("click", () => {
 		document.querySelector(".newTask").classList.toggle("open");
 		// document.getElementById("add-task").classList.toggle("open");
-		// document.getElementById("overlay").classList.toggle("open");
+		document.getElementById("overlay").classList.toggle("open");
 		// document.querySelector(".close-icon").classList.toggle("open");
 	});
 }
@@ -130,6 +130,6 @@ function getInfosToAddNewTask() {
 document.querySelector(".close-icon img").addEventListener("click", () => {
 	document.querySelector(".newTask").classList.toggle("open");
 	// document.getElementById("add-task").classList.toggle("open");
-	// document.getElementById("overlay").classList.toggle("open");
+	document.getElementById("overlay").classList.toggle("open");
 	// document.querySelector(".close-icon").classList.toggle("open");
 });
