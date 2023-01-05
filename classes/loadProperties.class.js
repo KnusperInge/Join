@@ -1,4 +1,4 @@
-class Loading extends Task {
+class Loading {
   allTasksArr;
   urgentTasksArr = [];
   toDoTaskArr = [];
@@ -13,7 +13,7 @@ class Loading extends Task {
   DAY = 0;
   FinalDate = "";
   constructor() {
-    super();
+
     this.allTasksArr = Tasks;
     console.log('Hallo Arry', this.allTasksArr);
     console.log('Datumsarry:', this.dates);

@@ -12,19 +12,24 @@ class Task {
   prioBtns;
   dropDownBtns;
   contactbtns;
+  catagoryBtns;
 
 
   constructor() {
     this.setPriorityBtn();
     this.setDropdownBtn();
-    this.setContactbtn();
+    this.setContactBtn();
+    this.setCategoryBtn();
+    // this.setAddBtn();
+    // this.setClearBtn();
   }
 
   setPriorityBtn() {
     this.prioBtns = document.querySelectorAll('.priority-container .priority');
+
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        const id = event.target.id;
+        let id = event.target.id;
         this.aktivatePriorityBtn(id)
       });
     });
@@ -69,7 +74,7 @@ class Task {
     }
   }
 
-  setContactbtn() {
+  setContactBtn() {
     this.selectedContacts = document.querySelector('.selectedContacts');
     this.contactbtns = document.querySelectorAll('.contacts div');
     this.contactbtns.forEach((btn) => {
@@ -107,8 +112,32 @@ class Task {
     });
   }
 
+  setCategoryBtn() {
+    this.catagoryBtns = document.querySelectorAll('.category div');
+    this.catagoryBtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        let id = event.target.id;
+        this.addCategory(id);
+      });
+    });
+  }
+  addCategory(id) {
+    const input = document.querySelector('.cagetorgy-input');
+    input.value = this.catagoryBtns[id].textContent;
+    this.openList(1);
+    if (!input.value == '') {
+      this.Category = this.catagoryBtns[id].textContent;
+    }
+  }
 
+  setAddBtn() {
+    document.querySelector('.AddButton').addEventListener('click', this.handleForm);
+  }
 
+  setClearBtn() {
+    document.querySelector('#clear-btn').addEventListener('click', this.clearForm);
+
+  }
 
 
 
@@ -119,7 +148,7 @@ class Task {
     this.Description = document.getElementById("description-input").value;
     this.Status = "toDo";
     this.Contacts = contactList;
-    //console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
+    console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
   }
 
   checkpriority() {
@@ -132,9 +161,9 @@ class Task {
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
-    document.querySelector('#TaskForm').reset();
+    // document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
-    openList(3);
+    // openList(3);
   }
 
   // Set Bg-color for Prioritybtn
