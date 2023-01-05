@@ -20,13 +20,16 @@ class Task {
     this.setDropdownBtn();
     this.setContactBtn();
     this.setCategoryBtn();
+    this.setAddBtn();
+    this.setClearBtn();
   }
 
   setPriorityBtn() {
     this.prioBtns = document.querySelectorAll('.priority-container .priority');
+
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        const id = event.target.id;
+        let id = event.target.id;
         this.aktivatePriorityBtn(id)
       });
     });
@@ -127,7 +130,22 @@ class Task {
     }
   }
 
+  setAddBtn() {
+    document.querySelector('.AddButton').addEventListener('click', this.handleForm);
+  }
 
+  setClearBtn() {
+    document.querySelector('#clear-btn').addEventListener('click', this.clearForm);
+
+  }
+
+  handleForm(event) {
+    event.preventDefault();
+    init();
+    this.Tasks.push(newTask);
+    saveData();
+    this.clearForm();
+  }
 
   init() {
     this.Title = document.querySelector('.input-title').value;

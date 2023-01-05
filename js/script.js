@@ -71,17 +71,6 @@ function inviteContact() {
   openList();
 }
 
-
-function handleForm(event) {
-  event.preventDefault();
-  newTask.init();
-  Tasks.push(newTask);
-  saveData();
-  newTask.clearForm();
-}
-
-
-
 // board.html
 
 let elementOnDrag;
