@@ -1210,45 +1210,55 @@ addtask-box img {
 
 /* New Contact Form */
 #overlay {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	bottom: 0;
 	right: 0;
 	z-index: 49;
 	background-color: var(--color-lightgrey);
+	opacity: 0.8;
 	display: none;
 }
+
 #overlay.open {
 	display: unset;
 }
+
 #new-contact {
 	background-color: var(--color-blue);
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 0;
 	height: 100vh;
 	z-index: 50;
-	transition: width 0.3s ease-in-out;
 	border-radius: 30px;
 	border-top-left-radius: 0;
+	transition: all ease-in-out 225ms;
 }
+
 #new-contact.open {
 	width: 580px;
 }
+
 #new-contact-content {
-	display: none;
 	opacity: 0;
+	display: flex;
 	position: relative;
-	transition: opacity 0.2s ease;
+	flex-direction: column;
 }
 
 #new-contact-content.open {
-	opacity: 1;
-	display: flex;
-	flex-direction: column;
+	animation: contentOpen 80ms ease-in-out forwards;
 }
+
+@keyframes contentOpen {
+	100% {
+		opacity: 1;
+	}
+}
+
 .content-header {
 	height: 35vh;
 	display: flex;
@@ -1256,6 +1266,7 @@ addtask-box img {
 	justify-content: center;
 	align-items: center;
 }
+
 .content-header img:nth-child(1) {
 	position: absolute;
 	width: 21.65px;
@@ -1264,6 +1275,7 @@ addtask-box img {
 	top: 21px;
 	cursor: pointer;
 }
+
 .content-header img:nth-child(2) {
 	width: 55.12px;
 	height: 66.48px;
@@ -1282,14 +1294,17 @@ addtask-box img {
 .new-contact-buttons button:nth-child(2) {
 	justify-content: center;
 }
+
 .content-body {
 	background-color: var(--color-white);
 	height: 65vh;
 	flex-direction: column;
 }
+
 .content-body img {
 	margin-bottom: 35px;
 }
+
 .new-content-form {
 	flex-direction: column;
 	position: unset;
@@ -1298,6 +1313,7 @@ addtask-box img {
 	width: unset;
 	gap: unset;
 }
+
 .new-content-form input {
 	width: 422px;
 	height: 49px;
@@ -1305,6 +1321,7 @@ addtask-box img {
 	padding: 13px 21px;
 	margin-bottom: 49px;
 }
+
 #input-name {
 	background-image: url(../img/add_c_perso.png);
 	background-repeat: no-repeat;
@@ -1322,6 +1339,7 @@ addtask-box img {
 	background-repeat: no-repeat;
 	background-position: 95%;
 }
+
 .new-contact-buttons {
 	display: flex;
 	gap: 25px;
@@ -1335,6 +1353,7 @@ addtask-box img {
 	transition: all 225ms ease-in-out;
 	transition-property: color, border-width;
 }
+
 .button-clear:hover {
 	border: 2px solid var(--color-blue);
 	color: var(--color-blue);
