@@ -20,8 +20,8 @@ class Task {
     this.setDropdownBtn();
     this.setContactBtn();
     this.setCategoryBtn();
-    this.setAddBtn();
-    this.setClearBtn();
+    // this.setAddBtn();
+    // this.setClearBtn();
   }
 
   setPriorityBtn() {
@@ -139,13 +139,7 @@ class Task {
 
   }
 
-  handleForm(event) {
-    event.preventDefault();
-    init();
-    this.Tasks.push(newTask);
-    saveData();
-    this.clearForm();
-  }
+
 
   init() {
     this.Title = document.querySelector('.input-title').value;
@@ -154,7 +148,7 @@ class Task {
     this.Description = document.getElementById("description-input").value;
     this.Status = "toDo";
     this.Contacts = contactList;
-    //console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
+    console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
   }
 
   checkpriority() {
@@ -167,9 +161,9 @@ class Task {
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
-    document.querySelector('#TaskForm').reset();
+    // document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
-    openList(3);
+    // openList(3);
   }
 
   // Set Bg-color for Prioritybtn

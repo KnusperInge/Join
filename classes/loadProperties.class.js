@@ -1,3 +1,4 @@
+class Loading {
   allTasksArr;
   urgentTasksArr = [];
   toDoTaskArr = [];
@@ -12,6 +13,7 @@
   DAY = 0;
   FinalDate = "";
   constructor() {
+
     this.allTasksArr = Tasks;
     console.log('Hallo Arry', this.allTasksArr);
     console.log('Datumsarry:', this.dates);
