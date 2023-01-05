@@ -1,0 +1,52 @@
+.login_screen {
+  top: 40%;
+}
+.sign_up {
+  top: 780px;
+  right: 20px;
+}
+.login_screen {
+  width: 90%;
+  height: 60%;
+}
+
+.login_form {
+  width: 200%;
+}
+
+.login_options {
+  flex-direction: column-reverse;
+  width: 200%;
+  gap: 15px;
+}
+.login_buttons {
+  flex-direction: column;
+  gap: 10px 0;
+  width: 150%;
+}
+
+.button_clear {
+  width: 100%;
+}
+#loading-page img {
+  width: 70px;
+}
+.login_logo_blue {
+  width: 70px;
+}
+
+@keyframes white-logo {
+  100% {
+    top: 70px;
+    left: 50px;
+    width: 70px;
+  }
+}
+
+@keyframes blue-logo {
+  100% {
+    top: 70px;
+    left: 50px;
+    width: 70px;
+  }
+}
