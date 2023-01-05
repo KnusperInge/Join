@@ -16,29 +16,28 @@ function openboard() {
 }
 
 // open/close task- Sidemenu
-if (window.location.pathname == '/contact.html') {
-  document
-    .querySelector('#addTask_button')
-    .addEventListener('click', (event) => {
-      document.querySelector('.newTask').classList.remove('d-none');
-      console.log(event);
-    });
-  document.querySelector('.close-icon').addEventListener('click', (event) => {
-    document.querySelector('.newTask').classList.add('d-none');
-    console.log(event);
-  });
-}
+
+//document.querySelector('#addTask_button').addEventListener('click', () => {
+//   document.querySelector('.newTask').classList.remove('d-none');
+// });
+// document.querySelector('.close-icon').addEventListener('click', () => {
+//   document.querySelector('.newTask').classList.add('d-none');
+
+// });
+
 
 //Loading Element
-document.addEventListener('DOMContentLoaded', testinit);
+document.addEventListener('DOMContentLoaded', init);
 
-async function testinit() {
+async function init() {
   await downloadFromServer();
   //Load from server
   loadData();
-  // currentDragElement = new DragandDrop();
-  // currentDragElement.loadTasks();
+
+  currentDragElement = new DragandDrop();
+  currentDragElement.loadTasks();
   // console.log("Tasks Array:", Tasks);
+
   let item = document.querySelector('[item]').getAttribute('item');
   if (item === 'AddTask' || item === 'Board') {
     console.log('Nicht gefunden ', item);
@@ -50,10 +49,12 @@ async function testinit() {
 //Save and Load
 function saveData() {
   backend.setItem('Tasks', JSON.stringify(Tasks));
+
 }
 
 async function loadData() {
   Tasks = JSON.parse(backend.getItem('Tasks')) || [];
+
 }
 
 //Task.html functions
@@ -170,7 +171,7 @@ function drop(category) {
   let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
   Tasks[index].Status = category;
   saveData();
-  testinit();
+  //init();
   console.log(Tasks);
   currentDragElement.loadTasks();
 }
