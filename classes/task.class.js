@@ -12,12 +12,14 @@ class Task {
   prioBtns;
   dropDownBtns;
   contactbtns;
+  catagoryBtns;
 
 
   constructor() {
     this.setPriorityBtn();
     this.setDropdownBtn();
-    this.setContactbtn();
+    this.setContactBtn();
+    this.setCategoryBtn();
   }
 
   setPriorityBtn() {
@@ -69,7 +71,7 @@ class Task {
     }
   }
 
-  setContactbtn() {
+  setContactBtn() {
     this.selectedContacts = document.querySelector('.selectedContacts');
     this.contactbtns = document.querySelectorAll('.contacts div');
     this.contactbtns.forEach((btn) => {
@@ -107,8 +109,23 @@ class Task {
     });
   }
 
-
-
+  setCategoryBtn() {
+    this.catagoryBtns = document.querySelectorAll('.category div');
+    this.catagoryBtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        let id = event.target.id;
+        this.addCategory(id);
+      });
+    });
+  }
+  addCategory(id) {
+    const input = document.querySelector('.cagetorgy-input');
+    input.value = this.catagoryBtns[id].textContent;
+    this.openList(1);
+    if (!input.value == '') {
+      this.Category = this.catagoryBtns[id].textContent;
+    }
+  }
 
 
 
