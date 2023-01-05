@@ -70,6 +70,8 @@ function inviteContact() {
   document.getElementById('dropdownContacts').classList.add('d-none');
   openList();
 }
+
+//handle Form 
 document.getElementById("TaskForm").addEventListener("submit", handleForm);
 
 function handleForm(event) {
