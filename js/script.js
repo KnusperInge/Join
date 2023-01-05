@@ -68,16 +68,8 @@ function checkInput(field) {
 
 
 
-function checkArr(contact) {
-  return contactList.includes(contact);
-}
 
-function renderIcons() {
-  contactList.forEach((element) => {
-    let firstletter = element.charAt(0).toUpperCase();
-    selectedContacts.innerHTML += `<span>${firstletter}</span>`;
-  });
-}
+
 
 function inviteContact() {
   document.getElementById('searchContacts').classList.remove('d-none');
@@ -85,15 +77,6 @@ function inviteContact() {
   openList();
 }
 
-// handle Task Forms
-if (window.location.pathname == '/task.html') {
-  document.getElementById('TaskForm').addEventListener('submit', handleForm);
-
-  document.querySelector('#clear-btn').addEventListener('click', (event) => {
-    event.preventDefault();
-    newTask.clearForm();
-  });
-}
 
 function handleForm(event) {
   event.preventDefault();

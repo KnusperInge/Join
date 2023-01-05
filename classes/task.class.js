@@ -1,7 +1,7 @@
 class Task {
   Title;
   Contacts = [];
-  edittors = [];
+  editors = [];
   selectedContacts;
   Deadline;
   Category;
@@ -18,68 +18,6 @@ class Task {
     this.setPriorityBtn();
     this.setDropdownBtn();
     this.setContactbtn();
-  }
-
-  setDropdownBtn() {
-    this.dropDownBtns = document.querySelectorAll('.dropdown');
-    this.dropDownBtns.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-
-        let rawid = event.target.id;
-        let id = rawid.split(':');
-        this.openList(id[1]);
-      });
-    });
-  }
-  setContactbtn() {
-    this.selectedContacts = document.querySelector('.selectedContacts');
-    this.contactbtns = document.querySelectorAll('.contacts div');
-    this.contactbtns.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        let id = event.target.id;
-
-        this.addContact(id);
-        //console.log(event.target.id);
-      });
-    });
-  }
-  addContact(id) {
-
-    let checkedChild = this.contactbtns[id].lastElementChild;
-    let editor = this.contactbtns[id].innerText;
-    //console.log('bearbeiter', editor)
-    this.fillEditorsArr(editor, checkedChild);
-
-  }
-
-  fillEditorsArr(editor, checkedChild) {
-    if (!checkedChild.checked && !checkArr(editor)) {
-      checkedChild.checked = true;
-      this.edittors.push(editor);
-    } else {
-      this.edittors.splice(this.edittors.indexOf(editor), 1);
-      checkedChild.checked = false;
-    }
-  }
-
-  renderIcons() {
-    this.edittors.forEach((element) => {
-      let firstletter = element.charAt(0).toUpperCase();
-      this.selectedContacts.innerHTML += `<span>${firstletter}</span>`;
-    });
-  }
-
-  openList(id) {
-    let dropdowns = document.querySelectorAll('.dropdown > .list');
-    dropdowns[id].classList.toggle('active');
-
-    if (!document.querySelector('.dropdown .active') && this.edittors.length > 0) {
-      this.renderIcons();
-      this.selectedContacts.classList.toggle('active');
-    } else {
-      this.selectedContacts.classList.remove('active');
-      this.selectedContacts.innerHTML = '';
-    }
   }
 
   setPriorityBtn() {
@@ -103,6 +41,75 @@ class Task {
       this.aktivateLow(id);
     }
   }
+
+  setDropdownBtn() {
+    this.dropDownBtns = document.querySelectorAll('.dropdown');
+    this.dropDownBtns.forEach((btn) => {
+      btn.firstElementChild.addEventListener('click', (event) => {
+        let id = event.target.id;
+        this.openList(id);
+      });
+    });
+  }
+
+  openList(i) {
+    let dropdowns = document.querySelectorAll('.dropdown > .list');
+    dropdowns[i].classList.toggle('active');
+    this.toogleList();
+
+
+  }
+  toogleList() {
+    if (!document.querySelector('.dropdown .active') && this.editors.length > 0) {
+      this.renderIcons();
+      this.selectedContacts.classList.toggle('active');
+    } else {
+      this.selectedContacts.classList.remove('active');
+      this.selectedContacts.innerHTML = '';
+    }
+  }
+
+  setContactbtn() {
+    this.selectedContacts = document.querySelector('.selectedContacts');
+    this.contactbtns = document.querySelectorAll('.contacts div');
+    this.contactbtns.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        let id = event.target.id;
+        this.addContact(id);
+      });
+    });
+  }
+
+  addContact(id) {
+    let checkedChild = this.contactbtns[id].lastElementChild;
+    let editor = this.contactbtns[id].innerText;
+    this.fillEditorsArr(editor, checkedChild);
+
+  }
+  checkArr(editor) {
+    return this.editors.includes(editor);
+  }
+
+  fillEditorsArr(editor, checkedChild) {
+    if (!checkedChild.checked && !this.checkArr(editor)) {
+      checkedChild.checked = true;
+      this.editors.push(editor);
+    } else {
+      this.editors.splice(this.editors.indexOf(editor), 1);
+      checkedChild.checked = false;
+    }
+  }
+
+  renderIcons() {
+    this.editors.forEach((element) => {
+      let firstletter = element.charAt(0).toUpperCase();
+      this.selectedContacts.innerHTML += `<span>${firstletter}</span>`;
+    });
+  }
+
+
+
+
 
 
   init() {
