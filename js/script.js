@@ -40,7 +40,7 @@ function loadingClasses(item) {
   if (item == "Summary") { loadingPrps = new Loading(); }
   else if (item == "Board") { currentDragElement = new DragandDrop(); }
   else if (item == "AddTask") { newTask = new Task(); }
-  else { console.error('404 not found', item); }
+  else { console.error(`404 no Classes available for ${item}`); }
 }
 
 //Save and Load
@@ -69,6 +69,15 @@ function inviteContact() {
   document.getElementById('searchContacts').classList.remove('d-none');
   document.getElementById('dropdownContacts').classList.add('d-none');
   openList();
+}
+document.getElementById("TaskForm").addEventListener("submit", handleForm);
+
+function handleForm(event) {
+  event.preventDefault();
+  newTask.init();
+  Tasks.push(newTask);
+  saveData();
+  //newTask.clearForm();
 }
 
 // board.html
