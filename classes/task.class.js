@@ -1,6 +1,6 @@
 class Task {
+  ID;
   Title;
-  Contacts = [];
   editors = [];
   selectedContacts;
   Deadline;
@@ -142,13 +142,12 @@ class Task {
 
 
   init() {
+    this.ID = Tasks.length;
     this.Title = document.querySelector('.input-title').value;
     this.Deadline = document.getElementById("date-input").value;
     this.Priority = this.checkpriority();
     this.Description = document.getElementById("description-input").value;
     this.Status = "toDo";
-    this.Contacts = contactList;
-    console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
   }
 
   checkpriority() {
@@ -161,7 +160,8 @@ class Task {
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
-    // document.querySelector('#TaskForm').reset();
+    this.selectedContacts.innerHTML = "";
+    document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
     // openList(3);
   }
@@ -191,9 +191,21 @@ class Task {
   deactivtedContactDropdown() {
     document.querySelectorAll(".contacts div input").forEach((element) => {
       element.checked = false;
-
     });
-    contactList = [];
+    this.editors = [];
+  }
+  finalTask() {
+    return {
+      ID: this.ID,
+      Title: this.Title,
+      Editors: this.editors,
+      Category: this.Category,
+      Deadline: this.Deadline,
+      Status: this.Status,
+      Priority: this.Priority,
+      Description: this.Description,
+      Subtasks: this.Subtaks
+    }
   }
 
 }
