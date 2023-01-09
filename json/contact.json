@@ -1,77 +1,198 @@
 [
-  {
-    "id": 0,
-    "name": "Marko",
-    "surname": "Manson",
-    "initials": "MM",
-    "email": "marko.manson@join.de",
-    "number": [
-      {
-        "landline": "+49 03652 827377"
-      },
-      {
-        "mobile": "+49 126 283746"
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "name": "Anna",
-    "surname": "Will",
-    "initials": "AW",
-    "email": "anna.will@join.de",
-    "number": [
-      {
-        "landline": "+49 03652 827377"
-      },
-      {
-        "mobile": "+49 126 283746"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Hans",
-    "surname": "Muster",
-    "initials": "HM",
-    "email": "hans.muster@join.de",
-    "number": [
-      {
-        "landline": "+49 03652 827377"
-      },
-      {
-        "mobile": "+49 126 283746"
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Sabine",
-    "surname": "Müller",
-    "initials": "SM",
-    "email": "sabine.mueller@join.de",
-    "number": [
-      {
-        "landline": "+49 03652 827377"
-      },
-      {
-        "mobile": "+49 126 283746"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "name": "Thomas",
-    "surname": "Seibold",
-    "initials": "TS",
-    "email": "thomas.seibold@join.de",
-    "number": [
-      {
-        "landline": "+49 03652 827377"
-      },
-      {
-        "mobile": "+49 126 283746"
-      }
-    ]
-  }
+	{
+		"id": 0,
+		"name": "Marko",
+		"surname": "Manson",
+		"initials": "MM",
+		"email": "marko.manson@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 1,
+		"name": "Anna",
+		"surname": "Will",
+		"initials": "AW",
+		"email": "anna.will@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Hans",
+		"surname": "Muster",
+		"initials": "HM",
+		"email": "hans.muster@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Sabine",
+		"surname": "Müller",
+		"initials": "SM",
+		"email": "sabine.mueller@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Thomas",
+		"surname": "Seibold",
+		"initials": "TS",
+		"email": "thomas.seibold@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+
+	{
+		"id": 0,
+		"name": "Marko",
+		"surname": "Manson",
+		"initials": "MM",
+		"email": "marko.manson@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 1,
+		"name": "Anna",
+		"surname": "Will",
+		"initials": "AW",
+		"email": "anna.will@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Hans",
+		"surname": "Muster",
+		"initials": "HM",
+		"email": "hans.muster@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Sabine",
+		"surname": "Müller",
+		"initials": "SM",
+		"email": "sabine.mueller@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 0,
+		"name": "Marko",
+		"surname": "Manson",
+		"initials": "MM",
+		"email": "marko.manson@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 1,
+		"name": "Anna",
+		"surname": "Will",
+		"initials": "AW",
+		"email": "anna.will@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Hans",
+		"surname": "Muster",
+		"initials": "HM",
+		"email": "hans.muster@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Sabine",
+		"surname": "Müller",
+		"initials": "SM",
+		"email": "sabine.mueller@join.de",
+		"number": [
+			{
+				"landline": "+49 03652 827377"
+			},
+			{
+				"mobile": "+49 126 283746"
+			}
+		]
+	}
 ]

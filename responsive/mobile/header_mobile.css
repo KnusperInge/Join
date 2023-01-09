@@ -1,0 +1,18 @@
+header {
+	height: 80px;
+	justify-content: space-between;
+	padding: 0 15px;
+}
+
+header div:nth-child(1) img {
+	width: 32px;
+	height: 40px;
+}
+
+header div:nth-child(2) span {
+	display: none;
+}
+
+.header-icon {
+	display: none;
+}
