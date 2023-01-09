@@ -42,6 +42,9 @@ function loadingClasses(item) {
 		currentDragElement = new DragandDrop();
 	} else if (item == "AddTask") {
 		newTask = new Task();
+	} else if (item == "Contacts") {
+		newTask = new Task();
+
 	} else {
 		console.error(`404 no Classes available for ${item}`);
 	}
@@ -50,10 +53,12 @@ function loadingClasses(item) {
 //Save and Load
 function saveData() {
 	backend.setItem("Tasks", JSON.stringify(Tasks));
+	backend.setItem("Contacts", JSON.stringify(Tasks));
 }
 
 async function loadData() {
 	Tasks = JSON.parse(backend.getItem("Tasks")) || [];
+	contactList = JSON.parse(backend.getItem("Contacts")) || [];
 }
 
 //Task.html functions
@@ -76,11 +81,14 @@ function inviteContact() {
 document.getElementById("TaskForm").addEventListener("submit", handleForm);
 
 function handleForm(event) {
+	console.log(event);
 	event.preventDefault();
 	newTask.init();
 	Tasks.push(newTask);
 	saveData();
-	//newTask.clearForm();
+	newTask.clearForm();
+	loadData();
+	console.log(Tasks);
 }
 
 // board.html

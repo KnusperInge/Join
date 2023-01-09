@@ -4,6 +4,7 @@
     "name": "Marko",
     "surname": "Manson",
     "initials": "MM",
+    "bg-color": "DE9DEF",
     "email": "marko.manson@join.de",
     "number": [
       {
@@ -19,6 +20,7 @@
     "name": "Anna",
     "surname": "Will",
     "initials": "AW",
+    "bg-color": "#9DEFD6",
     "email": "anna.will@join.de",
     "number": [
       {
@@ -34,6 +36,7 @@
     "name": "Hans",
     "surname": "Muster",
     "initials": "HM",
+    "bg-color": "#CBEF9D",
     "email": "hans.muster@join.de",
     "number": [
       {
@@ -49,6 +52,7 @@
     "name": "Sabine",
     "surname": "Müller",
     "initials": "SM",
+    "bg-color": "#79E480",
     "email": "sabine.mueller@join.de",
     "number": [
       {
@@ -64,6 +68,7 @@
     "name": "Thomas",
     "surname": "Seibold",
     "initials": "TS",
+    "bg-color": "#F5CB23",
     "email": "thomas.seibold@join.de",
     "number": [
       {

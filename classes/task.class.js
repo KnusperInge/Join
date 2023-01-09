@@ -1,6 +1,6 @@
 class Task {
   Title;
-  Contacts = [];
+
   editors = [];
   selectedContacts;
   Deadline;
@@ -147,7 +147,7 @@ class Task {
     this.Priority = this.checkpriority();
     this.Description = document.getElementById("description-input").value;
     this.Status = "toDo";
-    this.Contacts = contactList;
+    this.editors;
     console.log(this.Title, this.Deadline, this.Priority, this.Contacts);
   }
 
@@ -161,7 +161,8 @@ class Task {
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
-    // document.querySelector('#TaskForm').reset();
+    this.selectedContacts.innerHTML = "";
+    document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
     // openList(3);
   }
@@ -193,7 +194,7 @@ class Task {
       element.checked = false;
 
     });
-    contactList = [];
+    this.editors = [];
   }
 
 }
