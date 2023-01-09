@@ -33,7 +33,7 @@ async function init() {
 	await downloadFromServer();
 	loadData();
 	loadingClasses(item);
-	console.log(Tasks);
+	//console.log(Tasks);
 }
 
 function loadingClasses(item) {
@@ -41,20 +41,29 @@ function loadingClasses(item) {
 		loadingPrps = new Loading();
 	} else if (item == "Board") {
 		currentDragElement = new DragandDrop();
+		document.querySelector('#addTask_button').addEventListener('click', () => {
+			window.open((href = "./task.html"), "_self");
+		});
 	} else if (item == "AddTask") {
 		newTask = new Task();
 	} else if (item == "Contacts") {
 		newTask = new Task();
+		contact = new Contact();
+		document.querySelector('.button-blue').addEventListener('click', test);
 
 	} else {
 		console.error(`404 no Classes available for ${item}`);
 	}
 }
 
+function test() {
+	contact.createContact();
+}
+
 //Save and Load
 function saveData() {
 	backend.setItem("Tasks", JSON.stringify(Tasks));
-	backend.setItem("Contacts", JSON.stringify(Tasks));
+	backend.setItem("Contacts", JSON.stringify(contactList));
 }
 
 async function loadData() {
@@ -110,3 +119,5 @@ function drop(category) {
 	console.log(Tasks);
 	currentDragElement.loadTasks();
 }
+
+

@@ -27,14 +27,14 @@ async function loadLettersArray() {
 	random_bg_color();
 }
 
-function random_bg_color() {
-	let icon = document.getElementById("contactIcon");
-	var x = Math.floor(Math.random() * 256);
-	var y = Math.floor(Math.random() * 256);
-	var z = Math.floor(Math.random() * 256);
-	var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-	icon.style.background = bgColor;
-}
+// function random_bg_color() {
+// 	let icon = document.getElementById("contactIcon");
+// 	var x = Math.floor(Math.random() * 256);
+// 	var y = Math.floor(Math.random() * 256);
+// 	var z = Math.floor(Math.random() * 256);
+// 	var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+// 	icon.style.background = bgColor;
+// }
 
 function generateLetterList() {
 	letters.forEach((letter) => {
@@ -83,15 +83,15 @@ document.querySelector(".add-contact").addEventListener("click", () => {
 
 document.getElementById("submitFormNewContact").addEventListener("submit", createNewContact);
 function createNewContact(event) {
-	const inputs = document.querySelector(".new-content-form");
+	// const inputs = document.querySelector(".new-content-form");
 	event.preventDefault();
-	let addedContact = new newContact(inputs);
+	// let addedContact = new newContact(inputs);
 
-	console.log(addedContact);
+	// console.log(addedContact);
 
-	inputs.children[0].value = "";
-	inputs.children[1].value = "";
-	inputs.children[2].value = "";
+	// inputs.children[0].value = "";
+	// inputs.children[1].value = "";
+	// inputs.children[2].value = "";
 }
 
 // ANCHOR close new contact
