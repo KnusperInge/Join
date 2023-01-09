@@ -33,6 +33,7 @@ async function init() {
 	await downloadFromServer();
 	loadData();
 	loadingClasses(item);
+	console.log(Tasks);
 }
 
 function loadingClasses(item) {
@@ -84,7 +85,7 @@ function handleForm(event) {
 	console.log(event);
 	event.preventDefault();
 	newTask.init();
-	Tasks.push(newTask);
+	Tasks.push(newTask.finalTask());
 	saveData();
 	newTask.clearForm();
 	loadData();

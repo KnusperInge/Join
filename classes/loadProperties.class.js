@@ -15,9 +15,6 @@ class Loading {
   constructor() {
 
     this.allTasksArr = Tasks;
-    console.log('Hallo Arry', this.allTasksArr);
-    console.log('Datumsarry:', this.dates);
-
     this.checkUrgent();
     this.checkStatus();
     this.init();
