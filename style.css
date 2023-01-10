@@ -708,14 +708,6 @@ h3 {
 }
 
 #subtask-input {
-	border-bottom: 1px solid var(--color-lightgrey);
-	padding: 10px;
-	font-weight: 400;
-	font-size: 15px;
-	line-height: 120%;
-	width: 320px;
-	-moz-appearance: none;
-	-webkit-appearance: none;
 }
 /* ANCHOR Dorpdown Menu */
 .dropdown {
@@ -847,13 +839,45 @@ textarea {
 	padding: 10px;
 	resize: none;
 }
-
-#subtask-input {
-	background: transparent url(/img/plus_Icon.png);
-	background-repeat: no-repeat;
-	background-size: 10px;
-	background-position: 95%;
+.subtask-container {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid var(--color-lightgrey);
+	gap: 18px;
+	width: 320px;
+}
+.subtask-container img {
+	width: 14px;
+	height: 14px;
+}
+.subtask-img-container {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.subtask-img-container span {
 	color: var(--color-lightgrey);
+	font-size: 20px;
+	padding-bottom: 5px;
+}
+#subtask-input {
+	color: var(--color-lightgrey);
+
+	padding: 10px;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 120%;
+	width: 280px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.subtasks {
+	width: 320px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+	gap: 5px;
 }
 
 .right-Container button {
@@ -1301,7 +1325,7 @@ textarea {
 	position: absolute;
 	width: 21.65px;
 	height: 21.65px;
-	right: 21px;
+	left: 541.31px;
 	top: 21px;
 	cursor: pointer;
 }

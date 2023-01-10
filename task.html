@@ -26,6 +26,14 @@
 </head>
 
 <body item="AddTask">
+  <template id="subtask-temp">
+    <div>
+      <input type="checkbox">
+      <span>Subtasktitel</span>
+    </div>
+
+  </template>
+
   <header id="active" class="" include-html="Temp/header.html"></header>
 
   <main class="full-height-width">
@@ -106,7 +114,16 @@
           </div>
           <div>
             <h3>Subtasks</h3>
-            <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+            <div class="subtask-container">
+              <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+              <img class="" src="img/plus_Icon.png" alt="">
+              <div class=" d-none subtask-img-container">
+                <img id="subtaskClearBtn" src="img/cross_icon_blue.png" alt="">
+                <span>|</span>
+                <img id="subtaskAddBtn" src="img/checked_blue.png" alt="">
+              </div>
+            </div>
+            <div class="subtasks"></div>
           </div>
         </div>
 
