@@ -6,7 +6,7 @@
 	width: 100%;
 	min-width: unset;
 	box-shadow: unset;
-	height: 99%;
+	height: 100%;
 	padding-bottom: 0;
 }
 
@@ -37,7 +37,7 @@
 .contact-btn {
 	justify-content: unset;
 	position: absolute;
-	top: calc(50% + 8px);
+	top: calc(50% + 12px);
 	transform: translate(0, -50%);
 	right: 0px;
 	padding: 0;
@@ -57,6 +57,7 @@
 	display: none;
 }
 
+/* ANCHOR contact informations */
 #contact-informations {
 	width: unset;
 	margin: 97.3px 0;
@@ -73,4 +74,70 @@
 /* close contact info button */
 .close_contact_info_tablet.active {
 	display: block;
+}
+
+/* ANCHOR new contact */
+
+#new-contact.open {
+	width: 98vw;
+	height: 98vh;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 8px;
+	background-color: var(--color-white);
+}
+
+.content-header {
+	height: 34vh;
+	background-color: var(--color-blue);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.content-header span:nth-of-type(1) {
+	font-size: 28px;
+}
+
+.content-header span:nth-of-type(2) {
+	font-size: 20px;
+}
+
+.content-body {
+	height: 64vh;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.content-body img {
+	margin: 4px;
+}
+
+.new-content-form input {
+	margin-bottom: 14px;
+}
+
+@media (max-height: 635px) {
+	.content-header {
+		display: none !important;
+	}
+
+	.content-body {
+		height: 98vh;
+		border-radius: 8px;
+	}
+
+	.content-body img {
+		height: 90px;
+	}
+
+	.new-contact-buttons button:nth-child(1),
+	.new-contact-buttons button:nth-child(2) {
+		font-size: 18px;
+		height: 30px;
+	}
+
+	.new-content-form input {
+		margin-bottom: 12px;
+	}
 }
