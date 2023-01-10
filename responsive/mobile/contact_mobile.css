@@ -87,7 +87,7 @@
 	height: calc(100vh - 80px);
 	width: 100vw;
 	border-radius: 8px;
-	z-index: 13;
+	right: -650px;
 }
 
 #overlay.open {
@@ -95,13 +95,19 @@
 }
 
 .AddButton {
-	position: relative;
-	top: 0px;
+	right: -150px;
+	transition: right ease-in-out 225ms;
+	display: unset;
+	position: fixed;
+	top: 40px;
 	transform: translate(0, -50%);
-	right: 21px;
 	background-color: var(--color-white) !important;
 	color: var(--color-blue) !important;
 	width: 128px !important;
+}
+
+.AddButton.open {
+	right: 21px;
 }
 
 .AddButton img {
@@ -121,8 +127,7 @@
 }
 
 .form-head {
-	width: 100vw;
-	padding-left: 30px;
+	width: fit-content;
 	justify-content: flex-start;
 }
 
