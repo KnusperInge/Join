@@ -14,12 +14,24 @@
 	position: fixed;
 	top: 36px;
 	transform: translate(0, -50%);
-	right: 14px;
+	right: 0px;
+	left: 176px;
 	gap: unset;
 	padding: 0;
 	height: unset;
 	width: unset;
 	z-index: 11;
+	display: unset;
+}
+
+.contact-right-container.active {
+	top: 0px;
+	height: 100%;
+	transform: unset;
+}
+
+.contact-right-container.active button {
+	display: none;
 }
 
 .contact-btn {
@@ -38,8 +50,27 @@
 	height: 50px;
 	font-size: 18px;
 	justify-content: center;
+	margin-right: 14px;
 }
 
 .contact-btn img {
 	display: none;
+}
+
+#contact-informations {
+	width: unset;
+	margin: 97.3px 0;
+	margin-left: 3px;
+	padding: 0 22px;
+	background-color: var(--color-white);
+	overflow-y: auto;
+}
+
+#contact-informations.active {
+	height: calc(100vh - 97.3px);
+}
+
+/* close contact info button */
+.close_contact_info_tablet.active {
+	display: block;
 }

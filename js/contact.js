@@ -4,6 +4,15 @@ let letters = [];
 document.addEventListener("DOMContentLoaded", () => {
 	loadContactList();
 });
+
+// button for closing contact informations on tablet size
+document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
+	document.querySelector(".contact-right-container").classList.toggle("active");
+	document.querySelector(".close_contact_info_tablet").classList.toggle("active");
+	document.getElementById("contact-informations").classList.toggle("active");
+	document.getElementById("contact-informations").innerHTML = "";
+});
+
 async function loadContactList() {
 	contactArray = await fetch("../json/contact.json");
 	contactArray = await contactArray.json();
@@ -61,6 +70,9 @@ function loadContacts(letter) {
 }
 
 function openContactInfo(currentMail) {
+	document.querySelector(".contact-right-container").classList.toggle("active");
+	document.querySelector(".close_contact_info_tablet").classList.toggle("active");
+	document.getElementById("contact-informations").classList.toggle("active");
 	const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
 	const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
 	const contact = contactArray.find((contactArray) => contactArray.email === currentMail);
