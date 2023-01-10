@@ -9,10 +9,6 @@ header div:nth-child(1) img {
 	height: 40px;
 }
 
-header div:nth-child(2) span {
-	display: none;
-}
-
-.header-icon {
+header div:nth-child(2) {
 	display: none;
 }

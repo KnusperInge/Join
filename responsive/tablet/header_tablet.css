@@ -1,0 +1,12 @@
+.header-icon {
+	display: none;
+}
+
+header div:nth-child(2) {
+	right: 180px;
+	position: absolute;
+}
+
+header div:nth-child(2) img {
+	display: none;
+}

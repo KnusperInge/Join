@@ -1,0 +1,45 @@
+.content-contact {
+	height: calc(100vh - 97.3px);
+}
+
+#contact-list {
+	width: 100%;
+	min-width: unset;
+	box-shadow: unset;
+	height: 99%;
+	padding-bottom: 0;
+}
+
+.contact-right-container {
+	position: fixed;
+	top: 36px;
+	transform: translate(0, -50%);
+	right: 14px;
+	gap: unset;
+	padding: 0;
+	height: unset;
+	width: unset;
+	z-index: 11;
+}
+
+.contact-btn {
+	justify-content: unset;
+	position: absolute;
+	top: calc(50% + 8px);
+	transform: translate(0, -50%);
+	right: 0px;
+	padding: 0;
+}
+
+.contact-btn button {
+	background-color: var(--color-white);
+	color: var(--color-blue);
+	width: 128px;
+	height: 50px;
+	font-size: 18px;
+	justify-content: center;
+}
+
+.contact-btn img {
+	display: none;
+}

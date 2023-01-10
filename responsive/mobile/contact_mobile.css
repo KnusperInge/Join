@@ -1,11 +1,9 @@
-.contact-btn {
-	justify-content: unset;
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	padding: 0;
+/* header */
+.user-icon {
+	display: none;
 }
 
+/* contact.html */
 .content-contact {
 	position: absolute;
 	top: 0px;
@@ -15,8 +13,10 @@
 	width: 100%;
 	min-width: unset;
 	box-shadow: unset;
+	height: calc(100% - 80px);
+	padding-bottom: 0;
 }
 
-.contact-right-container {
-	display: none;
+.contact-btn {
+	top: 50%;
 }
