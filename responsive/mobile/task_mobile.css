@@ -9,15 +9,6 @@ header {
 }
 
 header div:nth-child(2) span {
-	/* display: block;
-	position: fixed;
-	top: 80px;
-	left: 0;
-	text-align: center;
-	color: blue;
-	width: 100%;
-	background-color: white; */
-
 	display: none;
 }
 
@@ -26,43 +17,24 @@ header div:nth-child(1) img {
 }
 
 /* task.html */
-main {
-	/* padding-top: 18px; */
-}
-
-section {
-	/* margin-bottom: 80px;
-	margin-top: 80px;
-	height: unset; */
-}
-
 #TaskForm {
-	position: absolute;
-	top: 0;
-	bottom: 80px;
-	padding-bottom: 8px;
-	height: unset;
-	flex-direction: column-reverse;
-}
-
-.left-Container {
+	height: calc(100vh - 80px - 80px);
 	padding: 0;
-	align-items: center;
-	overflow-y: auto;
 }
 
 .right-Container {
-	position: fixed;
 	top: 36px;
 	transform: translate(0, -50%);
-	right: 16px;
-	gap: unset;
-	padding: 0;
-	height: unset;
-	width: unset;
-	z-index: 11;
 }
 
-#clear-btn {
-	display: none;
+.right-Container button:nth-child(2) {
+	background-color: var(--color-blue);
+	color: var(--color-white);
+	display: flex;
+	align-items: center;
+}
+
+.right-Container button:nth-child(2) img {
+	display: block;
+	margin-left: 12px;
 }
