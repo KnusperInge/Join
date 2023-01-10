@@ -70,5 +70,6 @@ class Contact {
 			Phone: this.phone,
 			BgColor: this.bgcolor
 		});
+		saveData();
 	}
 }
