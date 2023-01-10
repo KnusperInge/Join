@@ -8,22 +8,66 @@ class Contact {
 	addedTasks;
 	email;
 	phone;
-
-
+	openNewTaskBtn;
+	closeNewTaskBtn;
+	contactIDs = [];
 
 	constructor() {
-		loadContacts();
+		// temporary loading local contact.json
+		this.loadContactList();
+		this.addEventListener();
 	}
-	loadContacts() {
+
+	async loadContactList() {
+		contactList = await fetch("../json/contact.json");
+		contactList = await contactList.json();
+		this.loadLettersArray();
+	}
+
+	loadLettersArray() {
+		document.getElementById("contact-list").innerHTML = "";
+		contactList.forEach((element) => {
+			let letter = element.surname.charAt(0).toUpperCase();
+			if (!this.includesLetter(letter)) letters.push(letter);
+		});
+		letters.sort();
+		this.generateLetterList();
+		// random_bg_color();
+	}
+
+	includesLetter(letter) {
+		return letters.includes(letter);
+	}
+
+	generateLetterList() {
+		letters.forEach((letter) => {
+			const letterTemp = document.getElementById("letter_list_template").content.cloneNode(true);
+			const tempContent = letterTemp.querySelectorAll("div, span");
+			tempContent[1].innerHTML = letter;
+			tempContent[2].id = letter + "-list";
+			document.getElementById("contact-list").appendChild(letterTemp);
+			this.loadContacts(letter);
+		});
+	}
+
+	loadContacts(letter) {
 		contactList.forEach((contact) => {
-			//toDo
-		})
-
-
-
+			const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
+			const tempContent = contactListTemp.querySelectorAll("div, img, span");
+			tempContent[0].id = contact.id;
+			tempContent[3].innerHTML = contact.name + " " + contact.surname;
+			tempContent[4].innerHTML = contact.email;
+			if (this.getSurChar(contact) == letter) {
+				document.getElementById(letter + "-list").appendChild(contactListTemp);
+			}
+		});
 	}
-	// Create new Contact
 
+	getSurChar(contact) {
+		return contact.surname.charAt(0);
+	}
+
+	// Create new Contact
 	createContact() {
 		this.ID = contactList.length;
 		this.readInputs();
@@ -31,13 +75,12 @@ class Contact {
 		this.createInitials();
 		this.createRandomBgColor();
 		this.newContact();
-		console.log('Konakt:', contactList);
-
+		console.log("Konakt:", contactList);
 	}
 	readInputs() {
-		this.Fullname = document.querySelector('#input-name').value;
-		this.phone = document.querySelector('#input-phone').value;
-		this.email = document.querySelector('#input-email').value;
+		this.Fullname = document.querySelector("#input-name").value;
+		this.phone = document.querySelector("#input-phone").value;
+		this.email = document.querySelector("#input-email").value;
 	}
 
 	splitname() {
@@ -68,8 +111,43 @@ class Contact {
 			Initials: this.initials,
 			Mail: this.email,
 			Phone: this.phone,
-			BgColor: this.bgcolor
+			BgColor: this.bgcolor,
 		});
 		saveData();
+	}
+
+	// add event listener
+	addEventListener() {
+		this.closeNewTask();
+		this.openContactInfo();
+	}
+
+	// added in contact info
+	openNewTask() {
+		this.openNewTaskBtn = document.querySelector(".addtask-box").addEventListener("click", () => {
+			document.querySelector(".newTask").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.querySelector(".AddButton").classList.toggle("open");
+		});
+	}
+
+	closeNewTask() {
+		this.closeNewTaskBtn = document.querySelector(".close-icon").addEventListener("click", () => {
+			document.querySelector(".newTask").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.querySelector(".AddButton").classList.toggle("open");
+		});
+	}
+
+	openContactInfo() {
+		this.loadContactIds();
+		// this.openNewTask();
+	}
+
+	loadContactIds() {
+		contactList.forEach((contact) => {
+			this.contactIDs = contact.id;
+			console.log(this.contact);
+		});
 	}
 }
