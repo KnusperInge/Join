@@ -3,6 +3,7 @@ setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 let Tasks = [];
 let navItems = [];
 let contactList = [];
+let letters = [];
 let page = "";
 
 let newTask;
@@ -41,16 +42,15 @@ function loadingClasses(item) {
 		loadingPrps = new Loading();
 	} else if (item == "Board") {
 		currentDragElement = new DragandDrop();
-		document.querySelector('#addTask_button').addEventListener('click', () => {
+		document.querySelector("#addTask_button").addEventListener("click", () => {
 			window.open((href = "./task.html"), "_self");
 		});
 	} else if (item == "AddTask") {
 		newTask = new Task();
 	} else if (item == "Contacts") {
-		newTask = new Task();
 		contact = new Contact();
-		document.querySelector('.button-blue').addEventListener('click', test);
-
+		newTask = new Task();
+		document.querySelector(".button-blue").addEventListener("click", test);
 	} else {
 		console.error(`404 no Classes available for ${item}`);
 	}
@@ -119,5 +119,3 @@ function drop(category) {
 	console.log(Tasks);
 	currentDragElement.loadTasks();
 }
-
-
