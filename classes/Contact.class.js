@@ -111,6 +111,7 @@ class Contact {
 				tempContent[17].innerHTML = contact.Phone;
 				document.getElementById("contact-informations").innerHTML = "";
 				document.getElementById("contact-informations").append(contactInfoTemp);
+				document.querySelector(".edidContact").id = "edidContact" + contact.ID;
 
 				this.edidContact(contact);
 				this.openNewTask();
@@ -130,33 +131,44 @@ class Contact {
 
 	// ANCHOR edid contact
 	edidContact(contact) {
-		this.contactToEdid = contact;
-		document.querySelector(".edidContact").id = "edidContact" + this.contactToEdid.ID;
-		document.getElementById(`edidContact${this.contactToEdid.ID}`).addEventListener("click", () => {
+		document.querySelector(`#edidContact${contact.ID}`).addEventListener("click", () => {
 			document.getElementById("overlay").classList.toggle("open");
-			document.getElementById("edidContact").classList.toggle("open");
-			document.getElementById("edidContact-content").classList.toggle("open");
-			this.setSaveButton();
+			document.getElementById("new-contact").classList.toggle("open");
+			setTimeout(() => {
+				document.getElementById("new-contact-content").classList.toggle("open");
+			}, 300);
+			this.setSaveButtons(contact);
+			this.setSaveButtonEvent(contact);
+			this.SetValues(contact);
 		});
 	}
 
-	setSaveButton() {
-		console.log(this.contactToEdid);
-		document.getElementById("edidContact-save-button").addEventListener("click", this.saveEdidContact);
-		this.edid_SetValues();
-		this.closeEdidContact();
+	setSaveButtons() {
+		document.querySelector(".create-new-contact").classList.toggle("close");
+		document.querySelector(".cancel_addContact").classList.toggle("close");
+		document.querySelector(".save-edided-contact").classList.toggle("open");
+	}
+
+	setSaveButtonEvent(contact) {
+		document.querySelector(".save-edided-contact").addEventListener("click", this.saveEdid);
+	}
+
+	// ANCHOR HIER WEITER MACHEN!!!!!!!!!!
+	saveEdid(event) {
+		console.log(event);
+		event.preventDefault();
+	}
+
+	SetValues(contact) {
+		document.querySelector("#input-name").value = contact.Name + " " + contact.Surname;
+		document.querySelector("#input-phone").value = contact.Phone;
+		document.querySelector("#input-email").value = contact.Mail;
 	}
 
 	saveEdidContact(event) {
 		console.log(this.contactToEdid);
 		console.log(contactList.indexOf((i) => i.ID == this.contactToEdid.ID));
 		event.preventDefault();
-	}
-
-	edid_SetValues() {
-		document.querySelector("#edidContact-name").value = this.contactToEdid.Name + " " + this.contactToEdid.Surname;
-		document.querySelector("#edidContact-phone").value = this.contactToEdid.Phone;
-		document.querySelector("#edidContact-email").value = this.contactToEdid.Mail;
 	}
 
 	closeEdidContact() {

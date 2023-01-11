@@ -1292,6 +1292,42 @@ textarea {
 	display: unset;
 }
 
+/* edid contact */
+.edidContact {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.edidContact img {
+	margin-right: 8px;
+}
+
+.save-edided-contact {
+	display: none;
+	width: 197px;
+	height: 61px;
+	align-items: center;
+	justify-content: center;
+	padding: 18px 10px;
+	border: none;
+	border-radius: 8px;
+	background: var(--color-blue);
+	color: var(--color-white);
+	font-size: 23px;
+	transition: background-color 225ms ease-in-out;
+}
+
+.save-edided-contact.open {
+	display: flex;
+}
+
+/* buttons if edid contact */
+.cancel_add.close,
+.create-new-contact.close {
+	display: none !important;
+}
+
 /* New Contact Form */
 #new-contact {
 	background-color: var(--color-blue);
