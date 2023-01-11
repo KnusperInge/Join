@@ -12,12 +12,11 @@ class Contact {
 	closeNewTaskBtn;
 	contactIDs = [];
 	letters = [];
+	contactToEdid = {};
 
 	constructor() {
 		this.loadContactList();
 		this.setButtons();
-
-
 	}
 
 	loadContactList() {
@@ -56,7 +55,7 @@ class Contact {
 		contactList.forEach((contact) => {
 			const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
 			const tempContent = contactListTemp.querySelectorAll("div, img, span");
-			console.log(tempContent);
+			// console.log(tempContent);
 
 			// Das besser auschreiben
 			tempContent[0].id = contact.ID;
@@ -101,20 +100,18 @@ class Contact {
 	ContactInfoEventListener() {
 		this.contactIDs.forEach((id) => {
 			document.getElementById(`${id}`).addEventListener("click", () => {
-				// ToDo auslagern
 				document.querySelector(".contact-right-container").classList.toggle("active");
 				document.querySelector(".close_contact_info_tablet").classList.toggle("active");
 				document.getElementById("contact-informations").classList.toggle("active");
 				const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
 				const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
-				const contact = contactList.find((contact) => contact.id == id);
-				tempContent[3].innerHTML = contact.name + " " + contact.surname;
-				tempContent[14].innerHTML = contact.email;
-				tempContent[17].innerHTML = contact.phone;
+				const contact = contactList.find((contact) => contact.ID == id);
+				tempContent[3].innerHTML = contact.Name + " " + contact.Surname;
+				tempContent[14].innerHTML = contact.Mail;
+				tempContent[17].innerHTML = contact.Phone;
 				document.getElementById("contact-informations").innerHTML = "";
 				document.getElementById("contact-informations").append(contactInfoTemp);
-				document.querySelector(".edidContact").id = "edidContact" + id;
-				// getInfosToAddNewTask();
+				this.contactToEdid = contact;
 				this.edidContact();
 				this.openNewTask();
 				this.closeNewTask();
@@ -132,26 +129,59 @@ class Contact {
 	}
 
 	// ANCHOR edid contact
-	edidContact() { }
+	edidContact() {
+		document.querySelector(".edidContact").id = "edidContact" + this.contactToEdid.ID;
+		document.getElementById(`edidContact${this.contactToEdid.ID}`).addEventListener("click", () => {
+			document.getElementById("overlay").classList.toggle("open");
+			document.getElementById("edidContact").classList.toggle("open");
+			document.getElementById("edidContact-content").classList.toggle("open");
+			this.setSaveButton();
+		});
+	}
+
+	setSaveButton() {
+		console.log(this.contactToEdid);
+		document.getElementById("edidContact-save-button").addEventListener("click", this.saveEdidContact);
+		this.edid_SetValues();
+		this.closeEdidContact();
+	}
+
+	saveEdidContact(event) {
+		console.log(this.contactToEdid);
+		event.preventDefault();
+	}
+
+	edid_SetValues() {
+		document.querySelector("#edidContact-name").value = this.contactToEdid.Name + " " + this.contactToEdid.Surname;
+		document.querySelector("#edidContact-phone").value = this.contactToEdid.Phone;
+		document.querySelector("#edidContact-email").value = this.contactToEdid.Mail;
+	}
+
+	closeEdidContact() {
+		document.querySelector(".cancel_edid").addEventListener("click", () => {
+			document.getElementById("overlay").classList.toggle("open");
+			document.getElementById("edidContact").classList.toggle("open");
+			document.getElementById("edidContact-content").classList.toggle("open");
+		});
+	}
 
 	// ANCHOR new task in contact info
 	openNewTask() {
 		document.querySelector(".addtask-box").addEventListener("click", () => {
 			newTask = new Task();
-			document.querySelector(".newTask").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
+			document.querySelector(".newTask").classList.toggle("open");
 			document.querySelector(".AddButton").classList.toggle("open");
 		});
 	}
 
 	// ANCHOR new task
 
-
 	// ANCHOR new contact
 	addNewContact() {
 		document.querySelector(".add-contact").addEventListener("click", () => {
-			document.getElementById("new-contact").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
+			document.getElementById("new-contact").classList.toggle("open");
 			setTimeout(() => {
 				document.getElementById("new-contact-content").classList.toggle("open");
 			}, 300);
@@ -173,8 +203,6 @@ class Contact {
 			document.getElementById("new-contact-content").classList.toggle("open");
 		});
 	}
-
-
 
 	// Create new Contact
 	createContact() {
@@ -225,5 +253,4 @@ class Contact {
 		saveData();
 		loadData();
 	}
-
 }
