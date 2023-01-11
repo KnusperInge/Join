@@ -178,6 +178,7 @@ class Contact {
 	// ANCHOR new task in contact info
 	openNewTask() {
 		document.querySelector(".addtask-box").addEventListener("click", () => {
+			newTask = new Task();
 			document.querySelector(".newTask").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
 			document.querySelector(".AddButton").classList.toggle("open");

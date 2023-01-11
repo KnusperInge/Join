@@ -49,7 +49,7 @@ function loadingClasses(item) {
 		newTask = new Task();
 	} else if (item == "Contacts") {
 		contact = new Contact();
-		newTask = new Task();
+		// newTask = new Task();
 		document.querySelector(".button-blue").addEventListener("click", test);
 	} else {
 		console.error(`404 no Classes available for ${item}`);
