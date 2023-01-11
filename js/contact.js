@@ -6,12 +6,12 @@
 // });
 
 // button for closing contact informations on tablet size
-document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
-	document.querySelector(".contact-right-container").classList.toggle("active");
-	document.querySelector(".close_contact_info_tablet").classList.toggle("active");
-	document.getElementById("contact-informations").classList.toggle("active");
-	document.getElementById("contact-informations").innerHTML = "";
-});
+// document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
+// 	document.querySelector(".contact-right-container").classList.toggle("active");
+// 	document.querySelector(".close_contact_info_tablet").classList.toggle("active");
+// 	document.getElementById("contact-informations").classList.toggle("active");
+// 	document.getElementById("contact-informations").innerHTML = "";
+// });
 
 // async function loadContactList() {
 // 	contactArray = await fetch("../json/contact.json");
@@ -69,29 +69,29 @@ random_bg_color();
 // 	});
 // }
 
-function openContactInfo(currentMail) {
-	document.querySelector(".contact-right-container").classList.toggle("active");
-	document.querySelector(".close_contact_info_tablet").classList.toggle("active");
-	document.getElementById("contact-informations").classList.toggle("active");
-	const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
-	const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
-	const contact = contactArray.find((contactArray) => contactArray.email === currentMail);
-	tempContent[3].innerHTML = contact.name + " " + contact.surname;
-	tempContent[14].innerHTML = contact.email;
-	tempContent[17].innerHTML = contact.phone;
-	document.getElementById("contact-informations").innerHTML = "";
-	document.getElementById("contact-informations").append(contactInfoTemp);
-	getInfosToAddNewTask();
-}
+// function openContactInfo(currentMail) {
+// 	document.querySelector(".contact-right-container").classList.toggle("active");
+// 	document.querySelector(".close_contact_info_tablet").classList.toggle("active");
+// 	document.getElementById("contact-informations").classList.toggle("active");
+// 	const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
+// 	const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
+// 	const contact = contactArray.find((contactArray) => contactArray.email === currentMail);
+// 	tempContent[3].innerHTML = contact.name + " " + contact.surname;
+// 	tempContent[14].innerHTML = contact.email;
+// 	tempContent[17].innerHTML = contact.phone;
+// 	document.getElementById("contact-informations").innerHTML = "";
+// 	document.getElementById("contact-informations").append(contactInfoTemp);
+// 	getInfosToAddNewTask();
+// }
 
 // ANCHOR add new contact
-document.querySelector(".add-contact").addEventListener("click", () => {
-	document.getElementById("new-contact").classList.toggle("open");
-	document.getElementById("overlay").classList.toggle("open");
-	setTimeout(() => {
-		document.getElementById("new-contact-content").classList.toggle("open");
-	}, 300);
-});
+// document.querySelector(".add-contact").addEventListener("click", () => {
+// 	document.getElementById("new-contact").classList.toggle("open");
+// 	document.getElementById("overlay").classList.toggle("open");
+// 	setTimeout(() => {
+// 		document.getElementById("new-contact-content").classList.toggle("open");
+// 	}, 300);
+// });
 
 // document.getElementById("submitFormNewContact").addEventListener("submit", createNewContact);
 // function createNewContact(event) {
@@ -107,18 +107,18 @@ document.querySelector(".add-contact").addEventListener("click", () => {
 // }
 
 // ANCHOR close new contact
-let cancelAdd = document.querySelectorAll(".cancel_add");
-cancelAdd[0].addEventListener("click", () => {
-	document.getElementById("new-contact").classList.toggle("open");
-	document.getElementById("overlay").classList.toggle("open");
-	document.getElementById("new-contact-content").classList.toggle("open");
-});
+// let cancelAdd = document.querySelectorAll(".cancel_add");
+// cancelAdd[0].addEventListener("click", () => {
+// 	document.getElementById("new-contact").classList.toggle("open");
+// 	document.getElementById("overlay").classList.toggle("open");
+// 	document.getElementById("new-contact-content").classList.toggle("open");
+// });
 
-cancelAdd[1].addEventListener("click", () => {
-	document.getElementById("new-contact").classList.toggle("open");
-	document.getElementById("overlay").classList.toggle("open");
-	document.getElementById("new-contact-content").classList.toggle("open");
-});
+// cancelAdd[1].addEventListener("click", () => {
+// 	document.getElementById("new-contact").classList.toggle("open");
+// 	document.getElementById("overlay").classList.toggle("open");
+// 	document.getElementById("new-contact-content").classList.toggle("open");
+// });
 
 // ANCHOR IF questions
 // function includesLetter(letter) {

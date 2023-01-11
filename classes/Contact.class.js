@@ -13,8 +13,12 @@ class Contact {
 	contactIDs = [];
 
 	constructor() {
+		this.initContactClass();
+	}
+
+	async initContactClass() {
 		// temporary loading local contact.json
-		this.loadContactList();
+		await this.loadContactList();
 		this.addEventListener();
 	}
 
@@ -120,11 +124,45 @@ class Contact {
 	addEventListener() {
 		this.closeNewTask();
 		this.openContactInfo();
+		this.closeContactInfo();
+		this.addNewContact();
+	}
+
+	async openContactInfo() {
+		await this.loadContactIds();
+		this.ContactInfoEventListener();
+	}
+
+	async loadContactIds() {
+		contactList.forEach((contact) => {
+			this.contactIDs.push(contact.id);
+		});
+	}
+
+	ContactInfoEventListener() {
+		this.contactIDs.forEach((id) => {
+			document.getElementById(`${id}`).addEventListener("click", () => {
+				document.querySelector(".contact-right-container").classList.toggle("active");
+				document.querySelector(".close_contact_info_tablet").classList.toggle("active");
+				document.getElementById("contact-informations").classList.toggle("active");
+				const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
+				const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
+				const contact = contactList.find((contact) => contact.id == id);
+				tempContent[3].innerHTML = contact.name + " " + contact.surname;
+				tempContent[14].innerHTML = contact.email;
+				tempContent[17].innerHTML = contact.phone;
+				document.getElementById("contact-informations").innerHTML = "";
+				document.getElementById("contact-informations").append(contactInfoTemp);
+				// getInfosToAddNewTask();
+				this.openNewTask();
+				this.closeNewTask();
+			});
+		});
 	}
 
 	// added in contact info
 	openNewTask() {
-		this.openNewTaskBtn = document.querySelector(".addtask-box").addEventListener("click", () => {
+		document.querySelector(".addtask-box").addEventListener("click", () => {
 			document.querySelector(".newTask").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
 			document.querySelector(".AddButton").classList.toggle("open");
@@ -132,22 +170,45 @@ class Contact {
 	}
 
 	closeNewTask() {
-		this.closeNewTaskBtn = document.querySelector(".close-icon").addEventListener("click", () => {
+		document.querySelector(".close-icon").addEventListener("click", () => {
 			document.querySelector(".newTask").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
 			document.querySelector(".AddButton").classList.toggle("open");
 		});
 	}
 
-	openContactInfo() {
-		this.loadContactIds();
-		// this.openNewTask();
+	closeContactInfo() {
+		document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
+			document.querySelector(".contact-right-container").classList.toggle("active");
+			document.querySelector(".close_contact_info_tablet").classList.toggle("active");
+			document.getElementById("contact-informations").classList.toggle("active");
+			document.getElementById("contact-informations").innerHTML = "";
+		});
 	}
 
-	loadContactIds() {
-		contactList.forEach((contact) => {
-			this.contactIDs = contact.id;
-			console.log(this.contact);
+	addNewContact() {
+		document.querySelector(".add-contact").addEventListener("click", () => {
+			document.getElementById("new-contact").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			setTimeout(() => {
+				document.getElementById("new-contact-content").classList.toggle("open");
+			}, 300);
+		});
+		this.closeNewContact();
+	}
+
+	closeNewContact() {
+		let cancelAdd = document.querySelectorAll(".cancel_add");
+		cancelAdd[0].addEventListener("click", () => {
+			document.getElementById("new-contact").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.getElementById("new-contact-content").classList.toggle("open");
+		});
+
+		cancelAdd[1].addEventListener("click", () => {
+			document.getElementById("new-contact").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.getElementById("new-contact-content").classList.toggle("open");
 		});
 	}
 }
