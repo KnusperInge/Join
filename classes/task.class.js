@@ -159,9 +159,19 @@ class Task {
     this.catagoryBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         let id = event.target.id;
-        this.addCategory(id);
+        if (id == 3) {
+          this.openaddNewCetegory();
+        } else {
+          this.addCategory(id);
+        }
       });
     });
+  }
+
+  openaddNewCetegory() {
+    document.querySelector('.dropdown-input img').classList.add('d-none');
+    document.querySelector('.newAddCont').classList.remove('d-none');
+    document.querySelector('.category').classList.remove('active');
   }
   addCategory(id) {
     const input = document.querySelector('.cagetorgy-input');
@@ -171,6 +181,7 @@ class Task {
       this.Category = this.catagoryBtns[id].textContent;
     }
   }
+
 
   //ANCHOR - Subtask Buttons 
   setSubtaskBtn() {

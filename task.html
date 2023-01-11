@@ -78,8 +78,19 @@
           <div>
             <h3>Category</h3>
             <div class="dropdown">
-              <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task category"
-                id="1" readonly />
+              <div class="dropdown-input">
+
+                <input type="text" class=" cagetorgy-input outline-border-none" placeholder="Select task category"
+                  id="1" readonly />
+                <img class="" src="img/down_icon.png">
+
+                <div class="newAddCont d-none">
+                  <img id="DropdownClearBtn" src="img/cross_icon_blue.png" alt="">
+                  <span>|</span>
+                  <img id="addCategoryAddBtn" src="img/checked_blue.png" alt="">
+                </div>
+              </div>
+
 
               <div class="list category shadow-black ">
                 <div id="0">Sales</div>
@@ -87,7 +98,18 @@
                 <div id="2">Development</div>
                 <div id="3">add new Category</div>
               </div>
+
+
+
+              <div class="color-container">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
             </div>
+
           </div>
 
           <div class="priority-container">
