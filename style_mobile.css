@@ -142,4 +142,54 @@ nav ul li {
   padding: 0;
 }
 
+.LegalNotice {
+  display: none;
+}
+nav ul li img {
+  margin-right: 0;
+}
+
 /* ANCHOR Summary HTML */
+
+.full-height-width {
+  height: 90%;
+}
+
+#urgentTask-container {
+  height: 120px;
+}
+
+#urgentTask-container .icons {
+  font-size: 40px;
+}
+#urgentTask-container img {
+  width: 57px;
+  margin-right: 1px;
+}
+
+#urgentTask-container div {
+  padding: 0px 3px;
+}
+
+.timestamp-container span {
+  font-size: 18px;
+  margin: 0;
+}
+
+.taskdescription {
+  font-size: 18px;
+}
+
+.ToDo-Container {
+  flex-direction: unset;
+  height: 100px;
+  justify-content: space-around;
+}
+
+.ToDo-Container div > span {
+  font-size: 40px;
+}
+
+.cardhead span {
+  font-size: 40px;
+}
