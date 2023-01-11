@@ -111,8 +111,8 @@ class Contact {
 				tempContent[17].innerHTML = contact.Phone;
 				document.getElementById("contact-informations").innerHTML = "";
 				document.getElementById("contact-informations").append(contactInfoTemp);
-				this.contactToEdid = contact;
-				this.edidContact();
+
+				this.edidContact(contact);
 				this.openNewTask();
 				this.closeNewTask();
 			});
@@ -129,7 +129,8 @@ class Contact {
 	}
 
 	// ANCHOR edid contact
-	edidContact() {
+	edidContact(contact) {
+		this.contactToEdid = contact;
 		document.querySelector(".edidContact").id = "edidContact" + this.contactToEdid.ID;
 		document.getElementById(`edidContact${this.contactToEdid.ID}`).addEventListener("click", () => {
 			document.getElementById("overlay").classList.toggle("open");
@@ -148,6 +149,7 @@ class Contact {
 
 	saveEdidContact(event) {
 		console.log(this.contactToEdid);
+		console.log(contactList.indexOf((i) => i.ID == this.contactToEdid.ID));
 		event.preventDefault();
 	}
 
@@ -174,8 +176,6 @@ class Contact {
 			document.querySelector(".AddButton").classList.toggle("open");
 		});
 	}
-
-	// ANCHOR new task
 
 	// ANCHOR new contact
 	addNewContact() {

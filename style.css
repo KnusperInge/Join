@@ -1279,69 +1279,6 @@ textarea {
 	display: unset;
 }
 
-/* edidi contact button */
-.edidContact {
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-}
-
-.edidContact img {
-	margin-right: 8px;
-}
-
-/* edid contact */
-#edidContact {
-	background-color: var(--color-blue);
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 0;
-	height: 100vh;
-	z-index: 50;
-	border-radius: 30px;
-	border-top-left-radius: 0;
-	transition: all ease-in-out 225ms;
-	cursor: pointer;
-}
-
-#edidContact.open {
-	width: 580px;
-}
-
-#edidContact-content {
-	opacity: 0;
-	display: none;
-	position: relative;
-	flex-direction: column;
-}
-
-#edidContact-content.open {
-	display: flex;
-	animation: edidContact_contentOpen 80ms ease-in-out forwards;
-}
-
-@keyframes edidContact_contentOpen {
-	100% {
-		opacity: 1;
-	}
-}
-
-#edidContact-save-button {
-	width: 197px;
-	height: 61px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 18px 10px;
-	border: none;
-	border-radius: 8px;
-	background: var(--color-blue);
-	color: var(--color-white);
-	font-size: 23px;
-	transition: background-color 225ms ease-in-out;
-}
-
 /* New Contact Form */
 #new-contact {
 	background-color: var(--color-blue);
