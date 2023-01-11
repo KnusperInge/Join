@@ -9,12 +9,17 @@
 .first-line {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 2px;
+  margin: 20px 0;
 }
 #urgentTask-container {
+  height: 140px;
   width: 100%;
   padding: 0;
   margin-bottom: 20px;
+}
+
+.ToDo-Container {
+  height: 140px;
 }
 .second-line .ToDo-Container {
   width: 100%;
@@ -26,4 +31,8 @@
 }
 .ToDo-Container {
   text-align: center;
+}
+
+.third-line div {
+  width: 40%;
 }
