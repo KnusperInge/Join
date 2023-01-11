@@ -11,40 +11,40 @@ class Contact {
 	openNewTaskBtn;
 	closeNewTaskBtn;
 	contactIDs = [];
+	letters = [];
 
 	constructor() {
-		this.initContactClass();
-	}
-
-	async initContactClass() {
-		// temporary loading local contact.json
-		await this.loadContactList();
+		//this.initContactClass();
+		this.loadContactList();
 		this.addEventListener();
+
 	}
 
-	async loadContactList() {
-		contactList = await fetch("../json/contact.json");
-		contactList = await contactList.json();
+
+	loadContactList() {
 		this.loadLettersArray();
 	}
 
 	loadLettersArray() {
 		document.getElementById("contact-list").innerHTML = "";
 		contactList.forEach((element) => {
-			let letter = element.surname.charAt(0).toUpperCase();
-			if (!this.includesLetter(letter)) letters.push(letter);
+			let letter = element.Surname.charAt(0).toUpperCase();
+			if (!this.includesLetter(letter)) {
+				this.letters.push(letter);
+			}
+
 		});
-		letters.sort();
+		this.letters.sort();
 		this.generateLetterList();
 		// random_bg_color();
 	}
 
 	includesLetter(letter) {
-		return letters.includes(letter);
+		return this.letters.includes(letter);
 	}
 
 	generateLetterList() {
-		letters.forEach((letter) => {
+		this.letters.forEach((letter) => {
 			const letterTemp = document.getElementById("letter_list_template").content.cloneNode(true);
 			const tempContent = letterTemp.querySelectorAll("div, span");
 			tempContent[1].innerHTML = letter;
@@ -58,9 +58,9 @@ class Contact {
 		contactList.forEach((contact) => {
 			const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
 			const tempContent = contactListTemp.querySelectorAll("div, img, span");
-			tempContent[0].id = contact.id;
-			tempContent[3].innerHTML = contact.name + " " + contact.surname;
-			tempContent[4].innerHTML = contact.email;
+			tempContent[0].id = contact.ID;
+			tempContent[3].innerHTML = contact.Name + " " + contact.Surname;
+			tempContent[4].innerHTML = contact.Mail;
 			if (this.getSurChar(contact) == letter) {
 				document.getElementById(letter + "-list").appendChild(contactListTemp);
 			}
@@ -68,7 +68,7 @@ class Contact {
 	}
 
 	getSurChar(contact) {
-		return contact.surname.charAt(0);
+		return contact.Surname.charAt(0);
 	}
 
 	// Create new Contact
@@ -128,14 +128,14 @@ class Contact {
 		this.addNewContact();
 	}
 
-	async openContactInfo() {
-		await this.loadContactIds();
+	openContactInfo() {
+		this.loadContactIds();
 		this.ContactInfoEventListener();
 	}
 
-	async loadContactIds() {
+	loadContactIds() {
 		contactList.forEach((contact) => {
-			this.contactIDs.push(contact.id);
+			this.contactIDs.push(contact.ID);
 		});
 	}
 
@@ -173,7 +173,7 @@ class Contact {
 	}
 
 	// ANCHOR edid contact
-	edidContact() {}
+	edidContact() { }
 
 	// ANCHOR new task in contact info
 	openNewTask() {

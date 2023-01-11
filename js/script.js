@@ -3,7 +3,7 @@ setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 let Tasks = [];
 let navItems = [];
 let contactList = [];
-let letters = [];
+
 let page = "";
 
 let newTask;
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", init);
 async function init() {
 	let item = document.querySelector("[item]").getAttribute("item");
 	await downloadFromServer();
-	loadData();
+	await loadData();
 	loadingClasses(item);
 	//console.log(Tasks);
 }
@@ -56,7 +56,8 @@ function loadingClasses(item) {
 	}
 }
 
-function test() {
+function test(event) {
+	event.preventDefault();
 	contact.createContact();
 }
 
