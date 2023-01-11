@@ -139,6 +139,7 @@ class Contact {
 		});
 	}
 
+	// ANCHOR open contact info
 	ContactInfoEventListener() {
 		this.contactIDs.forEach((id) => {
 			document.getElementById(`${id}`).addEventListener("click", () => {
@@ -153,27 +154,12 @@ class Contact {
 				tempContent[17].innerHTML = contact.phone;
 				document.getElementById("contact-informations").innerHTML = "";
 				document.getElementById("contact-informations").append(contactInfoTemp);
+				document.querySelector(".edidContact").id = "edidContact" + id;
 				// getInfosToAddNewTask();
+				this.edidContact();
 				this.openNewTask();
 				this.closeNewTask();
 			});
-		});
-	}
-
-	// added in contact info
-	openNewTask() {
-		document.querySelector(".addtask-box").addEventListener("click", () => {
-			document.querySelector(".newTask").classList.toggle("open");
-			document.getElementById("overlay").classList.toggle("open");
-			document.querySelector(".AddButton").classList.toggle("open");
-		});
-	}
-
-	closeNewTask() {
-		document.querySelector(".close-icon").addEventListener("click", () => {
-			document.querySelector(".newTask").classList.toggle("open");
-			document.getElementById("overlay").classList.toggle("open");
-			document.querySelector(".AddButton").classList.toggle("open");
 		});
 	}
 
@@ -186,6 +172,28 @@ class Contact {
 		});
 	}
 
+	// ANCHOR edid contact
+	edidContact() {}
+
+	// ANCHOR new task in contact info
+	openNewTask() {
+		document.querySelector(".addtask-box").addEventListener("click", () => {
+			document.querySelector(".newTask").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.querySelector(".AddButton").classList.toggle("open");
+		});
+	}
+
+	// ANCHOR new task
+	closeNewTask() {
+		document.querySelector(".close-icon").addEventListener("click", () => {
+			document.querySelector(".newTask").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.querySelector(".AddButton").classList.toggle("open");
+		});
+	}
+
+	// ANCHOR new contact
 	addNewContact() {
 		document.querySelector(".add-contact").addEventListener("click", () => {
 			document.getElementById("new-contact").classList.toggle("open");
