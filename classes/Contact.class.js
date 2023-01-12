@@ -150,25 +150,37 @@ class Contact {
 	}
 
 	setSaveButtonEvent(contact) {
+		// button id = index in contactList + 200 to unique id in html code
+		document.querySelector(".save-edided-contact").id = contact.ID + 234;
 		document.querySelector(".save-edided-contact").addEventListener("click", this.saveEdid);
 	}
 
-	// ANCHOR HIER WEITER MACHEN!!!!!!!!!!
 	saveEdid(event) {
-		console.log(event);
 		event.preventDefault();
+		let index = this.contactListIndex();
+		this.setNewValues(index);
+	}
+
+	setNewValues(i) {
+		this.readInputs();
+		this.splitname();
+		contactList[i].Name = this.name;
+		contactList[i].Surname = this.surname;
+		contactList[i].Mail = this.email;
+		contactList[i].Phone = this.phone;
+
+		saveData();
+	}
+
+	contactListIndex() {
+		let id = document.querySelector(".save-edided-contact").id - 234;
+		return contactList.findIndex((i) => i.ID === id);
 	}
 
 	SetValues(contact) {
 		document.querySelector("#input-name").value = contact.Name + " " + contact.Surname;
 		document.querySelector("#input-phone").value = contact.Phone;
 		document.querySelector("#input-email").value = contact.Mail;
-	}
-
-	saveEdidContact(event) {
-		console.log(this.contactToEdid);
-		console.log(contactList.indexOf((i) => i.ID == this.contactToEdid.ID));
-		event.preventDefault();
 	}
 
 	closeEdidContact() {
@@ -216,7 +228,7 @@ class Contact {
 		});
 	}
 
-	// Create new Contact
+	// ANCHOR create new Contact
 	createContact() {
 		this.ID = contactList.length;
 		this.readInputs();
