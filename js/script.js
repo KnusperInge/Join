@@ -3,7 +3,7 @@ setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 let Tasks = [];
 let navItems = [];
 let contactList = [];
-
+let Categories = [];
 let page = "";
 
 let newTask;
