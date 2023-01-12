@@ -193,3 +193,37 @@ nav ul li img {
 .cardhead span {
   font-size: 40px;
 }
+
+/* ANCHOR Board HTML */
+
+.section-board {
+  position: static;
+}
+.bord-search-container {
+  padding-left: 40px;
+}
+
+.bord-tasks {
+  padding-left: 40px;
+}
+
+.bord-search-container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bord-search-container span {
+  display: none;
+}
+
+.bord-tasks {
+  flex-direction: column;
+}
+.bord-tasks-container {
+  width: 100%;
+}
+
+.section-board {
+  overflow: auto;
+  overflow: hidden;
+}
