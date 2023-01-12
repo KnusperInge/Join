@@ -77,7 +77,18 @@
 
           <div>
             <h3>Category</h3>
-            <div class="dropdown">
+            <div class="d-none searchAndAdd-container">
+              <div class="searchAndAdd-container-input">
+                <input type="text" class=" outline-border-none" placeholder="Enter new Category">
+
+                <img id="closeSearchAndAddBtn" src="img/cross_icon_blue.png" alt="">
+                <span>|</span>
+                <img id="SearchAndAddBtn" src="img/checked_blue.png" alt="">
+              </div>
+              <div class="colorpicker"></div>
+            </div>
+
+            <div class="dropdown cat">
               <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task category"
                 id="1" readonly />
 
@@ -138,6 +149,7 @@
   </main>
   <script src="js/mini_backend.js"></script>
   <script src="js/loadTemplates.js"></script>
+  <script src="classes/newCategory.class.js"></script>
   <script src="classes/task.class.js"></script>
   <script src="js/script.js"></script>
 

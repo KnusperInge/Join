@@ -13,6 +13,8 @@ class Task {
   dropDownBtns;
   contactbtns;
   catagoryBtns;
+  newCategoryColor;
+  newCategory;
 
 
   constructor() {
@@ -21,6 +23,8 @@ class Task {
     this.setContactBtn();
     this.setCategoryBtn();
     this.initSubtaskBtns();
+
+
 
     // this.setAddBtn();
     // this.setClearBtn();
@@ -167,10 +171,16 @@ class Task {
     const input = document.querySelector('.cagetorgy-input');
     input.value = this.catagoryBtns[id].textContent;
     this.openList(1);
+    if (id == 3) {
+      this.newCategory = new newCategory();
+    }
     if (!input.value == '') {
       this.Category = this.catagoryBtns[id].textContent;
     }
   }
+
+
+
 
   //ANCHOR - Subtask Buttons 
   setSubtaskBtn() {
