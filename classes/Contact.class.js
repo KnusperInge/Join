@@ -152,7 +152,7 @@ class Contact {
 	setSaveButtonEvent(contact) {
 		// button id = index in contactList + 200 to unique id in html code
 		document.querySelector(".save-edided-contact").id = contact.ID + 234;
-		document.querySelector(".save-edided-contact").addEventListener("click", this.saveEdid);
+		document.querySelector(".save-edided-contact").addEventListener("submit", this.saveEdid);
 	}
 
 	saveEdid(event) {
