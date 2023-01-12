@@ -137,26 +137,44 @@ class Contact {
 			setTimeout(() => {
 				document.getElementById("new-contact-content").classList.toggle("open");
 			}, 300);
-			this.setSaveButtons(contact);
-			this.setSaveButtonEvent(contact);
+			this.setSaveButton();
 			this.SetValues(contact);
+			this.setSaveButtonEvent(contact);
 		});
 	}
 
-	setSaveButtons() {
-		document.querySelector(".create-new-contact").classList.toggle("close");
-		document.querySelector(".cancel_addContact").classList.toggle("close");
-		document.querySelector(".save-edided-contact").classList.toggle("open");
+	setSaveButton() {
+		document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(2));
+	}
+
+	getButtonTemplate(version) {
+		if (version == 1) {
+			let temp = document.querySelector("#create-buttons-template");
+			return temp.content.cloneNode(true);
+		} else if (version == 2) {
+			this.closeNewContact(2);
+			let temp = document.querySelector("#save-button-template");
+			return temp.content.cloneNode(true);
+		}
 	}
 
 	setSaveButtonEvent(contact) {
 		// button id = index in contactList + 200 to unique id in html code
 		document.querySelector(".save-edided-contact").id = contact.ID + 234;
-		document.querySelector(".save-edided-contact").addEventListener("submit", this.saveEdid);
+		document.querySelector(".save-edided-contact").addEventListener("click", saveEdidInScript);
+		document.querySelector("#deleteContactBtn").addEventListener("click", deleteContactInScript);
 	}
 
-	saveEdid(event) {
-		event.preventDefault();
+	deleteContact() {
+		let index = document.querySelector(".save-edided-contact").id - 234;
+		console.log(index);
+		contactList.splice(index, 1);
+
+		saveData();
+		loadData();
+	}
+
+	saveEdid() {
 		let index = this.contactListIndex();
 		this.setNewValues(index);
 	}
@@ -170,6 +188,7 @@ class Contact {
 		contactList[i].Phone = this.phone;
 
 		saveData();
+		loadData();
 	}
 
 	contactListIndex() {
@@ -209,12 +228,19 @@ class Contact {
 			setTimeout(() => {
 				document.getElementById("new-contact-content").classList.toggle("open");
 			}, 300);
+			document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(1));
+			this.closeNewContact(1);
+			document.querySelector(".button-blue").addEventListener("click", test);
 		});
-		this.closeNewContact();
 	}
 
-	closeNewContact() {
+	closeNewContact(version) {
 		let cancelAdd = document.querySelectorAll(".cancel_add");
+		if (version == 1) this.setBothButtons(cancelAdd);
+		else if (version == 2) this.setOneButton(cancelAdd);
+	}
+
+	setBothButtons(cancelAdd) {
 		cancelAdd[0].addEventListener("click", () => {
 			document.getElementById("new-contact").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
@@ -225,6 +251,15 @@ class Contact {
 			document.getElementById("new-contact").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
 			document.getElementById("new-contact-content").classList.toggle("open");
+		});
+	}
+
+	setOneButton(cancelAdd) {
+		cancelAdd[0].addEventListener("click", () => {
+			document.getElementById("new-contact").classList.toggle("open");
+			document.getElementById("overlay").classList.toggle("open");
+			document.getElementById("new-contact-content").classList.toggle("open");
+			document.querySelector(".new-contact-buttons").innerHTML = "";
 		});
 	}
 

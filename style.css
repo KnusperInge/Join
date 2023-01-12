@@ -1304,7 +1304,7 @@ textarea {
 }
 
 .save-edided-contact {
-	display: none;
+	display: flex;
 	width: 197px;
 	height: 61px;
 	align-items: center;
@@ -1316,16 +1316,6 @@ textarea {
 	color: var(--color-white);
 	font-size: 23px;
 	transition: background-color 225ms ease-in-out;
-}
-
-.save-edided-contact.open {
-	display: flex;
-}
-
-/* buttons if edid contact */
-.cancel_add.close,
-.create-new-contact.close {
-	display: none !important;
 }
 
 /* New Contact Form */

@@ -50,7 +50,6 @@ function loadingClasses(item) {
 	} else if (item == "Contacts") {
 		contact = new Contact();
 		// newTask = new Task();
-		document.querySelector(".button-blue").addEventListener("click", test);
 	} else {
 		console.error(`404 no Classes available for ${item}`);
 	}
@@ -59,6 +58,16 @@ function loadingClasses(item) {
 function test(event) {
 	event.preventDefault();
 	contact.createContact();
+}
+
+function saveEdidInScript(event) {
+	event.preventDefault();
+	contact.saveEdid();
+}
+
+function deleteContactInScript(event) {
+	event.preventDefault();
+	contact.deleteContact();
 }
 
 //Save and Load
