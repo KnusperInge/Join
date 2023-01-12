@@ -55,9 +55,9 @@ function loadingClasses(item) {
 	}
 }
 
-function test(event) {
-	event.preventDefault();
+function newContact() {
 	contact.createContact();
+	return false;
 }
 
 function saveEdidInScript(event) {
