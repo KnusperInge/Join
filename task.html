@@ -44,12 +44,21 @@
           <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
             onclick="checkInput('input-title')" required />
 
-          <div class="dropdown">
-            <input type="text" class="textBox outline-border-none" id="0" placeholder="Select contacts to assign"
-              readonly required />
 
-            <input class="d-none outline-border-none" type="text" name="" id="searchContacts"
-              placeholder="Enter Name or Email" />
+
+          <div class="dropdown">
+            <input type="text" class="contactInput  bottom-border textBox outline-border-none" id="0"
+              placeholder="Select contacts to assign" readonly required />
+
+            <div class=" d-none searchContact-Container bottom-border">
+              <input class="outline-border-none" type="text" name="" id="searchContacts"
+                placeholder="Enter Name or Email" />
+              <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
+              <span>|</span>
+              <img id="addContactBtn" src="img/checked_blue.png" alt="">
+
+            </div>
+
             <div class="selectedContacts"></div>
 
             <div class="list contacts shadow-black">
@@ -88,7 +97,7 @@
               <div class="colorpicker"></div>
             </div>
 
-            <div class="dropdown cat">
+            <div class="bottom-border dropdown cat">
               <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task category"
                 id="1" readonly />
 

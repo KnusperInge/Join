@@ -125,9 +125,20 @@ class Task {
     this.contactbtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         let id = event.target.id;
+        if (id == 3) {
+          this.openSearchContact();
+        }
         this.addContact(id);
       });
     });
+  }
+
+  openSearchContact() {
+    document.querySelector('.contactInput').classList.toggle('d-none');
+    document.querySelector('.searchContact-Container').classList.toggle('d-none');
+    document.querySelector('.searchContact-Container input').focus();
+    document.querySelector('.contacts ').classList.toggle('d-none');
+
   }
 
   addContact(id) {
@@ -178,8 +189,6 @@ class Task {
       this.Category = this.catagoryBtns[id].textContent;
     }
   }
-
-
 
 
   //ANCHOR - Subtask Buttons 

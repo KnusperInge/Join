@@ -723,10 +723,12 @@ h3 {
   padding-bottom: 5px;
   border-bottom: 1px solid var(--color-lightgrey);
 }
-.searchAndAdd-container input {
-  width: 260px;
+.searchAndAdd-container input,
+.searchContact-Container input {
+  width: 260px !important;
 }
-.searchAndAdd-container span {
+.searchAndAdd-container span,
+.searchContact-Container span {
   color: var(--color-lightgrey);
   font-size: 20px;
 }
@@ -736,7 +738,6 @@ h3 {
   margin-top: 5px;
 }
 .colorpicker span {
-  background-color: #1769f7;
   border-radius: 50%;
   height: 15px;
   width: 15px;
@@ -748,12 +749,17 @@ h3 {
 .colorpicker span:hover {
   cursor: pointer;
 }
+.searchContact-Container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* ANCHOR Dorpdown Menu */
 .dropdown {
   width: 320px;
   height: fit-content;
   align-items: center;
-  border-bottom: 1px solid var(--color-lightgrey);
 }
 .dropdown input {
   cursor: pointer;
@@ -810,6 +816,10 @@ h3 {
   background-repeat: no-repeat;
   background-position-x: 98%;
   background-position-y: center;
+  width: 320px;
+}
+.bottom-border {
+  border-bottom: 1px solid var(--color-lightgrey);
   width: 320px;
 }
 .selectedContacts {
