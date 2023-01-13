@@ -13,7 +13,6 @@ class Contact {
 	contactIDs = [];
 	letters = [];
 	contactToEdid = {};
-	eventToSet;
 
 	constructor() {
 		this.loadContactList();
@@ -32,7 +31,7 @@ class Contact {
 		contactList.forEach((element) => {
 			let letter = element.Surname.charAt(0);
 			if (!this.includesLetter(letter)) {
-				this.letters.push(letter.toUpperCase());
+				this.letters.push(letter);
 			}
 		});
 		this.letters.sort();
@@ -74,7 +73,6 @@ class Contact {
 
 	// ANCHOR add page event listener
 	setButtons() {
-		this.closeNewTask();
 		this.openContactInfo();
 		this.closeContactInfo();
 		this.addNewContact();
@@ -109,8 +107,8 @@ class Contact {
 				document.querySelector(".edidContact").id = "edidContact" + contact.ID;
 
 				this.edidContact(contact);
-				this.openNewTask();
-				this.closeNewTask();
+				// this.openNewTask();
+				// this.closeNewTask();
 			});
 		});
 	}
@@ -120,8 +118,8 @@ class Contact {
 		document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
 			document.querySelector(".contact-right-container").classList.toggle("active");
 			document.querySelector(".close_contact_info_tablet").classList.toggle("active");
-			document.getElementById("contact-informations").classList.toggle("active");
 			document.getElementById("contact-informations").innerHTML = "";
+			document.getElementById("contact-informations").classList.toggle("active");
 		});
 	}
 
@@ -135,18 +133,9 @@ class Contact {
 		});
 	}
 
-	closeNewTask() {
-		document.querySelector(".close-icon").addEventListener("click", () => {
-			document.querySelector(".newTask").classList.toggle("open");
-			document.getElementById("overlay").classList.toggle("open");
-			document.querySelector(".AddButton").classList.toggle("open");
-		});
-	}
-
 	// ANCHOR new contact
 	addNewContact() {
 		document.querySelector(".add-contact").addEventListener("click", () => {
-			this.eventToSet = "newContact";
 			document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(1));
 			this.closeContactEdidCreateWindow(1);
 			this.setNewContactStyle();
@@ -159,7 +148,7 @@ class Contact {
 		setTimeout(() => {
 			document.getElementById("new-contact-content").classList.toggle("open");
 		}, 300);
-		this.setCreateContactEvent("newContact");
+		this.setCreateEdidContactEvent("newContact");
 	}
 
 	createContact() {
@@ -180,8 +169,8 @@ class Contact {
 
 	splitname() {
 		let splitname = this.Fullname.split(" ");
-		this.name = splitname[0];
-		this.surname = splitname[1];
+		this.name = splitname[0].charAt(0).toUpperCase() + splitname[0].slice(1);
+		this.surname = splitname[1].charAt(0).toUpperCase() + splitname[1].slice(1);
 	}
 
 	createInitials() {
@@ -219,7 +208,6 @@ class Contact {
 	// ANCHOR edid contact
 	edidContact(contact) {
 		document.querySelector(`#edidContact${contact.ID}`).addEventListener("click", () => {
-			this.eventToSet = "edidContact";
 			document.getElementById("overlay").classList.toggle("open");
 			document.getElementById("new-contact").classList.toggle("open");
 			setTimeout(() => {
@@ -228,6 +216,7 @@ class Contact {
 			this.setEdidButtons();
 			this.SetValues(contact);
 			this.setEdidButtonID(contact);
+			// this.setDeleteButton();
 		});
 	}
 
@@ -255,7 +244,7 @@ class Contact {
 	setEdidButtonID(contact) {
 		// button id = index in contactList + 200 to unique id in html code
 		document.querySelector(".save-edided-contact").id = contact.ID + 234;
-		this.setCreateContactEvent("edidContact");
+		this.setCreateEdidContactEvent("edidContact");
 	}
 
 	saveEdid() {
@@ -306,7 +295,7 @@ class Contact {
 	}
 
 	// ANCHOR set button event
-	setCreateContactEvent(event) {
+	setCreateEdidContactEvent(event) {
 		if (event == "newContact") {
 			document.querySelector("#submitFormNewContact").addEventListener("submit", newContact);
 		} else if (event == "edidContact") {
@@ -317,32 +306,35 @@ class Contact {
 	// ANCHOR set buttons for edid and create window
 	closeContactEdidCreateWindow(version) {
 		let cancelAdd = document.querySelectorAll(".cancel_add");
-		if (version == 1) this.setCreateButton(cancelAdd);
+		if (version == 1) this.setCancelButton(cancelAdd);
 		else if (version == 2) this.setEdidButton(cancelAdd);
 	}
 
-	setCreateButton(cancelAdd) {
+	setCancelButton(cancelAdd) {
 		cancelAdd[0].addEventListener("click", () => {
-			document.getElementById("new-contact").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
-			document.getElementById("new-contact-content").classList.toggle("open");
+			document.getElementById("new-contact").classList.toggle("open");
 			document.querySelector(".new-contact-buttons").innerHTML = "";
+			document.getElementById("new-contact-content").classList.toggle("open");
+			this.resetFormInput();
 		});
 
 		cancelAdd[1].addEventListener("click", () => {
-			document.getElementById("new-contact").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
-			document.getElementById("new-contact-content").classList.toggle("open");
+			document.getElementById("new-contact").classList.toggle("open");
 			document.querySelector(".new-contact-buttons").innerHTML = "";
+			document.getElementById("new-contact-content").classList.toggle("open");
+			this.resetFormInput();
 		});
 	}
 
 	setEdidButton(cancelAdd) {
 		cancelAdd[0].addEventListener("click", () => {
-			document.getElementById("new-contact").classList.toggle("open");
 			document.getElementById("overlay").classList.toggle("open");
-			document.getElementById("new-contact-content").classList.toggle("open");
+			document.getElementById("new-contact").classList.toggle("open");
 			document.querySelector(".new-contact-buttons").innerHTML = "";
+			document.getElementById("new-contact-content").classList.toggle("open");
+			this.resetFormInput();
 		});
 	}
 
