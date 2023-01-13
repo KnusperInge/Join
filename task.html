@@ -50,15 +50,17 @@
             <input type="text" class="contactInput  bottom-border textBox outline-border-none" id="0"
               placeholder="Select contacts to assign" readonly required />
 
-            <div class=" d-none searchContact-Container bottom-border">
-              <input class="outline-border-none" type="text" name="" id="searchContacts"
-                placeholder="Enter Name or Email" />
-              <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
-              <span>|</span>
-              <img id="addContactBtn" src="img/checked_blue.png" alt="">
-
+            <div class=" d-none searchContact-Container ">
+              <div class="searchContact-input bottom-border">
+                <input class="outline-border-none" type="search" name="" id="searchContacts"
+                  placeholder="Enter Name or Email" />
+                <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
+                <span>|</span>
+                <img id="addContactBtn" src="img/checked_blue.png" alt="">
+              </div>
+              <div class="outputContact">
+              </div>
             </div>
-
             <div class="selectedContacts"></div>
 
             <div class="list contacts shadow-black">

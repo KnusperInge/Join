@@ -169,8 +169,8 @@ class Contact {
 
 	splitname() {
 		let splitname = this.Fullname.split(" ");
-		this.name = splitname[0].charAt(0).toUpperCase() + splitname[0].slice(1);
-		this.surname = splitname[1].charAt(0).toUpperCase() + splitname[1].slice(1);
+		this.name = splitname[0];
+		this.surname = splitname[1];
 	}
 
 	createInitials() {

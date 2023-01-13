@@ -747,13 +747,18 @@ h3 {
   border: 2px solid red;
 }
 .searchAndAdd-container img:hover,
-.colorpicker span:hover {
+.colorpicker span:hover,
+.outputContact span:hover {
   cursor: pointer;
 }
 .searchContact-Container {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+}
+.outputContact {
+  padding: 5px 10px;
+  color: var(--color-lightgrey);
 }
 
 /* ANCHOR Dorpdown Menu */
@@ -771,7 +776,6 @@ h3 {
   font-size: 15px;
   font-weight: 400;
   line-height: 120%;
-  color: var(--color-lightgrey);
 }
 .dropdown-input {
   display: flex;

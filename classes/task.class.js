@@ -139,6 +139,7 @@ class Task {
 
     this.setSearchCloseBtn();
     this.setkeyupSearchContact();
+
   }
   setSearchCloseBtn() {
     document.querySelector('#closeSearchContact').addEventListener('click', this.openSearchContact);
@@ -151,20 +152,32 @@ class Task {
   }
 
   searchContact() {
+    let output = document.querySelector('.outputContact');
+    let input = document.querySelector('.searchContact-input input');
 
+    contactList.forEach((person) => {
+      let check = person.Surname.includes(input.value);
 
-
-
-
-
-
-
-
+      if (check && !input.value == "") {
+        output.innerHTML = "";
+        output.innerHTML = `<span>${person.Name} ${person.Surname}</span>`;
+        output.childNodes[0].addEventListener('click', () => {
+          input.value = person.Mail;
+          output.innerHTML = "";
+        })
+      }
+      else if (input.value == "") {
+        output.innerHTML = "";
+      }
+    });
   }
+
+
+
   openSearchContact() {
     document.querySelector('.contactInput').classList.toggle('d-none');
     document.querySelector('.searchContact-Container').classList.toggle('d-none');
-    document.querySelector('.searchContact-Container input').focus();
+    document.querySelector('.searchContact-input input').focus();
     document.querySelector('.contacts ').classList.toggle('d-none');
 
   }
