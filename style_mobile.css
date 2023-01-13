@@ -168,7 +168,15 @@ nav ul li img {
 }
 
 #urgentTask-container div {
-  padding: 0px 3px;
+  padding: 0px 14px;
+}
+
+.third-line div {
+  height: 140px;
+}
+
+.third-line {
+  padding-bottom: 90px;
 }
 
 .timestamp-container span {
@@ -176,8 +184,17 @@ nav ul li img {
   margin: 0;
 }
 
-.taskdescription {
+.ToDo-Container > span {
   font-size: 18px;
+}
+
+.timestamp-container {
+  gap: 0;
+}
+
+.taskdescription {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .ToDo-Container {
@@ -188,6 +205,11 @@ nav ul li img {
 
 .ToDo-Container div > span {
   font-size: 40px;
+}
+
+.card span {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .cardhead span {
