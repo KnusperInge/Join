@@ -13,6 +13,7 @@ class Contact {
 	contactIDs = [];
 	letters = [];
 	contactToEdid = {};
+	eventToSet;
 
 	constructor() {
 		this.loadContactList();
@@ -31,7 +32,7 @@ class Contact {
 		contactList.forEach((element) => {
 			let letter = element.Surname.charAt(0);
 			if (!this.includesLetter(letter)) {
-				this.letters.push(letter);
+				this.letters.push(letter.toUpperCase());
 			}
 		});
 		this.letters.sort();
@@ -145,6 +146,7 @@ class Contact {
 	// ANCHOR new contact
 	addNewContact() {
 		document.querySelector(".add-contact").addEventListener("click", () => {
+			this.eventToSet = "newContact";
 			document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(1));
 			this.closeContactEdidCreateWindow(1);
 			this.setNewContactStyle();
@@ -157,13 +159,7 @@ class Contact {
 		setTimeout(() => {
 			document.getElementById("new-contact-content").classList.toggle("open");
 		}, 300);
-		this.setCreateContactEvent();
-	}
-
-	setCreateContactEvent() {
-		setTimeout(() => {
-			document.querySelector("#submitFormNewContact").addEventListener("submit", newContact);
-		}, 300);
+		this.setCreateContactEvent("newContact");
 	}
 
 	createContact() {
@@ -223,6 +219,7 @@ class Contact {
 	// ANCHOR edid contact
 	edidContact(contact) {
 		document.querySelector(`#edidContact${contact.ID}`).addEventListener("click", () => {
+			this.eventToSet = "edidContact";
 			document.getElementById("overlay").classList.toggle("open");
 			document.getElementById("new-contact").classList.toggle("open");
 			setTimeout(() => {
@@ -230,7 +227,7 @@ class Contact {
 			}, 300);
 			this.setEdidButtons();
 			this.SetValues(contact);
-			this.setEdidButtonsEvent(contact);
+			this.setEdidButtonID(contact);
 		});
 	}
 
@@ -255,11 +252,10 @@ class Contact {
 		}
 	}
 
-	setEdidButtonsEvent(contact) {
+	setEdidButtonID(contact) {
 		// button id = index in contactList + 200 to unique id in html code
 		document.querySelector(".save-edided-contact").id = contact.ID + 234;
-		document.querySelector(".save-edided-contact").addEventListener("click", saveEdidInScript);
-		document.querySelector("#deleteContactBtn").addEventListener("click", deleteContactInScript);
+		this.setCreateContactEvent("edidContact");
 	}
 
 	saveEdid() {
@@ -282,6 +278,10 @@ class Contact {
 
 		saveData();
 		loadData();
+		setTimeout(() => {
+			this.loadContactList();
+			this.resetNewContactField();
+		}, 300);
 	}
 
 	// ANCHOR delete contact
@@ -291,6 +291,10 @@ class Contact {
 
 		saveData();
 		loadData();
+		setTimeout(() => {
+			this.loadContactList();
+			this.resetNewContactField();
+		}, 300);
 	}
 
 	closeEdidContact() {
@@ -299,6 +303,15 @@ class Contact {
 			document.getElementById("edidContact").classList.toggle("open");
 			document.getElementById("edidContact-content").classList.toggle("open");
 		});
+	}
+
+	// ANCHOR set button event
+	setCreateContactEvent(event) {
+		if (event == "newContact") {
+			document.querySelector("#submitFormNewContact").addEventListener("submit", newContact);
+		} else if (event == "edidContact") {
+			document.querySelector("#submitFormNewContact").addEventListener("submit", saveEdidInScript);
+		}
 	}
 
 	// ANCHOR set buttons for edid and create window

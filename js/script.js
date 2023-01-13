@@ -60,14 +60,14 @@ function newContact() {
 	return false;
 }
 
-function saveEdidInScript(event) {
-	event.preventDefault();
+function saveEdidInScript() {
 	contact.saveEdid();
+	return false;
 }
 
-function deleteContactInScript(event) {
-	event.preventDefault();
+function deleteContactInScript() {
 	contact.deleteContact();
+	return false;
 }
 
 //Save and Load
