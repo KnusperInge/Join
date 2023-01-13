@@ -127,12 +127,40 @@ class Task {
         let id = event.target.id;
         if (id == 3) {
           this.openSearchContact();
+          this.setnewContactBtns();
+        } else {
+          this.addContact(id);
         }
-        this.addContact(id);
+
       });
     });
   }
+  setnewContactBtns() {
 
+    this.setSearchCloseBtn();
+    this.setkeyupSearchContact();
+  }
+  setSearchCloseBtn() {
+    document.querySelector('#closeSearchContact').addEventListener('click', this.openSearchContact);
+
+  }
+
+  setkeyupSearchContact() {
+    document.querySelector('.searchContact-Container input').addEventListener('keyup', this.searchContact);
+
+  }
+
+  searchContact() {
+
+
+
+
+
+
+
+
+
+  }
   openSearchContact() {
     document.querySelector('.contactInput').classList.toggle('d-none');
     document.querySelector('.searchContact-Container').classList.toggle('d-none');
