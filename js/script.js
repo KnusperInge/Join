@@ -44,7 +44,7 @@ function loadingClasses(item) {
 		console.error(`404 no Classes available for ${item}`);
 	}
 }
-// Was sprechen diese Funktionen an, Wo werden sie getriggert und warum haben sie nur einen weiterleitungswert ? 
+// Was sprechen diese Funktionen an, Wo werden sie getriggert und warum haben sie nur einen weiterleitungswert ?
 function newContact() {
 	contact.createContact();
 	return false;
