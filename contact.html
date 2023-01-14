@@ -26,9 +26,9 @@
 
   <template id="letter_list_template">
     <div class="contact-lettercompartment">
-      <span></span>
+      <span id="letterListLetter"></span>
       <hr />
-      <div id=""></div>
+      <div class="letterListID" id=""></div>
     </div>
   </template>
 
@@ -36,8 +36,8 @@
     <div class="listed-contact" id="">
       <div class="listed-contact-icon" id="contactIcon"></div>
       <div class="listed-contact-info">
-        <span></span>
-        <span></span>
+        <span id="listContactName"></span>
+        <span id="listContactMail"></span>
       </div>
     </div>
   </template>
@@ -47,7 +47,7 @@
       <img class="contact-img" />
       <!-- src="${contact.icon}" (wird oben in img eingesetzt) -->
       <div>
-        <span></span>
+        <span id="infoName"></span>
         <div class="addtask-box">
           <img src="./img/plus_Icon.png" />
           <span>Add Task</span>
@@ -63,11 +63,11 @@
     </div>
     <div class="contact-mail">
       <span>E-Mail</span>
-      <span></span>
+      <span id="infoMail"></span>
     </div>
     <div class="contact-number">
       <span>Mobil</span>
-      <span></span>
+      <span id="infoPhone"></span>
     </div>
     <button id="deleteContact">Delete</button>
   </template>
