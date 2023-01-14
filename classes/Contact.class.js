@@ -316,6 +316,7 @@ class Contact {
 	// ANCHOR save, load and reload page
 	async saveLoadReload() {
 		await saveData();
+		await loadData();
 		await this.resetNewContactField();
 		await this.closeContactInfo();
 		await this.loadContactList();
