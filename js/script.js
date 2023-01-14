@@ -71,14 +71,15 @@ function deleteContactInScript() {
 }
 
 //Save and Load
-function saveData() {
-	backend.setItem("Tasks", JSON.stringify(Tasks));
-	backend.setItem("Contacts", JSON.stringify(contactList));
+async function saveData() {
+	await backend.setItem("Tasks", JSON.stringify(Tasks));
+	await backend.setItem("Contacts", JSON.stringify(contactList));
+	await loadData();
 }
 
 async function loadData() {
-	Tasks = JSON.parse(backend.getItem("Tasks")) || [];
-	contactList = JSON.parse(backend.getItem("Contacts")) || [];
+	Tasks = (await JSON.parse(backend.getItem("Tasks"))) || [];
+	contactList = (await JSON.parse(backend.getItem("Contacts"))) || [];
 }
 
 //Task.html functions
