@@ -108,7 +108,7 @@ function handleForm(event) {
 	Tasks.push(newTask.finalTask());
 	saveData();
 	newTask.clearForm();
-	loadData();
+	// loadData();
 	console.log(Tasks);
 }
 
