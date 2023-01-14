@@ -20,7 +20,7 @@ class Contact {
 	}
 
 	// ANCHOR loading contacts
-	async loadContactList() {
+	loadContactList() {
 		let target = document.getElementById("contact-list");
 		target.innerHTML = "";
 		this.initLettersArr();
@@ -81,7 +81,7 @@ class Contact {
 	}
 
 	// ANCHOR add page event listener
-	async setButtons() {
+	setButtons() {
 		this.openContactInfo();
 		this.mobileCloseContactInfoBtn();
 		this.addNewContact();
@@ -124,7 +124,7 @@ class Contact {
 		document.getElementById("contact-informations").innerHTML = "";
 	}
 
-	async closeContactInfo() {
+	closeContactInfo() {
 		document.getElementById("contact-informations").innerHTML = "";
 		document.getElementById("contact-informations").classList.remove("active");
 		document.querySelector(".close_contact_info_tablet").classList.remove("active");
@@ -317,14 +317,14 @@ class Contact {
 	async saveLoadReload() {
 		await saveData();
 		await loadData();
-		await this.resetNewContactField();
-		await this.closeContactInfo();
-		await this.loadContactList();
-		await this.setButtons();
+		this.resetNewContactField();
+		this.closeContactInfo();
+		this.loadContactList();
+		this.setButtons();
 	}
 
 	// ANCHOR reset edid and create window
-	async resetNewContactField() {
+	resetNewContactField() {
 		this.resetFormInput();
 		this.clearButtons();
 		this.removeClassOpen();
