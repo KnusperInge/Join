@@ -16,16 +16,6 @@ function openboard() {
 	window.open((href = "./board.html"), "_self");
 }
 
-// open/close task- Sidemenu
-
-//document.querySelector('#addTask_button').addEventListener('click', () => {
-//   document.querySelector('.newTask').classList.remove('d-none');
-// });
-// document.querySelector('.close-icon').addEventListener('click', () => {
-//   document.querySelector('.newTask').classList.add('d-none');
-
-// });
-
 //Loading Element
 document.addEventListener("DOMContentLoaded", init);
 
@@ -54,7 +44,7 @@ function loadingClasses(item) {
 		console.error(`404 no Classes available for ${item}`);
 	}
 }
-
+// Was sprechen diese Funktionen an, Wo werden sie getriggert und warum haben sie nur einen weiterleitungswert ? 
 function newContact() {
 	contact.createContact();
 	return false;
@@ -74,7 +64,6 @@ function deleteContactInScript() {
 async function saveData() {
 	await backend.setItem("Tasks", JSON.stringify(Tasks));
 	await backend.setItem("Contacts", JSON.stringify(contactList));
-	await loadData();
 }
 
 async function loadData() {
@@ -108,8 +97,8 @@ function handleForm(event) {
 	Tasks.push(newTask.finalTask());
 	saveData();
 	newTask.clearForm();
-	// loadData();
-	console.log(Tasks);
+	loadData();
+	console.log(Tasks.length);
 }
 
 // board.html

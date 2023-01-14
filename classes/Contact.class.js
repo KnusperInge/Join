@@ -295,6 +295,7 @@ class Contact {
 		if (version == 1) this.setCancelButton(cancelAdd);
 		else if (version == 2) this.setEdidButton(cancelAdd);
 	}
+	// Dopplungen entfernen und Auslagern
 
 	setCancelButton(cancelAdd) {
 		cancelAdd[0].addEventListener("click", () => {
