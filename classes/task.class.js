@@ -147,28 +147,56 @@ class Task {
   }
 
   setkeyupSearchContact() {
-    document.querySelector('.searchContact-Container input').addEventListener('keyup', this.searchContact);
+    document.querySelector('.searchContact-Container input').addEventListener('keyup', (event) => {
+
+      let input = event.target;
+      this.searchContact(input);
+      console.log(event);
+
+    });
 
   }
 
-  searchContact() {
+
+
+  searchContact(input) {
+    for (let i = 0; i < contactList.length; i++) {
+      let checkPerson = contactList[i].Surname.includes(input.value);
+      let person = contactList[i];
+      if (checkPerson && !input.value == "") {
+        this.fillContactOutput(person);
+      };
+    }
+  }
+  fillContactOutput(person) {
     let output = document.querySelector('.outputContact');
-    let input = document.querySelector('.searchContact-input input');
+    output.innerHTML = "";
+    output.innerHTML = `<span>${person.Name} ${person.Surname}</span>`;
+    this.setPreviewContactBtn(person);
+  }
+  setPreviewContactBtn(person) {
+    document.querySelector('.outputContact span').addEventListener('click', () => {
+      document.querySelector('.searchContact-Container input').value = person.Mail;
+      document.querySelector('.outputContact').innerHTML = "";
+      this.saveInviteContact(person);
+    });
+  }
 
-    contactList.forEach((person) => {
-      let check = person.Surname.includes(input.value);
 
-      if (check && !input.value == "") {
-        output.innerHTML = "";
-        output.innerHTML = `<span>${person.Name} ${person.Surname}</span>`;
-        output.childNodes[0].addEventListener('click', () => {
-          input.value = person.Mail;
-          output.innerHTML = "";
-        })
-      }
-      else if (input.value == "") {
-        output.innerHTML = "";
-      }
+
+
+  saveInviteContact(person) {
+    document.getElementById('addContactBtn').addEventListener('click', () => {
+      this.editors.push({
+        Name: person.Name,
+        Mail: person.Mail,
+        Color: person.BgColor,
+        Initials: person.Initials
+      });
+      document.querySelector('.searchContact-Container input').value = "";
+      this.renderIcons();
+      this.openSearchContact();
+      console.log(this.editors);
     });
   }
 
@@ -204,8 +232,8 @@ class Task {
 
   renderIcons() {
     this.editors.forEach((element) => {
-      let firstletter = element.charAt(0).toUpperCase();
-      this.selectedContacts.innerHTML += `<span>${firstletter}</span>`;
+      let firstletter = element.Initials;
+      this.selectedContacts.innerHTML += `<span style="background:${element.Color}">${firstletter}</span>`;
     });
   }
 
@@ -219,6 +247,7 @@ class Task {
       });
     });
   }
+
   addCategory(id) {
     const input = document.querySelector('.cagetorgy-input');
     input.value = this.catagoryBtns[id].textContent;
