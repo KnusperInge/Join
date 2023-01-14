@@ -45,6 +45,10 @@ class Contact {
 		this.letters.forEach((letter) => {
 			const letterTemp = document.getElementById("letter_list_template").content.cloneNode(true);
 			const tempContent = letterTemp.querySelectorAll("div, span");
+
+
+			// Was ist TempContent[1 oder 2]???
+
 			tempContent[1].innerHTML = letter;
 			tempContent[2].id = letter + "-list";
 			target.appendChild(letterTemp);
@@ -58,6 +62,8 @@ class Contact {
 			const tempContent = contactListTemp.querySelectorAll("div, img, span");
 
 			// Das besser auschreiben
+
+
 			tempContent[0].id = contact.ID;
 			tempContent[3].innerHTML = contact.Name + " " + contact.Surname;
 			tempContent[4].innerHTML = contact.Mail;
@@ -99,6 +105,8 @@ class Contact {
 				const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
 				const tempContent = contactInfoTemp.querySelectorAll("div, img, span");
 				const contact = contactList.find((contact) => contact.ID == id);
+
+				// Wer soll später wissen was tempContent[3]oder [17] war ? 
 				tempContent[3].innerHTML = contact.Name + " " + contact.Surname;
 				tempContent[14].innerHTML = contact.Mail;
 				tempContent[17].innerHTML = contact.Phone;
@@ -309,6 +317,7 @@ class Contact {
 		if (version == 1) this.setCancelButton(cancelAdd);
 		else if (version == 2) this.setEdidButton(cancelAdd);
 	}
+	// Dopplungen entfernen und Auslagern 
 
 	setCancelButton(cancelAdd) {
 		cancelAdd[0].addEventListener("click", () => {
