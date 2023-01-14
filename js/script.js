@@ -108,7 +108,7 @@ function handleForm(event) {
 	saveData();
 	newTask.clearForm();
 	loadData();
-	console.log(Tasks);
+	console.log(Tasks.length);
 }
 
 // board.html
