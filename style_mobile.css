@@ -155,6 +155,10 @@ nav ul li img {
   height: 90%;
 }
 
+.first-line {
+  font-size: 1.7rem;
+}
+
 #urgentTask-container {
   height: 120px;
 }
@@ -177,6 +181,8 @@ nav ul li img {
 
 .third-line {
   padding-bottom: 90px;
+  width: 100%;
+  gap: 20px;
 }
 
 .timestamp-container span {
@@ -227,6 +233,7 @@ nav ul li img {
 
 .bord-tasks {
   padding-left: 40px;
+  overflow-y: scroll;
 }
 
 .bord-search-container {

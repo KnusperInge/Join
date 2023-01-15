@@ -40,7 +40,7 @@
 }
 
 * {
-  font-family: "OpenSans-Regular";
+  font-family: 'OpenSans-Regular';
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -214,7 +214,7 @@ body {
 
 .login_form span {
   height: 82px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
@@ -456,7 +456,7 @@ nav div {
   font-weight: 700;
   font-size: 64px;
   line-height: 120%;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   margin-left: 8px;
 }
 
@@ -466,7 +466,7 @@ nav div {
   width: 100%;
   height: fit-content;
   margin-top: 35px;
-  gap: 9%;
+  gap: 3%;
 }
 
 #urgentTask-container {
@@ -556,7 +556,7 @@ nav div {
   flex-wrap: wrap;
   padding: 0px;
   gap: 40px;
-  width: 100%;
+  width: 70%;
   height: fit-content;
   margin-top: 35px;
 }
@@ -565,7 +565,7 @@ nav div {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 190px;
+  width: 157px;
   height: 160px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
@@ -580,7 +580,7 @@ nav div {
 }
 
 .card span {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 23px;
@@ -1069,12 +1069,12 @@ textarea {
 }
 
 .bord-tasks-container-location {
-  background-color: #fd71ff1e;
+  background-color: white;
   overflow: auto;
   width: 250px;
   height: 100%;
   padding: 5px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
