@@ -101,7 +101,7 @@ class Contact {
 
 	ContactInfoEventListener() {
 		this.contactIDs.forEach((id) => {
-			document.getElementById(`${id}`).addEventListener("click", () => {
+			document.getElementById(id).addEventListener("click", () => {
 				this.setContactInfoStyle();
 				const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
 				const contact = contactList.find((contact) => contact.ID == id);
@@ -222,7 +222,8 @@ class Contact {
 			this.setEdidButtons();
 			this.SetValues(contact);
 			this.setEdidButtonID(contact);
-			// this.setDeleteButton();
+
+			// this.setDeleteButton(contact);
 		});
 	}
 
@@ -274,8 +275,12 @@ class Contact {
 	}
 
 	// ANCHOR delete contact
-	deleteContact() {
-		let index = document.querySelector(".save-edided-contact").id - 234;
+	setDeleteButton(contact) {
+		document.getElementById("deleteContact").addEventListener("click", this.deleteContact(contact));
+	}
+
+	deleteContact(contact) {
+		let index = contactList.findIndex((i) => i.ID === contact.id);
 		contactList.splice(index, 1);
 		this.saveLoadReload();
 	}

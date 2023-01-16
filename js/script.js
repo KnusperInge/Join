@@ -39,24 +39,21 @@ function loadingClasses(item) {
 		newTask = new Task();
 	} else if (item == "Contacts") {
 		contact = new Contact();
+		document.getElementById("TaskForm").addEventListener("submit", handleForm);
 		// newTask = new Task();
 	} else {
 		console.error(`404 no Classes available for ${item}`);
 	}
 }
-// Was sprechen diese Funktionen an, Wo werden sie getriggert und warum haben sie nur einen weiterleitungswert ?
+//new contact from contact.class - return false to prevent form reset
 function newContact() {
 	contact.createContact();
 	return false;
 }
 
+//save contact after edid from contact.class - return false to prevent form reset
 function saveEdidInScript() {
 	contact.saveEdid();
-	return false;
-}
-
-function deleteContactInScript() {
-	contact.deleteContact();
 	return false;
 }
 
@@ -86,9 +83,6 @@ function inviteContact() {
 	document.getElementById("dropdownContacts").classList.add("d-none");
 	openList();
 }
-
-//handle Form
-document.getElementById("TaskForm").addEventListener("submit", handleForm);
 
 function handleForm(event) {
 	console.log(event);
