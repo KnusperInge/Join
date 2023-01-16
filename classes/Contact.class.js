@@ -100,21 +100,22 @@ class Contact {
 	}
 
 	ContactInfoEventListener() {
-		this.contactIDs.forEach((id) => {
-			document.getElementById(id).addEventListener("click", () => {
-				this.setContactInfoStyle();
-				const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
-				const contact = contactList.find((contact) => contact.ID == id);
-				contactInfoTemp.getElementById("infoName").innerHTML = this.setNameHtml(contact);
-				contactInfoTemp.getElementById("infoMail").innerHTML = contact.Mail;
-				contactInfoTemp.getElementById("infoPhone").innerHTML = contact.Phone;
-				contactInfoTemp.querySelector(".edidContact").id = "edidContact" + contact.ID;
-				document.getElementById("contact-informations").append(contactInfoTemp);
-				this.edidContact(contact);
-				// this.openNewTask();
-				// this.closeNewTask();
+		if (contactList.length > 0)
+			this.contactIDs.forEach((id) => {
+				document.getElementById(id).addEventListener("click", () => {
+					this.setContactInfoStyle();
+					const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
+					const contact = contactList.find((contact) => contact.ID == id);
+					contactInfoTemp.getElementById("infoName").innerHTML = this.setNameHtml(contact);
+					contactInfoTemp.getElementById("infoMail").innerHTML = contact.Mail;
+					contactInfoTemp.getElementById("infoPhone").innerHTML = contact.Phone;
+					contactInfoTemp.querySelector(".edidContact").id = "edidContact" + contact.ID;
+					document.getElementById("contact-informations").append(contactInfoTemp);
+					this.edidContact(contact);
+					// this.openNewTask();
+					// this.closeNewTask();
+				});
 			});
-		});
 	}
 
 	setContactInfoStyle() {
@@ -276,27 +277,28 @@ class Contact {
 
 	// ANCHOR delete contact
 	setDeleteButton(contact) {
-		let deleteButton = this.loadDeleteBtnTemp();
+		let deleteButton = this.loadDeleteBtnTemp(contact);
 		document.getElementById("delButton").appendChild(deleteButton);
-		this.addDeleteEvent(contact.id);
+		this.addDeleteEvent(contact.ID);
 	}
 
-	loadDeleteBtnTemp() {
+	loadDeleteBtnTemp(contact) {
 		let temp = document.getElementById("delete-button-temp");
 		let tempClone = temp.content.cloneNode(true);
 		let button = tempClone.querySelector("button");
+		button.classList.add("clonedDeleteBTN");
+		button.id = "delete_" + contact.ID;
 		return button;
 	}
 
 	addDeleteEvent(contactID) {
-		document.querySelector(".deleteContact").addEventListener("click", console.log("Hallo"));
+		document.querySelector(`#delete_${contactID}`).addEventListener("click", deleteShwonContact);
 	}
 
-	deleteContact(btnID) {
-		let contactID = document.getElementById("btnID") - 234;
+	deleteContact() {
+		let contactID = document.querySelector(".clonedDeleteBTN").id.split("_")[1];
 		let index = contactList.findIndex((i) => i.ID === contactID);
 		contactList.splice(index, 1);
-		this.saveLoadReload();
 	}
 
 	// ANCHOR set button event
@@ -334,6 +336,7 @@ class Contact {
 
 	// ANCHOR save, load and reload page
 	async saveLoadReload() {
+		this.letters = [];
 		await saveData();
 		await loadData();
 		this.resetNewContactField();

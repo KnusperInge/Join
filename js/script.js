@@ -58,6 +58,12 @@ function saveEdidInScript() {
 	return false;
 }
 
+//delete contact from contact.class
+function deleteShwonContact() {
+	contact.deleteContact();
+	contact.saveLoadReload();
+}
+
 //Save and Load
 async function saveData() {
 	await backend.setItem("Tasks", JSON.stringify(Tasks));
