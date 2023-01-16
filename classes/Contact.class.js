@@ -8,11 +8,8 @@ class Contact {
 	addedTasks;
 	email;
 	phone;
-	openNewTaskBtn;
-	closeNewTaskBtn;
 	contactIDs = [];
 	letters = [];
-	contactToEdid = {};
 
 	constructor() {
 		this.loadContactList();
@@ -224,7 +221,6 @@ class Contact {
 			this.SetValues(contact);
 			this.setEdidButtonID(contact);
 			this.setDeleteButton(contact);
-			// this.setDeleteButton(contact);
 		});
 	}
 
@@ -250,13 +246,14 @@ class Contact {
 	}
 
 	setEdidButtonID(contact) {
-		// button id = index in contactList + 200 to unique id in html code
+		// button id = index in contactList + 234 to unique id in html code
 		document.querySelector(".save-edided-contact").id = contact.ID + 234;
 		this.setCreateEdidContactEvent("edidContact");
 	}
 
 	saveEdid() {
 		let index = this.contactListIndex();
+		console.log(index);
 		this.setNewValues(index);
 	}
 
@@ -302,11 +299,13 @@ class Contact {
 	}
 
 	// ANCHOR set button event
-	setCreateEdidContactEvent(event) {
-		if (event == "newContact") {
+	setCreateEdidContactEvent(action) {
+		if (action == "newContact") {
 			document.querySelector("#submitFormNewContact").addEventListener("submit", newContact);
-		} else if (event == "edidContact") {
+			console.log(action);
+		} else if (action == "edidContact") {
 			document.querySelector("#submitFormNewContact").addEventListener("submit", saveEdidInScript);
+			console.log(action);
 		}
 	}
 
