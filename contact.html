@@ -79,6 +79,10 @@
   <template id="save-button-template">
     <button type="submit" form="submitFormNewContact" class="save-edided-contact" id="">Save</button>
   </template>
+
+  <template id="delete-button-temp">
+    <button class="deleteContact">Del</button>
+  </template>
 </head>
 
 <body item="Contacts">
@@ -110,6 +114,7 @@
             <img class="contact-join-icon" src="./img/icon_white.png" />
             <span>Add contact</span>
             <span>Tasks are better with a team!</span>
+            <div id="delButton"></div>
           </div>
           <div class="content-body shadow-black dflex-center">
             <img src="./img/planc_profileIcon.png" />
@@ -119,7 +124,6 @@
               <input class="outline-border-none" required id="input-email" type="email" placeholder="E-Mail">
               <div class="new-contact-buttons"></div>
             </form>
-            <button id="deleteContact">Del</button>
           </div>
         </div>
       </div>

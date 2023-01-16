@@ -1250,7 +1250,7 @@ textarea {
 	cursor: pointer;
 }
 
-#deleteContact {
+.deleteContact {
 	position: absolute;
 	top: calc(34vh - 8px);
 	transform: translate(0, -100%);
@@ -1266,7 +1266,7 @@ textarea {
 	transition: background-color 225ms ease-in-out;
 }
 
-#deleteContact:hover {
+.deleteContact:hover {
 	background-color: var(--color-lightgrey);
 }
 

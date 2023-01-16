@@ -222,7 +222,7 @@ class Contact {
 			this.setEdidButtons();
 			this.SetValues(contact);
 			this.setEdidButtonID(contact);
-
+			this.setDeleteButton(contact);
 			// this.setDeleteButton(contact);
 		});
 	}
@@ -276,11 +276,25 @@ class Contact {
 
 	// ANCHOR delete contact
 	setDeleteButton(contact) {
-		document.getElementById("deleteContact").addEventListener("click", this.deleteContact(contact));
+		let deleteButton = this.loadDeleteBtnTemp();
+		document.getElementById("delButton").appendChild(deleteButton);
+		this.addDeleteEvent(contact.id);
 	}
 
-	deleteContact(contact) {
-		let index = contactList.findIndex((i) => i.ID === contact.id);
+	loadDeleteBtnTemp() {
+		let temp = document.getElementById("delete-button-temp");
+		let tempClone = temp.content.cloneNode(true);
+		let button = tempClone.querySelector("button");
+		return button;
+	}
+
+	addDeleteEvent(contactID) {
+		document.querySelector(".deleteContact").addEventListener("click", console.log("Hallo"));
+	}
+
+	deleteContact(btnID) {
+		let contactID = document.getElementById("btnID") - 234;
+		let index = contactList.findIndex((i) => i.ID === contactID);
 		contactList.splice(index, 1);
 		this.saveLoadReload();
 	}
@@ -343,6 +357,7 @@ class Contact {
 
 	clearButtons() {
 		document.querySelector(".new-contact-buttons").innerHTML = "";
+		document.getElementById("delButton").innerHTML = "";
 	}
 
 	removeClassOpen() {
