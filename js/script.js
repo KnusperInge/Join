@@ -4,6 +4,7 @@ let Tasks = [];
 let navItems = [];
 let contactList = [];
 let Categories = [];
+let lastChosenEditor = [];
 let page = "";
 
 let newTask;
@@ -61,11 +62,15 @@ function saveEdidInScript() {
 async function saveData() {
 	await backend.setItem("Tasks", JSON.stringify(Tasks));
 	await backend.setItem("Contacts", JSON.stringify(contactList));
+	await backend.setItem("Categories", JSON.stringify(Categories));
+	await backend.setItem("lastChosenEditor", JSON.stringify(lastChosenEditor));
 }
 
 async function loadData() {
 	Tasks = (await JSON.parse(backend.getItem("Tasks"))) || [];
 	contactList = (await JSON.parse(backend.getItem("Contacts"))) || [];
+	Categories = (await JSON.parse(backend.getItem("Categories"))) || [];
+	lastChosenEditor = (await JSON.parse(backend.getItem("lastChosenEditor"))) || [];
 }
 
 //Task.html functions
