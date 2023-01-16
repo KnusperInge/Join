@@ -18,11 +18,13 @@ class Task {
 
 
   constructor() {
+    this.loadLastChoseneditor(); // Letzten 3 genutzten kontakte laden
     this.setPriorityBtn();
     this.setDropdownBtn();
     this.setContactBtn();
     this.setCategoryBtn();
     this.initSubtaskBtns();
+
 
 
 
@@ -131,16 +133,14 @@ class Task {
         } else {
           this.addContact(id);
         }
-
       });
     });
   }
   setnewContactBtns() {
-
     this.setSearchCloseBtn();
     this.setkeyupSearchContact();
-
   }
+
   setSearchCloseBtn() {
     document.querySelector('#closeSearchContact').addEventListener('click', this.openSearchContact);
 
@@ -187,19 +187,22 @@ class Task {
 
   saveInviteContact(person) {
     document.getElementById('addContactBtn').addEventListener('click', () => {
-      this.editors.push({
-        Name: person.Name,
-        Mail: person.Mail,
-        Color: person.BgColor,
-        Initials: person.Initials
-      });
+      this.editors.push(this.editorObj(person));
+      lastChosenEditor.push(this.editorObj(person));
       document.querySelector('.searchContact-Container input').value = "";
       this.renderIcons();
       this.openSearchContact();
       console.log(this.editors);
     });
   }
-
+  editorObj(person) {
+    return {
+      Name: person.Name,
+      Mail: person.Mail,
+      Color: person.BgColor,
+      Initials: person.Initials
+    }
+  }
 
 
   openSearchContact() {
@@ -334,6 +337,7 @@ class Task {
     }
     return false;
   }
+
 
   finalTask() {
     return {
