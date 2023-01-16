@@ -106,7 +106,7 @@ class Contact {
 					contactInfoTemp.getElementById("infoName").innerHTML = this.setNameHtml(contact);
 					contactInfoTemp.getElementById("infoMail").innerHTML = contact.Mail;
 					contactInfoTemp.getElementById("infoPhone").innerHTML = contact.Phone;
-					contactInfoTemp.querySelector(".edidContact").id = "edidContact" + contact.ID;
+					contactInfoTemp.querySelector(".edidContact").id = "edidContact_" + contact.ID;
 					document.getElementById("contact-informations").append(contactInfoTemp);
 					this.edidContact(contact);
 					// this.openNewTask();
@@ -213,13 +213,14 @@ class Contact {
 
 	// ANCHOR edid contact
 	edidContact(contact) {
-		document.querySelector(`#edidContact${contact.ID}`).addEventListener("click", () => {
+		document.querySelector(`#edidContact_${contact.ID}`).addEventListener("click", () => {
 			document.getElementById("overlay").classList.add("open");
 			document.getElementById("new-contact").classList.add("open");
 			document.getElementById("new-contact-content").classList.add("open");
 			this.setEdidButtons();
 			this.SetValues(contact);
 			this.setEdidButtonID(contact);
+			this.setCreateEdidContactEvent("edidContact");
 			this.setDeleteButton(contact);
 		});
 	}
@@ -236,9 +237,11 @@ class Contact {
 
 	getButtonTemplate(version) {
 		if (version == 1) {
+			document.querySelector(".new-contact-buttons").innerHTML = "";
 			let temp = document.querySelector("#create-buttons-template");
 			return temp.content.cloneNode(true);
 		} else if (version == 2) {
+			document.querySelector(".new-contact-buttons").innerHTML = "";
 			this.closeContactEdidCreateWindow(2);
 			let temp = document.querySelector("#save-button-template");
 			return temp.content.cloneNode(true);
@@ -248,7 +251,6 @@ class Contact {
 	setEdidButtonID(contact) {
 		// button id = index in contactList + 234 to unique id in html code
 		document.querySelector(".save-edided-contact").id = contact.ID + 234;
-		this.setCreateEdidContactEvent("edidContact");
 	}
 
 	saveEdid() {
@@ -301,9 +303,11 @@ class Contact {
 	// ANCHOR set button event
 	setCreateEdidContactEvent(action) {
 		if (action == "newContact") {
-			document.querySelector("#submitFormNewContact").addEventListener("submit", newContact);
+			document.querySelector("#submitFormNewContact").removeEventListener("submit", saveEdidInScript);
+			document.querySelector("#submitFormNewContact").addEventListener("submit", addNewContact);
 			console.log(action);
 		} else if (action == "edidContact") {
+			document.querySelector("#submitFormNewContact").removeEventListener("submit", addNewContact);
 			document.querySelector("#submitFormNewContact").addEventListener("submit", saveEdidInScript);
 			console.log(action);
 		}
@@ -321,7 +325,6 @@ class Contact {
 		cancelAdd[0].addEventListener("click", () => {
 			this.resetNewContactField();
 		});
-
 		cancelAdd[1].addEventListener("click", () => {
 			this.resetNewContactField();
 		});
@@ -336,10 +339,10 @@ class Contact {
 	// ANCHOR save, load and reload page
 	async saveLoadReload() {
 		this.letters = [];
-		await saveData();
-		await loadData();
 		this.resetNewContactField();
 		this.closeContactInfo();
+		await saveData();
+		await loadData();
 		this.loadContactList();
 		this.setButtons();
 	}

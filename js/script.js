@@ -47,7 +47,7 @@ function loadingClasses(item) {
 	}
 }
 //new contact from contact.class - return false to prevent form reset
-function newContact() {
+function addNewContact() {
 	contact.createContact();
 	return false;
 }
