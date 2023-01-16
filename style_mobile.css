@@ -363,7 +363,6 @@ header div:nth-child(1) img {
 	display: none;
 }
 
-/* contact.html */
 .content-contact {
 	height: calc(100vh - 72.2px - 80px);
 	position: absolute;
@@ -439,6 +438,16 @@ header div:nth-child(1) img {
 
 .contact-mid img {
 	content: url(../../img/pencil_white.png);
+}
+
+/* new contact button */
+.add-contact {
+	color: var(--color-white) !important;
+	background-color: var(--color-blue) !important;
+}
+
+.add-contact:hover {
+	background-color: var(--color-kingsblue) !important;
 }
 
 /* add new task in contact.html */

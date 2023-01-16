@@ -1164,12 +1164,21 @@ textarea {
 	width: 100%;
 	display: flex;
 	align-items: center;
+	border-radius: 10px;
+	transition: color ease-in-out 225ms, background-color ease-in-out 225ms;
+}
+
+.listed-contact:hover {
+	cursor: pointer;
+	color: var(--color-white);
+	background-color: var(--color-blue);
 }
 
 .listed-contact img {
 	width: 42px;
 	height: 42px;
 }
+
 .listed-contact-info {
 	display: flex;
 	flex-direction: column;
@@ -1177,23 +1186,24 @@ textarea {
 	margin-left: 35px;
 	height: 77px;
 }
+
 .listed-contact-icon {
 	width: 42px;
 	height: 42px;
 	border-radius: 100%;
 	border: 1px solid #ffffff;
 }
+
 .listed-contact-info span:nth-child(2) {
 	font-size: 16px;
 	color: var(--color-blue);
+	transition: color ease-in-out 225ms;
 }
 
-.listed-contact:hover {
-	cursor: pointer;
-	color: var(--color-white);
-	background-color: var(--color-blue);
-	border-radius: 10px;
+.listed-contact:hover .listed-contact-info span:nth-child(2) {
+	color: var(--color-white) !important;
 }
+
 /* Contactinformations */
 .contact-right-container {
 	display: flex;
