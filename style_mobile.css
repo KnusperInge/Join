@@ -282,38 +282,33 @@ nav ul li img {
 }
 
 /* ANCHOR Board HTML */
-
 .section-board {
-	position: static;
-}
-.bord-search-container {
-	padding-left: 40px;
-}
-
-.bord-tasks {
-	padding-left: 40px;
-	overflow-y: scroll;
+	position: fixed;
+	left: unset;
+	overflow: hidden;
+	z-index: 10;
 }
 
 .bord-search-container {
-	flex-direction: column;
-	align-items: flex-start;
+	position: fixed;
+	top: 40px;
+	transform: translate(0, -50%);
+	width: unset;
+	right: 12px;
+	margin-bottom: 0;
 }
 
 .bord-search-container span {
 	display: none;
 }
 
-.bord-tasks {
-	flex-direction: column;
-}
 .bord-tasks-container {
 	width: 100%;
 }
 
-.section-board {
-	overflow: auto;
-	overflow: hidden;
+.bord-tasks {
+	overflow-y: scroll;
+	flex-direction: column;
 }
 
 /* ANCHOR Header - only for task.html */
