@@ -78,6 +78,7 @@ nav div {
 }
 
 /* ANCHOR task.html */
+
 #TaskForm {
 	position: absolute;
 	top: 0;
@@ -87,19 +88,19 @@ nav div {
 	flex-direction: column-reverse;
 }
 
-.left-Container {
+.left-Container-task {
 	padding: 0;
 	align-items: center;
 	overflow-y: auto;
 }
 
-.right-Container {
+.right-Container-task {
 	position: fixed;
 	top: 30px;
 	right: 16px;
 	gap: unset;
 	padding: 0;
-	height: unset;
+	height: unset !important;
 	width: unset;
 	z-index: 11;
 }
@@ -108,12 +109,12 @@ nav div {
 	display: none;
 }
 
-.right-Container button:nth-child(2) {
+.right-Container-task button:nth-child(2) {
 	background-color: var(--color-white);
 	color: var(--color-blue);
 }
 
-.right-Container button:nth-child(2) img {
+.right-Container-task button:nth-child(2) img {
 	display: none;
 }
 
