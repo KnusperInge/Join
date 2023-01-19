@@ -209,6 +209,12 @@ nav ul li img {
 }
 
 /* ANCHOR Summary HTML */
+.section-summary {
+  position: fixed;
+  top: 80px;
+  height: calc(100vh - 80px - 80px);
+  overflow: auto;
+}
 
 .full-height-width {
   height: 90%;
@@ -239,7 +245,7 @@ nav ul li img {
 }
 
 .third-line {
-  padding-bottom: 90px;
+  padding-bottom: 22px;
   width: 100%;
   gap: 20px;
 }
@@ -304,6 +310,7 @@ nav ul li img {
 
 .bord-tasks-container {
   width: 100%;
+  height: unset;
 }
 
 .bord-tasks {
