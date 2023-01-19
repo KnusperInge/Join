@@ -1,9 +1,25 @@
 setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 
-let Tasks = [], navItems = [], contactList = [], Categories = [];
+let Tasks = [], navItems = [], contactList = [];
 let page = "";
 let newTask, loadingPrps, currentDragElement;
-
+let Categories = [
+	{
+		name: "Sales",
+		id: 0,
+		Color: ""
+	},
+	{
+		name: "Development",
+		id: 1,
+		Color: ""
+	},
+	{
+		name: "Marketing",
+		id: 2,
+		Color: ""
+	}
+];
 
 //general functions
 
@@ -32,6 +48,7 @@ function loadingClasses(item) {
 		});
 	} else if (item == "AddTask") {
 		newTask = new Task();
+		document.getElementById("TaskForm").addEventListener("submit", handleForm);
 	} else if (item == "Contacts") {
 		contact = new Contact();
 		document.getElementById("TaskForm").addEventListener("submit", handleForm);
@@ -59,17 +76,17 @@ function deleteShwonContact() {
 }
 
 //Save and Load
-async function saveData() {
-	await backend.setItem("Tasks", JSON.stringify(Tasks));
-	await backend.setItem("Contacts", JSON.stringify(contactList));
-	await backend.setItem("Categories", JSON.stringify(Categories));
+function saveData() {
+	backend.setItem("Tasks", JSON.stringify(Tasks));
+	backend.setItem("Contacts", JSON.stringify(contactList));
+	backend.setItem("Categories", JSON.stringify(Categories));
 
 }
 
-async function loadData() {
-	Tasks = (await JSON.parse(backend.getItem("Tasks"))) || [];
-	contactList = (await JSON.parse(backend.getItem("Contacts"))) || [];
-	Categories = (await JSON.parse(backend.getItem("Categories"))) || [];
+function loadData() {
+	Tasks = (JSON.parse(backend.getItem("Tasks"))) || [];
+	contactList = (JSON.parse(backend.getItem("Contacts"))) || [];
+	Categories = (JSON.parse(backend.getItem("Categories"))) || [];
 }
 
 //Task.html functions

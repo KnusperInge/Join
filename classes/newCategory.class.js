@@ -1,6 +1,7 @@
 class newCategory {
-
-  constructor() {
+  Task;
+  constructor(Task) {
+    this.Task = Task;
     this.openNewCategory();
     this.closeNewCategoryBtn();
     this.addNewCategoryBtn();
@@ -70,10 +71,14 @@ class newCategory {
   }
   createNewCategory() {
     Categories.push({
-      Category: this.newCategory,
+      name: this.newCategory,
+      id: Categories.length,
       Color: this.newCategoryColor
     });
-    console.log(Categories);
+    saveData();
+    loadData();
+    this.Task.setCategories();
+    this.Task.setCategoryBtn();
   }
 
 }

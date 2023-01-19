@@ -15,20 +15,16 @@ class Task {
   catagoryBtns;
   newCategoryColor;
   newCategory;
+  selfTask;
 
 
   constructor() {
+    this.selfTask = this;
     this.setPriorityBtn();
     this.setDropdownBtn();
     this.setContactBtn();
-    this.setCategoryBtn();
+    this.loadCatListsetBtns();
     this.initSubtaskBtns();
-  }
-
-  initSubtaskBtns() {
-    this.setSubtaskBtn();
-    this.setSubtaskClearBtn();
-    this.setSubTaskAddBtn();
   }
 
   //ANCHOR- Priority Buttons
@@ -183,7 +179,6 @@ class Task {
     }
   }
 
-
   openSearchContact() {
     document.querySelector('.contactInput').classList.toggle('d-none');
     document.querySelector('.searchContact-Container').classList.toggle('d-none');
@@ -231,22 +226,52 @@ class Task {
   }
 
   //ANCHOR - Category Buttons
+  loadCatListsetBtns() {
+    this.setCategories();
+    this.setCategoryBtn();
+  }
+  setCategories() {
+    let target = document.querySelector('.category');
+    target.innerHTML = "";
+    Categories.forEach((element) => {
+      let temp = document.getElementById('category-temp').content.cloneNode(true);
+      this.loadCategoryTemplate(temp, target, element);
+    });
+    this.setNewCategoryTemplate(target);
+  }
+
+  setNewCategoryTemplate(target) {
+    let temp = document.getElementById('category-temp').content.cloneNode(true);
+    temp.querySelector('div').setAttribute('id', Categories.length);
+    temp.querySelector('div').innerText = "add new Category";
+    target.appendChild(temp);
+  }
+
+  loadCategoryTemplate(temp, target, element) {
+    temp.querySelector('div').setAttribute('id', element.id);
+    temp.querySelector('div').innerText = element.name;
+    target.appendChild(temp);
+  }
+
+
   setCategoryBtn() {
     this.catagoryBtns = document.querySelectorAll('.category div');
     this.catagoryBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         let id = event.target.id;
-        this.addCategory(id);
+        let length = this.catagoryBtns.length - 1;
+        console.log(length);
+        this.addCategory(id, length);
       });
     });
   }
 
-  addCategory(id) {
+  addCategory(id, length) {
     const input = document.querySelector('.cagetorgy-input');
     input.value = this.catagoryBtns[id].textContent;
     this.openList(1);
-    if (id == 3) {
-      this.newCategory = new newCategory();
+    if (id == length) {
+      this.newCategory = new newCategory(this.selfTask);
     }
     if (!input.value == '') {
       this.Category = this.catagoryBtns[id].textContent;
@@ -255,6 +280,12 @@ class Task {
 
 
   //ANCHOR - Subtask Buttons 
+  initSubtaskBtns() {
+    this.setSubtaskBtn();
+    this.setSubtaskClearBtn();
+    this.setSubTaskAddBtn();
+  }
+
   setSubtaskBtn() {
     document.querySelector('.subtask-container img').addEventListener('click', (event) => {
       event.srcElement.classList.add('d-none');
@@ -307,7 +338,6 @@ class Task {
     this.Priority = this.checkpriority();
     this.Description = document.getElementById("description-input").value;
     this.Status = "toDo";
-    // this.finalTask();
   }
 
   checkpriority() {

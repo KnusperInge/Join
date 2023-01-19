@@ -62,7 +62,7 @@ class Loading {
         this.urgentTasksArr.push(arr);
       }
     });
-    this.urgentTasksArr.forEach((date) => {
+    this.allTasksArr.forEach((date) => {
       this.dates.push(Date.parse(date.Deadline));
     });
     //Nummeric sort of the Dates
