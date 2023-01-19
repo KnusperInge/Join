@@ -855,9 +855,7 @@ h3 {
   line-height: 120%;
   color: var(--color-lightgrey);
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-}
+
 /* ANCHOR Category Select Dorpdown */
 
 /* ANCHOR Priority Properites */
