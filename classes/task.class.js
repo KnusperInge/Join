@@ -32,6 +32,7 @@ class Task {
     this.prioBtns = document.querySelectorAll('.priority-container .priority');
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
+        console.log(event.target);
         let id = event.target.id;
         this.aktivatePriorityBtn(id)
       });

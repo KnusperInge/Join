@@ -41,11 +41,9 @@ class Loading {
       }
       if (arr.Status == 'Await') {
         this.awaitArr.push(arr);
-
       }
       if (arr.Status == 'Done') {
         this.doneTaskArr.push(arr);
-
       }
     });
   }
