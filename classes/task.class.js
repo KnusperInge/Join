@@ -343,7 +343,7 @@ class Task {
 
   checkpriority() {
     if (document.querySelector(".priority-container .active")) {
-      return document.querySelector(".priority-container .active span").textContent;
+      return document.querySelector(".priority-container .active").textContent;
     }
     return false;
   }
