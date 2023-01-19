@@ -1,15 +1,9 @@
 setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 
-let Tasks = [];
-let navItems = [];
-let contactList = [];
-let Categories = [];
-let lastChosenEditor = [];
+let Tasks = [], navItems = [], contactList = [], Categories = [];
 let page = "";
+let newTask, loadingPrps, currentDragElement;
 
-let newTask;
-let loadingPrps;
-let currentDragElement;
 
 //general functions
 
@@ -69,14 +63,13 @@ async function saveData() {
 	await backend.setItem("Tasks", JSON.stringify(Tasks));
 	await backend.setItem("Contacts", JSON.stringify(contactList));
 	await backend.setItem("Categories", JSON.stringify(Categories));
-	await backend.setItem("lastChosenEditor", JSON.stringify(lastChosenEditor));
+
 }
 
 async function loadData() {
 	Tasks = (await JSON.parse(backend.getItem("Tasks"))) || [];
 	contactList = (await JSON.parse(backend.getItem("Contacts"))) || [];
 	Categories = (await JSON.parse(backend.getItem("Categories"))) || [];
-	lastChosenEditor = (await JSON.parse(backend.getItem("lastChosenEditor"))) || [];
 }
 
 //Task.html functions

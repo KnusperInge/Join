@@ -18,23 +18,12 @@ class Task {
 
 
   constructor() {
-    this.loadLastChoseneditor(); // Letzten 3 genutzten kontakte laden
     this.setPriorityBtn();
     this.setDropdownBtn();
     this.setContactBtn();
     this.setCategoryBtn();
     this.initSubtaskBtns();
-
-
-
-
-    // this.setAddBtn();
-    // this.setClearBtn();
   }
-
-  // set Buttons
-
-
 
   initSubtaskBtns() {
     this.setSubtaskBtn();
@@ -136,6 +125,7 @@ class Task {
       });
     });
   }
+
   setnewContactBtns() {
     this.setSearchCloseBtn();
     this.setkeyupSearchContact();
@@ -143,21 +133,14 @@ class Task {
 
   setSearchCloseBtn() {
     document.querySelector('#closeSearchContact').addEventListener('click', this.openSearchContact);
-
   }
 
   setkeyupSearchContact() {
     document.querySelector('.searchContact-Container input').addEventListener('keyup', (event) => {
-
       let input = event.target;
       this.searchContact(input);
-      console.log(event);
-
     });
-
   }
-
-
 
   searchContact(input) {
     for (let i = 0; i < contactList.length; i++) {
@@ -174,6 +157,7 @@ class Task {
     output.innerHTML = `<span>${person.Name} ${person.Surname}</span>`;
     this.setPreviewContactBtn(person);
   }
+
   setPreviewContactBtn(person) {
     document.querySelector('.outputContact span').addEventListener('click', () => {
       document.querySelector('.searchContact-Container input').value = person.Mail;
@@ -182,19 +166,14 @@ class Task {
     });
   }
 
-
-
-
   saveInviteContact(person) {
     document.getElementById('addContactBtn').addEventListener('click', () => {
       this.editors.push(this.editorObj(person));
-      lastChosenEditor.push(this.editorObj(person));
       document.querySelector('.searchContact-Container input').value = "";
-      this.renderIcons();
       this.openSearchContact();
-      console.log(this.editors);
     });
   }
+
   editorObj(person) {
     return {
       Name: person.Name,
@@ -210,7 +189,6 @@ class Task {
     document.querySelector('.searchContact-Container').classList.toggle('d-none');
     document.querySelector('.searchContact-input input').focus();
     document.querySelector('.contacts ').classList.toggle('d-none');
-
   }
 
   addContact(id) {
@@ -236,8 +214,20 @@ class Task {
   renderIcons() {
     this.editors.forEach((element) => {
       let firstletter = element.Initials;
-      this.selectedContacts.innerHTML += `<span style="background:${element.Color}">${firstletter}</span>`;
+      if (firstletter == undefined) {
+        firstletter = this.renderInitials(element);
+        this.selectedContacts.innerHTML += `<span>${firstletter}</span>`;
+      } else {
+        this.selectedContacts.innerHTML += `<span style="background:${element.Color}">${firstletter}</span>`;
+      }
     });
+  }
+  renderInitials(element) {
+    let firstletters = element.split(" ");
+    let first = firstletters[0].charAt(0);
+    let second = firstletters[1].charAt(0);
+    let letters = first + second;
+    return letters;
   }
 
   //ANCHOR - Category Buttons
@@ -267,19 +257,17 @@ class Task {
   //ANCHOR - Subtask Buttons 
   setSubtaskBtn() {
     document.querySelector('.subtask-container img').addEventListener('click', (event) => {
-      console.log(event);
       event.srcElement.classList.add('d-none');
       document.querySelector('.subtask-img-container').classList.remove('d-none');
     });
-
   }
+
   setSubtaskClearBtn() {
     document.querySelector('#subtaskClearBtn').addEventListener('click', () => {
       document.querySelector('.subtask-container input').value = "";
       document.querySelector('.subtask-img-container').classList.add('d-none');
       document.querySelector('.subtask-container img').classList.remove('d-none');
     });
-
   }
 
   setSubTaskAddBtn() {
@@ -290,7 +278,6 @@ class Task {
       });
       document.querySelector('.subtask-container input').value = "";
       this.loadSubtasks();
-      console.log('Subtaks:', this.Subtaks);
     });
   }
   loadSubtasks() {
@@ -311,14 +298,6 @@ class Task {
       target.appendChild(template);
     });
   }
-  // setAddBtn() {
-  //   document.querySelector('.AddButton').addEventListener('click', this.handleForm);
-  // }
-
-  // setClearBtn() {
-  //   document.querySelector('#clear-btn').addEventListener('click', this.clearForm);
-
-  // }
 
   //ANCHOR - Create new Task
   init() {
@@ -338,7 +317,6 @@ class Task {
     return false;
   }
 
-
   finalTask() {
     return {
       ID: this.ID,
@@ -351,10 +329,7 @@ class Task {
       Description: this.Description,
       Subtasks: this.Subtaks
     };
-
   }
-
-
 
   clearForm() {
     this.prioBtns[0].className = "priority dflex-center";
@@ -363,7 +338,6 @@ class Task {
     this.selectedContacts.innerHTML = "";
     document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
-    // openList(3);
   }
 
 
