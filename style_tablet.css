@@ -77,6 +77,16 @@ nav div {
 	height: 180px;
 }
 
+/* ANCHOR board.html */
+.bord-search-container {
+	padding-left: 8px;
+}
+
+.bord-tasks {
+	padding: 0 8px;
+	gap: calc((100vw - ((4 * 250px) + (2 * 8px) + 196px)) / 3);
+}
+
 /* ANCHOR task.html */
 
 #TaskForm {
