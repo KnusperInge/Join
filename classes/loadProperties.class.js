@@ -41,13 +41,11 @@ class Loading {
       }
       if (arr.Status == 'Await') {
         this.awaitArr.push(arr);
-        document.getElementById('toDoTasks').innerText =
-          this.toDoTaskArr.length;
+
       }
-      if (this.Status == 'Done') {
+      if (arr.Status == 'Done') {
         this.doneTaskArr.push(arr);
-        document.getElementById('toDoTasks').innerText =
-          this.toDoTaskArr.length;
+
       }
     });
   }
