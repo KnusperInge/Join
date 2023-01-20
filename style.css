@@ -1191,6 +1191,10 @@ textarea {
 	height: 42px;
 	border-radius: 100%;
 	border: 1px solid #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-white);
 }
 
 .listed-contact-info span:nth-child(2) {

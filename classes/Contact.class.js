@@ -54,6 +54,8 @@ class Contact {
 			contactListTemp.querySelector(".listed-contact").id = contact.ID;
 			contactListTemp.getElementById("listContactName").innerHTML = this.setNameHtml(contact);
 			contactListTemp.getElementById("listContactMail").innerHTML = contact.Mail;
+			contactListTemp.getElementById("contactIcon").innerHTML = contact.Initials;
+			contactListTemp.getElementById("contactIcon").style.background = contact.BgColor;
 			if (this.getSurChar(contact).toLowerCase() == letter) {
 				document.getElementById(letter + "-list").appendChild(contactListTemp);
 			}
