@@ -1290,9 +1290,16 @@ textarea {
 	margin-bottom: 22px;
 }
 
-.contact-img {
-	width: 120px;
+#contact-info-icon {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
 	margin-right: 54px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-white);
+	font-size: 24px;
 }
 
 .contact-header span:nth-child(1) {

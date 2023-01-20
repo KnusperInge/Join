@@ -51,15 +51,27 @@ class Contact {
 	loadContacts(letter) {
 		contactList.forEach((contact) => {
 			const contactListTemp = document.getElementById("contact_inList_template").content.cloneNode(true);
-			contactListTemp.querySelector(".listed-contact").id = contact.ID;
-			contactListTemp.getElementById("listContactName").innerHTML = this.setNameHtml(contact);
-			contactListTemp.getElementById("listContactMail").innerHTML = contact.Mail;
-			contactListTemp.getElementById("contactIcon").innerHTML = contact.Initials;
-			contactListTemp.getElementById("contactIcon").style.background = contact.BgColor;
+			this.setID_listedContact(contactListTemp, contact);
+			this.setInnerHTML_listedContact(contactListTemp, contact);
+			this.setIconStyle_listedContact(contactListTemp, contact);
 			if (this.getSurChar(contact).toLowerCase() == letter) {
 				document.getElementById(letter + "-list").appendChild(contactListTemp);
 			}
 		});
+	}
+
+	setID_listedContact(contactListTemp, contact) {
+		contactListTemp.querySelector(".listed-contact").id = contact.ID;
+	}
+
+	setInnerHTML_listedContact(contactListTemp, contact) {
+		contactListTemp.getElementById("listContactName").innerHTML = this.setNameHtml(contact);
+		contactListTemp.getElementById("listContactMail").innerHTML = contact.Mail;
+		contactListTemp.getElementById("contactIcon").innerHTML = contact.Initials;
+	}
+
+	setIconStyle_listedContact(contactListTemp, contact) {
+		contactListTemp.getElementById("contactIcon").style.background = contact.BgColor;
 	}
 
 	// ANCHOR set name first char to upper case
@@ -105,14 +117,11 @@ class Contact {
 					this.setContactInfoStyle();
 					const contactInfoTemp = document.getElementById("contact_info_template").content.cloneNode(true);
 					const contact = contactList.find((contact) => contact.ID == id);
-					contactInfoTemp.getElementById("infoName").innerHTML = this.setNameHtml(contact);
-					contactInfoTemp.getElementById("infoMail").innerHTML = contact.Mail;
-					contactInfoTemp.getElementById("infoPhone").innerHTML = contact.Phone;
-					contactInfoTemp.querySelector(".edidContact").id = "edidContact_" + contact.ID;
+					this.setInnerHTML_contactInfo(contactInfoTemp, contact);
+					this.setID_contactInfo(contactInfoTemp, contact);
+					this.setIconStyle_contactInfo(contactInfoTemp, contact);
 					document.getElementById("contact-informations").append(contactInfoTemp);
 					this.edidContact(contact);
-					// this.openNewTask();
-					// this.closeNewTask();
 				});
 			});
 	}
@@ -124,6 +133,28 @@ class Contact {
 		document.getElementById("contact-informations").innerHTML = "";
 	}
 
+	setInnerHTML_contactInfo(contactInfoTemp, contact) {
+		contactInfoTemp.getElementById("infoName").innerHTML = this.setNameHtml(contact);
+		contactInfoTemp.getElementById("infoMail").innerHTML = contact.Mail;
+		contactInfoTemp.getElementById("infoPhone").innerHTML = contact.Phone;
+		contactInfoTemp.getElementById("contact-info-icon").innerHTML = contact.Initials;
+	}
+
+	setID_contactInfo(contactInfoTemp, contact) {
+		contactInfoTemp.querySelector(".edidContact").id = "edidContact_" + contact.ID;
+	}
+
+	setIconStyle_contactInfo(contactInfoTemp, contact) {
+		contactInfoTemp.getElementById("contact-info-icon").style.background = contact.BgColor;
+	}
+
+	// only on mobile
+	mobileCloseContactInfoBtn() {
+		document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
+			this.closeContactInfo();
+		});
+	}
+
 	closeContactInfo() {
 		document.getElementById("contact-informations").innerHTML = "";
 		document.getElementById("contact-informations").classList.remove("active");
@@ -131,22 +162,15 @@ class Contact {
 		document.querySelector(".contact-right-container").classList.remove("active");
 	}
 
-	// only mobile
-	mobileCloseContactInfoBtn() {
-		document.querySelector(".close_contact_info_tablet").addEventListener("click", () => {
-			this.closeContactInfo();
-		});
-	}
-
-	// ANCHOR new task in contact info
-	openNewTask() {
-		document.querySelector(".addtask-box").addEventListener("click", () => {
-			newTask = new Task();
-			document.getElementById("overlay").classList.toggle("open");
-			document.querySelector(".newTask").classList.toggle("open");
-			document.querySelector(".AddButton").classList.toggle("open");
-		});
-	}
+	// // ANCHOR new task in contact info
+	// openNewTask() {
+	// 	document.querySelector(".addtask-box").addEventListener("click", () => {
+	// 		newTask = new Task();
+	// 		document.getElementById("overlay").classList.toggle("open");
+	// 		document.querySelector(".newTask").classList.toggle("open");
+	// 		document.querySelector(".AddButton").classList.toggle("open");
+	// 	});
+	// }
 
 	// ANCHOR new contact
 	addNewContact() {
