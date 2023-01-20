@@ -1,5 +1,4 @@
 class Loading {
-  allTasksArr;
   urgentTasksArr = [];
   toDoTaskArr = [];
   inProgressArr = [];
@@ -26,13 +25,13 @@ class Loading {
   DAY = 0;
   FinalDate = '';
   constructor() {
-    this.allTasksArr = Tasks;
+
     this.checkUrgent();
     this.checkStatus();
     this.init();
   }
   checkStatus() {
-    this.allTasksArr.forEach((arr) => {
+    Tasks.forEach((arr) => {
       if (arr.Status == 'toDo') {
         this.toDoTaskArr.push(arr);
       }
@@ -50,7 +49,7 @@ class Loading {
 
   checkUrgent() {
     //Check Main Arr for urgent
-    this.allTasksArr.forEach((arr) => {
+    Tasks.forEach((arr) => {
       if (
         (arr.Priority == 'Urgent' && arr.Status == 'toDo') ||
         arr.Status == 'inProgress'
@@ -58,7 +57,7 @@ class Loading {
         this.urgentTasksArr.push(arr);
       }
     });
-    this.allTasksArr.forEach((date) => {
+    Tasks.forEach((date) => {
       this.dates.push(Date.parse(date.Deadline));
     });
     //Nummeric sort of the Dates
@@ -74,8 +73,7 @@ class Loading {
     document.getElementById('AllTask').innerText = this.allTasksArr.length;
     document.getElementById('toDoTasks').innerText = this.toDoTaskArr.length;
     document.getElementById('inProgress').innerText = this.inProgressArr.length;
-    document.getElementById('awaitForFeedback').innerText =
-      this.awaitArr.length;
+    document.getElementById('awaitForFeedback').innerText = this.awaitArr.length;
     document.getElementById('done').innerText = this.doneTaskArr.length;
     document.querySelector('.first-line').childNodes[1].innerText =
       this.getTimestampInSeconds();

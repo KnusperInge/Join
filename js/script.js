@@ -78,14 +78,12 @@ function saveData() {
 	backend.setItem("Tasks", JSON.stringify(Tasks));
 	backend.setItem("Contacts", JSON.stringify(contactList));
 	backend.setItem("Categories", JSON.stringify(Categories));
-	backend.setItem("lastChosenEditor", JSON.stringify(lastChosenEditor));
 }
 
 function loadData() {
 	Tasks = (JSON.parse(backend.getItem("Tasks"))) || [];
 	contactList = (JSON.parse(backend.getItem("Contacts"))) || [];
 	Categories = (JSON.parse(backend.getItem("Categories"))) || [];
-	lastChosenEditor = (JSON.parse(backend.getItem("lastChosenEditor"))) || [];
 }
 
 //Task.html functions
@@ -125,11 +123,11 @@ function allowDrop(event) {
 function startDragging(title) {
 	elementOnDrag = title;
 }
+
 function drop(category) {
 	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
 	Tasks[index].Status = category;
 	saveData();
-	//init();
 	console.log(Tasks);
 	currentDragElement.loadTasks();
 }

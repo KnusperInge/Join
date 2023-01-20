@@ -279,7 +279,6 @@ class Task {
     }
   }
 
-
   //ANCHOR - Subtask Buttons 
   initSubtaskBtns() {
     this.setSubtaskBtn();
@@ -312,6 +311,7 @@ class Task {
       this.loadSubtasks();
     });
   }
+
   loadSubtasks() {
     if (!this.Subtaks.length == 0) {
       this.renderSubtask();

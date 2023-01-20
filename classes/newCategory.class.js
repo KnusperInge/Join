@@ -10,7 +10,6 @@ class newCategory {
     document.querySelector('.searchAndAdd-container input').focus();
   }
 
-
   openNewCategory() {
     document.querySelector('.cat').classList.toggle('d-none');
     document.querySelector('.searchAndAdd-container').classList.toggle('d-none');
@@ -57,8 +56,6 @@ class newCategory {
 
   addNewCategoryBtn() {
     document.getElementById('SearchAndAddBtn').addEventListener('click', () => {
-
-
       let activeColor = document.querySelector('colorpicker .select');
       let categoryInput = document.querySelector('.searchAndAdd-container-input input');
       if (!activeColor > 0 && !categoryInput.value == "") {
@@ -69,6 +66,7 @@ class newCategory {
       }
     });
   }
+
   createNewCategory() {
     Categories.push({
       name: this.newCategory,

@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
 	await includeHtml();
-
 	navItems = checkNavItem();
 	page = checkItems();
 	setActivelink();

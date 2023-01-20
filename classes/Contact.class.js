@@ -66,7 +66,7 @@ class Contact {
 	}
 
 	setFirstName(contact) {
-		return contact.Name.charAt(0).toUpperCase() + contact.Name.slice(1);
+		return contact.Name.charAt(0).toUpperCase() + contact.Name.slice(1); // Warum slice ? 
 	}
 
 	setSurname(contact) {
