@@ -1,9 +1,11 @@
 /* ANCHOR Header */
 header {
-	min-height: 80px;
+	height: 80px !important;
 	justify-content: space-between;
 	padding: 0 15px;
 	height: unset;
+	position: fixed;
+	top: 0;
 }
 
 header div:nth-child(1) img {
@@ -56,6 +58,13 @@ nav ul li a {
 
 .LegalNotice {
 	display: none;
+}
+
+/* ANCHOR global main tag */
+main {
+	position: fixed;
+	top: 80px;
+	height: calc(100vh - 80px);
 }
 
 /* ANCHOR Login HTML */
@@ -281,7 +290,7 @@ nav ul li a {
 }
 
 /* ANCHOR Header - only for task.html */
-header {
+.header-task {
 	background-color: white;
 	z-index: 10;
 }
@@ -290,15 +299,22 @@ header {
 	display: none;
 }
 
-header div:nth-child(2) span {
+.header-task div:nth-child(2) span {
 	display: none;
 }
 
-header div:nth-child(1) img {
+.header-task div:nth-child(1) img {
 	content: url("../../img/icon_blue.png");
 }
 
 /*ANCHOR task.html */
+.main-task {
+	position: fixed;
+	top: 84px;
+	height: calc(100vh - 84px);
+	z-index: 11;
+}
+
 .section-task {
 	height: calc(100vh - (2 * 80px)) !important;
 	position: absolute;
@@ -333,6 +349,11 @@ header div:nth-child(1) img {
 
 .right-Container-task {
 	top: 20px;
+}
+
+.right-Container-task button:nth-child(2) {
+	background-color: var(--color-blue) !important;
+	color: var(--color-white) !important;
 }
 
 /* ANCHOR contact.html */
@@ -372,8 +393,11 @@ header div:nth-child(1) img {
 	left: 0;
 }
 
-#contact-informations.active {
+#contact-informations {
 	margin: 0;
+}
+
+#contact-informations.active {
 	padding: 0 20px;
 	padding-top: 80px;
 	position: relative;
@@ -416,16 +440,7 @@ header div:nth-child(1) img {
 
 .contact-mid img {
 	content: url(../../img/pencil_white.png);
-}
-
-/* new contact button */
-.add-contact {
-	color: var(--color-white) !important;
-	background-color: var(--color-blue) !important;
-}
-
-.add-contact:hover {
-	background-color: var(--color-kingsblue) !important;
+	margin: 0;
 }
 
 /* add new task in contact.html */

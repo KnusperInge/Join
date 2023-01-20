@@ -112,6 +112,9 @@ nav div {
 }
 
 /* ANCHOR task.html */
+.header-task span {
+	display: none;
+}
 
 #TaskForm {
 	position: absolute;
@@ -139,16 +142,16 @@ nav div {
 	z-index: 11;
 }
 
-#clear-btn {
-	display: none;
+.right-Container-task button:nth-child(1) {
+	margin-right: 8px;
 }
 
-.right-Container-task button:nth-child(2) {
-	background-color: var(--color-white);
-	color: var(--color-blue);
+.right-Container-task button {
+	background-color: var(--color-white) !important;
+	color: var(--color-blue) !important;
 }
 
-.right-Container-task button:nth-child(2) img {
+.right-Container-task button img {
 	display: none;
 }
 
