@@ -673,6 +673,9 @@ form {
 	flex-direction: column;
 	padding-left: 80px;
 	padding-top: 20px;
+	height: calc(100vh - (97.3px + 20px));
+	overflow: auto;
+	min-width: 404px;
 }
 
 .right-Container {

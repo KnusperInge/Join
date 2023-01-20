@@ -323,6 +323,12 @@ main {
 
 .left-Container-task {
 	height: 100%;
+	width: 100%;
+	min-width: unset;
+}
+
+.left-Container-task > * {
+	padding: 0;
 }
 
 #TaskForm {
