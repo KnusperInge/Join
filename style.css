@@ -979,6 +979,11 @@ textarea {
 }
 
 /* ANCHOR Board.html */
+.taskListBorder {
+	border: 1 solid black !important;
+	background-color: #8298bf !important;
+}
+
 .section-board {
 	position: fixed;
 	left: 196px;

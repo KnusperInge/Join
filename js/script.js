@@ -1,23 +1,25 @@
 setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
-let Tasks = [], navItems = [], contactList = [];
+let Tasks = [],
+	navItems = [],
+	contactList = [];
 let page = "";
 let newTask, loadingPrps, currentDragElement;
 let Categories = [
 	{
 		name: "Sales",
 		id: 0,
-		Color: ""
+		Color: "",
 	},
 	{
 		name: "Development",
 		id: 1,
-		Color: ""
+		Color: "",
 	},
 	{
 		name: "Marketing",
 		id: 2,
-		Color: ""
-	}
+		Color: "",
+	},
 ];
 //general functions
 
@@ -81,9 +83,9 @@ function saveData() {
 }
 
 function loadData() {
-	Tasks = (JSON.parse(backend.getItem("Tasks"))) || [];
-	contactList = (JSON.parse(backend.getItem("Contacts"))) || [];
-	Categories = (JSON.parse(backend.getItem("Categories"))) || [];
+	Tasks = JSON.parse(backend.getItem("Tasks")) || [];
+	contactList = JSON.parse(backend.getItem("Contacts")) || [];
+	Categories = JSON.parse(backend.getItem("Categories")) || [];
 }
 
 //Task.html functions
@@ -116,7 +118,31 @@ function handleForm(event) {
 // board.html
 
 let elementOnDrag;
+
+const lists = document.querySelectorAll(".bord-tasks-container-location");
+lists.forEach((list) => {
+	list.addEventListener("dragenter", dragEnter);
+	list.addEventListener("dragover", dragOver);
+	list.addEventListener("dragleave", dragLeave);
+});
+
+function dragEnter(event) {
+	console.log(event);
+	event.path[0].classList.add("taskListBorder");
+}
+
+function dragOver(event) {
+	console.log(event);
+}
+
+function dragLeave(event) {
+	console.log(event);
+	event.path[0].classList.remove("taskListBorder");
+}
+
 function allowDrop(event) {
+	// console.log(event);
+	event.path[0].classList.add("test");
 	event.preventDefault();
 }
 
@@ -125,6 +151,7 @@ function startDragging(title) {
 }
 
 function drop(category) {
+	event.path[0].classList.remove("taskListBorder");
 	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
 	Tasks[index].Status = category;
 	saveData();
