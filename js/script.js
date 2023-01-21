@@ -126,16 +126,17 @@ lists.forEach((list) => {
 });
 
 function dragEnter(event) {
-	console.log(event);
-	if (event.path[1].className == "bord-tasks-container") event.path[0].classList.add("taskListBorder");
+	//console.log(event);
+	//if (event.path[1].className == "bord-tasks-container") event.path[0].classList.add("taskListBorder");
 }
 
 function dragLeave(event) {
-	console.log(event);
-	event.path[0].classList.remove("taskListBorder");
+
+	//event.path[0].classList.remove("taskListBorder");
 }
 
 function allowDrop(event) {
+	console.log(event);
 	event.preventDefault();
 }
 
@@ -144,7 +145,7 @@ function startDragging(title) {
 }
 
 function drop(category) {
-	event.path[0].classList.remove("taskListBorder");
+	//event.path[0].classList.remove("taskListBorder");
 	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
 	Tasks[index].Status = category;
 	saveData();
