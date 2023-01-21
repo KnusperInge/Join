@@ -121,17 +121,17 @@ let elementOnDrag;
 
 const lists = document.querySelectorAll(".bord-tasks-container-location");
 lists.forEach((list) => {
+	list.addEventListener("dragstart", startDraggingElement);
 	list.addEventListener("dragenter", dragEnter);
 	list.addEventListener("dragleave", dragLeave);
+	list.addEventListener("drop", dropEvent);
 });
 
 function dragEnter(event) {
-	console.log(event);
-	if (event.path[1].className == "bord-tasks-container") event.path[0].classList.add("taskListBorder");
+	if (event.path[1].className == "bord-tasks-container") event.target.classList.add("taskListBorder");
 }
 
 function dragLeave(event) {
-	console.log(event);
 	event.path[0].classList.remove("taskListBorder");
 }
 
@@ -143,11 +143,19 @@ function startDragging(title) {
 	elementOnDrag = title;
 }
 
+function startDraggingElement(event) {
+	console.log(event.composedPath());
+	event.composedPath();
+}
+
 function drop(category) {
-	event.path[0].classList.remove("taskListBorder");
 	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
 	Tasks[index].Status = category;
 	saveData();
 	console.log(Tasks);
 	currentDragElement.loadTasks();
+}
+
+function dropEvent(event) {
+	event.path[0].classList.remove("taskListBorder");
 }
