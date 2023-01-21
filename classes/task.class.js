@@ -25,6 +25,7 @@ class Task {
     this.setContactBtn();
     this.loadCatListsetBtns();
     this.initSubtaskBtns();
+    this.setClearBtn();
   }
 
   //ANCHOR- Priority Buttons
@@ -32,7 +33,6 @@ class Task {
     this.prioBtns = document.querySelectorAll('.priority-container .priority');
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        console.log(event.target);
         let id = event.target.id;
         this.aktivatePriorityBtn(id)
       });
@@ -261,7 +261,6 @@ class Task {
       btn.addEventListener('click', (event) => {
         let id = event.target.id;
         let length = this.catagoryBtns.length - 1;
-        console.log(length);
         this.addCategory(id, length);
       });
     });
@@ -331,6 +330,13 @@ class Task {
     });
   }
 
+  setClearBtn() {
+    document.querySelector('#clear-btn').addEventListener('click', (event) => {
+      event.preventDefault();
+      this.clearForm();
+    });
+  }
+
   //ANCHOR - Create new Task
   init() {
     this.ID = Tasks.length;
@@ -367,12 +373,12 @@ class Task {
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
     this.selectedContacts.innerHTML = "";
+    document.querySelector('.subtasks').innerHTML = "";
     document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
   }
   showNote() {
     document.querySelector('.task-note').classList.remove('d-none');
-    console.log(this.finalTask());
     setTimeout(() => {
       document.querySelector('.task-note').classList.add('d-none');
       openboard();

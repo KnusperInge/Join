@@ -858,15 +858,13 @@ h3 {
   margin-top: 18px;
 }
 .selectedContacts span {
-  width: 15px;
-  height: 15px;
-  background: linear-gradient(
-    0.15turn,
-    var(--color-medium),
-    var(--color-white)
-  );
+  width: 20px;
+  height: 200px;
+  font-size: 15px;
+  background: var(--color-medium);
+  margin: 2.5px;
   border-radius: 50%;
-  padding: 9px 13px;
+  padding: 10px;
   text-align: center;
 }
 /* ANCHOR Datefield */
