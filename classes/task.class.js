@@ -343,7 +343,7 @@ class Task {
 
   checkpriority() {
     if (document.querySelector(".priority-container .active")) {
-      return document.querySelector(".priority-container .active").textContent;
+      return document.querySelector(".priority-container .active").innerText;
     }
     return false;
   }
@@ -372,6 +372,7 @@ class Task {
   }
   showNote() {
     document.querySelector('.task-note').classList.remove('d-none');
+    console.log(this.finalTask());
     setTimeout(() => {
       document.querySelector('.task-note').classList.add('d-none');
       openboard();

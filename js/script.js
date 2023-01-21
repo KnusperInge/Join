@@ -104,7 +104,7 @@ function inviteContact() {
 }
 
 function handleForm(event) {
-	console.log(event);
+	//console.log(event);
 	event.preventDefault();
 	newTask.init();
 	Tasks.push(newTask.finalTask());
@@ -112,7 +112,7 @@ function handleForm(event) {
 	newTask.clearForm();
 	loadData();
 	newTask.showNote();
-	console.log(Tasks.length);
+	//	console.log(Tasks.length);
 }
 
 // board.html
