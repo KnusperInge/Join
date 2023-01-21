@@ -70,7 +70,7 @@ class Loading {
     document.getElementById('urgentTasks').innerText =
       this.urgentTasksArr.length;
     document.getElementById('upcomingDeadline').innerText = this.createDate();
-    document.getElementById('AllTask').innerText = this.allTasksArr.length;
+    document.getElementById('AllTask').innerText = Tasks.length;
     document.getElementById('toDoTasks').innerText = this.toDoTaskArr.length;
     document.getElementById('inProgress').innerText = this.inProgressArr.length;
     document.getElementById('awaitForFeedback').innerText = this.awaitArr.length;
