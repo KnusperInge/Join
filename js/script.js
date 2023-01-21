@@ -35,7 +35,6 @@ async function init() {
 	await downloadFromServer();
 	await loadData();
 	loadingClasses(item);
-	//console.log(Tasks);
 }
 
 function loadingClasses(item) {

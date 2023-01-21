@@ -632,16 +632,22 @@ nav div {
 
 /*ANCHOR Legal Notice*/
 .content-LegalNotice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  margin-left: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 48px;
+  padding-left: 40px;
 }
 
+.legalNoticeContainer {
+  position: absolute;
+  top: 0px;
+  padding-right: 40px;
+}
+.legalNoticeContainer p {
+  padding-right: 48px;
+}
 .content-LegalNotice h1 {
   font-weight: 700;
   font-size: 61px;
@@ -717,8 +723,6 @@ h3 {
   padding-bottom: 5px;
 }
 
-#subtask-input {
-}
 .searchAndAdd-container {
   width: 320px;
   display: flex;
