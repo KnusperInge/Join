@@ -136,6 +136,7 @@ function dragLeave(event) {
 }
 
 function allowDrop(event) {
+	console.log(event);
 	event.preventDefault();
 }
 
