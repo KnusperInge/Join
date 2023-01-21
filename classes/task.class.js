@@ -370,6 +370,12 @@ class Task {
     document.querySelector('#TaskForm').reset();
     this.deactivtedContactDropdown();
   }
-
+  showNote() {
+    document.querySelector('.task-note').classList.remove('d-none');
+    setTimeout(() => {
+      document.querySelector('.task-note').classList.add('d-none');
+      openboard();
+    }, 2000);
+  }
 
 }

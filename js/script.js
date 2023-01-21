@@ -111,6 +111,7 @@ function handleForm(event) {
 	saveData();
 	newTask.clearForm();
 	loadData();
+	newTask.showNote();
 	console.log(Tasks.length);
 }
 
