@@ -184,9 +184,9 @@ body {
 
 .login_screen {
   /* position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%); */
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%); */
   align-items: center;
   justify-content: center;
   padding: 35px 115px;
