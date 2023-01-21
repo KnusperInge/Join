@@ -122,17 +122,12 @@ let elementOnDrag;
 const lists = document.querySelectorAll(".bord-tasks-container-location");
 lists.forEach((list) => {
 	list.addEventListener("dragenter", dragEnter);
-	list.addEventListener("dragover", dragOver);
 	list.addEventListener("dragleave", dragLeave);
 });
 
 function dragEnter(event) {
 	console.log(event);
-	event.path[0].classList.add("taskListBorder");
-}
-
-function dragOver(event) {
-	console.log(event);
+	if (event.path[1].className == "bord-tasks-container") event.path[0].classList.add("taskListBorder");
 }
 
 function dragLeave(event) {
@@ -141,8 +136,6 @@ function dragLeave(event) {
 }
 
 function allowDrop(event) {
-	// console.log(event);
-	event.path[0].classList.add("test");
 	event.preventDefault();
 }
 
