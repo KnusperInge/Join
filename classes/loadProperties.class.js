@@ -92,7 +92,7 @@ class Loading {
     if (time > 4 && time < 12) {
       return this.dayPeriod[0];
     }
-    if (time > 12 && time < 18) {
+    if (time >= 12 && time <= 18) {
       return this.dayPeriod[1];
     } else {
       return this.dayPeriod[2];
