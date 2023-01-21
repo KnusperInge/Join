@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join</title>
-    <link rel="shortcut icon" href="img/icon_blue.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./style/fonts.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" media="(max-width:1400px)" href="style_tablet.css" />
-    <link rel="stylesheet" media="(max-width:650px)" href="style_mobile.css" />
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
+  <link rel="shortcut icon" href="img/icon_blue.png" type="image/x-icon" />
+  <link rel="stylesheet" href="./style/fonts.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" media="(max-width:1400px)" href="style_tablet.css" />
+  <link rel="stylesheet" media="(max-width:650px)" href="style_mobile.css" />
+</head>
 
   <body item="Board">
     <template id="task_card">
@@ -33,7 +34,45 @@
     <header id="active" include-html="Temp/header.html"></header>
     <main class="">
       <nav class="shadow-black" include-html="Temp/navbar.html"></nav>
+  <body item="Board">
+    <template id="task_card">
+      <div class="bord-tasks-container-task shadow-black" draggable="true">
+        <div class="bord-task-cat dflex-center"></div>
+        <h4></h4>
+        <div class="bord-task-desc">
+          <span></span>
+        </div>
+        <div class="sub-progress">
+          <div class="sub-chart"></div>
+          <span></span>
+        </div>
+        <div class="bord-task-editor">
+          <span data-letters="SM" class="">SM</span>
+          <img src="img/low_icon.png" />
+        </div>
+      </div>
+    </template>
+    <header id="active" include-html="Temp/header.html"></header>
+    <main class="">
+      <nav class="shadow-black" include-html="Temp/navbar.html"></nav>
 
+      <section class="section-board">
+        <div class="bord-search-container">
+          <input class="input" type="text" placeholder="Find Task" />
+          <span id="addTask_button" class="dflex-center">Add task +</span>
+        </div>
+        <div class="bord-tasks">
+          <div class="bord-tasks-container">
+            <div class="bord-tasks-container-head">
+              <span>To do</span>
+              <img src="img/plus_Icon.png" />
+            </div>
+            <div
+              class="bord-tasks-container-location"
+              id="toDo"
+              ondrop="drop('toDo')"
+              ondragover="allowDrop(event)"
+            ></div>
       <section class="section-board">
         <div class="bord-search-container">
           <input class="input" type="text" placeholder="Find Task" />
@@ -76,58 +115,13 @@
               ondragover="allowDrop(event)"
             ></div>
           </div>
-          <div class="bord-tasks-container">
-            <div class="bord-tasks-container-head">
-              <span>Done</span>
-              <img src="img/plus_Icon.png" />
-            </div>
-            <div
-              class="bord-tasks-container-location"
-              id="Done"
-              ondrop="drop('Done')"
-              ondragover="allowDrop(event)"
-            ></div>
-          </div>
         </div>
-      </section>
-      <div class="overlay-task-detail d-none"></div>
-      <div class="board-task-detail dflex-center d-none">
-        <div class="board-task-detail-container">
-          <img
-            class="board-task-detail-close"
-            src="./img/icon_close_dark.png"
-          />
-          <div class="board-task-detail-text">
-            <div class="bord-task-category"><span>A-Team</span></div>
-            <div class="bord-task-title">Call potential clients</div>
-            <div class="font-size1">
-              Make the product presentation to prospective buyers
-            </div>
-            <div>
-              <span class="font-open-task">Due date: </span>
-              <span class="font-size1">05-08-2022</span>
-            </div>
-            <div class="bord-task-priority">
-              <span class="font-open-task">Priority: </span>
-              <img src="img/priority-urgent.png" />
-            </div>
-            <div class="font-open-task">Assignet to:</div>
-            <div class="bord-task-detail-person">
-              <span data-letters="SM" class="">SM</span>
-              <p>David Eisenberg</p>
-            </div>
-            <div class="bord-task-detail-person">
-              <span data-letters="SM" class="">SM</span>
-              <p>David Eisenberg</p>
-            </div>
-            <div class="bord-task-detail-person">
-              <span data-letters="SM" class="">SM</span>
-              <p>David Eisenberg</p>
-            </div>
-            <div class="bord-task-detail-person">
-              <span data-letters="SM" class="">SM</span>
-              <p>David Eisenberg</p>
-            </div>
+        <div class="bord-tasks-container">
+          <div class="bord-tasks-container-head">
+            <span>Done</span>
+            <img src="img/plus_Icon.png" />
+          </div>
+          <div class="bord-tasks-container-location" id="Done" ondrop="drop('Done')" ondragover="allowDrop(event)">
           </div>
           <img
             class="bord-task-edit-button"
