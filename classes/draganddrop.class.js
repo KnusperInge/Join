@@ -99,7 +99,7 @@ class DragandDrop {
 		document.querySelector('.board-task-detail-date span').innerText = "";
 		document.querySelector('.board-task-detail-date span').innerText = element.Deadline;
 		document.querySelector('.board-detail-prio span').innerText = "";
-		document.querySelector('.board-detail-prio span').innerText = `${element.Priority} <img src="img/urgent_icon.png" />`;
+		document.querySelector('.board-detail-prio span').innerText = `${element.Priority}`;
 	}
 
 	renderDetailEditosList(element) {
