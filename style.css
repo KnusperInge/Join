@@ -1114,11 +1114,11 @@ textarea {
 .taskListBorder {
 	border-radius: 30px;
 	border: 1 solid var(--color-black) !important;
-	background-color: #8298bf !important;
+	background-color: var(--color-lightblue) !important;
 }
 
 .hideTask {
-	opacity: 0;
+	opacity: 0.3;
 }
 
 .section-board {
