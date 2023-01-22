@@ -1051,8 +1051,9 @@ textarea {
 .board-task-detail-head img {
   width: 20px;
   margin-right: 10px;
+  cursor: pointer;
 }
-.board-task-detail-body {
+.board-task-detail-head img .board-task-detail-body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
