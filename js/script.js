@@ -104,7 +104,6 @@ function inviteContact() {
 }
 
 function handleForm(event) {
-	//console.log(event);
 	event.preventDefault();
 	newTask.init();
 	Tasks.push(newTask.finalTask());
@@ -112,11 +111,9 @@ function handleForm(event) {
 	newTask.clearForm();
 	loadData();
 	newTask.showNote();
-	//	console.log(Tasks.length);
 }
 
 // board.html
-
 let elementOnDrag;
 
 const lists = document.querySelectorAll(".bord-tasks-container-location");
@@ -136,7 +133,6 @@ function dragLeave(event) {
 }
 
 function allowDrop(event) {
-	console.log(event);
 	event.preventDefault();
 }
 
@@ -145,15 +141,20 @@ function startDragging(title) {
 }
 
 function startDraggingElement(event) {
-	console.log(event.composedPath());
-	event.composedPath();
+	// toDo || inProgress || awaitFeedback || Done
+	let draggedFrom = event.composedPath()[1];
+	const tasksFromDragged = [...document.getElementById(draggedFrom.id).children];
+	tasksFromDragged.forEach((task) => {
+		if (task.id == event.target.id) {
+			task.classList.add("hideTask");
+		}
+	});
 }
 
 function drop(category) {
 	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
 	Tasks[index].Status = category;
 	saveData();
-	console.log(Tasks);
 	currentDragElement.loadTasks();
 }
 

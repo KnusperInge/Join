@@ -195,7 +195,6 @@ class Contact {
 		this.createInitials();
 		this.createRandomBgColor();
 		this.newContact();
-		console.log("Contacts:", contactList);
 	}
 
 	readInputs() {
@@ -281,7 +280,6 @@ class Contact {
 
 	saveEdid() {
 		let index = this.contactListIndex();
-		console.log(index);
 		this.setNewValues(index);
 	}
 
@@ -331,11 +329,9 @@ class Contact {
 		if (action == "newContact") {
 			document.querySelector("#submitFormNewContact").removeEventListener("submit", saveEdidInScript);
 			document.querySelector("#submitFormNewContact").addEventListener("submit", addNewContact);
-			console.log(action);
 		} else if (action == "edidContact") {
 			document.querySelector("#submitFormNewContact").removeEventListener("submit", addNewContact);
 			document.querySelector("#submitFormNewContact").addEventListener("submit", saveEdidInScript);
-			console.log(action);
 		}
 	}
 
