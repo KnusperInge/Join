@@ -46,8 +46,7 @@ class DragandDrop {
 		this.template
 			.querySelector(".bord-tasks-container-task")
 			.setAttribute("ondrag", `startDragging("${element.Title}")`);
-		this.template
-			.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.Title}`);
+		this.template.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.Title}`);
 		this.template.querySelector(".bord-task-cat").innerText = element.Category;
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innertext = element.Description;
@@ -56,9 +55,9 @@ class DragandDrop {
 	}
 
 	setDetailBtn() {
-		let allShortTasks = document.querySelectorAll('.bord-tasks-container-task');
+		let allShortTasks = document.querySelectorAll(".bord-tasks-container-task");
 		allShortTasks.forEach((element) => {
-			element.addEventListener('click', (event) => {
+			element.addEventListener("click", (event) => {
 				this.openDetail(event);
 				this.loadDetailContent(event);
 			});
@@ -66,14 +65,12 @@ class DragandDrop {
 		this.addDetailCloseBtn();
 	}
 	openDetail(event) {
-		document.querySelector('.board-task-detail').classList.remove('d-none');
-		console.log(event.target.id);
-
+		document.querySelector(".board-task-detail").classList.remove("d-none");
 	}
 
 	addDetailCloseBtn() {
-		document.querySelector('.board-task-detail-head img').addEventListener('click', () => {
-			document.querySelector('.board-task-detail').classList.add('d-none');
+		document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
+			document.querySelector(".board-task-detail").classList.add("d-none");
 		});
 	}
 
@@ -88,21 +85,23 @@ class DragandDrop {
 	}
 
 	renderDetailHead(element) {
-		document.querySelector('.board-task-detail-head span').innerText = "";
-		document.querySelector('.board-task-detail-head span').innerText = element.Category;
-		document.querySelector('.board-task-detail-body h1').innerText = "";
-		document.querySelector('.board-task-detail-body h1').innerText = element.Title;
+		document.querySelector(".board-task-detail-head span").innerText = "";
+		document.querySelector(".board-task-detail-head span").innerText = element.Category;
+		document.querySelector(".board-task-detail-body h1").innerText = "";
+		document.querySelector(".board-task-detail-body h1").innerText = element.Title;
 	}
 	renderDetailBody(element) {
-		document.querySelector('.board-task-detail-body span').innerText = "";
-		document.querySelector('.board-task-detail-body span').innerText = element.Description;
-		document.querySelector('.board-task-detail-date span').innerText = "";
-		document.querySelector('.board-task-detail-date span').innerText = element.Deadline;
-		document.querySelector('.board-detail-prio span').innerText = "";
-		document.querySelector('.board-detail-prio span').innerText = `${element.Priority} <img src="img/urgent_icon.png" />`;
+		document.querySelector(".board-task-detail-body span").innerText = "";
+		document.querySelector(".board-task-detail-body span").innerText = element.Description;
+		document.querySelector(".board-task-detail-date span").innerText = "";
+		document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
+		document.querySelector(".board-detail-prio span").innerText = "";
+		document.querySelector(
+			".board-detail-prio span"
+		).innerText = `${element.Priority} <img src="img/urgent_icon.png" />`;
 	}
 
 	renderDetailEditosList(element) {
-		document.querySelector('.board-task-detail-person-list').innerHTML = "";
+		document.querySelector(".board-task-detail-person-list").innerHTML = "";
 	}
 }
