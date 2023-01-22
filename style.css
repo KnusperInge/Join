@@ -40,7 +40,7 @@
 }
 
 * {
-  font-family: 'OpenSans-Regular';
+  font-family: "OpenSans-Regular";
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -214,7 +214,7 @@ body {
 
 .login_form span {
   height: 82px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
@@ -456,7 +456,7 @@ nav div {
   font-weight: 700;
   font-size: 64px;
   line-height: 120%;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   margin-left: 8px;
 }
 
@@ -580,7 +580,7 @@ nav div {
 }
 
 .card span {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 23px;
@@ -1011,19 +1011,11 @@ textarea {
 }
 
 /* ANCHOR Board.html */
-.overlay-task-detail {
-  z-index: 98;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
+
+.board-task-detail {
+  position: absolute;
   top: 0;
   left: 0;
-}
-.board-task-detail {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
   background-color: #cecece9a;
@@ -1032,44 +1024,57 @@ textarea {
 
 .board-task-detail-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
   width: 623px;
-  height: 818px;
-  background: #ffffff;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.16);
+  height: 98%;
+  background: var(--color-white);
   border-radius: 30px;
-}
-.board-task-detail-close {
-  position: absolute;
-  width: 20px;
-  left: 581.82px;
-  top: 57.11px;
+  padding: 20px;
 }
 
-.bord-task-category {
+.board-task-detail-head {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 4px 36.5px;
-  gap: 10px;
-  min-width: 129px;
-  height: 36px;
-  background: #fc71ff;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.board-task-detail-head span {
+  background-color: var(--color-low);
+  padding: 5px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.board-task-detail-head img {
+  width: 20px;
+  margin-right: 10px;
+}
+.board-task-detail-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 28px;
+  height: 100%;
+}
+.board-detail-prio span {
+  background-color: rgb(255, 160, 160);
+  padding: 2px 10px;
   border-radius: 8px;
 }
-.bord-task-category span {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 23px;
-  line-height: 120%;
-  color: #ffffff;
+
+.board-task-detail-rows {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.bord-task-title {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 61px;
-  line-height: 120%;
+
+.board-task-detail-rows h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 21px;
 }
 
 .font-size1 {
@@ -1077,57 +1082,40 @@ textarea {
   font-size: 21px;
   line-height: 120%;
 }
-.bord-task-priority {
-  display: flex;
-  align-items: center;
-}
-.bord-task-priority img {
-  margin-left: 20px;
-}
 
 .font-open-task {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 21px;
   flex: none;
 }
-
-.board-task-detail-text {
+.bord-task-detail-person {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 50px;
-  gap: 25px;
-  isolation: isolate;
+  gap: 15px;
 }
-
-.bord-task-detail-person {
+.board-task-detail-person-list {
   display: flex;
-  align-items: center;
-  width: 100%;
-  height: 35px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
-.bord-task-detail-person p {
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 120%;
-}
-
-.bord-task-detail-person span {
+.person span:nth-child(1) {
   background-color: var(--color-blue);
   color: var(--color-white);
   padding: 11px 10px;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .bord-task-edit-button {
   position: absolute;
   width: 57px;
   height: 57px;
-  left: 525px;
-  top: 737px;
+  right: 41px;
+  bottom: 25px;
 }
 
 .taskListBorder {
@@ -1224,7 +1212,7 @@ textarea {
   width: 250px;
   height: 100%;
   padding: 5px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
