@@ -142,6 +142,7 @@ function startDragging(title) {
 
 function startDraggingElement(event) {
 	// toDo || inProgress || awaitFeedback || Done
+	event.preventDefault();
 	let draggedFrom = event.composedPath()[1];
 	const tasksFromDragged = [...document.getElementById(draggedFrom.id).children];
 	tasksFromDragged.forEach((task) => {
@@ -161,3 +162,25 @@ function drop(category) {
 function dropEvent(event) {
 	event.path[0].classList.remove("taskListBorder");
 }
+
+// test mobile d&d
+let timer;
+let touchedElement = [];
+//init d&d after holding for 0.5sec
+let minTouchduration = 500;
+
+document.addEventListener("touchstart", (event) => {
+	event.composedPath().forEach((htmlElem) => {
+		if (htmlElem.className == "bord-tasks-container-task shadow-black") {
+			touchedElement.push(htmlElem);
+			timer = setTimeout(obenWindowMenu, minTouchduration);
+		}
+	});
+});
+
+document.addEventListener("touchend", () => {
+	touchedElement = [];
+	clearTimeout(timer);
+});
+
+function obenWindowMenu() {}

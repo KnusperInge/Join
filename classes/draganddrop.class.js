@@ -45,20 +45,27 @@ class DragandDrop {
 		this.draggedList = document.querySelector("#" + element.Status);
 		this.fillTaskTemplate(element);
 		this.fillTaskTemplate_subTasks(element);
+		this.initDragAndDrop(element);
 		this.draggedList.appendChild(this.template);
 	}
 
 	fillTaskTemplate(element) {
-		this.template
-			.querySelector(".bord-tasks-container-task")
-			.setAttribute("ondrag", `startDragging("${element.Title}")`);
 		this.template.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.Title}`);
 		this.template.querySelector(".bord-task-cat").innerText = element.Category;
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
-		this.template.querySelector(".bord-task-desc span").innertext = element.Description;
+		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 	}
 
+	// ANCHOR add drag and drop event listener
+	initDragAndDrop(element) {
+		this.template.querySelector(".bord-tasks-container-task").draggable = "true";
+		this.template
+			.querySelector(".bord-tasks-container-task")
+			.setAttribute("ondrag", `startDragging("${element.Title}")`);
+	}
+
+	// ANCHOR init subtasks progressbar
 	fillTaskTemplate_subTasks(element) {
 		let SubtasksLength = element.Subtasks.length;
 		if (SubtasksLength > 0) {
