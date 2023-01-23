@@ -43,6 +43,12 @@ class DragandDrop {
 
 	fillTemp(element) {
 		this.draggedList = document.querySelector("#" + element.Status);
+		this.fillTaskTemplate(element);
+		this.fillTaskTemplate_subTasks(element);
+		this.draggedList.appendChild(this.template);
+	}
+
+	fillTaskTemplate(element) {
 		this.template
 			.querySelector(".bord-tasks-container-task")
 			.setAttribute("ondrag", `startDragging("${element.Title}")`);
@@ -51,7 +57,38 @@ class DragandDrop {
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innertext = element.Description;
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
-		this.draggedList.appendChild(this.template);
+	}
+
+	fillTaskTemplate_subTasks(element) {
+		let SubtasksLength = element.Subtasks.length;
+		if (SubtasksLength > 0) {
+			this.initSubtaskTemp(element, SubtasksLength);
+		} else {
+			this.template.getElementById("progressBar-subtasks").style.display = "none";
+		}
+	}
+
+	initSubtaskTemp(element, SubtasksLength) {
+		let subTasksInProgress = 0;
+		let subTasksDone = 0;
+		let progressbarPercentage = 0;
+		// check Subtask Status
+		element.Subtasks.forEach((subTask) => {
+			if (subTask.Checked == false) subTasksInProgress++;
+			if (subTask.Checked == true) subTasksDone++;
+		});
+		// claculate progressbar width
+		progressbarPercentage = (subTasksDone / SubtasksLength) * 100;
+		this.setSubtaskTemp(progressbarPercentage, subTasksInProgress, subTasksDone);
+		this.template.getElementById("progressBar-done").style.width = progressbarPercentage + "%";
+		this.template.getElementById("subTasks-inProgress").innerHTML = subTasksInProgress;
+		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
+	}
+
+	setSubtaskTemp(progressbarPercentage, subTasksInProgress, subTasksDone) {
+		this.template.getElementById("progressBar-done").style.width = progressbarPercentage + "%";
+		this.template.getElementById("subTasks-inProgress").innerHTML = subTasksInProgress;
+		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
 	}
 
 	setDetailBtn() {
@@ -91,12 +128,12 @@ class DragandDrop {
 		document.querySelector(".board-task-detail-body h1").innerText = element.Title;
 	}
 	renderDetailBody(element) {
-		document.querySelector('.board-task-detail-body span').innerText = "";
-		document.querySelector('.board-task-detail-body span').innerText = element.Description;
-		document.querySelector('.board-task-detail-date span').innerText = "";
-		document.querySelector('.board-task-detail-date span').innerText = element.Deadline;
-		document.querySelector('.board-detail-prio span').innerText = "";
-		document.querySelector('.board-detail-prio span').innerText = `${element.Priority}`;
+		document.querySelector(".board-task-detail-body span").innerText = "";
+		document.querySelector(".board-task-detail-body span").innerText = element.Description;
+		document.querySelector(".board-task-detail-date span").innerText = "";
+		document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
+		document.querySelector(".board-detail-prio span").innerText = "";
+		document.querySelector(".board-detail-prio span").innerText = `${element.Priority}`;
 	}
 
 	renderDetailEditosList(element) {

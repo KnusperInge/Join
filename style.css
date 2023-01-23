@@ -1247,24 +1247,41 @@ textarea {
 	overflow-wrap: break-word;
 	margin-bottom: 24px;
 }
-.sub-progress {
+
+/* ANCHOR SubTasks Brogressbar Summary */
+#progressBar-subtasks {
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 24px;
-}
-.sub-chart {
-	width: 135px;
-	height: 8px;
-	background: var(--color-white);
-	border-radius: 2px;
-	margin-right: 20px;
+	width: 100%;
 }
 
-.sub-progress span {
-	width: 60px;
-	height: 16px;
-	font-size: 13px;
+.progressBar {
+	width: 70%;
+	position: relative;
+	top: 5px;
+	transform: translate(0 -50%);
+}
+
+.progressBar-empty {
+	width: 100%;
+	background-color: var(--color-lightblue);
+}
+
+#progressBar-done {
+	width: 80%;
+	background-color: var(--color-blue);
+}
+
+.progressBar-empty,
+#progressBar-done {
+	position: absolute;
+	height: 8px;
+	border-radius: 2px;
+}
+
+.rogressBar-subtasks-text {
+	width: 20%;
 }
 
 .bord-task-editor {
