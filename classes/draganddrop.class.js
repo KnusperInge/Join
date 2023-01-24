@@ -15,6 +15,7 @@ class DragandDrop {
 		this.Tasks = Tasks;
 		this.loadTasks();
 		this.setDetailBtn();
+		this.changeStatusInitEventListener();
 	}
 	loadTasks() {
 		this.clearTasks();
@@ -145,5 +146,82 @@ class DragandDrop {
 
 	renderDetailEditosList(element) {
 		document.querySelector(".board-task-detail-person-list").innerHTML = "";
+	}
+
+	// ANCHOR change task status
+	timer;
+	touchedElement;
+	//init d&d after holding for 0.5sec
+	minTouchduration = 500;
+
+	WindowTemplate;
+	WindowOpen = false;
+	Buttons = [];
+
+	changeStatusInitEventListener() {
+		document.addEventListener("touchstart", (event) => {
+			event.composedPath().forEach((htmlElem) => {
+				if (htmlElem.className == "bord-tasks-container-task shadow-black") {
+					this.touchedElement = [htmlElem];
+					this.timer = setTimeout(() => {
+						currentDragElement.openChangeStatusWindow();
+					}, this.minTouchduration);
+				}
+			});
+		});
+
+		document.addEventListener("touchend", () => {
+			clearTimeout(this.timer);
+		});
+	}
+
+	openChangeStatusWindow() {
+		if (window.innerWidth < 650) {
+			this.setTemplate();
+		}
+	}
+
+	setTemplate() {
+		this.WindowTemplate = document.getElementById("changeTaskStatus_template").content.cloneNode(true);
+		this.WindowTemplate.getElementById("closeStatusWindow").addEventListener("click", this.remove_changeStatusWindow);
+		this.Buttons = this.WindowTemplate.querySelectorAll("button");
+		this.Buttons.forEach((button) => {
+			button.addEventListener("click", (e) => {
+				e.stopPropagation();
+				this.changeTaskStatus(button);
+			});
+		});
+		this.generate_changeStatusWindow();
+	}
+
+	changeTaskStatus(button) {
+		let TasksIndex = this.findTaskIndex();
+		console.log(Tasks[TasksIndex]);
+		Tasks[TasksIndex].Status = button.innerHTML;
+		saveData();
+		// nur mit set Timeout ging es
+		setTimeout(() => {
+			loadData();
+		}, 300);
+
+		setTimeout(() => {
+			this.remove_changeStatusWindow();
+			this.loadTasks();
+		}, 300);
+	}
+
+	findTaskIndex() {
+		console.log();
+		return Tasks.findIndex((task) => task.Title === this.touchedElement[0].id);
+	}
+
+	generate_changeStatusWindow() {
+		this.WindowOpen = true;
+		document.querySelector("main").appendChild(this.WindowTemplate);
+	}
+
+	remove_changeStatusWindow() {
+		this.WindowOpen = false;
+		document.getElementById("changeTaskStatus").remove();
 	}
 }

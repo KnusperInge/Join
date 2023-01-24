@@ -291,6 +291,35 @@ main {
 	width: calc(100vw - 50px);
 }
 
+/* ANCHOR board.html - change task status window (only mobile) */
+#changeTaskStatus {
+	background-color: var(--color-blue);
+	border: 2px solid var(--color-kingsblue);
+	border-radius: 16px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: calc(100vh - 90px);
+	width: calc(100vw - 30px);
+}
+
+.button_changeTaskStatus {
+	height: calc((100vh - (90px + 120px)) / 4);
+	width: calc(100vw - 65px);
+	color: var(--color-blue);
+	font-weight: bold;
+	font-size: 16px;
+	background-color: var(--color-white);
+	border: 2px solid var(--color-darkgreyblue);
+	border-radius: 12px;
+}
+
 /* ANCHOR Header - only for task.html */
 .header-task {
 	background-color: white;

@@ -37,6 +37,17 @@
       </div>
     </div>
   </template>
+
+  <!-- mobile template = change task status -->
+  <template id="changeTaskStatus_template">
+    <div id="changeTaskStatus">
+      <button class="button_changeTaskStatus">toDo</button>
+      <button class="button_changeTaskStatus">inProgress</button>
+      <button class="button_changeTaskStatus">Await</button>
+      <button class="button_changeTaskStatus">Done</button>
+      <img id="closeStatusWindow" src="./img/cross_icon_white.png">
+    </div>
+  </template>
 </head>
 
 <body item="Board">
@@ -85,7 +96,6 @@
       </div>
     </section>
 
-
     <div class="board-task-detail shadow-black dflex-center d-none">
       <div class="board-task-detail-container">
         <div class="board-task-detail-head">
@@ -118,9 +128,8 @@
         </div>
         <img class="bord-task-edit-button" src="img/edit_button_taksOpen.png" alt="" />
       </div>
-
-
     </div>
+
   </main>
 
   <script src="classes/draganddrop.class.js"></script>
