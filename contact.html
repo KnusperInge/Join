@@ -127,36 +127,44 @@
           <img src="img/cross_icon_black.png" />
         </div>
 
-        <form class="board-contact-form myForm-contact" id="myForm">
-          <div class="form-head dflex-center form-head-contact">
-            <h3>Add Task</h3>
-            <button id="clear-btn" class="AddButton outline-border-none dflex-center">
-              Create Task<img src="img/checked_icon_white.png " />
-            </button>
-          </div>
-          <div class="form-body full-height-width taskForm-in-ontact" id="TaskForm">
+        <form class="full-height-width" id="TaskForm">
+          <div class="left-Container full-height-width left-Container-task">
             <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
-              onkeyup="checkInput('input-title')" required />
+              onclick="checkInput('input-title')" required />
+
+
 
             <div class="dropdown">
-              <input type="text" class="textBox outline-border-none" id="dropdownContacts"
-                placeholder="Select contacts to assign" readonly required onclick="openList(0)" />
+              <input type="text" class="contactInput  bottom-border textBox outline-border-none" id="0"
+                placeholder="Select contacts to assign" readonly required />
 
-              <input class="d-none outline-border-none" type="text" name="" id="searchContacts"
-                placeholder="Enter Name or Email" />
+              <div class=" d-none searchContact-Container ">
+                <div class="searchContact-input bottom-border">
+                  <input class="outline-border-none" type="search" name="" id="searchContacts"
+                    placeholder="Enter Name or Email" />
+                  <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
+                  <span>|</span>
+                  <img id="addContactBtn" src="img/checked_blue.png" alt="">
+                </div>
+                <div class="outputContact">
+                </div>
+              </div>
               <div class="selectedContacts"></div>
 
               <div class="list contacts shadow-black">
-                <div onclick="addContact(0)">
-                  <span>Person 1</span><input type="checkbox" id="" />
+                <div id="0">
+                  <span>Maria Weber</span><input type="checkbox" />
                 </div>
-                <div onclick="addContact(1)">
-                  <span>Person 2</span><input type="checkbox" id="" />
+                <div id="1">
+                  <span>Daniel Tofel</span><input type="checkbox" />
                 </div>
-                <div onclick="addContact(2)">
-                  <span>Person 3</span><input type="checkbox" id="" />
+                <div id="2">
+                  <span>Martin Dörbaum</span><input type="checkbox" />
                 </div>
-                <div onclick="inviteContact()">invite Contact</div>
+                <div id="3">
+                  <span>invite Contact</span>
+                </div>
+
               </div>
             </div>
 
@@ -168,43 +176,71 @@
 
             <div>
               <h3>Category</h3>
-              <div class="dropdown" onclick="openList(1)">
+              <div class="d-none searchAndAdd-container">
+                <div class="searchAndAdd-container-input">
+                  <input type="text" class=" outline-border-none" placeholder="Enter new Category">
+
+                  <img id="closeSearchAndAddBtn" src="img/cross_icon_blue.png" alt="">
+                  <span>|</span>
+                  <img id="SearchAndAddBtn" src="img/checked_blue.png" alt="">
+                </div>
+                <div class="colorpicker"></div>
+              </div>
+
+              <div class="bottom-border dropdown cat">
                 <input type="text" class="textBox cagetorgy-input outline-border-none"
-                  placeholder="Select task category" readonly onclick="checkInput('cagetorgy-input')" />
-                <div class="list category shadow-black">
-                  <div onclick="addCategory(0)">Sales</div>
-                  <div onclick="addCategory(1)">Marketing</div>
-                  <div onclick="addCategory(2)">Development</div>
-                  <div onclick="addCategory(4)">add new Category</div>
+                  placeholder="Select task category" id="1" readonly />
+
+                <div class="list category shadow-black ">
                 </div>
               </div>
             </div>
 
             <div class="priority-container">
-              <div class="priority dflex-center" id="urgent-btn" onclick="changePriority(1)">
-                <span>Urgent</span>
+              <div class="priority dflex-center" id="0">
+                Urgent
                 <img src="/img/urgent_icon.png" />
               </div>
 
-              <div class="priority dflex-center" id="medium-btn" onclick="changePriority(2)">
-                <span>Medium</span>
+              <div class="priority dflex-center" id="1">
+                Medium
                 <img src="/img/medium_icon.png" />
               </div>
 
-              <div class="priority dflex-center" id="low-btn" onclick="changePriority(3)">
-                <span>Low</span>
+              <div class="priority dflex-center" id="2">
+                Low
                 <img src="/img/low_icon.png" />
               </div>
             </div>
             <div>
               <h3>Description</h3>
               <textarea name="" class="description-input" id="description-input"
-                onkeyup="checkInput('description-input')" cols="30" rows="10" required placeholder="Enter Description">
-                </textarea>
+                onkeyup="checkInput('description-input')" cols="30" rows="10" required
+                placeholder="Enter a Description">
+             </textarea>
             </div>
             <div>
               <h3>Subtasks</h3>
-              <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+              <div class="subtask-container">
+                <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+                <img class="" src="img/plus_Icon.png" alt="">
+                <div class=" d-none subtask-img-container">
+                  <img id="subtaskClearBtn" src="img/cross_icon_blue.png" alt="">
+                  <span>|</span>
+                  <img id="subtaskAddBtn" src="img/checked_blue.png" alt="">
+                </div>
+              </div>
+              <div class="subtasks"></div>
+            </div>
+          </div>
+
+          <div class="right-Container full-height-width right-Container-task">
+
+            <div class="task-button-box">
+              <button class="shadow-black" id="clear-btn">Clear<img src="img/cross_icon.png" /></button>
+              <button class="AddButton shadow-black ">
+                Create Task<img src="img/checked_icon_white.png " />
+              </button>
             </div>
           </div>
         </form>
