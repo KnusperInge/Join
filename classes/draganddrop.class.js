@@ -16,7 +16,9 @@ class DragandDrop {
 		this.loadTasks();
 		this.setDetailBtn();
 		this.changeStatusInitEventListener();
+		this.initTaskFilter();
 	}
+
 	loadTasks() {
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
@@ -24,12 +26,14 @@ class DragandDrop {
 			this.fillTemp(element);
 		});
 	}
+
 	clearTasks() {
 		document.querySelector("#toDo").innerHTML = "";
 		document.querySelector("#inProgress").innerHTML = "";
 		document.querySelector("#Await").innerHTML = "";
 		document.querySelector("#Done").innerHTML = "";
 	}
+
 	checkPriority(element) {
 		if (element.Priority == "Low") {
 			return this.imgLow;
@@ -223,5 +227,34 @@ class DragandDrop {
 	remove_changeStatusWindow() {
 		this.WindowOpen = false;
 		document.getElementById("changeTaskStatus").remove();
+	}
+
+	//ANCHOR Task filter
+	searchValue;
+	FilteredTasks = [];
+	initTaskFilter() {
+		document.addEventListener("input", (event) => {
+			if (event.target.value.length == 0) this.loadTasks();
+			this.FilteredTasks = [];
+			this.searchValue = event.target.value.toLowerCase();
+			this.fillFilteresTasks();
+		});
+	}
+
+	fillFilteresTasks() {
+		Tasks.forEach((task) => {
+			if (task.Title[this.searchValue.length].toLowerCase() == this.searchValue) {
+				this.FilteredTasks.push(task);
+			}
+		});
+		this.loadFilteredTasks();
+	}
+
+	loadFilteredTasks() {
+		this.clearTasks();
+		this.FilteredTasks.forEach((element) => {
+			this.template = document.getElementById("task_card").content.cloneNode(true);
+			this.fillTemp(element);
+		});
 	}
 }
