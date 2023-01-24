@@ -376,8 +376,11 @@ class Task {
     this.selectedContacts.innerHTML = "";
     document.querySelector('.subtasks').innerHTML = "";
     document.querySelector('#TaskForm').reset();
+    this.editors = [];
+    this.Subtaks = [];
     this.deactivtedContactDropdown();
   }
+
   showNote() {
     document.querySelector('.task-note').classList.remove('d-none');
     setTimeout(() => {
