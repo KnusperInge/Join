@@ -165,20 +165,21 @@ class Task {
 
   saveInviteContact(person) {
     document.getElementById('addContactBtn').addEventListener('click', () => {
-      this.editors.push(this.editorObj(person));
+      // evtl toLowerChase()
+      this.editors.push(`${person.Name} ${person.Surname}`);
       document.querySelector('.searchContact-Container input').value = "";
       this.openSearchContact();
     });
   }
 
-  editorObj(person) {
-    return {
-      Name: person.Name,
-      Mail: person.Mail,
-      Color: person.BgColor,
-      Initials: person.Initials
-    }
-  }
+  // editorObj(person) {
+  //   return {
+  //     Name: person.Name,
+  //     Mail: person.Mail,
+  //     Color: person.BgColor,
+  //     Initials: person.Initials
+  //   }
+  // }
 
   openSearchContact() {
     document.querySelector('.contactInput').classList.toggle('d-none');

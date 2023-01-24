@@ -3,7 +3,7 @@ let Tasks = [],
 	navItems = [],
 	contactList = [];
 let page = "";
-let newTask, loadingPrps, currentDragElement;
+let newTask, loadingPrps, currentDragElement, user;
 let Categories = [
 	{
 		name: "Sales",
@@ -35,11 +35,13 @@ async function init() {
 	await downloadFromServer();
 	await loadData();
 	loadingClasses(item);
+
 }
 
 function loadingClasses(item) {
 	if (item == "Summary") {
 		loadingPrps = new Loading();
+		loadUser();
 	} else if (item == "Board") {
 		currentDragElement = new DragandDrop();
 		document.querySelector("#addTask_button").addEventListener("click", () => {
@@ -87,6 +89,18 @@ function loadData() {
 	Categories = JSON.parse(backend.getItem("Categories")) || [];
 }
 
+function loadUser() {
+	user = JSON.parse(localStorage.getItem('user'));
+	if (user == null) {
+		user = 'Guest';
+
+	}
+	addUserName();
+}
+function addUserName() {
+	let content = document.querySelectorAll('.first-line span');
+	content[1].innerText = user;
+}
 //Task.html functions
 function checkInput(field) {
 	let input = document.querySelector(`.${field}`);
