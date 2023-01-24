@@ -149,7 +149,9 @@ class DragandDrop {
 	}
 
 	renderDetailEditosList(element) {
-		document.querySelector(".board-task-detail-person-list").innerHTML = "";
+		element.Editors.forEach((currentPerson) => {
+			document.querySelector(".board-task-detail-person-list").innerHTML = currentPerson;
+		});
 	}
 
 	// ANCHOR change task status
