@@ -248,12 +248,16 @@ class DragandDrop {
 
 	fillFilteresTasks() {
 		Tasks.forEach((task) => {
-			let taskTitelLength = this.searchValue.length;
-			if (task.Title.slice(0, taskTitelLength).toLowerCase() == this.searchValue) {
+			if (this.checkSearchedTaskTitle(task)) {
 				this.FilteredTasks.push(task);
 			}
 		});
 		this.loadFilteredTasks();
+	}
+
+	checkSearchedTaskTitle(task) {
+		let taskTitelLength = this.searchValue.length;
+		return task.Title.slice(0, taskTitelLength).toLowerCase() == this.searchValue;
 	}
 
 	loadFilteredTasks() {
