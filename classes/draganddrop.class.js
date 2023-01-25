@@ -117,12 +117,6 @@ class DragandDrop {
 		document.querySelector(".board-task-detail").classList.remove("d-none");
 	}
 
-	addDetailCloseBtn() {
-		document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
-			document.querySelector(".board-task-detail").classList.add("d-none");
-		});
-	}
-
 	loadDetailContent(event) {
 		this.Tasks.forEach((element) => {
 			if (element.Title.includes(event.target.id)) {
@@ -130,6 +124,12 @@ class DragandDrop {
 				this.renderDetailBody(element);
 				this.renderDetailEditosList(element);
 			}
+		});
+	}
+
+	addDetailCloseBtn() {
+		document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
+			document.querySelector(".board-task-detail").classList.add("d-none");
 		});
 	}
 
@@ -236,16 +236,20 @@ class DragandDrop {
 	FilteredTasks = [];
 	initTaskFilter() {
 		document.addEventListener("input", (event) => {
-			if (event.target.value.length == 0) this.loadTasks();
-			this.FilteredTasks = [];
 			this.searchValue = event.target.value.toLowerCase();
-			this.fillFilteresTasks();
+			if (this.searchValue.length == 0) {
+				this.loadTasks();
+			} else {
+				this.FilteredTasks = [];
+				this.fillFilteresTasks();
+			}
 		});
 	}
 
 	fillFilteresTasks() {
 		Tasks.forEach((task) => {
-			if (task.Title[this.searchValue.length].toLowerCase() == this.searchValue) {
+			let taskTitelLength = this.searchValue.length;
+			if (task.Title.slice(0, taskTitelLength).toLowerCase() == this.searchValue) {
 				this.FilteredTasks.push(task);
 			}
 		});
