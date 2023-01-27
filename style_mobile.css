@@ -397,7 +397,8 @@ main {
 }
 
 .right-Container-task {
-	top: 20px;
+	top: 40px;
+	height: unset !important;
 }
 
 .right-Container-task button:nth-child(2) {
@@ -501,11 +502,7 @@ main {
 	width: unset;
 }
 .newTask-contact {
-	top: 80px;
-	height: calc(100vh - 80px);
-	width: 100vw;
-	border-radius: 8px;
-	right: -650px;
+	display: none;
 }
 
 #overlay.open {

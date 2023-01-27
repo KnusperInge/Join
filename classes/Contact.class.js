@@ -122,6 +122,11 @@ class Contact {
 					this.setIconStyle_contactInfo(contactInfoTemp, contact);
 					document.getElementById("contact-informations").append(contactInfoTemp);
 					this.edidContact(contact);
+					if (document.querySelector("body").clientWidth > 650) {
+						this.openNewTask();
+					} else {
+						this.linkToAddTask();
+					}
 				});
 			});
 	}
@@ -162,15 +167,41 @@ class Contact {
 		document.querySelector(".contact-right-container").classList.remove("active");
 	}
 
-	// // ANCHOR new task in contact info
-	// openNewTask() {
-	// 	document.querySelector(".addtask-box").addEventListener("click", () => {
-	// 		newTask = new Task();
-	// 		document.getElementById("overlay").classList.toggle("open");
-	// 		document.querySelector(".newTask").classList.toggle("open");
-	// 		document.querySelector(".AddButton").classList.toggle("open");
-	// 	});
-	// }
+	// ANCHOR new task in contact info
+	openNewTask() {
+		document.querySelector(".addtask-box").addEventListener("click", (event) => {
+			event.stopPropagation();
+			this.addNewTaskStyle();
+			this.setCloseButton();
+			newTask = new Task();
+		});
+	}
+
+	addNewTaskStyle() {
+		document.getElementById("overlay").classList.add("open");
+		document.querySelector(".newTask-contact").classList.add("open");
+		document.querySelector(".AddButton").classList.add("open");
+	}
+
+	removeNewTaskStyle() {
+		document.getElementById("overlay").classList.remove("open");
+		document.querySelector(".newTask-contact").classList.remove("open");
+		document.querySelector(".AddButton").classList.remove("open");
+	}
+
+	setCloseButton() {
+		document.querySelector(".close-icon-contact").addEventListener("click", (event) => {
+			event.stopPropagation();
+			this.removeNewTaskStyle();
+		});
+	}
+
+	linkToAddTask() {
+		document.querySelector(".addtask-box").addEventListener("click", (event) => {
+			event.stopPropagation();
+			window.location = "task.html";
+		});
+	}
 
 	// ANCHOR new contact
 	addNewContact() {

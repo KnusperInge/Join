@@ -98,6 +98,17 @@ nav div {
 }
 
 /* ANCHOR task.html */
+.header-task {
+	background-color: var(--color-white);
+	z-index: 2;
+}
+
+.header-task div:nth-child(1) {
+	content: url(./img/icon_blue.png);
+	width: 47px;
+	height: 57.3px;
+}
+
 .header-task span {
 	display: none;
 }
@@ -110,39 +121,27 @@ nav div {
 	position: absolute;
 	top: 0;
 	bottom: 80px;
-	padding-bottom: 8px;
 	height: calc(100vh - 97.3px);
-	flex-direction: column-reverse;
+	padding: 0;
+	margin: 0;
 }
 
 .left-Container-task {
 	padding: 0;
 	align-items: center;
 	overflow-y: auto;
+	z-index: 1;
 }
 
 .right-Container-task {
 	position: fixed;
-	top: 30px;
-	right: 16px;
-	gap: unset;
-	padding: 0;
-	height: unset !important;
+	top: calc(97.3px / 2);
+	transform: translate(0, -50%);
+	right: 12px;
 	width: unset;
-	z-index: 11;
-}
-
-.right-Container-task button:nth-child(1) {
-	margin-right: 8px;
-}
-
-.right-Container-task button {
-	background-color: var(--color-white) !important;
-	color: var(--color-blue) !important;
-}
-
-.right-Container-task button img {
-	display: none;
+	height: unset;
+	padding: 0;
+	z-index: 3;
 }
 
 /* ANCHOR contact.html */
