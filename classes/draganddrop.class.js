@@ -137,7 +137,6 @@ class DragandDrop {
 			if (element.Title.includes(event.target.id)) {
 				this.renderDetailHead(element);
 				this.renderDetailBody(element);
-				this.renderDetailEditosList(element);
 			}
 		});
 	}
@@ -151,8 +150,7 @@ class DragandDrop {
 	}
 
 	renderDetailHead(element) {
-		document.querySelector(".board-task-detail-head span").innerText = "";
-		document.querySelector(".board-task-detail-head span").innerText = element.Category;
+		this.renderDetailCategory(element);
 		document.querySelector(".board-task-detail-body h1").innerText = "";
 		document.querySelector(".board-task-detail-body h1").innerText = element.Title;
 	}
@@ -161,9 +159,38 @@ class DragandDrop {
 		document.querySelector(".board-task-detail-body span").innerText = element.Description;
 		document.querySelector(".board-task-detail-date span").innerText = "";
 		document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
-		document.querySelector(".board-detail-prio span").innerText = "";
-		document.querySelector(".board-detail-prio span").innerText = `${element.Priority}`;
+
+
+		this.renderPriority(element);
 		this.renderDetailEditorList(element);
+	}
+
+	renderDetailCategory(element) {
+		document.querySelector(".board-task-detail-head span").innerText = "";
+		Categories.forEach((category) => {
+			if (category.name.includes(element.Category)) {
+				document.querySelector(".board-task-detail-head span").innerText = element.Category;
+				document.querySelector(".board-task-detail-head span").style = `background:${category.Color}`;
+			}
+		});
+	}
+	renderPriority(element) {
+		document.querySelector(".board-detail-prio span").innerHTML = "";
+		document.querySelector(".board-detail-prio span").innerHTML = `${element.Priority} <img src="${this.checkPriority(element)}">`;
+		this.setPriorityBgColor(element);
+	}
+	setPriorityBgColor(element) {
+		{
+			if (element.Priority == 'Low') {
+				document.querySelector(".board-detail-prio span").classList.add('low-light');
+			}
+			if (element.Priority == 'Medium') {
+				document.querySelector(".board-detail-prio span").classList.add('medium-light');
+			}
+			if (element.Priority == 'Urgent') {
+				document.querySelector(".board-detail-prio span").classList.add('urgent-light');
+			}
+		}
 	}
 
 	renderDetailEditorList(element) {
