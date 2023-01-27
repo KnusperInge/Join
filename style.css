@@ -1305,8 +1305,7 @@ textarea {
 .bord-task-cat {
   width: fit-content;
   height: 27px;
-  color: var(--color-white);
-  background: var(--color-pink);
+  color: var(--color-black);
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 0 5px;

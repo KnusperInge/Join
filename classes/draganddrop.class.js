@@ -56,6 +56,7 @@ class DragandDrop {
 	fillTaskTemplate(element) {
 		this.template.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.Title}`);
 		this.template.querySelector(".bord-task-cat").innerText = element.Category;
+		this.setCategoryColor(element.Category);
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
 
@@ -65,7 +66,13 @@ class DragandDrop {
 			this.showTaskDetail(element.Title);
 		});
 	}
-
+	setCategoryColor(element) {
+		Categories.forEach((elm) => {
+			if (elm.name.includes(element)) {
+				this.template.querySelector(".bord-task-cat").style = `background:${elm.Color}`;
+			}
+		});
+	}
 
 	showTaskDetail(elemTitle) {
 		let Task = Tasks.find((task) => task.Title === elemTitle);
