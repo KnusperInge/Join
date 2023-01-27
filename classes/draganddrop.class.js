@@ -5,11 +5,14 @@ class DragandDrop {
 	title;
 	category;
 	template;
+	TaskDetails;
 	imgLow = "img/low_icon.png";
 	imgMedium = "img/medium_icon.png";
 	imgUrgent = "img/urgent_icon.png";
+	selfLoadBoard;
 
 	constructor(title, category) {
+		this.selfLoadBoard = this;
 		this.title = title;
 		this.category = category;
 		this.Tasks = Tasks;
@@ -63,7 +66,7 @@ class DragandDrop {
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
-			this.showTaskDetail(element.Title);
+			this.TaskDetails = new Taskdetailview(element.Title, this.selfLoadBoard);
 		});
 	}
 	setCategoryColor(element) {
@@ -86,13 +89,7 @@ class DragandDrop {
 		};
 	}
 
-	showTaskDetail(elemTitle) {
-		let Task = Tasks.find((task) => task.Title === elemTitle);
-		this.openDetail();
-		this.renderDetailHead(Task);
-		this.renderDetailBody(Task);
-		this.addDetailCloseBtn();
-	}
+
 
 	// ANCHOR add drag and drop event listener
 	initDragAndDrop(element) {
@@ -135,9 +132,7 @@ class DragandDrop {
 		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
 	}
 
-	openDetail() {
-		document.querySelector('.board-task-detail').classList.remove('d-none');
-	}
+
 
 	loadDetailContent(event) {
 		console.log(event);
@@ -150,69 +145,14 @@ class DragandDrop {
 		});
 	}
 
-	addDetailCloseBtn() {
-		document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
-			document.querySelector(".board-task-detail").classList.add("d-none");
-		});
-	}
 
-	renderDetailHead(element) {
-		this.renderDetailCategory(element);
-		document.querySelector(".board-task-detail-body h1").innerText = "";
-		document.querySelector(".board-task-detail-body h1").innerText = element.Title;
-	}
-	renderDetailBody(element) {
-		document.querySelector(".board-task-detail-body span").innerText = "";
-		document.querySelector(".board-task-detail-body span").innerText = element.Description;
-		document.querySelector(".board-task-detail-date span").innerText = "";
-		document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
 
-		this.renderPriority(element);
-		this.renderDetailEditorList(element);
-	}
 
-	renderDetailCategory(element) {
-		document.querySelector(".board-task-detail-head span").innerText = "";
-		Categories.forEach((category) => {
-			if (category.name.includes(element.Category)) {
-				document.querySelector(".board-task-detail-head span").innerText = element.Category;
-				document.querySelector(".board-task-detail-head span").style = `background:${category.Color}`;
-			}
-		});
-	}
-	renderPriority(element) {
-		document.querySelector(".board-detail-prio span").innerHTML = "";
-		document.querySelector(".board-detail-prio span").innerHTML = `${element.Priority} <img src="${this.checkPriority(
-			element
-		)}">`;
-		this.setPriorityBgColor(element);
-	}
-	setPriorityBgColor(element) {
-		{
-			if (element.Priority == "Low") {
-				document.querySelector(".board-detail-prio span").classList.add("low-light");
-			}
-			if (element.Priority == "Medium") {
-				document.querySelector(".board-detail-prio span").classList.add("medium-light");
-			}
-			if (element.Priority == "Urgent") {
-				document.querySelector(".board-detail-prio span").classList.add("urgent-light");
-			}
-		}
-	}
 
-	renderDetailEditorList(element) {
-		document.querySelector(".board-task-detail-person-list");
-		document.querySelector(".board-task-detail-person-list").innerHTML = "";
-		element.Editors.forEach((editor) => {
-			let temp = document.querySelector(".detail-editor-temp").content.cloneNode(true);
-			let tempElements = temp.querySelectorAll("span");
-			tempElements[0].innerText = editor.Initials;
-			tempElements[0].style = `background:${editor.Color}`;
-			tempElements[1].innerText = editor.Name;
-			document.querySelector(".board-task-detail-person-list").appendChild(temp);
-		});
-	}
+
+
+
+
 
 	// ANCHOR change task status
 	timer;
