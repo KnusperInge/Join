@@ -35,7 +35,6 @@ async function init() {
 	await downloadFromServer();
 	await loadData();
 	loadingClasses(item);
-
 }
 
 function loadingClasses(item) {
@@ -90,14 +89,14 @@ function loadData() {
 }
 
 function loadUser() {
-	user = JSON.parse(localStorage.getItem('user'));
+	user = JSON.parse(localStorage.getItem("user"));
 	if (user == null) {
-		user = 'Guest';
+		user = "Guest";
 	}
 	addUserName();
 }
 function addUserName() {
-	let content = document.querySelectorAll('.first-line span');
+	let content = document.querySelectorAll(".first-line span");
 	content[1].innerText = user;
 }
 //Task.html functions
@@ -138,11 +137,11 @@ lists.forEach((list) => {
 });
 
 function dragEnter(event) {
-	if (event.path[1].className == "bord-tasks-container") event.target.classList.add("taskListBorder");
+	if (event.composedPath()[1].className == "bord-tasks-container") event.target.classList.add("taskListBorder");
 }
 
 function dragLeave(event) {
-	event.path[0].classList.remove("taskListBorder");
+	event.composedPath()[0].classList.remove("taskListBorder");
 }
 
 function allowDrop(event) {
