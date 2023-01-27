@@ -57,6 +57,7 @@ class DragandDrop {
 		this.template.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.Title}`);
 		this.template.querySelector(".bord-task-cat").innerText = element.Category;
 		this.setCategoryColor(element.Category);
+		this.setInitials(element);
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
@@ -71,6 +72,18 @@ class DragandDrop {
 				this.template.querySelector(".bord-task-cat").style = `background:${elm.Color}`;
 			}
 		});
+	}
+	setInitials(element) {
+		if (element.Editors.length <= 3) {
+			element.Editors.forEach((elm) => {
+				this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:${elm.Color}">${elm.Initials}</span> `;
+			});
+		} else {
+			for (let i = 0; i < 3; i++) {
+				this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
+			}
+			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${element.Editors.length - 3}</span> `;
+		};
 	}
 
 	showTaskDetail(elemTitle) {
