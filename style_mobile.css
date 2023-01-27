@@ -163,6 +163,18 @@ main {
 }
 
 /* ANCHOR Summary HTML */
+.header-summary div:nth-child(2) {
+	display: flex;
+}
+
+.header-summary span {
+	display: none;
+}
+
+.header-summary div:nth-child(2) img {
+	display: flex;
+}
+
 .main-summary {
 	position: fixed;
 	top: 80px;

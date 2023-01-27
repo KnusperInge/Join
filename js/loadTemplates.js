@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	navItems = checkNavItem();
 	page = checkItems();
 	setActivelink();
+	setLogoutEvent();
 });
 
 async function includeHtml() {
@@ -30,10 +31,21 @@ function checkItems() {
 }
 
 function setActivelink() {
-
 	navItems.forEach((item) => {
 		if (item.innerText == page) {
 			item.classList.add("activeNavItem");
 		}
 	});
+}
+
+function setLogoutEvent() {
+	document.querySelector(".user-icon").addEventListener("click", (event) => {
+		event.stopPropagation();
+		addLogoutStyle();
+	});
+}
+
+function addLogoutStyle() {
+	document.querySelector(".user-icon").classList.add("logout");
+	document.querySelector(".logout-button").classList.add("active");
 }
