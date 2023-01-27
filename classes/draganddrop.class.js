@@ -59,7 +59,6 @@ class DragandDrop {
 		this.setCategoryColor(element.Category);
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
-
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
