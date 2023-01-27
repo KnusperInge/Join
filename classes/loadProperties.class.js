@@ -83,9 +83,12 @@ class Loading {
     this.YEAR = new Date(this.dates[0]).getFullYear();
     this.MONTH = this.MONTHS[new Date(this.dates[0]).getMonth()];
     this.DAY = new Date(this.dates[0]).getDate();
-    return (this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`);
+    if (!this.dates.length == 0) {
+      return (this.FinalDate = `${this.MONTH} ${this.DAY}, ${this.YEAR}`);
+    } else {
+      return "";
+    }
   }
-
   getTimestampInSeconds() {
     let today = new Date();
     let time = today.getHours();

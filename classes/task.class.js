@@ -13,9 +13,9 @@ class Task {
   dropDownBtns;
   contactbtns;
   catagoryBtns;
-  newCategoryColor;
   newCategory;
   selfTask;
+  setSubtask;
 
 
   constructor() {
@@ -24,8 +24,8 @@ class Task {
     this.setDropdownBtn();
     this.setContactBtn();
     this.loadCatListsetBtns();
-    this.initSubtaskBtns();
     this.setClearBtn();
+    this.setSubtask = new Subtask(this.selfTask);
   }
 
   //ANCHOR- Priority Buttons
@@ -200,8 +200,6 @@ class Task {
   fillEditorsArr(editor, checkedChild) {
     if (!checkedChild.checked && !this.checkArr(editor)) {
       checkedChild.checked = true;
-
-      //console.log(editorTest)
       this.editors.push({
         Name: editor,
         Color: "rgb(255, 168, 0)",
@@ -224,6 +222,7 @@ class Task {
       }
     });
   }
+
   renderInitials(element) {
     let firstletters = element.split(" ");
     let first = firstletters[0].charAt(0);
@@ -282,58 +281,6 @@ class Task {
     if (!input.value == '') {
       this.Category = this.catagoryBtns[id].textContent;
     }
-  }
-
-  //ANCHOR - Subtask Buttons 
-  initSubtaskBtns() {
-    this.setSubtaskBtn();
-    this.setSubtaskClearBtn();
-    this.setSubTaskAddBtn();
-  }
-
-  setSubtaskBtn() {
-    document.querySelector('.subtask-container img').addEventListener('click', (event) => {
-      event.srcElement.classList.add('d-none');
-      document.querySelector('.subtask-img-container').classList.remove('d-none');
-    });
-  }
-
-  setSubtaskClearBtn() {
-    document.querySelector('#subtaskClearBtn').addEventListener('click', () => {
-      document.querySelector('.subtask-container input').value = "";
-      document.querySelector('.subtask-img-container').classList.add('d-none');
-      document.querySelector('.subtask-container img').classList.remove('d-none');
-    });
-  }
-
-  setSubTaskAddBtn() {
-    document.querySelector('#subtaskAddBtn').addEventListener('click', () => {
-      this.Subtaks.push({
-        Checked: false,
-        Subtask: document.querySelector('.subtask-container input').value
-      });
-      document.querySelector('.subtask-container input').value = "";
-      this.loadSubtasks();
-    });
-  }
-
-  loadSubtasks() {
-    if (!this.Subtaks.length == 0) {
-      this.renderSubtask();
-    } else {
-      console.log('No Subtasks available');
-    }
-  }
-
-  renderSubtask() {
-    let target = document.querySelector('.subtasks');
-    target.innerHTML = "";
-    this.Subtaks.forEach((sub) => {
-      let template = document.querySelector('#subtask-temp').content.cloneNode(true);
-      template.querySelector('input').checked = sub.Checked;
-      template.querySelector('span').innerText = sub.Subtask;
-      target.appendChild(template);
-    });
   }
 
   setClearBtn() {

@@ -60,12 +60,14 @@ class DragandDrop {
 		this.template.querySelector(".bord-task-cat").innerText = element.Category;
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
+
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
 			this.showTaskDetail(element.Title);
 		});
 	}
+
 
 	showTaskDetail(elemTitle) {
 		let Task = Tasks.find((task) => task.Title === elemTitle);
@@ -126,7 +128,7 @@ class DragandDrop {
 		this.template.getElementById('subTasks-done').innerHTML = subTasksDone;
 	}
 
-	openDetail(event) {
+	openDetail() {
 		document.querySelector('.board-task-detail').classList.remove('d-none');
 	}
 
