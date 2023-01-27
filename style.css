@@ -1373,6 +1373,16 @@ textarea {
   height: 30px;
   width: 30px;
 }
+.board-task-editor {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.board-task-editor span:nth-child(1) {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
 .detail-editor-name {
   padding: 0 !important;
 }
