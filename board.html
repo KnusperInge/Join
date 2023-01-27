@@ -52,6 +52,13 @@
     <img src="" alt="">
   </template>
 
+  <template class="detail-subtask-temp">
+    <div>
+      <span></span>
+      <input type="checkbox">
+    </div>
+  </template>
+
   <!-- mobile template = change task status -->
   <template id="changeTaskStatus_template">
     <div id="changeTaskStatus">
@@ -126,6 +133,16 @@
           <div class="board-task-detail-rows board-detail-prio">
             <h3>Priority: </h3>
             <span class="font-size1"> Urgent/M/L <img src="img/urgent_icon.png" /></span>
+          </div>
+          <div class="board-task-detail-subtasks">
+            <h3>Subtaks to do:</h3>
+            <div class="subtask-list">
+              <div>
+                <span>Subtaskname(P)</span>
+                <input type="checkbox" name="" id="">
+
+              </div>
+            </div>
           </div>
           <div class="board-task-detail-person">
             <h3 class="">Assignet to:</h3>

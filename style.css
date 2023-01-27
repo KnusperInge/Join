@@ -1176,13 +1176,22 @@ textarea {
   font-size: 21px;
   flex: none;
 }
+
 .board-task-detail-person {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
 }
-
+.subtask-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.subtask-list div {
+  background-color: #1769f7;
+  cursor: pointer;
+}
 .board-task-detail-person-list {
   display: flex;
   flex-direction: column;

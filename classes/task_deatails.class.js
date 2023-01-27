@@ -12,6 +12,7 @@ class Taskdetailview {
     this.renderDetailHead(Task);
     this.renderDetailBody(Task);
     this.addDetailCloseBtn();
+    this.addSubtasksBtn();
   }
 
   openDetail() {
@@ -30,6 +31,8 @@ class Taskdetailview {
     document.querySelector(".board-task-detail-date span").innerText = "";
     document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
     this.renderPriority(element);
+    this.renderSubtasks(element);
+
     this.renderDetailEditorList(element);
   }
 
@@ -61,6 +64,30 @@ class Taskdetailview {
     if (element.Priority == "Urgent") {
       document.querySelector(".board-detail-prio span").classList.add("urgent-light");
     }
+  }
+
+  renderSubtasks(Task) {
+    let target = document.querySelector('.subtask-list');
+    target.innerHTML = "";
+    Task.Subtasks.forEach((subTask) => {
+      let temp = document.querySelector('.detail-subtask-temp').content.cloneNode(true);
+      temp.querySelector('div').setAttribute("id", `${subTask.Subtask}`);
+      temp.querySelector('span').innerText = subTask.Subtask;
+      target.appendChild(temp);
+    });
+  }
+
+  addSubtasksBtn() {
+    let subtasks = document.querySelectorAll('.subtask-list div');
+    subtasks.forEach((elm) => {
+      elm.addEventListener('click', (event) => {
+        event.stopPropagation();
+        this.checkSubtask(elm.id);
+      });
+    })
+  }
+  checkSubtask(id) {
+    console.log(id);
   }
 
   renderDetailEditorList(element) {
