@@ -166,20 +166,19 @@ class Task {
   saveInviteContact(person) {
     document.getElementById('addContactBtn').addEventListener('click', () => {
       // evtl toLowerChase()
-      this.editors.push(`${person.Name} ${person.Surname}`);
+      this.editors.push(this.editorObj(person));
       document.querySelector('.searchContact-Container input').value = "";
       this.openSearchContact();
     });
   }
 
-  // editorObj(person) {
-  //   return {
-  //     Name: person.Name,
-  //     Mail: person.Mail,
-  //     Color: person.BgColor,
-  //     Initials: person.Initials
-  //   }
-  // }
+  editorObj(person) {
+    return {
+      Name: person.Name,
+      Color: person.BgColor,
+      Initials: person.Initials
+    }
+  }
 
   openSearchContact() {
     document.querySelector('.contactInput').classList.toggle('d-none');
@@ -201,7 +200,13 @@ class Task {
   fillEditorsArr(editor, checkedChild) {
     if (!checkedChild.checked && !this.checkArr(editor)) {
       checkedChild.checked = true;
-      this.editors.push(editor);
+
+      //console.log(editorTest)
+      this.editors.push({
+        Name: editor,
+        Color: "rgb(255, 168, 0)",
+        Initials: this.renderInitials(editor)
+      });
     } else {
       this.editors.splice(this.editors.indexOf(editor), 1);
       checkedChild.checked = false;

@@ -61,11 +61,11 @@ class DragandDrop {
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
-			this.showTasskDetail(element.Title);
+			this.showTaskDetail(element.Title);
 		});
 	}
 
-	showTasskDetail(elemTitle) {
+	showTaskDetail(elemTitle) {
 		let Task = Tasks.find((task) => task.Title === elemTitle);
 		this.openDetail();
 		this.renderDetailHead(Task);
@@ -149,12 +149,21 @@ class DragandDrop {
 		document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
 		document.querySelector(".board-detail-prio span").innerText = "";
 		document.querySelector(".board-detail-prio span").innerText = `${element.Priority}`;
+		this.renderDetailEditorList(element);
 	}
 
-	renderDetailEditosList(element) {
-		element.Editors.forEach((currentPerson) => {
-			document.querySelector(".board-task-detail-person-list").innerHTML = currentPerson;
-		});
+	renderDetailEditorList(element) {
+		document.querySelector(".board-task-detail-person-list");
+		document.querySelector(".board-task-detail-person-list").innerHTML = "";
+		element.Editors.forEach((editor) => {
+			let temp = document.querySelector('.detail-editor-temp').content.cloneNode(true);
+			let tempElements = temp.querySelectorAll('span');
+			tempElements[0].innerText = editor.Initials;
+			tempElements[0].style = `background:${editor.Color}`;
+			tempElements[1].innerText = editor.Name;
+			document.querySelector(".board-task-detail-person-list").appendChild(temp);
+		})
+
 	}
 
 	// ANCHOR change task status
