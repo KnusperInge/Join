@@ -8,17 +8,17 @@ let Categories = [
 	{
 		name: "Sales",
 		id: 0,
-		Color: "",
+		Color: "rgb(240, 128, 128)",
 	},
 	{
 		name: "Development",
 		id: 1,
-		Color: "",
+		Color: "rgb(142,229,238)",
 	},
 	{
 		name: "Marketing",
 		id: 2,
-		Color: "",
+		Color: "rgb(118,238,198)",
 	},
 ];
 //general functions
