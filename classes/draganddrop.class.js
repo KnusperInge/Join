@@ -14,7 +14,6 @@ class DragandDrop {
 		this.category = category;
 		this.Tasks = Tasks;
 		this.loadTasks();
-		this.setDetailBtn();
 		this.changeStatusInitEventListener();
 		this.initTaskFilter();
 	}
@@ -60,6 +59,18 @@ class DragandDrop {
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
 		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
+		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
+			event.stopPropagation();
+			this.showTasskDetail(element.Title);
+		});
+	}
+
+	showTasskDetail(elemTitle) {
+		let Task = Tasks.find((task) => task.Title === elemTitle);
+		this.openDetail();
+		this.renderDetailHead(Task);
+		this.renderDetailBody(Task);
+		this.addDetailCloseBtn();
 	}
 
 	// ANCHOR add drag and drop event listener
@@ -103,22 +114,14 @@ class DragandDrop {
 		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
 	}
 
-	setDetailBtn() {
-		let allShortTasks = document.querySelectorAll(".bord-tasks-container-task");
-		allShortTasks.forEach((element) => {
-			element.addEventListener("click", (event) => {
-				this.openDetail(event);
-				this.loadDetailContent(event);
-			});
-		});
-		this.addDetailCloseBtn();
-	}
 	openDetail(event) {
 		document.querySelector(".board-task-detail").classList.remove("d-none");
 	}
 
 	loadDetailContent(event) {
+		console.log(event);
 		this.Tasks.forEach((element) => {
+			console.log(element);
 			if (element.Title.includes(event.target.id)) {
 				this.renderDetailHead(element);
 				this.renderDetailBody(element);
