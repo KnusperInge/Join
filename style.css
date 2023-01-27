@@ -664,9 +664,11 @@ nav div {
 	top: 0px;
 	padding-right: 40px;
 }
+
 .legalNoticeContainer p {
 	padding-right: 48px;
 }
+
 .content-LegalNotice h1 {
 	font-weight: 700;
 	font-size: 61px;
@@ -725,18 +727,21 @@ form {
 	padding: 20px 80px;
 	border-radius: 10px;
 }
+
 .task-button-box {
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
 	gap: 25px;
 }
+
 .task-note {
 	position: absolute;
 	background-color: #eceaff9d;
 	width: 100%;
 	height: 100%;
 }
+
 .input-title {
 	border-bottom: 1px solid var(--color-lightgrey);
 	padding: 10px 20px;
@@ -766,42 +771,51 @@ h3 {
 	flex-direction: column;
 	justify-content: space-around;
 }
+
 .searchAndAdd-container-input {
 	padding-bottom: 5px;
 	border-bottom: 1px solid var(--color-lightgrey);
 }
+
 .searchAndAdd-container input,
 .searchContact-Container input {
 	width: 260px !important;
 }
+
 .searchAndAdd-container span,
 .searchContact-Container span {
 	color: var(--color-lightgrey);
 	font-size: 20px;
 }
+
 .colorpicker {
 	display: flex;
 	gap: 15px;
 	margin-top: 5px;
 }
+
 .colorpicker span {
 	border-radius: 50%;
 	height: 15px;
 	width: 15px;
 }
+
 .colorpicker span.select {
 	border: 2px solid red;
 }
+
 .searchAndAdd-container img:hover,
 .colorpicker span:hover,
 .outputContact span:hover {
 	cursor: pointer;
 }
+
 .searchContact-Container {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 }
+
 .outputContact {
 	padding: 5px 10px;
 	color: var(--color-lightgrey);
@@ -813,6 +827,7 @@ h3 {
 	height: fit-content;
 	align-items: center;
 }
+
 .dropdown input {
 	cursor: pointer;
 
@@ -823,12 +838,14 @@ h3 {
 	font-weight: 400;
 	line-height: 120%;
 }
+
 .dropdown-input {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
 }
+
 .dropdown-input img {
 	width: 14px;
 	height: 14px;
@@ -842,9 +859,11 @@ h3 {
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
 }
+
 .dropdown .list.active {
 	display: flex;
 }
+
 .list div {
 	width: 100%;
 	display: flex;
@@ -857,11 +876,13 @@ h3 {
 .list div input {
 	width: 12px;
 }
+
 .list div:hover {
 	cursor: pointer;
 	background-color: var(--color-blue);
 	border-radius: 8px;
 }
+
 .textBox {
 	background: transparent url(img/down_icon.png);
 	background-repeat: no-repeat;
@@ -869,13 +890,16 @@ h3 {
 	background-position-y: center;
 	width: 320px;
 }
+
 .bottom-border {
 	border-bottom: 1px solid var(--color-lightgrey);
 	width: 320px;
 }
+
 .selectedContacts {
 	margin-top: 18px;
 }
+
 .selectedContacts span {
 	width: 15px;
 	height: 15px;
@@ -884,6 +908,7 @@ h3 {
 	padding: 9px 13px;
 	text-align: center;
 }
+
 /* ANCHOR Datefield */
 #date-input {
 	border-bottom: 1px solid var(--color-lightgrey);
@@ -937,21 +962,26 @@ h3 {
 .urgent {
 	background-color: var(--color-urgent);
 }
+
 .urgent-light {
 	background-color: rgb(255, 210, 210);
 }
+
 .medium {
 	background-color: var(--color-medium);
 }
+
 .medium-light {
 	background-color: rgb(255, 241, 210);
 }
 .low {
 	background-color: var(--color-low);
 }
+
 .low-light {
 	background-color: rgb(215, 255, 210);
 }
+
 textarea {
 	width: 320px;
 	height: 80px;
@@ -959,6 +989,7 @@ textarea {
 	padding: 10px;
 	resize: none;
 }
+
 .subtask-container {
 	display: flex;
 	align-items: center;
@@ -967,9 +998,14 @@ textarea {
 	width: 320px;
 }
 
+.subtask-container img {
+	cursor: pointer;
+}
+
 .subtask-img-container img {
 	width: 14px;
 	height: 14px;
+	cursor: pointer;
 }
 
 .subtask-img-container {
@@ -983,8 +1019,6 @@ textarea {
 	padding-bottom: 5px;
 }
 #subtask-input {
-	color: var(--color-lightgrey);
-
 	padding: 10px;
 	font-weight: 400;
 	font-size: 15px;
