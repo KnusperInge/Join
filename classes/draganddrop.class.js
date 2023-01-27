@@ -5,9 +5,9 @@ class DragandDrop {
 	title;
 	category;
 	template;
-	imgLow = "img/low_icon.png";
-	imgMedium = "img/medium_icon.png";
-	imgUrgent = "img/urgent_icon.png";
+	imgLow = 'img/low_icon.png';
+	imgMedium = 'img/medium_icon.png';
+	imgUrgent = 'img/urgent_icon.png';
 
 	constructor(title, category) {
 		this.title = title;
@@ -21,32 +21,34 @@ class DragandDrop {
 	loadTasks() {
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
-			this.template = document.getElementById("task_card").content.cloneNode(true);
+			this.template = document
+				.getElementById('task_card')
+				.content.cloneNode(true);
 			this.fillTemp(element);
 		});
 	}
 
 	clearTasks() {
-		document.querySelector("#toDo").innerHTML = "";
-		document.querySelector("#inProgress").innerHTML = "";
-		document.querySelector("#Await").innerHTML = "";
-		document.querySelector("#Done").innerHTML = "";
+		document.querySelector('#toDo').innerHTML = '';
+		document.querySelector('#inProgress').innerHTML = '';
+		document.querySelector('#Await').innerHTML = '';
+		document.querySelector('#Done').innerHTML = '';
 	}
 
 	checkPriority(element) {
-		if (element.Priority == "Low") {
+		if (element.Priority == 'Low') {
 			return this.imgLow;
 		}
-		if (element.Priority == "Medium") {
+		if (element.Priority == 'Medium') {
 			return this.imgMedium;
 		}
-		if (element.Priority == "Urgent") {
+		if (element.Priority == 'Urgent') {
 			return this.imgUrgent;
 		}
 	}
 
 	fillTemp(element) {
-		this.draggedList = document.querySelector("#" + element.Status);
+		this.draggedList = document.querySelector('#' + element.Status);
 		this.fillTaskTemplate(element);
 		this.fillTaskTemplate_subTasks(element);
 		this.initDragAndDrop(element);
@@ -75,10 +77,11 @@ class DragandDrop {
 
 	// ANCHOR add drag and drop event listener
 	initDragAndDrop(element) {
-		this.template.querySelector(".bord-tasks-container-task").draggable = "true";
+		this.template.querySelector('.bord-tasks-container-task').draggable =
+			'true';
 		this.template
-			.querySelector(".bord-tasks-container-task")
-			.setAttribute("ondrag", `startDragging("${element.Title}")`);
+			.querySelector('.bord-tasks-container-task')
+			.setAttribute('ondrag', `startDragging("${element.Title}")`);
 	}
 
 	// ANCHOR init subtasks progressbar
@@ -87,7 +90,8 @@ class DragandDrop {
 		if (SubtasksLength > 0) {
 			this.initSubtaskTemp(element, SubtasksLength);
 		} else {
-			this.template.getElementById("progressBar-subtasks").style.display = "none";
+			this.template.getElementById('progressBar-subtasks').style.display =
+				'none';
 		}
 	}
 
@@ -102,20 +106,28 @@ class DragandDrop {
 		});
 		// claculate progressbar width
 		progressbarPercentage = (subTasksDone / SubtasksLength) * 100;
-		this.setSubtaskTemp(progressbarPercentage, subTasksInProgress, subTasksDone);
-		this.template.getElementById("progressBar-done").style.width = progressbarPercentage + "%";
-		this.template.getElementById("subTasks-inProgress").innerHTML = subTasksInProgress;
-		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
+		this.setSubtaskTemp(
+			progressbarPercentage,
+			subTasksInProgress,
+			subTasksDone
+		);
+		this.template.getElementById('progressBar-done').style.width =
+			progressbarPercentage + '%';
+		this.template.getElementById('subTasks-inProgress').innerHTML =
+			subTasksInProgress;
+		this.template.getElementById('subTasks-done').innerHTML = subTasksDone;
 	}
 
 	setSubtaskTemp(progressbarPercentage, subTasksInProgress, subTasksDone) {
-		this.template.getElementById("progressBar-done").style.width = progressbarPercentage + "%";
-		this.template.getElementById("subTasks-inProgress").innerHTML = subTasksInProgress;
-		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
+		this.template.getElementById('progressBar-done').style.width =
+			progressbarPercentage + '%';
+		this.template.getElementById('subTasks-inProgress').innerHTML =
+			subTasksInProgress;
+		this.template.getElementById('subTasks-done').innerHTML = subTasksDone;
 	}
 
 	openDetail(event) {
-		document.querySelector(".board-task-detail").classList.remove("d-none");
+		document.querySelector('.board-task-detail').classList.remove('d-none');
 	}
 
 	loadDetailContent(event) {
@@ -131,9 +143,11 @@ class DragandDrop {
 	}
 
 	addDetailCloseBtn() {
-		document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
-			document.querySelector(".board-task-detail").classList.add("d-none");
-		});
+		document
+			.querySelector('.board-task-detail-head img')
+			.addEventListener('click', () => {
+				document.querySelector('.board-task-detail').classList.add('d-none');
+			});
 	}
 
 	renderDetailHead(element) {
@@ -177,9 +191,9 @@ class DragandDrop {
 	Buttons = [];
 
 	changeStatusInitEventListener() {
-		document.addEventListener("touchstart", (event) => {
+		document.addEventListener('touchstart', (event) => {
 			event.composedPath().forEach((htmlElem) => {
-				if (htmlElem.className == "bord-tasks-container-task shadow-black") {
+				if (htmlElem.className == 'bord-tasks-container-task shadow-black') {
 					this.touchedElement = [htmlElem];
 					this.timer = setTimeout(() => {
 						currentDragElement.openChangeStatusWindow();
@@ -188,7 +202,7 @@ class DragandDrop {
 			});
 		});
 
-		document.addEventListener("touchend", () => {
+		document.addEventListener('touchend', () => {
 			clearTimeout(this.timer);
 		});
 	}
@@ -200,11 +214,16 @@ class DragandDrop {
 	}
 
 	setTemplate() {
-		this.WindowTemplate = document.getElementById("changeTaskStatus_template").content.cloneNode(true);
-		this.WindowTemplate.getElementById("closeStatusWindow").addEventListener("click", this.remove_changeStatusWindow);
-		this.Buttons = this.WindowTemplate.querySelectorAll("button");
+		this.WindowTemplate = document
+			.getElementById('changeTaskStatus_template')
+			.content.cloneNode(true);
+		this.WindowTemplate.getElementById('closeStatusWindow').addEventListener(
+			'click',
+			this.remove_changeStatusWindow
+		);
+		this.Buttons = this.WindowTemplate.querySelectorAll('button');
 		this.Buttons.forEach((button) => {
-			button.addEventListener("click", (e) => {
+			button.addEventListener('click', (e) => {
 				e.stopPropagation();
 				this.changeTaskStatus(button);
 			});
@@ -235,19 +254,19 @@ class DragandDrop {
 
 	generate_changeStatusWindow() {
 		this.WindowOpen = true;
-		document.querySelector("main").appendChild(this.WindowTemplate);
+		document.querySelector('main').appendChild(this.WindowTemplate);
 	}
 
 	remove_changeStatusWindow() {
 		this.WindowOpen = false;
-		document.getElementById("changeTaskStatus").remove();
+		document.getElementById('changeTaskStatus').remove();
 	}
 
 	//ANCHOR Task filter
 	searchValue;
 	FilteredTasks = [];
 	initTaskFilter() {
-		document.addEventListener("input", (event) => {
+		document.addEventListener('input', (event) => {
 			this.searchValue = event.target.value.toLowerCase();
 			if (this.searchValue.length == 0) {
 				this.loadTasks();
@@ -269,13 +288,17 @@ class DragandDrop {
 
 	checkSearchedTaskTitle(task) {
 		let taskTitelLength = this.searchValue.length;
-		return task.Title.slice(0, taskTitelLength).toLowerCase() == this.searchValue;
+		return (
+			task.Title.slice(0, taskTitelLength).toLowerCase() == this.searchValue
+		);
 	}
 
 	loadFilteredTasks() {
 		this.clearTasks();
 		this.FilteredTasks.forEach((element) => {
-			this.template = document.getElementById("task_card").content.cloneNode(true);
+			this.template = document
+				.getElementById('task_card')
+				.content.cloneNode(true);
 			this.fillTemp(element);
 		});
 	}
