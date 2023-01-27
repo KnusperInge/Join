@@ -112,7 +112,7 @@ class Task {
     this.contactbtns = document.querySelectorAll('.contacts div');
     this.contactbtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        let id = event.target.id;
+        let id = btn.id;
         if (id == 3) {
           this.openSearchContact();
           this.setnewContactBtns();
