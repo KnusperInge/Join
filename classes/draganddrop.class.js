@@ -113,12 +113,15 @@ class DragandDrop {
 		});
 		this.addDetailCloseBtn();
 	}
+
 	openDetail(event) {
 		document.querySelector(".board-task-detail").classList.remove("d-none");
 	}
 
 	loadDetailContent(event) {
+		console.log(event);
 		this.Tasks.forEach((element) => {
+			console.log(element);
 			if (element.Title.includes(event.target.id)) {
 				this.renderDetailHead(element);
 				this.renderDetailBody(element);

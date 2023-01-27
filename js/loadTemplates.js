@@ -31,7 +31,7 @@ function checkItems() {
 
 function setActivelink() {
 	navItems.forEach((item) => {
-		if (item.textContent == page) {
+		if (item.innerText == page) {
 			item.classList.add("activeNavItem");
 		}
 	});
