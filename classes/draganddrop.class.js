@@ -22,6 +22,7 @@ class DragandDrop {
 	}
 
 	loadTasks() {
+
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
 			this.template = document.getElementById("task_card").content.cloneNode(true);
