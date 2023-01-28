@@ -171,5 +171,5 @@ function drop(category) {
 }
 
 function dropEvent(event) {
-	event.path[0].classList.remove("taskListBorder");
+	event.composedPath()[0].classList.remove("taskListBorder");
 }
