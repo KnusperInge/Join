@@ -145,13 +145,18 @@ class Taskdetailview extends DynamixObjects {
     this.toogleEdit();
     this.setactivPriortyBtn(Task);
     this.setPriorityBtn();
+    this.seteditSubtaskBtn(Task);
     this.editEditors();
     this.addDeleteEditorBtn(Task);
     this.SearchContactsBtn(Task);
     document.querySelector(".board-task-detail-body input").readOnly = false;
+    document.querySelector(".board-task-detail-body input").focus();
+    document.querySelector(".board-task-detail-body input").classList.add('border-bottom');
     document.querySelector(".board-task-detail-body textarea").readOnly = false;
+    document.querySelector(".board-task-detail-body textarea").classList.add('border');
     document.querySelector(".board-task-detail-date input").setAttribute('type', 'date');
     document.querySelector(".board-task-detail-date input").readOnly = false;
+    document.querySelector(".board-task-detail-date input").classList.add('border-bottom');
     console.log('aktiv');
   }
 
@@ -174,6 +179,31 @@ class Taskdetailview extends DynamixObjects {
       document.getElementById('0').classList.add("urgent", "active");
     }
   }
+
+  seteditSubtaskBtn(Task) {
+    this.setSubtaskClearBtn();
+    this.setSubTaskAddBtn(Task);
+  }
+  setSubtaskClearBtn() {
+    document.querySelector('#subtaskClearBtn').addEventListener('click', () => {
+      document.querySelector('#subtask-input').value = "";
+
+    });
+  }
+
+  setSubTaskAddBtn(Task) {
+    document.querySelector('#subtaskAddBtn').addEventListener('click', (event) => {
+      event.stopPropagation();
+      Task.Subtasks.push({
+        Checked: false,
+        Subtask: document.querySelector('#subtask-input').value
+      });
+      document.querySelector('#subtask-input').value = "";
+      this.renderSubtasks(Task);
+    });
+  }
+
+
   editEditors() {
     let arr = document.querySelectorAll('.board-task-detail-person-list div');
     for (let i = 0; i < arr.length; i++) {
