@@ -124,9 +124,7 @@
           <img src="./img/icon_close_dark.png" />
         </div>
         <div class="board-task-detail-body">
-          <input type="text" readonly="true" class=" outline-border-none"> Title Hier könnte auch
-          Ihr Titel
-          stehen</input>
+          <input type="text" readonly="true" class=" outline-border-none"></input>
           <textarea class=" outline-border-none" readonly="true">Textarea/ Description</textarea>
           <div class="board-task-detail-rows board-task-detail-date">
             <h3>Due date:</h3>
@@ -135,7 +133,7 @@
           <div class="board-task-detail-rows board-detail-prio">
             <h3>Priority: </h3>
             <span class="font-size1"> Urgent/M/L <img src="img/urgent_icon.png" /></span>
-            <div class="priority-container">
+            <div class=" d-none priority-container">
               <div class="priority dflex-center" id="0">
                 Urgent
                 <img src="/img/urgent_icon.png" />
@@ -156,8 +154,8 @@
             <h3>Subtaks to do:</h3>
             <div class=" d-none subtask-container">
               <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
-              <img class="" src="img/plus_Icon.png" alt="">
-              <div class=" d-none subtask-img-container">
+
+              <div class=" subtask-img-container">
                 <img id="subtaskClearBtn" src="img/cross_icon_blue.png" alt="">
                 <span>|</span>
                 <img id="subtaskAddBtn" src="img/checked_blue.png" alt="">
@@ -180,7 +178,7 @@
               </div>
 
             </div>
-            <div class="searchContact-Container ">
+            <div class=" d-none searchContact-Container ">
               <div class="searchContact-input bottom-border">
                 <input class="outline-border-none" type="search" name="" id="searchContacts"
                   placeholder="Enter Name or Email" />
@@ -201,6 +199,7 @@
     <div class="board-overlay"></div>
 
   </main>
+  <script src="/classes/dynamicObj.class.js"></script>
   <script src="/classes/task_deatails.class.js"></script>
   <script src="classes/draganddrop.class.js"></script>
   <script src="js/loadTemplates.js"></script>

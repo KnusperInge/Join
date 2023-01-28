@@ -1,7 +1,9 @@
-class Taskdetailview {
+class Taskdetailview extends DynamixObjects {
   boardElem;
+  prioBtns;
 
   constructor(elemTitle, dAd) {
+    super();
     this.boardElem = dAd;
     this.showTaskDetail(elemTitle)
   }
@@ -13,7 +15,7 @@ class Taskdetailview {
     this.renderDetailBody(Task);
     this.addDetailCloseBtn();
     this.addSubtasksBtn(Task);
-    this.setEditBtn();
+    this.setEditBtn(Task);
   }
 
   openDetail() {
@@ -125,15 +127,40 @@ class Taskdetailview {
     });
   }
 
-  setEditBtn() {
-    document.querySelector('.bord-task-edit-button').addEventListener('click', this.editTask);
+  setEditBtn(Task) {
+    document.querySelector('.bord-task-edit-button').addEventListener('click', (event) => {
+      event.stopPropagation();
+      this.editTask(Task);
+    });
   }
 
-  editTask() {
+  editTask(Task) {
+    this.toogleEdit();
+    this.setactivPriortyBtn(Task);
+    this.setPriorityBtn();
     document.querySelector(".board-task-detail-body input").readOnly = false;
     document.querySelector(".board-task-detail-body textarea").readOnly = false;
     document.querySelector(".board-task-detail-date input").setAttribute('type', 'date');
     document.querySelector(".board-task-detail-date input").readOnly = false;
     console.log('aktiv');
   }
+
+  toogleEdit() {
+    document.querySelector(".board-detail-prio span").classList.add('d-none');
+    document.querySelector(".priority-container").classList.remove('d-none');
+    document.querySelector(".subtask-container").classList.remove('d-none');
+    document.querySelector(".searchContact-Container").classList.remove('d-none');
+  }
+  setactivPriortyBtn(Task) {
+    if (Task.Priority == "Low") {
+      document.getElementById('2').classList.add("low", "active");
+    }
+    if (Task.Priority == "Medium") {
+      document.getElementById('1').classList.add("medium", "active");
+    }
+    if (Task.Priority == "Urgent") {
+      document.getElementById('0').classList.add("urgent", "active");
+    }
+  }
+
 }
