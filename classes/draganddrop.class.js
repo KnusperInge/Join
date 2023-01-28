@@ -174,9 +174,9 @@ class DragandDrop {
 	}
 
 	openChangeStatusWindow() {
-		if (window.innerWidth < 650) {
-			this.setTemplate();
-		}
+		this.setOverlay();
+		this.getTemplate();
+		this.setTemplate();
 	}
 
 	setOverlay() {
@@ -187,9 +187,11 @@ class DragandDrop {
 		document.querySelector(".board-overlay").classList.remove("active");
 	}
 
-	setTemplate() {
-		this.setOverlay();
+	getTemplate() {
 		this.WindowTemplate = document.getElementById("changeTaskStatus_template").content.cloneNode(true);
+	}
+
+	setTemplate() {
 		this.WindowTemplate.getElementById("closeStatusWindow").addEventListener("click", () => {
 			this.remove_changeStatusWindow();
 		});
