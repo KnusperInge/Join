@@ -2012,6 +2012,7 @@ textarea {
 	padding-left: 78px;
 	padding-right: 161px;
 }
+
 .help-head-container {
 	display: flex;
 	justify-content: space-between;
@@ -2019,16 +2020,19 @@ textarea {
 	margin-top: 50px;
 	margin-bottom: 29px;
 }
+
 .help-head-container a img {
 	width: 25px;
 	height: 24px;
 }
+
 .help-section h1 {
 	color: var(--color-blue);
 	font-size: 61px;
 	font-weight: 700;
 	font-family: "OpenSans-SemiBold";
 }
+
 .help-section h2 {
 	font-family: "OpenSans-SemiBold";
 	color: var(--color-kingsblue);
@@ -2073,6 +2077,7 @@ textarea {
 }
 
 .steps ol li {
+	margin-bottom: 8px;
 	list-style-type: disc;
 }
 
