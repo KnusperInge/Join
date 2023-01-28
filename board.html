@@ -124,18 +124,45 @@
           <img src="./img/icon_close_dark.png" />
         </div>
         <div class="board-task-detail-body">
-          <input type="text" readonly="true"> Title Hier könnte auch Ihr Titel stehen</input>
-          <textarea readonly="true">Textarea/ Description</textarea>
+          <input type="text" readonly="true" class=" outline-border-none"> Title Hier könnte auch
+          Ihr Titel
+          stehen</input>
+          <textarea class=" outline-border-none" readonly="true">Textarea/ Description</textarea>
           <div class="board-task-detail-rows board-task-detail-date">
             <h3>Due date:</h3>
-            <input readonly="true" class="font-size1"></input>
+            <input readonly="true" class="font-size1 outline-border-none"></input>
           </div>
           <div class="board-task-detail-rows board-detail-prio">
             <h3>Priority: </h3>
             <span class="font-size1"> Urgent/M/L <img src="img/urgent_icon.png" /></span>
+            <div class="priority-container">
+              <div class="priority dflex-center" id="0">
+                Urgent
+                <img src="/img/urgent_icon.png" />
+              </div>
+
+              <div class="priority dflex-center" id="1">
+                Medium
+                <img src="/img/medium_icon.png" />
+              </div>
+
+              <div class="priority dflex-center" id="2">
+                Low
+                <img src="/img/low_icon.png" />
+              </div>
+            </div>
           </div>
           <div class="board-task-detail-subtasks">
             <h3>Subtaks to do:</h3>
+            <div class=" d-none subtask-container">
+              <input class="outline-border-none" id="subtask-input" type="text" placeholder="Add new subtask" />
+              <img class="" src="img/plus_Icon.png" alt="">
+              <div class=" d-none subtask-img-container">
+                <img id="subtaskClearBtn" src="img/cross_icon_blue.png" alt="">
+                <span>|</span>
+                <img id="subtaskAddBtn" src="img/checked_blue.png" alt="">
+              </div>
+            </div>
             <div class="subtask-list">
               <div>
                 <span>Subtaskname(P)</span>
@@ -153,7 +180,17 @@
               </div>
 
             </div>
-
+            <div class="searchContact-Container ">
+              <div class="searchContact-input bottom-border">
+                <input class="outline-border-none" type="search" name="" id="searchContacts"
+                  placeholder="Enter Name or Email" />
+                <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
+                <span>|</span>
+                <img id="addContactBtn" src="img/checked_blue.png" alt="">
+              </div>
+              <div class="outputContact">
+              </div>
+            </div>
 
           </div>
         </div>
