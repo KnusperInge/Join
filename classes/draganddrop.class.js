@@ -79,17 +79,21 @@ class DragandDrop {
 	setInitials(element) {
 		if (element.Editors.length <= 3) {
 			element.Editors.forEach((elm) => {
-				this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:${elm.Color}">${elm.Initials}</span> `;
+				this.template.querySelector(
+					".editor-list"
+				).innerHTML += `<span class="dflex-center" style="background:${elm.Color}">${elm.Initials}</span> `;
 			});
 		} else {
 			for (let i = 0; i < 3; i++) {
-				this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
+				this.template.querySelector(
+					".editor-list"
+				).innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
 			}
-			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${element.Editors.length - 3}</span> `;
-		};
+			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${
+				element.Editors.length - 3
+			}</span> `;
+		}
 	}
-
-
 
 	// ANCHOR add drag and drop event listener
 	initDragAndDrop(element) {
@@ -132,8 +136,6 @@ class DragandDrop {
 		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
 	}
 
-
-
 	loadDetailContent(event) {
 		console.log(event);
 		this.Tasks.forEach((element) => {
@@ -145,16 +147,7 @@ class DragandDrop {
 		});
 	}
 
-
-
-
-
-
-
-
-
-
-	// ANCHOR change task status
+	// ANCHOR change task status on tab version
 	timer;
 	touchedElement;
 	//init d&d after holding for 0.5sec
@@ -177,6 +170,7 @@ class DragandDrop {
 		});
 
 		document.addEventListener("touchend", () => {
+			if (this.timer < 5) this.unsetOverlay();
 			clearTimeout(this.timer);
 		});
 	}
@@ -187,7 +181,16 @@ class DragandDrop {
 		}
 	}
 
+	setOverlay() {
+		document.querySelector(".board-overlay").classList.add("active");
+	}
+
+	unsetOverlay() {
+		document.querySelector(".board-overlay").classList.remove("active");
+	}
+
 	setTemplate() {
+		this.setOverlay();
 		this.WindowTemplate = document.getElementById("changeTaskStatus_template").content.cloneNode(true);
 		this.WindowTemplate.getElementById("closeStatusWindow").addEventListener("click", this.remove_changeStatusWindow);
 		this.Buttons = this.WindowTemplate.querySelectorAll("button");
@@ -204,6 +207,7 @@ class DragandDrop {
 		let TasksIndex = this.findTaskIndex();
 		console.log(Tasks[TasksIndex]);
 		Tasks[TasksIndex].Status = button.innerHTML;
+		this.unsetOverlay();
 		saveData();
 		// nur mit set Timeout ging es
 		setTimeout(() => {
@@ -227,6 +231,7 @@ class DragandDrop {
 	}
 
 	remove_changeStatusWindow() {
+		this.unsetOverlay();
 		this.WindowOpen = false;
 		document.getElementById("changeTaskStatus").remove();
 	}
