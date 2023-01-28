@@ -119,7 +119,7 @@ class Taskdetailview {
     document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
       document.querySelector(".board-task-detail").classList.add("d-none");
       saveData();
-      loadData();
+
       this.boardElem.loadTasks();
     });
   }
