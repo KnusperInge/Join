@@ -2007,6 +2007,8 @@ textarea {
 
 /* ANCHOR Help.html */
 .help-section {
+	height: calc(100vh - 97.3px);
+	overflow: auto;
 	padding-left: 78px;
 	padding-right: 161px;
 }
@@ -2014,7 +2016,7 @@ textarea {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-top: 113px;
+	margin-top: 50px;
 	margin-bottom: 29px;
 }
 .help-head-container a img {
@@ -2034,6 +2036,15 @@ textarea {
 	font-weight: 700;
 	line-height: 39.6px;
 }
+
+.help-section h3 {
+	font-family: "OpenSans-SemiBold";
+	color: var(--color-kingsblue);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 39.6px;
+}
+
 .help-quest-container {
 	display: flex;
 	flex-direction: column;
@@ -2048,7 +2059,27 @@ textarea {
 
 .how-it-use-container .steps {
 	display: flex;
+	flex-direction: column;
 	align-items: flex-start;
-	gap: 35px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
+}
+
+.addTask-span {
+	margin-bottom: 20px;
+}
+
+.steps ol {
+	margin-left: 20px;
+}
+
+.steps ol li {
+	list-style-type: disc;
+}
+
+.steps ol li span:nth-child(1) {
+	font-weight: 600;
+}
+
+.steps ol li span:nth-child(2) {
+	color: var(--color-darkblue);
 }

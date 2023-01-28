@@ -530,3 +530,11 @@ main {
 .taskForm-in-ontact {
 	overflow-y: auto;
 }
+
+/* ANCHOR help.html */
+.help-section {
+	position: fixed;
+	top: 80px;
+	height: calc(100vh - (2 * 80px));
+	padding: 0 16px;
+}
