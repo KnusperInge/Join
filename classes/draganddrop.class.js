@@ -22,7 +22,6 @@ class DragandDrop {
 	}
 
 	loadTasks() {
-
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
 			this.template = document.getElementById("task_card").content.cloneNode(true);
@@ -193,7 +192,9 @@ class DragandDrop {
 	setTemplate() {
 		this.setOverlay();
 		this.WindowTemplate = document.getElementById("changeTaskStatus_template").content.cloneNode(true);
-		this.WindowTemplate.getElementById("closeStatusWindow").addEventListener("click", this.remove_changeStatusWindow);
+		this.WindowTemplate.getElementById("closeStatusWindow").addEventListener("click", () => {
+			this.remove_changeStatusWindow();
+		});
 		this.Buttons = this.WindowTemplate.querySelectorAll("button");
 		this.Buttons.forEach((button) => {
 			button.addEventListener("click", (e) => {
