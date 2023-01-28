@@ -300,7 +300,20 @@ main {
 }
 
 .bord-tasks-container-location {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 241px));
+	gap: 20px;
 	width: calc(100vw - 50px);
+}
+
+.bord-tasks-container-task {
+}
+
+@media (max-width: 424px) {
+	.bord-tasks-container-location {
+		justify-content: center;
+		display: block;
+	}
 }
 
 /* ANCHOR Header - only for task.html */
