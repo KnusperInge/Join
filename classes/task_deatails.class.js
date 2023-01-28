@@ -29,8 +29,8 @@ class Taskdetailview {
   renderDetailBody(element) {
     document.querySelector(".board-task-detail-body textarea").value = "";
     document.querySelector(".board-task-detail-body textarea").value = element.Description;
-    document.querySelector(".board-task-detail-date span").innerText = "";
-    document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
+    document.querySelector(".board-task-detail-date input").value = "";
+    document.querySelector(".board-task-detail-date input").value = element.Deadline;
     this.renderPriority(element);
     this.renderSubtasks(element);
 
@@ -132,7 +132,8 @@ class Taskdetailview {
   editTask() {
     document.querySelector(".board-task-detail-body input").readOnly = false;
     document.querySelector(".board-task-detail-body textarea").readOnly = false;
-
+    document.querySelector(".board-task-detail-date input").setAttribute('type', 'date');
+    document.querySelector(".board-task-detail-date input").readOnly = false;
     console.log('aktiv');
   }
 }
