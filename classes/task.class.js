@@ -89,54 +89,6 @@ class Task extends DynamixObjects {
     document.querySelector('#closeSearchContact').addEventListener('click', this.openSearchContact);
   }
 
-  setkeyupSearchContact() {
-    document.querySelector('.searchContact-Container input').addEventListener('keyup', (event) => {
-      let input = event.target;
-      this.searchContact(input);
-    });
-  }
-
-  searchContact(input) {
-    for (let i = 0; i < contactList.length; i++) {
-      let checkPerson = contactList[i].Surname.includes(input.value);
-      let person = contactList[i];
-      if (checkPerson && !input.value == "") {
-        this.fillContactOutput(person);
-      };
-    }
-  }
-  fillContactOutput(person) {
-    let output = document.querySelector('.outputContact');
-    output.innerHTML = "";
-    output.innerHTML = `<span>${person.Name} ${person.Surname}</span>`;
-    this.setPreviewContactBtn(person);
-  }
-
-  setPreviewContactBtn(person) {
-    document.querySelector('.outputContact span').addEventListener('click', () => {
-      document.querySelector('.searchContact-Container input').value = person.Mail;
-      document.querySelector('.outputContact').innerHTML = "";
-      this.saveInviteContact(person);
-    });
-  }
-
-  saveInviteContact(person) {
-    document.getElementById('addContactBtn').addEventListener('click', () => {
-      // evtl toLowerChase()
-      this.editors.push(this.editorObj(person));
-      document.querySelector('.searchContact-Container input').value = "";
-      this.openSearchContact();
-    });
-  }
-
-  editorObj(person) {
-    return {
-      Name: person.Name,
-      Color: person.BgColor,
-      Initials: person.Initials
-    }
-  }
-
   openSearchContact() {
     document.querySelector('.contactInput').classList.toggle('d-none');
     document.querySelector('.searchContact-Container').classList.toggle('d-none');

@@ -1,6 +1,7 @@
 class Taskdetailview extends DynamixObjects {
   boardElem;
   prioBtns;
+  editorModus = false;
 
   constructor(elemTitle, dAd) {
     super();
@@ -116,6 +117,11 @@ class Taskdetailview extends DynamixObjects {
       tempElements[1].innerText = editor.Name;
       document.querySelector(".board-task-detail-person-list").appendChild(temp);
     });
+    if (this.editorModus) {
+      this.editEditors();
+      this.addDeleteEditorBtn(element);
+      console.log('editorModus', element.Editors);
+    }
   }
 
   addDetailCloseBtn() {
@@ -130,6 +136,7 @@ class Taskdetailview extends DynamixObjects {
   setEditBtn(Task) {
     document.querySelector('.bord-task-edit-button').addEventListener('click', (event) => {
       event.stopPropagation();
+      this.editorModus = true;
       this.editTask(Task);
     });
   }
@@ -138,6 +145,9 @@ class Taskdetailview extends DynamixObjects {
     this.toogleEdit();
     this.setactivPriortyBtn(Task);
     this.setPriorityBtn();
+    this.editEditors();
+    this.addDeleteEditorBtn(Task);
+    this.SearchContactsBtn(Task);
     document.querySelector(".board-task-detail-body input").readOnly = false;
     document.querySelector(".board-task-detail-body textarea").readOnly = false;
     document.querySelector(".board-task-detail-date input").setAttribute('type', 'date');
@@ -150,6 +160,8 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector(".priority-container").classList.remove('d-none');
     document.querySelector(".subtask-container").classList.remove('d-none');
     document.querySelector(".searchContact-Container").classList.remove('d-none');
+    document.querySelector(".edit-Buttons").classList.remove('d-none');
+    document.querySelector(".bord-task-edit-button").classList.add('d-none');
   }
   setactivPriortyBtn(Task) {
     if (Task.Priority == "Low") {
@@ -162,5 +174,39 @@ class Taskdetailview extends DynamixObjects {
       document.getElementById('0').classList.add("urgent", "active");
     }
   }
+  editEditors() {
+    let arr = document.querySelectorAll('.board-task-detail-person-list div');
+    for (let i = 0; i < arr.length; i++) {
+      const element = arr[i];
+      element.lastElementChild.src = '/img/trashcan_icon.png';
+      element.lastElementChild.setAttribute('id', `${i}`);
+      element.lastElementChild.classList.add('deleteEditor');
+    }
+  }
+  addDeleteEditorBtn(Task) {
+    let deleteBtnArr = document.querySelectorAll('.deleteEditor');
+    deleteBtnArr.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        let id = event.target.id;
+        this.deleteEditor(Task, id);
+      });
+    });
+  }
+
+  deleteEditor(Task, id) {
+    Task.Editors.splice(id, 1);
+    this.renderDetailEditorList(Task);
+  }
+  SearchContactsBtn(Task) {
+    this.searchContactClearBtn();
+    this.setkeyupSearchContact(Task);
+  }
+
+
+
+
+
+
 
 }
