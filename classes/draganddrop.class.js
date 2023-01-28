@@ -124,15 +124,12 @@ class DragandDrop {
 		});
 		// claculate progressbar width
 		progressbarPercentage = (subTasksDone / SubtasksLength) * 100;
-		this.setSubtaskTemp(progressbarPercentage, subTasksInProgress, subTasksDone);
-		this.template.getElementById("progressBar-done").style.width = progressbarPercentage + "%";
-		this.template.getElementById("subTasks-inProgress").innerHTML = subTasksInProgress;
-		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
+		this.setSubtaskTemp(progressbarPercentage, SubtasksLength, subTasksDone);
 	}
 
-	setSubtaskTemp(progressbarPercentage, subTasksInProgress, subTasksDone) {
+	setSubtaskTemp(progressbarPercentage, SubtasksLength, subTasksDone) {
 		this.template.getElementById("progressBar-done").style.width = progressbarPercentage + "%";
-		this.template.getElementById("subTasks-inProgress").innerHTML = subTasksInProgress;
+		this.template.getElementById("subTasks-inProgress").innerHTML = SubtasksLength;
 		this.template.getElementById("subTasks-done").innerHTML = subTasksDone;
 	}
 
