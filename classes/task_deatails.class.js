@@ -12,7 +12,7 @@ class Taskdetailview {
     this.renderDetailHead(Task);
     this.renderDetailBody(Task);
     this.addDetailCloseBtn();
-    this.addSubtasksBtn();
+    this.addSubtasksBtn(Task);
   }
 
   openDetail() {
@@ -73,21 +73,33 @@ class Taskdetailview {
       let temp = document.querySelector('.detail-subtask-temp').content.cloneNode(true);
       temp.querySelector('div').setAttribute("id", `${subTask.Subtask}`);
       temp.querySelector('span').innerText = subTask.Subtask;
+      temp.querySelector('input').checked = subTask.Checked;
       target.appendChild(temp);
     });
   }
 
-  addSubtasksBtn() {
+  addSubtasksBtn(Task) {
     let subtasks = document.querySelectorAll('.subtask-list div');
     subtasks.forEach((elm) => {
       elm.addEventListener('click', (event) => {
         event.stopPropagation();
-        this.checkSubtask(elm.id);
+        this.checkSubtask(elm.id, Task);
       });
     })
   }
-  checkSubtask(id) {
-    console.log(id);
+  checkSubtask(id, Task) {
+    Task.Subtasks.forEach((elm) => {
+      if (elm.Subtask.includes(id) && !elm.Checked) {
+        elm.Checked = true;
+        document.getElementById(`${id}`).lastElementChild.checked = elm.Checked;
+
+
+      } else if (elm.Subtask.includes(id) && elm.Checked) {
+        elm.Checked = false;
+        document.getElementById(`${id}`).lastElementChild.checked = elm.Checked;
+
+      }
+    })
   }
 
   renderDetailEditorList(element) {
@@ -106,6 +118,9 @@ class Taskdetailview {
   addDetailCloseBtn() {
     document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
       document.querySelector(".board-task-detail").classList.add("d-none");
+      saveData();
+      loadData();
+      this.boardElem.loadTasks();
     });
   }
 
