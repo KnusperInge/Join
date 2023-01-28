@@ -13,6 +13,7 @@ class Taskdetailview {
     this.renderDetailBody(Task);
     this.addDetailCloseBtn();
     this.addSubtasksBtn(Task);
+    this.setEditBtn();
   }
 
   openDetail() {
@@ -21,13 +22,13 @@ class Taskdetailview {
 
   renderDetailHead(element) {
     this.renderDetailCategory(element);
-    document.querySelector(".board-task-detail-body h1").innerText = "";
-    document.querySelector(".board-task-detail-body h1").innerText = element.Title;
+    document.querySelector(".board-task-detail-body input").value = "";
+    document.querySelector(".board-task-detail-body input").value = element.Title;
   }
 
   renderDetailBody(element) {
-    document.querySelector(".board-task-detail-body span").innerText = "";
-    document.querySelector(".board-task-detail-body span").innerText = element.Description;
+    document.querySelector(".board-task-detail-body textarea").value = "";
+    document.querySelector(".board-task-detail-body textarea").value = element.Description;
     document.querySelector(".board-task-detail-date span").innerText = "";
     document.querySelector(".board-task-detail-date span").innerText = element.Deadline;
     this.renderPriority(element);
@@ -124,4 +125,14 @@ class Taskdetailview {
     });
   }
 
+  setEditBtn() {
+    document.querySelector('.bord-task-edit-button').addEventListener('click', this.editTask);
+  }
+
+  editTask() {
+    document.querySelector(".board-task-detail-body input").readOnly = false;
+    document.querySelector(".board-task-detail-body textarea").readOnly = false;
+
+    console.log('aktiv');
+  }
 }
