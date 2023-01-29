@@ -280,12 +280,7 @@ class Taskdetailview extends DynamixObjects {
       this.placeReadOnly();
       this.removeEditeditors();
       this.toogleEdit();
-      // this.showTaskDetail(Task.Title);
-      this.renderDetailHead(Task);
-      this.renderDetailBody(Task);
-      this.addDetailCloseBtn();
-      this.addSubtasksBtn(Task);
-      this.setEditBtn(Task);
+      this.showNote(Task);
     }, { once: true });
 
   }
@@ -299,7 +294,17 @@ class Taskdetailview extends DynamixObjects {
     return document.querySelector('.priority-container .active').innerText;
   }
 
-
+  showNote(Task) {
+    document.querySelector('.confirm-textbox').classList.remove('d-none');
+    setTimeout(() => {
+      document.querySelector('.confirm-textbox').classList.add('d-none');
+      this.renderDetailHead(Task);
+      this.renderDetailBody(Task);
+      this.addDetailCloseBtn();
+      this.addSubtasksBtn(Task);
+      this.setEditBtn(Task);
+    }, 2000);
+  }
 
 
 }

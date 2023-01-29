@@ -1353,6 +1353,24 @@ h3 {
 .edit-Buttons span:first-child:hover {
   background-color: var(--color-lightgrey);
 }
+.confirm-textbox {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: inherit;
+}
+.confirm-textbox span {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 15px 20px;
+}
 
 /* ANCHOR drag&drop */
 .taskListBorder {
