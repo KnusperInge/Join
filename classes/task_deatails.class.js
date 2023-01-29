@@ -137,8 +137,10 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector('.bord-task-edit-button').addEventListener('click', (event) => {
       event.stopPropagation();
       this.editorModus = true;
+      console.log('aktiv', this.editorModus);
       this.editTask(Task);
-    });
+
+    }, { once: true });
   }
 
   editTask(Task) {
@@ -149,25 +151,39 @@ class Taskdetailview extends DynamixObjects {
     this.editEditors();
     this.addDeleteEditorBtn(Task);
     this.SearchContactsBtn(Task);
-    document.querySelector(".board-task-detail-body input").readOnly = false;
+    this.setEditSaveAbortBtn(Task);
+    this.cancelReadOnly();
     document.querySelector(".board-task-detail-body input").focus();
-    document.querySelector(".board-task-detail-body input").classList.add('border-bottom');
-    document.querySelector(".board-task-detail-body textarea").readOnly = false;
-    document.querySelector(".board-task-detail-body textarea").classList.add('border');
-    document.querySelector(".board-task-detail-date input").setAttribute('type', 'date');
-    document.querySelector(".board-task-detail-date input").readOnly = false;
-    document.querySelector(".board-task-detail-date input").classList.add('border-bottom');
-    console.log('aktiv');
   }
 
-  toogleEdit() {
-    document.querySelector(".board-detail-prio span").classList.add('d-none');
-    document.querySelector(".priority-container").classList.remove('d-none');
-    document.querySelector(".subtask-container").classList.remove('d-none');
-    document.querySelector(".searchContact-Container").classList.remove('d-none');
-    document.querySelector(".edit-Buttons").classList.remove('d-none');
-    document.querySelector(".bord-task-edit-button").classList.add('d-none');
+  cancelReadOnly() {
+    document.querySelector(".board-task-detail-body input").readOnly = false;
+    document.querySelector(".board-task-detail-body textarea").readOnly = false;
+    document.querySelector(".board-task-detail-date input").readOnly = false;
+    document.querySelector(".board-task-detail-date input").setAttribute('type', 'date');
   }
+
+  placeReadOnly() {
+    document.querySelector(".board-task-detail-body input").readOnly = true;
+    document.querySelector(".board-task-detail-body textarea").readOnly = true;
+    document.querySelector(".board-task-detail-date input").readOnly = true;
+    document.querySelector(".board-task-detail-date input").removeAttribute('type');
+  }
+
+
+  toogleEdit() {
+    document.querySelector(".board-task-detail-body input").classList.toggle('border-bottom');
+    document.querySelector(".board-task-detail-body textarea").classList.toggle('border');
+    document.querySelector(".board-task-detail-date input").classList.toggle('border-bottom');
+    document.querySelector(".board-detail-prio span").classList.toggle('d-none');
+    document.querySelector(".priority-container").classList.toggle('d-none');
+    document.querySelector(".subtask-container").classList.toggle('d-none');
+    document.querySelector(".searchContact-Container").classList.toggle('d-none');
+    document.querySelector(".edit-Buttons").classList.toggle('d-none');
+    document.querySelector(".bord-task-edit-button").classList.toggle('d-none');
+    console.log('Toggle beendet');
+  }
+
   setactivPriortyBtn(Task) {
     if (Task.Priority == "Low") {
       document.getElementById('2').classList.add("low", "active");
@@ -213,6 +229,16 @@ class Taskdetailview extends DynamixObjects {
       element.lastElementChild.classList.add('deleteEditor');
     }
   }
+
+  removeEditeditors() {
+    let arr = document.querySelectorAll('.board-task-detail-person-list div img');
+    arr.forEach((e) => {
+      e.removeAttribute('id');
+      e.removeAttribute('class');
+      e.src = "";
+    });
+  }
+
   addDeleteEditorBtn(Task) {
     let deleteBtnArr = document.querySelectorAll('.deleteEditor');
     deleteBtnArr.forEach((btn) => {
@@ -232,9 +258,46 @@ class Taskdetailview extends DynamixObjects {
     this.searchContactClearBtn();
     this.setkeyupSearchContact(Task);
   }
+  setEditSaveAbortBtn(Task) {
+    this.setAbortBtn();
+    this.SaveEditBtn(Task);
+  }
 
+  setAbortBtn() {
+    document.getElementById('abortBtn').addEventListener('click', e => {
+      this.editorModus = false;
+      this.placeReadOnly();
+      this.removeEditeditors();
+      this.toogleEdit();
+    }, { once: true });
+  }
 
+  SaveEditBtn(Task) {
+    document.getElementById('saveEditBtn').addEventListener('click', e => {
+      this.editorModus = false;
+      this.saveChanges(Task);
+      saveData();
+      this.placeReadOnly();
+      this.removeEditeditors();
+      this.toogleEdit();
+      // this.showTaskDetail(Task.Title);
+      this.renderDetailHead(Task);
+      this.renderDetailBody(Task);
+      this.addDetailCloseBtn();
+      this.addSubtasksBtn(Task);
+      this.setEditBtn(Task);
+    }, { once: true });
 
+  }
+  saveChanges(Task) {
+    Task.Title = document.querySelector(".board-task-detail-body-firstRow input").value;
+    Task.Description = document.querySelector(".board-task-detail-body textarea").value;
+    Task.Deadline = document.querySelector(".board-task-detail-date input").value;
+    Task.Priority = this.setChangePriority();
+  }
+  setChangePriority() {
+    return document.querySelector('.priority-container .active').innerText;
+  }
 
 
 

@@ -24,19 +24,22 @@ class DynamixObjects {
   }
 
   aktivateUrgent(id) {
-    this.prioBtns[id].classList.toggle("urgent", "active");
+    this.prioBtns[id].classList.toggle("urgent");
+    this.prioBtns[id].classList.toggle("active");
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
   }
 
   aktivateMedium(id) {
-    this.prioBtns[id].classList.toggle("medium", "active");
+    this.prioBtns[id].classList.toggle("medium");
+    this.prioBtns[id].classList.toggle("active");
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[2].className = "priority dflex-center";
   }
 
   aktivateLow(id) {
-    this.prioBtns[id].classList.toggle("low", "active");
+    this.prioBtns[id].classList.toggle("low");
+    this.prioBtns[id].classList.toggle("active");
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[1].className = "priority dflex-center";
   }
