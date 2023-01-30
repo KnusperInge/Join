@@ -313,6 +313,82 @@ main {
 	}
 }
 
+/* ANCHOR board.html task detail */
+@media (max-width: 600px), (max-height: 850px) {
+	.board-task-detail {
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		overflow: auto;
+		border-radius: 0;
+	}
+	.board-task-detail-container {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		border-radius: 0;
+		padding: 0;
+	}
+
+	.board-task-detail-head {
+		position: absolute;
+		width: calc(100vw);
+		top: 0px;
+		padding: 10px;
+	}
+
+	.board-task-detail-body {
+		position: absolute;
+		top: 52px;
+		height: calc(100vh - 52px);
+		width: 100vw;
+		overflow: auto;
+		justify-content: unset;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.board-task-detail-date {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.board-detail-prio {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.board-task-detail-subtasks-head {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.board-task-detail-person-head {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.board-task-detail-person-list {
+		width: 100%;
+		overflow-y: auto;
+		margin-bottom: 25px;
+	}
+
+	.edit-Buttons {
+		position: fixed;
+		bottom: 0px;
+		right: 0px;
+		padding: 20px;
+	}
+
+	#abortBtn {
+		background-color: var(--color-white);
+	}
+}
+
 /* ANCHOR Header - only for task.html */
 .header-task {
 	background-color: white;
