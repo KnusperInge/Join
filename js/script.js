@@ -22,7 +22,6 @@ let Categories = [
 	},
 ];
 //general functions
-
 function openboard() {
 	window.open((href = "./board.html"), "_self");
 }
@@ -37,6 +36,7 @@ async function init() {
 	loadingClasses(item);
 
 }
+
 
 function loadingClasses(item) {
 	if (item == "Summary") {

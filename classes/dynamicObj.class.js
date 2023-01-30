@@ -3,7 +3,6 @@ class DynamixObjects {
   //ANCHOR - Priority buttons
   setPriorityBtn() {
     this.prioBtns = document.querySelectorAll('.priority-container .priority');
-    console.log(this.prioBtns)
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -67,7 +66,6 @@ class DynamixObjects {
   setkeyupSearchContact(Task) {
     document.querySelector('.searchContact-Container input').addEventListener('keyup', (event) => {
       let input = event.target;
-      console.log(Task);
       this.searchContact(input, Task);
     });
   }
@@ -99,7 +97,6 @@ class DynamixObjects {
   saveInviteContact(Task) {
     document.getElementById('addContactBtn').addEventListener('click', (event) => {
       event.stopPropagation();
-      console.log(Task);
       if (Task == undefined) {
         //Task.html
         this.editors.push(this.editorObj());
