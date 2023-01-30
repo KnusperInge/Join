@@ -10,6 +10,7 @@ class Contact {
 	phone;
 	contactIDs = [];
 	letters = [];
+	newTask;
 
 	constructor() {
 		this.loadContactList();
@@ -173,7 +174,7 @@ class Contact {
 			event.stopPropagation();
 			this.addNewTaskStyle();
 			this.setCloseButton();
-			newTask = new Task();
+			this.newTask = new Task();
 		});
 	}
 
