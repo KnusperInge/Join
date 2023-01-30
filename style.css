@@ -653,18 +653,15 @@ nav div {
 
 /*ANCHOR Legal Notice*/
 .content-LegalNotice {
-	position: relative;
+	position: fixed;
+	left: 196px;
+	top: 97.3px;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	width: 100%;
-	padding-left: 40px;
-}
-
-.legalNoticeContainer {
-	position: absolute;
-	top: 0px;
-	padding-right: 40px;
+	height: calc(100vh - 97.3px);
+	width: calc(100vw - 196px);
+	padding: 40px;
+	overflow: auto;
 }
 
 .legalNoticeContainer p {

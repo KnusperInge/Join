@@ -405,10 +405,10 @@ class Contact {
 
 	// ANCHOR save, load and reload page
 	async saveLoadReload() {
-		this.letters = [];
-		this.contactIDs = [];
 		this.resetNewContactField();
 		this.closeContactInfo();
+		this.letters = [];
+		this.contactIDs = [];
 		await saveData();
 		await loadData();
 		this.loadContactList();

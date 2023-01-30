@@ -306,9 +306,6 @@ main {
 	width: calc(100vw - 50px);
 }
 
-.bord-tasks-container-task {
-}
-
 @media (max-width: 424px) {
 	.bord-tasks-container-location {
 		justify-content: center;
@@ -537,4 +534,21 @@ main {
 	top: 80px;
 	height: calc(100vh - (2 * 80px));
 	padding: 0 16px;
+}
+
+/*ANCHOR Legal Notice*/
+.content-LegalNotice {
+	top: 80px;
+	left: 0;
+	width: 100vw;
+	height: calc(100vh - 160px);
+	padding: 40px 160px;
+}
+
+.legal-back-button {
+	display: block !important;
+	position: fixed;
+	top: 92px;
+	right: 50px;
+	z-index: 100;
 }
