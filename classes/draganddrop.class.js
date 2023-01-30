@@ -11,6 +11,15 @@ class DragandDrop {
 	imgMedium = "img/medium_icon.png";
 	imgUrgent = "img/urgent_icon.png";
 	selfLoadBoard;
+	timer;
+	touchedElement;
+	//init d&d after holding for 1sec
+	minTouchduration = 1000;
+	WindowTemplate;
+	WindowOpen = false;
+	Buttons = [];
+	searchValue;
+	FilteredTasks = [];
 
 	constructor(title, category) {
 		this.selfLoadBoard = this;
@@ -145,15 +154,6 @@ class DragandDrop {
 	}
 
 	// ANCHOR change task status on tab version
-	timer;
-	touchedElement;
-	//init d&d after holding for 0.5sec
-	minTouchduration = 500;
-
-	WindowTemplate;
-	WindowOpen = false;
-	Buttons = [];
-
 	changeStatusInitEventListener() {
 		document.addEventListener("touchstart", (event) => {
 			event.composedPath().forEach((htmlElem) => {
@@ -236,8 +236,6 @@ class DragandDrop {
 	}
 
 	//ANCHOR Task filter
-	searchValue;
-	FilteredTasks = [];
 	initTaskFilter() {
 		document.addEventListener("input", (event) => {
 			this.searchValue = event.target.value.toLowerCase();

@@ -40,6 +40,7 @@ nav ul {
 }
 
 nav ul li {
+  padding: 3px !important;
   width: unset;
   height: unset;
   font-size: 12px;
@@ -500,6 +501,11 @@ main {
   left: 0;
 }
 
+.contact-right-container.active {
+  height: calc(100vh - 160px) !important;
+  top: 80px;
+}
+
 #contact-informations {
   margin: 0;
 }
@@ -508,7 +514,6 @@ main {
   padding: 0 20px;
   padding-top: 80px;
   position: relative;
-  top: 80px;
   height: calc(100vh - 80px - 80px);
 }
 
