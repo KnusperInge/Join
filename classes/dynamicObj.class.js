@@ -3,6 +3,7 @@ class DynamixObjects {
   //ANCHOR - Priority buttons
   setPriorityBtn() {
     this.prioBtns = document.querySelectorAll('.priority-container .priority');
+    console.log(this.prioBtns)
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -26,22 +27,31 @@ class DynamixObjects {
   aktivateUrgent(id) {
     this.prioBtns[id].classList.toggle("urgent");
     this.prioBtns[id].classList.toggle("active");
+    this.prioBtns[id].firstElementChild.classList.toggle("active");
     this.prioBtns[1].className = "priority dflex-center";
+    this.prioBtns[1].firstElementChild.classList.remove("active");
     this.prioBtns[2].className = "priority dflex-center";
+    this.prioBtns[2].firstElementChild.classList.remove("active");
   }
 
   aktivateMedium(id) {
     this.prioBtns[id].classList.toggle("medium");
     this.prioBtns[id].classList.toggle("active");
+    this.prioBtns[id].firstElementChild.classList.toggle("active");
     this.prioBtns[0].className = "priority dflex-center";
+    this.prioBtns[0].firstElementChild.classList.remove("active");
     this.prioBtns[2].className = "priority dflex-center";
+    this.prioBtns[2].firstElementChild.classList.remove("active");
   }
 
   aktivateLow(id) {
     this.prioBtns[id].classList.toggle("low");
     this.prioBtns[id].classList.toggle("active");
+    this.prioBtns[id].firstElementChild.classList.toggle("active");
     this.prioBtns[0].className = "priority dflex-center";
+    this.prioBtns[0].firstElementChild.classList.remove("active");
     this.prioBtns[1].className = "priority dflex-center";
+    this.prioBtns[1].firstElementChild.classList.remove("active");
   }
 
 

@@ -211,7 +211,7 @@ class Task extends DynamixObjects {
 
   checkpriority() {
     if (document.querySelector(".priority-container .active")) {
-      return document.querySelector(".priority-container .active").innerText;
+      return document.querySelector(".priority-container .priority .active").innerHTML;
     }
     return false;
   }
