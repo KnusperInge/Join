@@ -1755,13 +1755,16 @@ h3 {
 }
 
 .deleteContact {
-	position: absolute;
-	top: calc(34vh - 8px);
+	position: fixed;
+	top: calc(34vh + 50px);
 	transform: translate(0, -100%);
-	left: 8px;
-	width: 120px;
-	height: 35px;
-	background-color: var(--color-white);
+	right: 8px;
+	background-image: url(./img/trashcan_icon.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	width: 33px;
+	height: 33px;
 	color: var(--color-blue);
 	border: none;
 	border-radius: 8px;

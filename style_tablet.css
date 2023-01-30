@@ -275,7 +275,19 @@ nav div {
 
 @media (max-height: 635px) {
 	.content-header {
-		display: none !important;
+		height: 0;
+		border: unset;
+	}
+
+	.content-header span,
+	.cancel_add,
+	.contact-join-icon {
+		display: none;
+	}
+
+	.deleteContact {
+		top: 10px;
+		transform: unset;
 	}
 
 	.content-body {
