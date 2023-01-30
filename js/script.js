@@ -51,9 +51,7 @@ function loadingClasses(item) {
 		document.getElementById("TaskForm").addEventListener("submit", handleForm);
 	} else if (item == "Contacts") {
 		contact = new Contact();
-
 		document.getElementById("TaskForm").addEventListener("submit", handleForm);
-		//newTask = new Task();
 	} else {
 		console.error(`404 no Classes available for ${item}`);
 	}
