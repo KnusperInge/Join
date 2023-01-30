@@ -29,7 +29,6 @@ function openboard() {
 
 //Loading Element
 document.addEventListener("DOMContentLoaded", init);
-
 async function init() {
 	let item = document.querySelector("[item]").getAttribute("item");
 	await downloadFromServer();
