@@ -4,6 +4,7 @@ let Tasks = [],
 	contactList = [];
 let page = "";
 let newTask, loadingPrps, currentDragElement, user;
+let elementOnDrag;
 let Categories = [
 	{
 		name: "Sales",
@@ -21,8 +22,8 @@ let Categories = [
 		Color: "rgb(118,238,198)",
 	},
 ];
-//general functions
 
+//general functions
 function openboard() {
 	window.open((href = "./board.html"), "_self");
 }
@@ -57,24 +58,6 @@ function loadingClasses(item) {
 		console.error(`404 no Classes available for ${item}`);
 	}
 }
-
-// //new contact from contact.class - return false to prevent form reset
-// function addNewContact() {
-// 	contact.createContact();
-// 	return false;
-// }
-
-// //save contact after edid from contact.class - return false to prevent form reset
-// function saveEdidInScript() {
-// 	contact.saveEdid();
-// 	return false;
-// }
-
-//// delete contact from contact.class
-// function deleteShwonContact() {
-// 	contact.deleteContact();
-// 	contact.saveLoadReload();
-// }
 
 //Save and Load
 function saveData() {
@@ -128,25 +111,7 @@ function handleForm(event) {
 	newTask.showNote();
 }
 
-// board.html
-let elementOnDrag;
-
-const lists = document.querySelectorAll(".bord-tasks-container-location");
-lists.forEach((list) => {
-	list.addEventListener("dragstart", startDraggingElement);
-	list.addEventListener("dragenter", dragEnter);
-	list.addEventListener("dragleave", dragLeave);
-	list.addEventListener("drop", dropEvent);
-});
-
-function dragEnter(event) {
-	if (event.composedPath()[1].className == "bord-tasks-container") event.target.classList.add("taskListBorder");
-}
-
-function dragLeave(event) {
-	event.composedPath()[0].classList.remove("taskListBorder");
-}
-
+// ANCHOR board.html drag and drop
 function allowDrop(event) {
 	event.preventDefault();
 }
@@ -155,24 +120,9 @@ function startDragging(title) {
 	elementOnDrag = title;
 }
 
-function startDraggingElement(event) {
-	// toDo || inProgress || awaitFeedback || Done
-	let draggedFrom = event.composedPath()[1];
-	const tasksFromDragged = [...document.getElementById(draggedFrom.id).children];
-	tasksFromDragged.forEach((task) => {
-		if (task.id == event.target.id) {
-			task.classList.add("hideTask");
-		}
-	});
-}
-
 function drop(category) {
 	let index = Tasks.findIndex((element) => element.Title == elementOnDrag);
 	Tasks[index].Status = category;
 	saveData();
 	currentDragElement.loadTasks();
-}
-
-function dropEvent(event) {
-	event.composedPath()[0].classList.remove("taskListBorder");
 }

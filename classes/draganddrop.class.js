@@ -6,6 +6,7 @@ class DragandDrop {
 	category;
 	template;
 	TaskDetails;
+	lists;
 	imgLow = "img/low_icon.png";
 	imgMedium = "img/medium_icon.png";
 	imgUrgent = "img/urgent_icon.png";
@@ -19,10 +20,10 @@ class DragandDrop {
 		this.loadTasks();
 		this.changeStatusInitEventListener();
 		this.initTaskFilter();
+		this.firstDragAndDropInit();
 	}
 
 	loadTasks() {
-
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
 			this.template = document.getElementById("task_card").content.cloneNode(true);
@@ -90,11 +91,11 @@ class DragandDrop {
 					".editor-list"
 				).innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
 			}
-			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${element.Editors.length - 3
-				}</span> `;
+			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${
+				element.Editors.length - 3
+			}</span> `;
 		}
 	}
-
 
 	// ANCHOR add drag and drop event listener
 	initDragAndDrop(element) {
@@ -273,5 +274,39 @@ class DragandDrop {
 			this.template = document.getElementById("task_card").content.cloneNode(true);
 			this.fillTemp(element);
 		});
+	}
+
+	// ANCHOR firstDragAndDropInit
+	firstDragAndDropInit() {
+		this.lists = document.querySelectorAll(".bord-tasks-container-location");
+		this.lists.forEach((list) => {
+			list.addEventListener("dragstart", this.startDraggingElement);
+			list.addEventListener("dragenter", this.dragEnter);
+			list.addEventListener("dragleave", this.dragLeave);
+			list.addEventListener("drop", this.dropEvent);
+		});
+	}
+
+	dragEnter(event) {
+		if (event.composedPath()[1].className == "bord-tasks-container") event.target.classList.add("taskListBorder");
+	}
+
+	dragLeave(event) {
+		event.composedPath()[0].classList.remove("taskListBorder");
+	}
+
+	startDraggingElement(event) {
+		// toDo || inProgress || awaitFeedback || Done
+		let draggedFrom = event.composedPath()[1];
+		const tasksFromDragged = [...document.getElementById(draggedFrom.id).children];
+		tasksFromDragged.forEach((task) => {
+			if (task.id == event.target.id) {
+				task.classList.add("hideTask");
+			}
+		});
+	}
+
+	dropEvent(event) {
+		event.composedPath()[0].classList.remove("taskListBorder");
 	}
 }
