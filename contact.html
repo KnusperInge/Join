@@ -97,6 +97,18 @@
   <template id="delete-button-temp">
     <button class="deleteContact">Del</button>
   </template>
+
+  <!-- ANCHOR Templates: task -->
+  <template id="subtask-temp">
+    <div>
+      <input type="checkbox">
+      <span>Subtasktitel</span>
+    </div>
+  </template>
+  <template id="category-temp">
+    <div id=""></div>
+  </template>
+
 </head>
 
 <body item="Contacts">
@@ -121,9 +133,7 @@
       <div id="overlay"></div>
 
       <!-- add new contact / edid contact -->
-      <div id="new-contact">
-        <!-- <div id="dummy"></div> -->
-      </div>
+      <div id="new-contact"></div>
 
       <!-- add new task -->
       <div class="newTask-contact">
@@ -218,10 +228,8 @@
             </div>
             <div>
               <h3>Description</h3>
-              <textarea name="" class="description-input" id="description-input"
-                onkeyup="checkInput('description-input')" cols="30" rows="10" required
-                placeholder="Enter a Description">
-             </textarea>
+              <textarea name="" class="description-input" id="description-input" required
+                placeholder="Enter a Description"></textarea>
             </div>
             <div>
               <h3>Subtasks</h3>
@@ -250,11 +258,17 @@
         </form>
       </div>
     </section>
+    <div class="task-note dflex-center d-none">
+      <div>
+        <span>new Task added successfully</span>
+      </div>
+    </div>
   </main>
 
   <script src="./js/mini_backend.js"></script>
-  <script src="./classes/dynamicObj.class.js"></script>
   <script src="js/loadTemplates.js"></script>
+  <script src="./classes/dynamicObj.class.js"></script>
+  <script src="classes/subtask.class.js"></script>
   <script src="./classes/Contact.class.js"></script>
   <script src="./classes/task.class.js"></script>
   <script src="./js/script.js"></script>
