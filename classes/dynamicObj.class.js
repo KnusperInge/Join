@@ -2,7 +2,8 @@ class DynamixObjects {
 
   //ANCHOR - Priority buttons
   setPriorityBtn() {
-    this.prioBtns = document.querySelectorAll('.priority-container .priority');
+    this.prioBtns = document.querySelectorAll('.priority-container div');
+
     this.prioBtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
         event.stopPropagation();

@@ -175,6 +175,7 @@ class Contact {
 			this.addNewTaskStyle();
 			this.setCloseButton();
 			this.newTask = new Task();
+			newTask = this.newTask;
 		});
 	}
 
