@@ -206,6 +206,7 @@ class Contact {
 	// ANCHOR new contact
 	addNewContact() {
 		document.querySelector(".add-contact").addEventListener("click", () => {
+			this.appendSaveEdidTemplate();
 			document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(1));
 			this.closeContactEdidCreateWindow(1);
 			this.setNewContactStyle();
@@ -270,6 +271,7 @@ class Contact {
 	// ANCHOR edid contact
 	edidContact(contact) {
 		document.querySelector(`#edidContact_${contact.ID}`).addEventListener("click", () => {
+			this.appendSaveEdidTemplate();
 			document.getElementById("overlay").classList.add("open");
 			document.getElementById("new-contact").classList.add("open");
 			document.getElementById("new-contact-content").classList.add("open");
@@ -278,7 +280,14 @@ class Contact {
 			this.setEdidButtonID(contact);
 			this.setCreateEdidContactEvent("edidContact");
 			this.setDeleteButton(contact);
+			this.closeContactEdidCreateWindow(2);
 		});
+	}
+
+	appendSaveEdidTemplate() {
+		const template = document.getElementById("new_edid_contact_content_template");
+		const clonedTemp = template.content.cloneNode(true);
+		document.getElementById("new-contact").appendChild(clonedTemp);
 	}
 
 	setEdidButtons() {
@@ -293,12 +302,9 @@ class Contact {
 
 	getButtonTemplate(version) {
 		if (version == 1) {
-			document.querySelector(".new-contact-buttons").innerHTML = "";
 			let temp = document.querySelector("#create-buttons-template");
 			return temp.content.cloneNode(true);
 		} else if (version == 2) {
-			document.querySelector(".new-contact-buttons").innerHTML = "";
-			this.closeContactEdidCreateWindow(2);
 			let temp = document.querySelector("#save-button-template");
 			return temp.content.cloneNode(true);
 		}
@@ -337,7 +343,7 @@ class Contact {
 	}
 
 	loadDeleteBtnTemp(contact) {
-		let temp = document.getElementById("delete-button-temp");
+		let temp = document.querySelector("#delete-button-temp");
 		let tempClone = temp.content.cloneNode(true);
 		let button = tempClone.querySelector("button");
 		button.classList.add("clonedDeleteBTN");
@@ -346,7 +352,11 @@ class Contact {
 	}
 
 	addDeleteEvent(contactID) {
-		document.querySelector(`#delete_${contactID}`).addEventListener("click", deleteShwonContact);
+		document.querySelector(`#delete_${contactID}`).addEventListener("click", (event) => {
+			event.stopPropagation();
+			this.deleteContact();
+			this.saveLoadReload();
+		});
 	}
 
 	deleteContact() {
@@ -358,11 +368,15 @@ class Contact {
 	// ANCHOR set button event
 	setCreateEdidContactEvent(action) {
 		if (action == "newContact") {
-			document.querySelector("#submitFormNewContact").removeEventListener("submit", saveEdidInScript);
-			document.querySelector("#submitFormNewContact").addEventListener("submit", addNewContact);
+			document.getElementById("submitFormNewContact").addEventListener("submit", (event) => {
+				event.stopPropagation();
+				this.createContact();
+			});
 		} else if (action == "edidContact") {
-			document.querySelector("#submitFormNewContact").removeEventListener("submit", addNewContact);
-			document.querySelector("#submitFormNewContact").addEventListener("submit", saveEdidInScript);
+			document.getElementById("submitFormNewContact").addEventListener("submit", (event) => {
+				event.stopPropagation();
+				this.saveEdid();
+			});
 		}
 	}
 
@@ -392,6 +406,7 @@ class Contact {
 	// ANCHOR save, load and reload page
 	async saveLoadReload() {
 		this.letters = [];
+		this.contactIDs = [];
 		this.resetNewContactField();
 		this.closeContactInfo();
 		await saveData();
@@ -402,25 +417,17 @@ class Contact {
 
 	// ANCHOR reset edid and create window
 	resetNewContactField() {
-		this.resetFormInput();
-		this.clearButtons();
 		this.removeClassOpen();
-	}
-
-	resetFormInput() {
-		document.querySelector("#input-name").value = "";
-		document.querySelector("#input-phone").value = "";
-		document.querySelector("#input-email").value = "";
-	}
-
-	clearButtons() {
-		document.querySelector(".new-contact-buttons").innerHTML = "";
-		document.getElementById("delButton").innerHTML = "";
+		this.removeFormTemplate();
 	}
 
 	removeClassOpen() {
 		document.getElementById("new-contact-content").classList.remove("open");
 		document.getElementById("new-contact").classList.remove("open");
 		document.getElementById("overlay").classList.remove("open");
+	}
+
+	removeFormTemplate() {
+		document.getElementById("new-contact-content").remove();
 	}
 }

@@ -57,23 +57,24 @@ function loadingClasses(item) {
 		console.error(`404 no Classes available for ${item}`);
 	}
 }
-//new contact from contact.class - return false to prevent form reset
-function addNewContact() {
-	contact.createContact();
-	return false;
-}
 
-//save contact after edid from contact.class - return false to prevent form reset
-function saveEdidInScript() {
-	contact.saveEdid();
-	return false;
-}
+// //new contact from contact.class - return false to prevent form reset
+// function addNewContact() {
+// 	contact.createContact();
+// 	return false;
+// }
 
-//delete contact from contact.class
-function deleteShwonContact() {
-	contact.deleteContact();
-	contact.saveLoadReload();
-}
+// //save contact after edid from contact.class - return false to prevent form reset
+// function saveEdidInScript() {
+// 	contact.saveEdid();
+// 	return false;
+// }
+
+//// delete contact from contact.class
+// function deleteShwonContact() {
+// 	contact.deleteContact();
+// 	contact.saveLoadReload();
+// }
 
 //Save and Load
 function saveData() {
@@ -95,10 +96,12 @@ function loadUser() {
 	}
 	addUserName();
 }
+
 function addUserName() {
 	let content = document.querySelectorAll(".first-line span");
 	content[1].innerText = user;
 }
+
 //Task.html functions
 function checkInput(field) {
 	let input = document.querySelector(`.${field}`);
