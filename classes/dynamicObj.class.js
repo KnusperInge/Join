@@ -52,7 +52,7 @@ class DynamixObjects {
     document.querySelector('#closeSearchContact').addEventListener('click', () => {
       document.querySelector('#searchContacts').value = "";
       document.querySelector('.outputContact').innerHTML = "";
-    });
+    }, { once: true });
   }
   setkeyupSearchContact(Task) {
     document.querySelector('.searchContact-Container input').addEventListener('keyup', (event) => {
@@ -76,13 +76,14 @@ class DynamixObjects {
     output.innerHTML = `<span>${this.person.Name} ${this.person.Surname}</span>`;
     this.setPreviewContactBtn(Task, input);
   }
+
   setPreviewContactBtn(Task, input) {
     document.querySelector('.outputContact span').addEventListener('click', (event) => {
       event.stopPropagation();
       input.value = this.person.Mail;
       document.querySelector('.outputContact').innerHTML = "";
       this.saveInviteContact(Task);
-    });
+    }, { once: true });
   }
 
   saveInviteContact(Task) {
@@ -98,8 +99,9 @@ class DynamixObjects {
         //EditorModus Board.html
         Task.Editors.push(this.editorObj());
         this.renderDetailEditorList(Task);
+        this.searchContactClearBtn();
       }
-    });
+    }, { once: true });
   }
 
   editorObj() {

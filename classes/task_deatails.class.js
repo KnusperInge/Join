@@ -224,7 +224,7 @@ class Taskdetailview extends DynamixObjects {
     let arr = document.querySelectorAll('.board-task-detail-person-list div');
     for (let i = 0; i < arr.length; i++) {
       const element = arr[i];
-      element.lastElementChild.src = '/img/trashcan_icon.png';
+      element.lastElementChild.src = 'img/trashcan_icon.png';
       element.lastElementChild.setAttribute('id', `${i}`);
       element.lastElementChild.classList.add('deleteEditor');
     }
