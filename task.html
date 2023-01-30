@@ -14,7 +14,7 @@
 
   <!-- ANCHOR Templates -->
   <template id="subtask-temp">
-    <div>
+    <div on>
       <input type="checkbox">
       <span>Subtasktitel</span>
     </div>
@@ -45,9 +45,9 @@
               <div class="searchContact-input bottom-border">
                 <input class="outline-border-none" type="search" name="" id="searchContacts"
                   placeholder="Enter Name or Email" />
-                <img id="closeSearchContact" src="img/cross_icon_blue.png" alt="">
+                <img id="closeSearchContact" src="img/cross_icon_blue.png">
                 <span>|</span>
-                <img id="addContactBtn" src="img/checked_blue.png" alt="">
+                <img id="addContactBtn" src="img/checked_blue.png">
               </div>
               <div class="outputContact">
               </div>
@@ -81,36 +81,36 @@
             <h3>Category</h3>
             <div class="d-none searchAndAdd-container">
               <div class="searchAndAdd-container-input">
-                <input type="text" class=" outline-border-none" placeholder="Enter new Category">
+                <input type="text" required class=" outline-border-none" placeholder="Enter new Category">
 
-                <img id="closeSearchAndAddBtn" src="img/cross_icon_blue.png" alt="">
+                <img id="closeSearchAndAddBtn" src="img/cross_icon_blue.png">
                 <span>|</span>
-                <img id="SearchAndAddBtn" src="img/checked_blue.png" alt="">
+                <img id="SearchAndAddBtn" src="img/checked_blue.png">
               </div>
               <div class="colorpicker"></div>
             </div>
 
             <div class="bottom-border dropdown cat">
-              <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task category"
-                id="1" readonly />
-              <div class="list category shadow-black ">
+              <input type="text" class="textBox cagetorgy-input outline-border-none" placeholder="Select task Category"
+                id="1" readonly required />
+              <div class="list category shadow-black">
               </div>
             </div>
           </div>
 
           <div class="priority-container">
             <div class="priority dflex-center" id="0">
-              Urgent
+              <span>Urgent</span>
               <img src="img/urgent_icon.png" />
             </div>
 
             <div class="priority dflex-center" id="1">
-              Medium
+              <span>Medium</span>
               <img src="img/medium_icon.png" />
             </div>
 
             <div class="priority dflex-center" id="2">
-              Low
+              <span>Low</span>
               <img src="img/low_icon.png" />
             </div>
           </div>

@@ -22,7 +22,6 @@ let Categories = [
 		Color: "rgb(118,238,198)",
 	},
 ];
-
 //general functions
 function openboard() {
 	window.open((href = "./board.html"), "_self");

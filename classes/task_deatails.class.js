@@ -120,7 +120,6 @@ class Taskdetailview extends DynamixObjects {
     if (this.editorModus) {
       this.editEditors();
       this.addDeleteEditorBtn(element);
-      console.log('editorModus', element.Editors);
     }
   }
 
@@ -137,9 +136,7 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector('.bord-task-edit-button').addEventListener('click', (event) => {
       event.stopPropagation();
       this.editorModus = true;
-      console.log('aktiv', this.editorModus);
       this.editTask(Task);
-
     }, { once: true });
   }
 
@@ -181,7 +178,6 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector(".searchContact-Container").classList.toggle('d-none');
     document.querySelector(".edit-Buttons").classList.toggle('d-none');
     document.querySelector(".bord-task-edit-button").classList.toggle('d-none');
-    console.log('Toggle beendet');
   }
 
   setactivPriortyBtn(Task) {
