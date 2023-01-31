@@ -23,12 +23,17 @@ class Subtask {
 
   setSubTaskAddBtn() {
     document.querySelector('#subtaskAddBtn').addEventListener('click', () => {
-      this.Tasks.Subtaks.push({
-        Checked: false,
-        Subtask: document.querySelector('.subtask-container input').value
-      });
-      document.querySelector('.subtask-container input').value = "";
-      this.loadSubtasks();
+      if (!document.querySelector('#subtask-input').value == "") {
+        this.Tasks.Subtaks.push({
+          Checked: false,
+          Subtask: document.querySelector('.subtask-container input').value
+        });
+        document.querySelector('.subtask-container input').value = "";
+        this.loadSubtasks();
+      } else {
+        document.querySelector('#subtask-input').focus();
+      }
+
     });
   }
 

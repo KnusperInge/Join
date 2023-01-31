@@ -78,6 +78,7 @@ function signUpBtn() {
 		loadTemplate(1);
 	});
 }
+
 async function setAddNewUserBtn() {
 	document.querySelector("#signUpForm").addEventListener(
 		"submit",
@@ -87,10 +88,7 @@ async function setAddNewUserBtn() {
 			await backend.setItem("UserDates", JSON.stringify(userDates));
 			clearInputfields();
 			location.reload();
-
-		},
-		{ once: true }
-	);
+		}, { once: true });
 }
 
 function saveUserArr() {
