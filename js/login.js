@@ -39,10 +39,12 @@ function loginBtn() {
 		let mailInput = document.querySelector("#eMailInput");
 		let pwInput = document.querySelector("#passwordInput");
 		checkLogin(mailInput, pwInput);
+
 	});
 }
 
 function checkLogin(mail, pw) {
+	console.log("Klick");
 	userDates = JSON.parse(backend.getItem("UserDates")) || [];
 	if (userDates.length == 0) {
 		console.error("No Userdata available!");
@@ -51,21 +53,27 @@ function checkLogin(mail, pw) {
 	for (let i = 0; i < userDates.length; i++) {
 		if (userDates[i].Mail.includes(mail.value) && !mail.value == "") {
 			let user = userDates[i];
-
-			if (user.Password == pw.value && !pw.value == "") {
-				let userName = userDates[i].Name;
-				window.open((href = "./summary.html"), "_self");
-				localStorage.removeItem("user");
-				localStorage.setItem("user", JSON.stringify(userName));
-				userDates = [];
-			} else {
+			checkPW(user, pw, mail);
+		} else
+			if (!user.Mail.includes(mail.value) && !mail.value == "") {
 				document.querySelector(".LoginNote").innerHTML = "";
-				document.querySelector(".LoginNote").innerHTML = "Wrong Password";
+				document.querySelector(".LoginNote").innerHTML = "The email or password you entered is incorrect.";
 			}
-		} else {
-			document.querySelector(".LoginNote").innerHTML = "";
-			document.querySelector(".LoginNote").innerHTML = "Wrong eMail";
-		}
+
+	}
+}
+
+function checkPW(user, pw, mail) {
+	if (user.Password == pw.value && !pw.value == "") {
+		let userName = user.Name;
+		window.open((href = "./summary.html"), "_self");
+		localStorage.removeItem("user");
+		localStorage.setItem("user", JSON.stringify(userName));
+		userDates = [];
+	} else if (user.Mail == mail.value && !pw.value == "" && !user.Password.includes(pw.value)) {
+		console.log("PW falsch");
+		document.querySelector(".LoginNote").innerHtml = "";
+		document.querySelector(".LoginNote").innerHTML = "The email or password you entered is incorrect.";
 	}
 }
 
