@@ -209,6 +209,7 @@ class Contact {
 	addNewContact() {
 		document.querySelector(".add-contact").addEventListener("click", () => {
 			this.appendSaveEdidTemplate();
+			document.querySelector(".new-contact-buttons").innerHTML = "";
 			document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(1));
 			this.closeContactEdidCreateWindow(1);
 			this.setNewContactStyle();
@@ -293,6 +294,7 @@ class Contact {
 	}
 
 	setEdidButtons() {
+		document.querySelector(".new-contact-buttons").innerHTML = "";
 		document.querySelector(".new-contact-buttons").appendChild(this.getButtonTemplate(2));
 	}
 
@@ -306,7 +308,9 @@ class Contact {
 		if (version == 1) {
 			let temp = document.querySelector("#create-buttons-template");
 			return temp.content.cloneNode(true);
-		} else if (version == 2) {
+		}
+
+		if (version == 2) {
 			let temp = document.querySelector("#save-button-template");
 			return temp.content.cloneNode(true);
 		}
