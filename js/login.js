@@ -10,10 +10,11 @@ user = {
 	Password: "",
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-	loadTemplate(0);
+document.addEventListener("DOMContentLoaded", async () => {
+	await loadTemplate(0);
 	init();
 });
+
 addEventListener("animationend", () => {
 	document.getElementById("loading-page").style = "display: none;";
 });
@@ -60,18 +61,18 @@ async function loadTemplate(version) {
 	if (version == 1) {
 		file = "Temp/signUp.html";
 		await loadHTMLTemplate();
-		setAddNewUserBtn();
+		setAddNewUserBtn(true);
 	}
 	if (version == 2) {
 		file = "Temp/forgot_password.html";
-		await loadHTMLTemplate();
+		await loadHTMLTemplate(true);
 	}
 }
 
-async function loadHTMLTemplate() {
+async function loadHTMLTemplate(blueBackground) {
 	let resp = await fetch(file);
 	bodyTag.innerHTML = await resp.text();
-	bodyTag.style = "background-color: var(--color-blue);";
+	if (blueBackground) bodyTag.style = "background-color: var(--color-blue);";
 }
 
 async function setAddNewUserBtn() {
