@@ -1,5 +1,11 @@
 class DynamixObjects {
 
+  disablePastdates() {
+    let content = document.querySelector('#date-input');
+    let today = new Date().toISOString().split('T');
+    let minDate = today[0];
+    content.setAttribute('min', minDate);
+  }
   //ANCHOR - Priority buttons
   setPriorityBtn() {
     this.prioBtns = document.querySelectorAll('.priority-container div');

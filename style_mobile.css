@@ -18,6 +18,9 @@ header div:nth-child(2) {
 }
 
 /* ANCHOR Navbar */
+.activeNavItem {
+  border-radius: 0;
+}
 nav {
   position: fixed !important;
   bottom: 0;
@@ -31,6 +34,7 @@ nav {
 }
 
 nav ul {
+  margin: 0;
   width: 100vw;
   height: unset;
   flex-direction: row;
@@ -40,7 +44,7 @@ nav ul {
 }
 
 nav ul li {
-  padding: 3px !important;
+  padding: 19px !important;
   width: unset;
   height: unset;
   font-size: 12px;
@@ -296,8 +300,11 @@ main {
   position: fixed;
   top: 80px;
   height: calc(100vh - 80px - 80px) !important;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-direction: column;
+  padding-top: 15px;
+  /* Color */
+  background-color: aqua !important;
 }
 
 .bord-tasks-container-location {
@@ -531,7 +538,7 @@ main {
 
 .close_contact_info_tablet img {
   height: 16px;
-  content: url(../../img/back_arrow_blue.png);
+  content: url(img/back_arrow_blue.png);
 }
 
 .contact-mid div {
@@ -551,7 +558,7 @@ main {
 }
 
 .contact-mid img {
-  content: url(../../img/pencil_white.png);
+  content: url(img/pencil_white.png);
   margin: 0;
 }
 

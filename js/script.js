@@ -34,6 +34,12 @@ async function init() {
 	await downloadFromServer();
 	await loadData();
 	loadingClasses(item);
+	setdate();
+}
+function setdate() {
+	let today = new Date().toDateString();
+	let splittoday = today[0];
+	console.log(today);
 }
 
 function loadingClasses(item) {
