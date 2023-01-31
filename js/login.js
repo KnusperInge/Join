@@ -3,6 +3,12 @@ let userDates = [];
 let LoginBtn;
 document.addEventListener("DOMContentLoaded", init);
 
+user = {
+	Name: "",
+	Surname: "",
+	Mail: "",
+	Password: ""
+}
 
 async function init() {
 	await downloadFromServer();
