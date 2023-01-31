@@ -34,6 +34,7 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector(".board-task-detail-body textarea").value = element.Description;
     document.querySelector(".board-task-detail-date input").value = "";
     document.querySelector(".board-task-detail-date input").value = element.Deadline;
+    this.disablePastdates();
     this.renderPriority(element);
     this.renderSubtasks(element);
 
@@ -137,7 +138,7 @@ class Taskdetailview extends DynamixObjects {
       event.stopPropagation();
       this.editorModus = true;
       this.editTask(Task);
-    }, { once: true });
+    });
   }
 
   editTask(Task) {

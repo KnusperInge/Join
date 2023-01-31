@@ -21,8 +21,9 @@ class Task extends DynamixObjects {
   constructor() {
     super();
     this.selfTask = this;
-    this.setPriorityBtn();
     this.setDropdownBtn();
+    this.setPriorityBtn();
+    this.disablePastdates();
     this.setContactBtn();
     this.loadCatListsetBtns();
     this.setClearBtn();
