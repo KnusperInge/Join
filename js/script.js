@@ -22,6 +22,7 @@ let Categories = [
 		Color: "rgb(118,238,198)",
 	},
 ];
+
 //general functions
 function openboard() {
 	window.open((href = "./board.html"), "_self");
@@ -34,12 +35,7 @@ async function init() {
 	await downloadFromServer();
 	await loadData();
 	loadingClasses(item);
-	setdate();
-}
-function setdate() {
-	let today = new Date().toDateString();
-	let splittoday = today[0];
-	console.log(today);
+
 }
 
 function loadingClasses(item) {
