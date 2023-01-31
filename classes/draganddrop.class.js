@@ -73,7 +73,7 @@ class DragandDrop {
 		this.setCategoryColor(element.Category);
 		this.setInitials(element);
 		this.template.querySelector(".bord-tasks-container-task h4").innerText = element.Title;
-		this.template.querySelector(".bord-task-desc span").innerText = element.Description;
+		this.template.querySelector(".bord-task-desc").innerText = element.Description;
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
@@ -100,8 +100,9 @@ class DragandDrop {
 					".editor-list"
 				).innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
 			}
-			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${element.Editors.length - 3
-				}</span> `;
+			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${
+				element.Editors.length - 3
+			}</span> `;
 		}
 	}
 
@@ -144,7 +145,6 @@ class DragandDrop {
 	}
 
 	loadDetailContent(event) {
-
 		this.Tasks.forEach((element) => {
 			if (element.Title.includes(event.target.id)) {
 				this.renderDetailHead(element);
