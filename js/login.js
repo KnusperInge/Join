@@ -3,6 +3,13 @@ let userDates = [];
 let LoginBtn;
 let file;
 let bodyTag = document.querySelector("body");
+user = {
+	Name: "",
+	Surname: "",
+	Mail: "",
+	Password: "",
+};
+
 document.addEventListener("DOMContentLoaded", init);
 addEventListener("animationend", () => {
 	document.getElementById("loading-page").style = "display: none;";
