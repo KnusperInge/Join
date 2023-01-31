@@ -10,7 +10,10 @@ user = {
 	Password: "",
 };
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", () => {
+	loadTemplate(0);
+	init();
+});
 addEventListener("animationend", () => {
 	document.getElementById("loading-page").style = "display: none;";
 });
@@ -39,7 +42,6 @@ function signUpBtn() {
 	document.querySelector("#signupButton").addEventListener("click", (event) => {
 		event.preventDefault();
 		loadTemplate(1);
-
 	});
 }
 
@@ -51,6 +53,10 @@ function forgotPwBtn() {
 }
 
 async function loadTemplate(version) {
+	if (version == 0) {
+		file = "Temp/login.html";
+		await loadHTMLTemplate();
+	}
 	if (version == 1) {
 		file = "Temp/signUp.html";
 		await loadHTMLTemplate();
@@ -58,7 +64,7 @@ async function loadTemplate(version) {
 	}
 	if (version == 2) {
 		file = "Temp/forgot_password.html";
-		loadHTMLTemplate();
+		await loadHTMLTemplate();
 	}
 }
 
@@ -69,18 +75,18 @@ async function loadHTMLTemplate() {
 }
 
 async function setAddNewUserBtn() {
-	document.querySelector('#signUpForm').addEventListener("submit", async (event) => {
+	document.querySelector("#signUpForm").addEventListener("submit", async (event) => {
 		event.preventDefault();
-		Username = document.querySelector('.signUp-inputName');
-		Usersurname = document.querySelector('.signUp-inputSurname');
-		Usermail = document.querySelector('.signUp-inputMail');
-		Userpassword = document.querySelector('.signUp-inputPassword');
+		Username = document.querySelector(".signUp-inputName");
+		Usersurname = document.querySelector(".signUp-inputSurname");
+		Usermail = document.querySelector(".signUp-inputMail");
+		Userpassword = document.querySelector(".signUp-inputPassword");
 		saveUserArr();
 		backend.setItem("UserDates", JSON.stringify(userDates));
 		clearInputfields();
 		//userDates = JSON.parse(await backend.getItem("UserDates")) || [];
 		window.open((href = "./index.html"), "_self");
-	})
+	});
 }
 
 function saveUserArr() {
@@ -88,15 +94,11 @@ function saveUserArr() {
 		Name: Username.value,
 		Surname: Usersurname.value,
 		Mail: Usermail.value,
-		Password: Userpassword.value
+		Password: Userpassword.value,
 	});
-
 }
 function clearInputfields() {
-	Username.value = "",
-		Usersurname.value = "",
-		Usermail.value = "",
-		Userpassword.value = ""
+	(Username.value = ""), (Usersurname.value = ""), (Usermail.value = ""), (Userpassword.value = "");
 }
 
 function checkLogin(mail, pw) {
@@ -111,8 +113,8 @@ function checkLogin(mail, pw) {
 			if (user.Password == pw.value && !pw.value == "") {
 				let userName = userDates[i].Name;
 				window.open((href = "./summary.html"), "_self");
-				localStorage.removeItem('user');
-				localStorage.setItem('user', JSON.stringify(userName));
+				localStorage.removeItem("user");
+				localStorage.setItem("user", JSON.stringify(userName));
 				userDates = [];
 			} else {
 				document.querySelector(".LoginNote").innerHTML = "";
@@ -124,5 +126,3 @@ function checkLogin(mail, pw) {
 		}
 	}
 }
-
-
