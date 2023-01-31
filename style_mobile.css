@@ -275,7 +275,7 @@ main {
   position: fixed;
   left: unset;
   overflow: hidden;
-  z-index: 10;
+  z-index: 0;
 }
 
 .bord-search-container {
@@ -412,7 +412,7 @@ main {
 }
 
 .header-task div:nth-child(1) img {
-  content: url("../../img/icon_blue.png");
+  content: url("img/icon_blue.png");
 }
 
 /*ANCHOR task.html */
@@ -420,7 +420,7 @@ main {
   position: fixed;
   top: 84px;
   height: calc(100vh - 84px);
-  z-index: 11;
+  z-index: 0;
 }
 
 .section-task {

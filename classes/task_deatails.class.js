@@ -207,12 +207,18 @@ class Taskdetailview extends DynamixObjects {
   setSubTaskAddBtn(Task) {
     document.querySelector('#subtaskAddBtn').addEventListener('click', (event) => {
       event.stopPropagation();
-      Task.Subtasks.push({
-        Checked: false,
-        Subtask: document.querySelector('#subtask-input').value
-      });
-      document.querySelector('#subtask-input').value = "";
-      this.renderSubtasks(Task);
+      if (!document.querySelector('#subtask-input').value == "") {
+        Task.Subtasks.push({
+          Checked: false,
+          Subtask: document.querySelector('#subtask-input').value
+        });
+        document.querySelector('#subtask-input').value = "";
+        this.renderSubtasks(Task);
+
+      } else {
+        document.querySelector('#subtask-input').focus();
+      }
+
     });
   }
 
