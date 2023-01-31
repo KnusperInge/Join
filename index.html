@@ -30,20 +30,14 @@
         <button class="button_blue" id="signupButton">Sign up</button>
     </div>
 
-    <main class="login_screen flex_column login_main">
+    <main class="login_screen flex_column">
         <div class="login_form flex_column">
             <span>Log in</span>
-            <div>
+            <form>
                 <div class="LoginNote"></div>
-                <form>
-                    <input type="email" id="eMailInput" placeholder="E-Mail" />
-                    <img src="./img/login_mail.png" />
-                </form>
-                <form>
-                    <input type="password" id="passwordInput" placeholder="Password:" />
-                    <img src="./img/login_lock.png" />
-                </form>
-            </div>
+                <input class="background-image-settings" type="email" id="eMailInput" placeholder="E-Mail">
+                <input class="background-image-settings" type="password" id="passwordInput" placeholder="Password:">
+            </form>
         </div>
         <div class="login_options">
             <label for="remember">

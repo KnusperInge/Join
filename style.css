@@ -139,11 +139,6 @@ body {
 }
 
 /* Login Page */
-.login_main {
-	display: flex;
-	flex-direction: column;
-}
-
 #loading-page > * {
 	position: absolute;
 	top: 50%;
@@ -183,6 +178,7 @@ body {
 }
 
 .login_screen {
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 35px 115px;
@@ -201,11 +197,44 @@ body {
 	width: 100%;
 }
 
-.login_form div {
-	width: 100%;
-	display: flex;
+.login_form form {
 	flex-direction: column;
+	position: unset;
 	gap: 8px;
+	width: 100%;
+}
+
+/* ANCHOR index input icons */
+/* global */
+.background-image-settings {
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+/* login */
+#eMailInput {
+	background-image: url(img/login_mail.png);
+}
+
+#passwordInput {
+	background-image: url(img/login_lock.png);
+}
+
+/* sign up + forgot password */
+.signUp-inpuName {
+	background-image: url(img/add_c_perso.png);
+}
+
+.signUp-inpuSurname {
+	background-image: url(img/add_c_perso.png);
+}
+
+.signUp-inpuMail {
+	background-image: url(img/login_mail.png);
+}
+
+.signUp-inpuPassword {
+	background-image: url(img/login_lock.png);
 }
 
 .login_form span {
@@ -220,13 +249,6 @@ body {
 	border-bottom: 3px solid var(--color-blue);
 	margin-top: -20px;
 	margin-bottom: 35px;
-}
-
-.login_form form {
-	position: relative;
-	width: 100%;
-	display: flex;
-	align-items: center;
 }
 
 .login_form input {
@@ -278,15 +300,6 @@ body {
 	flex-direction: column;
 }
 
-.blue_background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: var(--color-blue);
-}
-
 .static_logo_white {
 	position: absolute;
 	top: 80px;
@@ -312,6 +325,11 @@ body {
 	border-bottom: none !important;
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
+}
+
+/* forgot pw */
+.formInput-forgotPW {
+	margin-top: 20px;
 }
 
 /* ANCHOR Header*/
