@@ -44,7 +44,6 @@ function loginBtn() {
 }
 
 function checkLogin(mail, pw) {
-	console.log("Klick");
 	userDates = JSON.parse(backend.getItem("UserDates")) || [];
 	if (userDates.length == 0) {
 		console.error("No Userdata available!");
@@ -71,7 +70,6 @@ function checkPW(user, pw, mail) {
 		localStorage.setItem("user", JSON.stringify(userName));
 		userDates = [];
 	} else if (user.Mail == mail.value && !pw.value == "" && !user.Password.includes(pw.value)) {
-		console.log("PW falsch");
 		document.querySelector(".LoginNote").innerHtml = "";
 		document.querySelector(".LoginNote").innerHTML = "The email or password you entered is incorrect.";
 	}
@@ -89,11 +87,10 @@ async function setAddNewUserBtn() {
 		async (event) => {
 			event.preventDefault();
 			saveUserArr();
-			backend.setItem("UserDates", JSON.stringify(userDates));
+			await backend.setItem("UserDates", JSON.stringify(userDates));
 			clearInputfields();
-			userDates = JSON.parse(await backend.getItem("UserDates")) || [];
-			file = "Temp/login.html";
-			loadHTMLTemplate(true);
+			location.reload();
+
 		},
 		{ once: true }
 	);
@@ -136,6 +133,7 @@ async function loadTemplate(version) {
 	if (version == 0) {
 		file = "Temp/login.html";
 		await loadHTMLTemplate();
+
 	}
 	if (version == 1) {
 		file = "Temp/signUp.html";
@@ -157,6 +155,7 @@ async function loadHTMLTemplate(blueBackground) {
 	let resp = await fetch(file);
 	bodyTag.innerHTML = await resp.text();
 	if (blueBackground) bodyTag.style = "background-color: var(--color-blue);";
+
 }
 
 function loadChangePasswordEvent() {
