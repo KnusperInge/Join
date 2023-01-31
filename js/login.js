@@ -50,6 +50,16 @@ function forgotPwBtn() {
 	document.querySelector("#forgotPasswordButton").addEventListener("click", (event) => {
 		event.preventDefault();
 		loadTemplate(2);
+		setTimeout(() => {
+			setForgotPwEvent();
+		}, 200);
+	});
+}
+
+function setForgotPwEvent() {
+	document.getElementById("senResetPwMailButton").addEventListener("click", (event) => {
+		event.preventDefault();
+		console.log("resetPasswordEvent");
 	});
 }
 
