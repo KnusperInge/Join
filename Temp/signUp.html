@@ -1,14 +1,15 @@
-<img class="static_logo_white" src="../img/icon_white.png">
+<img class="static_logo_white" src="img/icon_white.png">
 <main class="login_screen flex_column">
-  <a href="index.html" class="back_arrow"><img src="../img/back_arrow_blue.png"></a>
+  <a href="index.html" class="back_arrow"><img src="img/back_arrow_blue.png"></a>
   <div class="login_form flex_column">
     <span>Sign up</span>
-    <form>
-      <input class="signUp-inpuName background-image-settings" placeholder="Name:">
-      <input class="signUp-inpuSurname background-image-settings" placeholder="Surname:">
-      <input class="signUp-inpuMail background-image-settings" placeholder="Email:">
-      <input class="signUp-inpuPassword background-image-settings" placeholder="Password:">
+    <form id="signUpForm">
+      <input type="text" required class="signUp-inputName background-image-settings" placeholder="Name:">
+      <input type="text" required class="signUp-inputSurname background-image-settings" placeholder="Surname:">
+      <input type="email" required class="signUp-inputMail background-image-settings" placeholder="Email:">
+      <input type="text" required class="signUp-inputPassword background-image-settings" placeholder="Password:">
+      <button id="addNewUser" class="button_blue">Sign up</button>
     </form>
   </div>
-  <button class="button_blue">Sign up</button>
+
 </main>

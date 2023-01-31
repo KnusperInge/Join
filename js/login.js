@@ -1,8 +1,8 @@
 setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 let userDates = [];
-let LoginBtn;
-let file;
+let LoginBtn, file, Username, Usersurname, Usermail, Userpassword;
 let bodyTag = document.querySelector("body");
+
 user = {
 	Name: "",
 	Surname: "",
@@ -39,6 +39,7 @@ function signUpBtn() {
 	document.querySelector("#signupButton").addEventListener("click", (event) => {
 		event.preventDefault();
 		loadTemplate(1);
+
 	});
 }
 
@@ -49,10 +50,11 @@ function forgotPwBtn() {
 	});
 }
 
-function loadTemplate(version) {
+async function loadTemplate(version) {
 	if (version == 1) {
 		file = "Temp/signUp.html";
-		loadHTMLTemplate();
+		await loadHTMLTemplate();
+		setAddNewUserBtn();
 	}
 	if (version == 2) {
 		file = "Temp/forgot_password.html";
@@ -66,13 +68,44 @@ async function loadHTMLTemplate() {
 	bodyTag.style = "background-color: var(--color-blue);";
 }
 
+async function setAddNewUserBtn() {
+	document.querySelector('#signUpForm').addEventListener("submit", async (event) => {
+		event.preventDefault();
+		Username = document.querySelector('.signUp-inputName');
+		Usersurname = document.querySelector('.signUp-inputSurname');
+		Usermail = document.querySelector('.signUp-inputMail');
+		Userpassword = document.querySelector('.signUp-inputPassword');
+		saveUserArr();
+		backend.setItem("UserDates", JSON.stringify(userDates));
+		clearInputfields();
+		//userDates = JSON.parse(await backend.getItem("UserDates")) || [];
+		window.open((href = "./index.html"), "_self");
+	})
+}
+
+function saveUserArr() {
+	userDates.push({
+		Name: Username.value,
+		Surname: Usersurname.value,
+		Mail: Usermail.value,
+		Password: Userpassword.value
+	});
+
+}
+function clearInputfields() {
+	Username.value = "",
+		Usersurname.value = "",
+		Usermail.value = "",
+		Userpassword.value = ""
+}
+
 function checkLogin(mail, pw) {
 	if (userDates.length == 0) {
 		console.error("No Userdata available!");
 	}
 
 	for (let i = 0; i < userDates.length; i++) {
-		if (userDates.Mail.includes(mail.value) && !mail.value == "") {
+		if (userDates[i].Mail.includes(mail.value) && !mail.value == "") {
 			let user = userDates[i];
 
 			if (user.Password == pw.value && !pw.value == "") {
