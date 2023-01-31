@@ -303,7 +303,6 @@ main {
   overflow-y: auto;
   flex-direction: column;
   padding-top: 15px;
-  background-color: aqua !important;
 }
 
 .bord-tasks-container-location {
