@@ -31,9 +31,9 @@ function loginBtn() {
 
 function checkLogin(mail, pw) {
 	if (userDates.length == 0) {
-		console.log("Keine userdaten vorhanden");
-
+		console.error("No Userdata available!");
 	}
+
 	for (let i = 0; i < userDates.length; i++) {
 		if (userDates.Mail.includes(mail.value) && !mail.value == "") {
 			let user = userDates[i];
@@ -41,6 +41,7 @@ function checkLogin(mail, pw) {
 			if (user.Password == pw.value && !pw.value == "") {
 				let userName = userDates[i].Name;
 				window.open((href = "./summary.html"), "_self");
+				localStorage.removeItem('user');
 				localStorage.setItem('user', JSON.stringify(userName));
 				userDates = [];
 			} else {
@@ -53,6 +54,8 @@ function checkLogin(mail, pw) {
 		}
 	}
 }
+
+
 addEventListener("animationend", () => {
 	document.getElementById("loading-page").style = "display: none;";
 
