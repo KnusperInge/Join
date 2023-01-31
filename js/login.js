@@ -77,10 +77,6 @@ function signUpBtn() {
 async function setAddNewUserBtn() {
 	document.querySelector("#signUpForm").addEventListener("submit", async (event) => {
 		event.preventDefault();
-		Username = document.querySelector(".signUp-inputName");
-		Usersurname = document.querySelector(".signUp-inputSurname");
-		Usermail = document.querySelector(".signUp-inputMail");
-		Userpassword = document.querySelector(".signUp-inputPassword");
 		saveUserArr();
 		backend.setItem("UserDates", JSON.stringify(userDates));
 		clearInputfields();
@@ -91,6 +87,10 @@ async function setAddNewUserBtn() {
 }
 
 function saveUserArr() {
+	Username = document.querySelector(".signUp-inputName");
+	Usersurname = document.querySelector(".signUp-inputSurname");
+	Usermail = document.querySelector(".signUp-inputMail");
+	Userpassword = document.querySelector(".signUp-inputPassword");
 	userDates.push({
 		Name: Username.value,
 		Surname: Usersurname.value,

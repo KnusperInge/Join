@@ -1,3 +1,4 @@
+let logOut = false;
 document.addEventListener("DOMContentLoaded", async () => {
 	await includeHtml();
 	navItems = checkNavItem();
@@ -41,6 +42,7 @@ function setActivelink() {
 function setLogoutEvent() {
 	document.querySelector(".user-icon").addEventListener("click", (event) => {
 		event.stopPropagation();
+		localStorage.removeItem("user");
 		addLogoutStyle();
 	});
 }
@@ -48,4 +50,5 @@ function setLogoutEvent() {
 function addLogoutStyle() {
 	document.querySelector(".user-icon").classList.add("logout");
 	document.querySelector(".logout-button").classList.add("active");
+
 }
