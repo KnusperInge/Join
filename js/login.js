@@ -2,6 +2,7 @@ setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 let userDates = [];
 let LoginBtn, file, Username, Usersurname, Usermail, Userpassword;
 let bodyTag = document.querySelector("body");
+let animationEndEvent = true;
 
 user = {
 	Name: "",
@@ -16,7 +17,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 addEventListener("animationend", () => {
-	document.getElementById("loading-page").style = "display: none;";
+	if (animationEndEvent) {
+		document.getElementById("loading-page").style = "display: none;";
+	}
 });
 
 async function init() {
@@ -38,8 +41,6 @@ function loginBtn() {
 		checkLogin(mailInput, pwInput);
 	});
 }
-
-
 
 function checkLogin(mail, pw) {
 	userDates = JSON.parse(backend.getItem("UserDates")) || [];
@@ -75,15 +76,19 @@ function signUpBtn() {
 	});
 }
 async function setAddNewUserBtn() {
-	document.querySelector("#signUpForm").addEventListener("submit", async (event) => {
-		event.preventDefault();
-		saveUserArr();
-		backend.setItem("UserDates", JSON.stringify(userDates));
-		clearInputfields();
-		userDates = JSON.parse(await backend.getItem("UserDates")) || [];
-		file = "Temp/login.html";
-		loadHTMLTemplate(true);
-	}, { once: true });
+	document.querySelector("#signUpForm").addEventListener(
+		"submit",
+		async (event) => {
+			event.preventDefault();
+			saveUserArr();
+			backend.setItem("UserDates", JSON.stringify(userDates));
+			clearInputfields();
+			userDates = JSON.parse(await backend.getItem("UserDates")) || [];
+			file = "Temp/login.html";
+			loadHTMLTemplate(true);
+		},
+		{ once: true }
+	);
 }
 
 function saveUserArr() {
@@ -102,7 +107,6 @@ function clearInputfields() {
 	(Username.value = ""), (Usersurname.value = ""), (Usermail.value = ""), (Userpassword.value = "");
 }
 
-
 function forgotPwBtn() {
 	document.querySelector("#forgotPasswordButton").addEventListener("click", (event) => {
 		event.preventDefault();
@@ -116,7 +120,7 @@ function forgotPwBtn() {
 function setForgotPwEvent() {
 	document.getElementById("senResetPwMailButton").addEventListener("click", (event) => {
 		event.preventDefault();
-		console.log("resetPasswordEvent");
+		loadTemplate(3);
 	});
 }
 
@@ -134,10 +138,26 @@ async function loadTemplate(version) {
 		file = "Temp/forgot_password.html";
 		await loadHTMLTemplate(true);
 	}
+	if (version == 3) {
+		file = "Temp/reset_password.html";
+		await loadHTMLTemplate(true);
+		loadChangePasswordEvent();
+	}
 }
 
 async function loadHTMLTemplate(blueBackground) {
 	let resp = await fetch(file);
 	bodyTag.innerHTML = await resp.text();
 	if (blueBackground) bodyTag.style = "background-color: var(--color-blue);";
+}
+
+function loadChangePasswordEvent() {
+	document.querySelector("button").addEventListener("click", (event) => {
+		animationEndEvent = false;
+		event.preventDefault();
+		document.querySelector(".alertChangePW").classList.add("alertChangePWloaded");
+		setTimeout(() => {
+			location.reload();
+		}, 500);
+	});
 }
