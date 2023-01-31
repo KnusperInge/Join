@@ -39,7 +39,6 @@ function loginBtn() {
 		let mailInput = document.querySelector("#eMailInput");
 		let pwInput = document.querySelector("#passwordInput");
 		checkLogin(mailInput, pwInput);
-
 	});
 }
 
@@ -53,12 +52,10 @@ function checkLogin(mail, pw) {
 		if (userDates[i].Mail.includes(mail.value) && !mail.value == "") {
 			let user = userDates[i];
 			checkPW(user, pw, mail);
-		} else
-			if (!user.Mail.includes(mail.value) && !mail.value == "") {
-				document.querySelector(".LoginNote").innerHTML = "";
-				document.querySelector(".LoginNote").innerHTML = "The email or password you entered is incorrect.";
-			}
-
+		} else if (!user.Mail.includes(mail.value) && !mail.value == "") {
+			document.querySelector(".LoginNote").innerHTML = "";
+			document.querySelector(".LoginNote").innerHTML = "The email or password you entered is incorrect.";
+		}
 	}
 }
 
@@ -137,7 +134,7 @@ async function loadTemplate(version) {
 	}
 	if (version == 1) {
 		file = "Temp/signUp.html";
-		await loadHTMLTemplate();
+		await loadHTMLTemplate(true);
 		setAddNewUserBtn(true);
 	}
 	if (version == 2) {
