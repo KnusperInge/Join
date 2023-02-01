@@ -374,15 +374,14 @@ class Contact {
 	}
 
 	addDeleteEvent(contactID) {
-		document.querySelector(`#delete_${contactID}`).addEventListener("click", (event) => {
+		document.querySelector("#delete_" + contactID).addEventListener("click", (event) => {
 			event.stopPropagation();
-			this.deleteContact();
+			this.deleteContact(contactID);
 			this.saveLoadReload();
 		});
 	}
 
-	deleteContact() {
-		let contactID = document.querySelector(".clonedDeleteBTN").id.split("_")[1];
+	deleteContact(contactID) {
 		let index = contactList.findIndex((i) => i.ID === contactID);
 		contactList.splice(index, 1);
 	}

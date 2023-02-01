@@ -338,7 +338,7 @@ main {
 @media (max-width: 564px) {
   .bord-tasks-container-location {
     justify-content: center;
-    display: block !important;
+    display: block;
   }
 }
 
@@ -439,7 +439,7 @@ main {
 /*ANCHOR task.html */
 .main-task {
   position: fixed;
-  top: 0;
+  top: 50px;
   height: calc(100vh - 80px);
   z-index: 10;
 }
@@ -447,7 +447,7 @@ main {
 .section-task {
   height: calc(100vh - (2 * 80px)) !important;
   position: absolute;
-  top: 50px;
+  top: 0;
   bottom: 0;
   z-index: 0;
   overflow-y: auto;
