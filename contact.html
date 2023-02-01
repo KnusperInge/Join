@@ -75,7 +75,7 @@
       <div class="content-body shadow-black dflex-center">
         <img src="img/planc_profileIcon.png" />
         <form class="new-content-form dflex-center" id="submitFormNewContact" onsubmit="return false">
-          <input class="outline-border-none" required id="input-name" type="text" placeholder="Name">
+          <input class="outline-border-none" required id="input-name" type="text" placeholder="Name + Surname">
           <input class="outline-border-none" required id="input-phone" type="number" placeholder="Phone">
           <input class="outline-border-none" required id="input-email" type="email" placeholder="E-Mail">
           <div class="new-contact-buttons"></div>
@@ -135,6 +135,7 @@
       <!-- add new contact / edid contact -->
       <div id="new-contact"></div>
 
+
       <!-- add new task -->
       <div class="newTask-contact">
         <div class="close-icon close-icon-contact">
@@ -145,8 +146,6 @@
           <div class="left-Container full-height-width left-Container-task left-Container-task-contact">
             <input type="text" class="input-title outline-border-none" placeholder="Enter a title"
               onclick="checkInput('input-title')" required />
-
-
 
             <div class="dropdown">
               <input type="text" class="contactInput  bottom-border textBox outline-border-none" id="0"
@@ -264,6 +263,8 @@
       </div>
     </div>
   </main>
+
+  <div id="successCreateContact">Contact successfully created</div>
 
   <script src="./js/mini_backend.js"></script>
   <script src="js/loadTemplates.js"></script>

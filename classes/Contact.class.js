@@ -11,6 +11,7 @@ class Contact {
 	contactIDs = [];
 	letters = [];
 	newTask;
+	completeNames;
 
 	constructor() {
 		this.loadContactList();
@@ -227,9 +228,17 @@ class Contact {
 		this.ID = contactList.length;
 		this.readInputs();
 		this.splitname();
-		this.createInitials();
-		this.createRandomBgColor();
-		this.newContact();
+		if (this.completeNames) {
+			this.successCreateContact();
+			this.createInitials();
+			this.createRandomBgColor();
+			this.newContact();
+			setTimeout(() => {
+				this.successCreateContact();
+			}, 1000);
+		} else {
+			document.getElementById("input-name").focus();
+		}
 	}
 
 	readInputs() {
@@ -240,8 +249,15 @@ class Contact {
 
 	splitname() {
 		let splitname = this.Fullname.split(" ");
-		this.name = splitname[0].charAt(0).toLowerCase() + splitname[0].slice(1);
-		this.surname = splitname[1].charAt(0).toLowerCase() + splitname[1].slice(1);
+		if (splitname.length == 2) {
+			this.completeNames = true;
+			this.name = splitname[0].charAt(0).toLowerCase() + splitname[0].slice(1);
+			this.surname = splitname[1].charAt(0).toLowerCase() + splitname[1].slice(1);
+		}
+	}
+
+	successCreateContact() {
+		document.getElementById("successCreateContact").classList.toggle("active");
 	}
 
 	createInitials() {
