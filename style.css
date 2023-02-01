@@ -53,6 +53,7 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
 /* ANCHOR login style */
@@ -178,17 +179,15 @@ body {
 }
 
 .login_screen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 35px 115px;
   gap: 35px;
   width: 652px;
   height: 457px;
-  background: #ffffff;
+  background: var(--color-white);
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.08);
   border-radius: 30px;
 }
+
 .LoginNote {
   color: var(--color-urgent);
   font-size: 15px;
@@ -313,6 +312,7 @@ body {
   left: 80px;
   width: 100px;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .back_arrow {
