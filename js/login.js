@@ -1,6 +1,7 @@
 setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
 let userDates = [];
-let LoginBtn, file, Username, Usersurname, Usermail, Userpassword;
+
+let LoginBtn, file, Username, Usersurname, Usermail, Userpassword, localUserDates;
 let bodyTag = document.querySelector("body");
 let animationEndEvent = true;
 
@@ -11,10 +12,8 @@ user = {
 	Password: "",
 };
 
-document.addEventListener("DOMContentLoaded", async () => {
-	await loadTemplate(0);
-	init();
-});
+document.addEventListener("DOMContentLoaded", init);
+
 
 addEventListener("animationend", () => {
 	if (animationEndEvent) {
@@ -23,15 +22,26 @@ addEventListener("animationend", () => {
 });
 
 async function init() {
-	await downloadFromServer();
 
+	await downloadFromServer();
+	await loadTemplate(0);
 	setBtns();
+	checkLocalUserDates();
+	console.log(document.querySelector('#remember'));
 }
 
 function setBtns() {
 	loginBtn();
 	signUpBtn();
 	forgotPwBtn();
+}
+function checkLocalUserDates() {
+	localUserDates = JSON.parse(localStorage.getItem('localUserDates'));
+	if (localUserDates.checked) {
+		document.querySelector("#eMailInput").value = localUserDates.localuserMail;
+		document.querySelector("#passwordInput").value = localUserDates.localUserPW;
+		document.querySelector('#remember').checked = localUserDates.checked;
+	}
 }
 
 function loginBtn() {
@@ -65,6 +75,11 @@ function checkPW(user, pw, mail) {
 		window.open((href = "./summary.html"), "_self");
 		localStorage.removeItem("user");
 		localStorage.setItem("user", JSON.stringify(userName));
+		if (document.querySelector('#remember').checked) {
+			localStorage.removeItem('localUserDates');
+			localStorage.setItem('localUserDates', JSON.stringify(setLocalUserDates(mail, pw)));
+		}
+
 		userDates = [];
 	} else if (user.Mail == mail.value && !pw.value == "" && !user.Password.includes(pw.value)) {
 		document.querySelector(".LoginNote").innerHtml = "";
@@ -72,6 +87,13 @@ function checkPW(user, pw, mail) {
 	}
 }
 
+function setLocalUserDates(mail, pw) {
+	return {
+		localuserMail: mail.value,
+		localUserPW: pw.value,
+		checked: document.querySelector('#remember').checked
+	}
+}
 function signUpBtn() {
 	document.querySelector("#signupButton").addEventListener("click", (event) => {
 		event.preventDefault();
