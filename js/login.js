@@ -78,6 +78,8 @@ function checkPW(user, pw, mail) {
 		if (document.querySelector('#remember').checked) {
 			localStorage.removeItem('localUserDates');
 			localStorage.setItem('localUserDates', JSON.stringify(setLocalUserDates(mail, pw)));
+		} else if (!document.querySelector('#remember').checked) {
+			localStorage.removeItem('localUserDates');
 		}
 
 		userDates = [];
