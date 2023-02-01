@@ -31,9 +31,9 @@ class DynamixObjects {
   }
 
   aktivateUrgent(id) {
-    this.prioBtns[id].classList.toggle("urgent");
-    this.prioBtns[id].classList.toggle("active");
-    this.prioBtns[id].firstElementChild.classList.toggle("active");
+    this.prioBtns[id].classList.add("urgent");
+    this.prioBtns[id].classList.add("active");
+    this.prioBtns[id].firstElementChild.classList.add("active");
     this.prioBtns[1].className = "priority dflex-center";
     this.prioBtns[1].firstElementChild.classList.remove("active");
     this.prioBtns[2].className = "priority dflex-center";
@@ -41,9 +41,9 @@ class DynamixObjects {
   }
 
   aktivateMedium(id) {
-    this.prioBtns[id].classList.toggle("medium");
-    this.prioBtns[id].classList.toggle("active");
-    this.prioBtns[id].firstElementChild.classList.toggle("active");
+    this.prioBtns[id].classList.add("medium");
+    this.prioBtns[id].classList.add("active");
+    this.prioBtns[id].firstElementChild.classList.add("active");
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[0].firstElementChild.classList.remove("active");
     this.prioBtns[2].className = "priority dflex-center";
@@ -51,9 +51,9 @@ class DynamixObjects {
   }
 
   aktivateLow(id) {
-    this.prioBtns[id].classList.toggle("low");
-    this.prioBtns[id].classList.toggle("active");
-    this.prioBtns[id].firstElementChild.classList.toggle("active");
+    this.prioBtns[id].classList.add("low");
+    this.prioBtns[id].classList.add("active");
+    this.prioBtns[id].firstElementChild.classList.add("active");
     this.prioBtns[0].className = "priority dflex-center";
     this.prioBtns[0].firstElementChild.classList.remove("active");
     this.prioBtns[1].className = "priority dflex-center";

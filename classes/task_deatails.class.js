@@ -3,14 +3,16 @@ class Taskdetailview extends DynamixObjects {
   prioBtns;
   editorModus = false;
 
-  constructor(elemTitle, dAd) {
+  constructor(elemID, dAd) {
     super();
     this.boardElem = dAd;
-    this.showTaskDetail(elemTitle)
+    this.showTaskDetail(elemID)
   }
 
-  showTaskDetail(elemTitle) {
-    let Task = Tasks.find((task) => task.Title === elemTitle);
+  showTaskDetail(elemID) {
+    let Task = Tasks.find((task) => task.ID === elemID);
+    console.log(elemID, ",Task:", Task);
+
     this.openDetail();
     this.renderDetailHead(Task);
     this.renderDetailBody(Task);
@@ -128,7 +130,8 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
       document.querySelector(".board-task-detail").classList.add("d-none");
       saveData();
-
+      this.editorModus = false;
+      document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
       this.boardElem.loadTasks();
     });
   }
@@ -272,8 +275,10 @@ class Taskdetailview extends DynamixObjects {
       this.editorModus = false;
       this.placeReadOnly();
       this.removeEditeditors();
+      document.querySelector(".board-detail-prio span").setAttribute('class', 'font-size1');
       this.toogleEdit();
       this.setEditBtn(Task);
+      this.editorModus = false;
     }, { once: true });
   }
 
@@ -286,7 +291,10 @@ class Taskdetailview extends DynamixObjects {
       this.removeEditeditors();
       this.toogleEdit();
       this.showNote(Task);
+      this.renderDetailHead(Task);
+      this.renderDetailBody(Task);
       this.setEditBtn(Task);
+
     }, { once: true });
 
   }

@@ -35,6 +35,7 @@ class DragandDrop {
 	loadTasks() {
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
+
 			this.template = document.getElementById("task_card").content.cloneNode(true);
 			this.fillTemp(element);
 		});
@@ -68,7 +69,7 @@ class DragandDrop {
 	}
 
 	fillTaskTemplate(element) {
-		this.template.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.Title}`);
+		this.template.querySelector(".bord-tasks-container-task").setAttribute("id", `${element.ID}`);
 		this.template.querySelector(".bord-task-cat").innerText = element.Category;
 		this.setCategoryColor(element.Category);
 		this.setInitials(element);
@@ -77,7 +78,8 @@ class DragandDrop {
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
-			this.TaskDetails = new Taskdetailview(element.Title, this.selfLoadBoard);
+			console.log(event);
+			this.TaskDetails = new Taskdetailview(element.ID, this.selfLoadBoard);
 		});
 	}
 	setCategoryColor(element) {

@@ -59,16 +59,16 @@ function loadingClasses(item) {
 }
 
 //Save and Load
-function saveData() {
-	backend.setItem("Tasks", JSON.stringify(Tasks));
-	backend.setItem("Contacts", JSON.stringify(contactList));
-	backend.setItem("Categories", JSON.stringify(Categories));
+async function saveData() {
+	await backend.setItem("Tasks", JSON.stringify(Tasks));
+	await backend.setItem("Contacts", JSON.stringify(contactList));
+	await backend.setItem("Categories", JSON.stringify(Categories));
 }
 
-function loadData() {
-	Tasks = JSON.parse(backend.getItem("Tasks")) || [];
-	contactList = JSON.parse(backend.getItem("Contacts")) || [];
-	Categories = JSON.parse(backend.getItem("Categories")) || [];
+async function loadData() {
+	Tasks = await JSON.parse(backend.getItem("Tasks")) || [];
+	contactList = await JSON.parse(backend.getItem("Contacts")) || [];
+	Categories = await JSON.parse(backend.getItem("Categories")) || [];
 }
 
 function loadUser() {

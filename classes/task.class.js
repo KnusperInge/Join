@@ -219,7 +219,7 @@ class Task extends DynamixObjects {
 
   finalTask() {
     return {
-      ID: this.ID,
+      ID: new Date().getTime(),
       Title: this.Title,
       Editors: this.editors,
       Category: this.Category,
