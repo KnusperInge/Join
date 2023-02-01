@@ -40,7 +40,7 @@
 }
 
 * {
-  font-family: "OpenSans-Regular";
+  font-family: 'OpenSans-Regular';
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -242,7 +242,7 @@ body {
 
 .login_form span {
   height: 82px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
@@ -312,6 +312,7 @@ body {
   left: 80px;
   width: 100px;
   transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
 .back_arrow {
@@ -536,7 +537,7 @@ nav div {
   font-weight: 700;
   font-size: 64px;
   line-height: 120%;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   margin-left: 8px;
 }
 
@@ -546,7 +547,7 @@ nav div {
   width: 100%;
   height: fit-content;
   margin-top: 35px;
-  gap: 9%;
+  gap: 4%;
 }
 
 #urgentTask-container {
@@ -554,7 +555,7 @@ nav div {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 28px 48px;
+  padding: 28px 87px;
   background-color: var(--color-blue);
   width: fit-content;
   height: 160px;
@@ -599,13 +600,10 @@ nav div {
 
 .ToDo-Container {
   background-color: var(--color-lightblue);
-
   border-radius: 30px;
-  width: 190px;
+  width: 173px;
   height: 160px;
-
   flex-direction: column;
-
   transition: 0.25s;
 }
 
@@ -645,7 +643,7 @@ nav div {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 190px;
+  width: 173px;
   height: 160px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
@@ -660,7 +658,7 @@ nav div {
 }
 
 .card span {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 23px;
@@ -1535,7 +1533,7 @@ h3 {
   width: 250px;
   height: 100%;
   padding: 5px;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -1706,30 +1704,30 @@ h3 {
 
 /* ANCHOR contact.html */
 #successCreateContact {
-	display: none;
-	opacity: 0;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: var(--color-blue);
-	padding: 10px;
-	justify-content: center;
-	align-items: center;
-	border-radius: 8px;
-	color: var(--color-white);
-	font-weight: bold;
+  display: none;
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-blue);
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: var(--color-white);
+  font-weight: bold;
 }
 
 #successCreateContact.active {
-	display: flex;
-	animation: sccesscreateContactKey 225ms ease-in forwards;
+  display: flex;
+  animation: sccesscreateContactKey 225ms ease-in forwards;
 }
 
 @keyframes sccesscreateContactKey {
-	100% {
-		opacity: 1;
-	}
+  100% {
+    opacity: 1;
+  }
 }
 
 .content-contact {
@@ -2257,11 +2255,11 @@ h3 {
   color: var(--color-blue);
   font-size: 61px;
   font-weight: 700;
-  font-family: "OpenSans-SemiBold";
+  font-family: 'OpenSans-SemiBold';
 }
 
 .help-section h2 {
-  font-family: "OpenSans-SemiBold";
+  font-family: 'OpenSans-SemiBold';
   color: var(--color-kingsblue);
   font-size: 33px;
   font-weight: 700;
@@ -2269,7 +2267,7 @@ h3 {
 }
 
 .help-section h3 {
-  font-family: "OpenSans-SemiBold";
+  font-family: 'OpenSans-SemiBold';
   color: var(--color-kingsblue);
   font-size: 20px;
   font-weight: 700;
