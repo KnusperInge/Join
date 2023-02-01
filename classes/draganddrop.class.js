@@ -78,7 +78,6 @@ class DragandDrop {
 		this.template.querySelector(".bord-task-editor img").src = this.checkPriority(element);
 		this.template.querySelector(".bord-tasks-container-task").addEventListener("click", (event) => {
 			event.stopPropagation();
-			console.log(event);
 			this.TaskDetails = new Taskdetailview(element.ID, this.selfLoadBoard);
 		});
 	}

@@ -338,7 +338,7 @@ main {
 @media (max-width: 564px) {
   .bord-tasks-container-location {
     justify-content: center;
-    display: block;
+    display: block !important;
   }
 }
 

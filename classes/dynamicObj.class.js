@@ -108,11 +108,13 @@ class DynamixObjects {
         //Task.html
         this.editors.push(this.editorObj());
         document.querySelector('.searchContact-Container input').value = "";
+
         this.openSearchContact();
       } else {
         //EditorModus Board.html
         Task.Editors.push(this.editorObj());
         this.renderDetailEditorList(Task);
+        document.querySelector('#searchContacts').value = "";
         this.searchContactClearBtn();
       }
     }, { once: true });

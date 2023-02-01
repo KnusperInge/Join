@@ -279,12 +279,12 @@ class Taskdetailview extends DynamixObjects {
         event.stopPropagation();
         let id = event.target.id;
         this.deleteEditor(Task, id);
-      });
+      }, { one: true });
     });
   }
 
   deleteEditor(Task, id) {
-    Task.Editors.splice(id, 1);
+    Task.Editors.splice(id - 1, 1);
     this.renderDetailEditorList(Task);
   }
   SearchContactsBtn(Task) {
@@ -302,6 +302,7 @@ class Taskdetailview extends DynamixObjects {
       this.removeEditeditors();
       this.clearPriortiyBtnClass();
       this.closeEdit();
+      document.querySelector('#searchContacts').value = "";
       document.querySelector(".board-detail-prio span").classList.remove('d-none');
       this.setEditBtn(Task);
       this.editorModus = false;
@@ -313,6 +314,7 @@ class Taskdetailview extends DynamixObjects {
       this.editorModus = false;
       this.saveChanges(Task);
       saveData();
+      document.querySelector('#searchContacts').value = "";
       this.showNote(Task);
     }, { once: true });
 

@@ -1,4 +1,4 @@
-setURL("https://gruppe-398.developerakademie.net/smallest_backend_ever");
+setURL("https://martin-klimt.developerakademie.net/smallest_backend_ever");
 let userDates = [];
 
 let LoginBtn, file, Username, Usersurname, Usermail, Userpassword, localUserDates;
