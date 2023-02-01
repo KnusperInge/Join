@@ -555,7 +555,7 @@ nav div {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 28px 100px;
+  padding: 28px 87px;
   background-color: var(--color-blue);
   width: fit-content;
   height: 160px;
