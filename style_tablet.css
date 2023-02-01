@@ -42,12 +42,18 @@ nav div {
 	top: 0;
 	left: 176px;
 	width: calc(100vw - 176px);
-	height: calc(100vh - 97.3px);
+	height: calc(100vh - 80px);
 	overflow: auto;
 	justify-content: unset;
 }
 
-/* board content */
+/* ANCHOR third line, second line width */
+.third-line,
+.second-line {
+	width: 90%;
+	flex-wrap: wrap;
+}
+
 .first-line span:nth-child(2) {
 	font-size: 2rem;
 }
@@ -72,13 +78,11 @@ nav div {
 
 .second-line {
 	margin: 0 auto;
-	width: 90%;
 }
 .ToDo-Container {
 	text-align: center;
 }
 .third-line {
-	width: 100%;
 	margin: 35px 0;
 }
 
@@ -89,7 +93,7 @@ nav div {
 
 .third-line div:nth-child(3),
 .third-line div:nth-child(4) {
-	margin-top: 4%;
+	margin-top: 8%;
 }
 
 /* ANCHOR board.html */

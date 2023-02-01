@@ -539,7 +539,6 @@ nav div {
 
 /*Second Line*/
 .second-line {
-	width: 50%;
 	display: flex;
 	justify-content: space-between;
 	height: fit-content;
@@ -627,9 +626,28 @@ nav div {
 	color: var(--color-blue);
 }
 
+/* ANCHOR third line, second line width */
+.third-line,
+.second-line {
+	width: calc(100vw - (196px + 40vw));
+}
+
+@media (max-width: 1534px) {
+	.third-line,
+	.second-line {
+		width: calc(100vw - (196px + 28vw));
+	}
+}
+
+@media (max-width: 1300px) {
+	.third-line,
+	.second-line {
+		width: calc(100vw - (196px + 15vw));
+	}
+}
+
 /*Third Line*/
 .third-line {
-	width: 50%;
 	display: flex;
 	justify-content: space-between;
 	height: fit-content;
