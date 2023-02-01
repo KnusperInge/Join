@@ -126,25 +126,27 @@ class Taskdetailview extends DynamixObjects {
 
   addDetailCloseBtn() {
     document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
-      document.querySelector(".board-task-detail").classList.add("d-none");
+      // document.querySelector(".board-task-detail").classList.add("d-none");
       saveData();
-      if (this.editEditors == true) {
-        this.placeReadOnly();
-        this.removeEditeditors();
-        document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
-        this.clearPriortiyBtnClass();
-        this.closeEdit();
-        document.querySelector(".board-detail-prio span").classList.remove('d-none');
-        this.boardElem.loadTasks();
-        this.editorModus = false;
-      } else {
-        this.editorModus = false;
-        document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
-        this.clearPriortiyBtnClass();
-        this.closeEdit();
-        document.querySelector(".board-detail-prio span").classList.remove('d-none');
-        this.boardElem.loadTasks();
-      }
+      let changes = true;
+      this.showNote(changes);
+      // if (this.editEditors == true) {
+      //   this.placeReadOnly();
+      //   this.removeEditeditors();
+      //   document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
+      //   this.clearPriortiyBtnClass();
+      //   this.closeEdit();
+      //   document.querySelector(".board-detail-prio span").classList.remove('d-none');
+      //   this.boardElem.loadTasks();
+      //   this.editorModus = false;
+      // } else {
+      //   this.editorModus = false;
+      //   document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
+      //   this.clearPriortiyBtnClass();
+      //   this.closeEdit();
+      //   document.querySelector(".board-detail-prio span").classList.remove('d-none');
+      //   this.boardElem.loadTasks();
+      // }
 
     }, { once: true });
   }
@@ -296,7 +298,6 @@ class Taskdetailview extends DynamixObjects {
 
   setAbortBtn(Task) {
     document.getElementById('abortBtn').addEventListener('click', e => {
-      this.editorModus = false;
       this.placeReadOnly();
       this.removeEditeditors();
       this.clearPriortiyBtnClass();
@@ -322,6 +323,7 @@ class Taskdetailview extends DynamixObjects {
       this.renderDetailBody(Task);
       this.setEditBtn(Task);
 
+
     }, { once: true });
 
   }
@@ -335,16 +337,21 @@ class Taskdetailview extends DynamixObjects {
     return document.querySelector('.priority-container .active').innerText;
   }
 
-  showNote(Task) {
-    document.querySelector('.confirm-textbox').classList.remove('d-none');
-    setTimeout(() => {
-      document.querySelector('.confirm-textbox').classList.add('d-none');
-      this.renderDetailHead(Task);
-      this.renderDetailBody(Task);
-      this.addDetailCloseBtn();
-      this.addSubtasksBtn(Task);
-      this.setEditBtn(Task);
-    }, 2000);
+  showNote(change) {
+
+    if (change == true) {
+      setTimeout(() => {
+        location.reload();
+      }, 1000)
+    } else {
+      document.querySelector('.confirm-textbox').classList.remove('d-none');
+      setTimeout(() => {
+        document.querySelector('.confirm-textbox').classList.add('d-none');
+        location.reload();
+      }, 2000);
+    }
+
+
   }
 
   clearPriortiyBtnClass() {
