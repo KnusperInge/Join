@@ -138,7 +138,8 @@ class Taskdetailview extends DynamixObjects {
       event.stopPropagation();
       this.editorModus = true;
       this.editTask(Task);
-    });
+    }, { once: true });
+
   }
 
   editTask(Task) {
@@ -262,16 +263,17 @@ class Taskdetailview extends DynamixObjects {
     this.setkeyupSearchContact(Task);
   }
   setEditSaveAbortBtn(Task) {
-    this.setAbortBtn();
+    this.setAbortBtn(Task);
     this.SaveEditBtn(Task);
   }
 
-  setAbortBtn() {
+  setAbortBtn(Task) {
     document.getElementById('abortBtn').addEventListener('click', e => {
       this.editorModus = false;
       this.placeReadOnly();
       this.removeEditeditors();
       this.toogleEdit();
+      this.setEditBtn(Task);
     }, { once: true });
   }
 
@@ -284,6 +286,7 @@ class Taskdetailview extends DynamixObjects {
       this.removeEditeditors();
       this.toogleEdit();
       this.showNote(Task);
+      this.setEditBtn(Task);
     }, { once: true });
 
   }
