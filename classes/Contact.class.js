@@ -12,6 +12,7 @@ class Contact {
 	letters = [];
 	newTask;
 	completeNames;
+	firstLoad = true;
 
 	constructor() {
 		this.loadContactList();
@@ -97,7 +98,7 @@ class Contact {
 	setButtons() {
 		this.openContactInfo();
 		this.mobileCloseContactInfoBtn();
-		this.addNewContact();
+		if (this.firstLoad) this.addNewContact();
 	}
 
 	// ANCHOR open contact info
@@ -426,6 +427,7 @@ class Contact {
 
 	// ANCHOR save, load and reload page
 	async saveLoadReload() {
+		this.firstLoad = false;
 		this.resetNewContactField();
 		this.closeContactInfo();
 		this.letters = [];
