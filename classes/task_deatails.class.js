@@ -11,8 +11,6 @@ class Taskdetailview extends DynamixObjects {
 
   showTaskDetail(elemID) {
     let Task = Tasks.find((task) => task.ID === elemID);
-    console.log(elemID, ",Task:", Task);
-
     this.openDetail();
     this.renderDetailHead(Task);
     this.renderDetailBody(Task);
@@ -219,7 +217,6 @@ class Taskdetailview extends DynamixObjects {
       document.getElementById('Btn1').classList.add("medium", "active");
     }
     if (Task.Priority == "Urgent") {
-      console.log('Urgent');
       document.getElementById('Btn0').classList.add("urgent", "active");
     }
   }
@@ -319,10 +316,10 @@ class Taskdetailview extends DynamixObjects {
       this.removeEditeditors();
       this.closeEdit();
       document.querySelector(".board-detail-prio span").classList.remove('d-none');
+      this.clearPriortiyBtnClass();
       this.showNote(Task);
       this.renderDetailHead(Task);
       this.renderDetailBody(Task);
-      this.clearPriortiyBtnClass();
       this.setEditBtn(Task);
 
     }, { once: true });
