@@ -1035,7 +1035,7 @@ h3 {
   border: 1px solid var(--color-lightgrey);
   padding: 8px 10px;
   border-radius: 8px;
-  width: 110px;
+  width: 100px;
   cursor: pointer;
   justify-content: space-between;
 }

@@ -481,10 +481,6 @@ main {
   color: var(--color-white) !important;
 }
 
-.priority {
-  width: 100px;
-}
-
 .description-input {
   width: 316px;
   height: 75px;
