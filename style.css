@@ -539,21 +539,20 @@ nav div {
 
 /*Second Line*/
 .second-line {
-	flex-wrap: wrap;
-	width: 100%;
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
 	height: fit-content;
 	margin-top: 35px;
-	gap: 4%;
 }
 
 #urgentTask-container {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
 	align-items: center;
-	padding: 28px 87px;
+	gap: 2em;
 	background-color: var(--color-blue);
-	width: fit-content;
+	width: 73%;
 	height: 160px;
 	border-radius: 30px;
 	font-weight: 700;
@@ -570,11 +569,15 @@ nav div {
 	margin-right: 21px;
 }
 
+#urgentTask-container span {
+	width: 100%;
+}
 #urgentTask-container .icons {
 	font-size: 48px;
 }
 
 #urgentTask-container div {
+	width: fit-content;
 	padding: 5px 10px 10px;
 }
 
@@ -626,11 +629,15 @@ nav div {
 
 /*Third Line*/
 .third-line {
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+	height: fit-content;
 	flex-direction: row;
 	flex-wrap: wrap;
 	padding: 0px;
-	gap: 4%;
-	width: 100%;
+	/* gap: 40px; */
+	/* width: 100%; */
 	height: fit-content;
 	margin-top: 35px;
 }
