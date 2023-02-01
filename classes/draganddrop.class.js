@@ -112,7 +112,7 @@ class DragandDrop {
 		this.template.querySelector(".bord-tasks-container-task").draggable = "true";
 		this.template
 			.querySelector(".bord-tasks-container-task")
-			.setAttribute("ondrag", `startDragging("${element.Title}")`);
+			.setAttribute("ondrag", `startDragging("${element.ID}")`);
 	}
 
 	// ANCHOR init subtasks progressbar
