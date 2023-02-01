@@ -100,9 +100,8 @@ class DragandDrop {
 					".editor-list"
 				).innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
 			}
-			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${
-				element.Editors.length - 3
-			}</span> `;
+			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${element.Editors.length - 3
+				}</span> `;
 		}
 	}
 
