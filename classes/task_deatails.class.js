@@ -130,10 +130,25 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector(".board-task-detail-head img").addEventListener("click", () => {
       document.querySelector(".board-task-detail").classList.add("d-none");
       saveData();
-      this.editorModus = false;
-      document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
-      this.boardElem.loadTasks();
-    });
+      if (this.editEditors == true) {
+        this.placeReadOnly();
+        this.removeEditeditors();
+        document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
+        this.clearPriortiyBtnClass();
+        this.closeEdit();
+        document.querySelector(".board-detail-prio span").classList.remove('d-none');
+        this.boardElem.loadTasks();
+        this.editorModus = false;
+      } else {
+        this.editorModus = false;
+        document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
+        this.clearPriortiyBtnClass();
+        this.closeEdit();
+        document.querySelector(".board-detail-prio span").classList.remove('d-none');
+        this.boardElem.loadTasks();
+      }
+
+    }, { once: true });
   }
 
   setEditBtn(Task) {
@@ -146,7 +161,7 @@ class Taskdetailview extends DynamixObjects {
   }
 
   editTask(Task) {
-    this.toogleEdit();
+    this.showEdit();
     this.setactivPriortyBtn(Task);
     this.setPriorityBtn();
     this.seteditSubtaskBtn(Task);
@@ -172,28 +187,40 @@ class Taskdetailview extends DynamixObjects {
     document.querySelector(".board-task-detail-date input").removeAttribute('type');
   }
 
-
-  toogleEdit() {
-    document.querySelector(".board-task-detail-body input").classList.toggle('border-bottom');
-    document.querySelector(".board-task-detail-body textarea").classList.toggle('border');
-    document.querySelector(".board-task-detail-date input").classList.toggle('border-bottom');
-    document.querySelector(".board-detail-prio span").classList.toggle('d-none');
-    document.querySelector(".priority-container").classList.toggle('d-none');
-    document.querySelector(".subtask-container").classList.toggle('d-none');
-    document.querySelector(".searchContact-Container").classList.toggle('d-none');
-    document.querySelector(".edit-Buttons").classList.toggle('d-none');
-    document.querySelector(".bord-task-edit-button").classList.toggle('d-none');
+  showEdit() {
+    document.querySelector(".board-task-detail-body input").classList.add('border-bottom');
+    document.querySelector(".board-task-detail-body textarea").classList.add('border');
+    document.querySelector(".board-task-detail-date input").classList.add('border-bottom');
+    document.querySelector(".board-detail-prio span").classList.add('d-none');
+    document.querySelector(".priority-container").classList.remove('d-none');
+    document.querySelector(".subtask-container").classList.remove('d-none');
+    document.querySelector(".searchContact-Container").classList.remove('d-none');
+    document.querySelector(".edit-Buttons").classList.remove('d-none');
+    document.querySelector(".bord-task-edit-button").classList.add('d-none');
   }
+  closeEdit() {
+    document.querySelector(".board-task-detail-body input").classList.remove('border-bottom');
+    document.querySelector(".board-task-detail-body textarea").classList.remove('border');
+    document.querySelector(".board-task-detail-date input").classList.remove('border-bottom');
+    document.querySelector(".board-detail-prio span").classList.add('d-none');
+    document.querySelector(".priority-container").classList.add('d-none');
+    document.querySelector(".subtask-container").classList.add('d-none');
+    document.querySelector(".searchContact-Container").classList.add('d-none');
+    document.querySelector(".edit-Buttons").classList.add('d-none');
+    document.querySelector(".bord-task-edit-button").classList.remove('d-none');
+  }
+
 
   setactivPriortyBtn(Task) {
     if (Task.Priority == "Low") {
-      document.getElementById('2').classList.add("low", "active");
+      document.getElementById('Btn2').classList.add("low", "active");
     }
     if (Task.Priority == "Medium") {
-      document.getElementById('1').classList.add("medium", "active");
+      document.getElementById('Btn1').classList.add("medium", "active");
     }
     if (Task.Priority == "Urgent") {
-      document.getElementById('0').classList.add("urgent", "active");
+      console.log('Urgent');
+      document.getElementById('Btn0').classList.add("urgent", "active");
     }
   }
 
@@ -275,8 +302,9 @@ class Taskdetailview extends DynamixObjects {
       this.editorModus = false;
       this.placeReadOnly();
       this.removeEditeditors();
-      document.querySelector(".board-detail-prio span").setAttribute('class', 'font-size1');
-      this.toogleEdit();
+      this.clearPriortiyBtnClass();
+      this.closeEdit();
+      document.querySelector(".board-detail-prio span").classList.remove('d-none');
       this.setEditBtn(Task);
       this.editorModus = false;
     }, { once: true });
@@ -289,10 +317,12 @@ class Taskdetailview extends DynamixObjects {
       saveData();
       this.placeReadOnly();
       this.removeEditeditors();
-      this.toogleEdit();
+      this.closeEdit();
+      document.querySelector(".board-detail-prio span").classList.remove('d-none');
       this.showNote(Task);
       this.renderDetailHead(Task);
       this.renderDetailBody(Task);
+      this.clearPriortiyBtnClass();
       this.setEditBtn(Task);
 
     }, { once: true });
@@ -320,5 +350,11 @@ class Taskdetailview extends DynamixObjects {
     }, 2000);
   }
 
+  clearPriortiyBtnClass() {
+    let prioBtns = document.querySelectorAll('.priority-container div');
+    prioBtns.forEach((btn) => {
+      btn.setAttribute('class', "priority dflex-center");
+    })
+  }
 
 }
