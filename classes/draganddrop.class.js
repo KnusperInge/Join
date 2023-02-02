@@ -35,7 +35,6 @@ class DragandDrop {
 	loadTasks() {
 		this.clearTasks();
 		this.Tasks.forEach((element) => {
-
 			this.template = document.getElementById("task_card").content.cloneNode(true);
 			this.fillTemp(element);
 		});
@@ -101,17 +100,16 @@ class DragandDrop {
 					".editor-list"
 				).innerHTML += `<span class="dflex-center" style="background:${element.Editors[i].Color}">${element.Editors[i].Initials}</span> `;
 			}
-			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${element.Editors.length - 3
-				}</span> `;
+			this.template.querySelector(".editor-list").innerHTML += `<span class="dflex-center" style="background:">+${
+				element.Editors.length - 3
+			}</span> `;
 		}
 	}
 
 	// ANCHOR add drag and drop event listener
 	initDragAndDrop(element) {
 		this.template.querySelector(".bord-tasks-container-task").draggable = "true";
-		this.template
-			.querySelector(".bord-tasks-container-task")
-			.setAttribute("ondrag", `startDragging("${element.ID}")`);
+		this.template.querySelector(".bord-tasks-container-task").setAttribute("ondrag", `startDragging("${element.ID}")`);
 	}
 
 	// ANCHOR init subtasks progressbar
@@ -237,7 +235,7 @@ class DragandDrop {
 
 	//ANCHOR Task filter
 	initTaskFilter() {
-		document.addEventListener("input", (event) => {
+		document.querySelector("#inputFindTask").addEventListener("input", (event) => {
 			this.searchValue = event.target.value.toLowerCase();
 			if (this.searchValue.length == 0) {
 				this.loadTasks();

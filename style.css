@@ -56,6 +56,21 @@ body {
   position: relative;
 }
 
+/* ANCHOR Scrollbar */
+.blueScrollbar::-webkit-scrollbar {
+  width: 5px; /* Mostly for vertical scrollbars */
+  height: 5px; /* Mostly for horizontal scrollbars */
+}
+.blueScrollbar::-webkit-scrollbar-thumb {
+  /* Foreground */
+  background: var(--color-blue);
+  border-radius: 6px;
+}
+.blueScrollbar::-webkit-scrollbar-track {
+  /* Background */
+  background: var(--color-lightblue);
+}
+
 /* ANCHOR login style */
 .button_blue {
   padding: 10px 35px;
@@ -1369,11 +1384,9 @@ h3 {
 
 .board-task-detail-person-list {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 5px;
-  height: 120px;
   width: 100%;
   overflow-y: auto;
 }
@@ -1756,10 +1769,14 @@ h3 {
   }
 }
 
+.contact-main {
+  height: calc(100vh - 97.3px);
+}
+
 .content-contact {
   position: relative;
   width: 100%;
-  height: 89vh;
+  height: calc(100vh - 97.3px);
   display: flex;
 }
 /* Contactlist */
