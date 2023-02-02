@@ -130,23 +130,6 @@ class Taskdetailview extends DynamixObjects {
       saveData();
       let changes = true;
       this.showNote(changes);
-      // if (this.editEditors == true) {
-      //   this.placeReadOnly();
-      //   this.removeEditeditors();
-      //   document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
-      //   this.clearPriortiyBtnClass();
-      //   this.closeEdit();
-      //   document.querySelector(".board-detail-prio span").classList.remove('d-none');
-      //   this.boardElem.loadTasks();
-      //   this.editorModus = false;
-      // } else {
-      //   this.editorModus = false;
-      //   document.querySelector(".board-detail-prio span").setAttribute("class", "font-size1");
-      //   this.clearPriortiyBtnClass();
-      //   this.closeEdit();
-      //   document.querySelector(".board-detail-prio span").classList.remove('d-none');
-      //   this.boardElem.loadTasks();
-      // }
 
     }, { once: true });
   }

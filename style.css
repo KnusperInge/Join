@@ -1004,6 +1004,7 @@ h3 {
 }
 
 .list div {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -1011,9 +1012,20 @@ h3 {
   padding: 5px 20px;
   transition: all 0.25s ease-in-out;
 }
+.list div p {
+  position: absolute;
+  right: 0px;
+  width: 50px;
+  height: 100%;
+  background-color: #1769f734;
+}
+.list div img {
+  width: 15px;
+}
 
 .list div input {
-  width: 12px;
+  height: 14px;
+  width: 14px;
 }
 
 .list div:hover {

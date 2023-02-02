@@ -49,6 +49,7 @@ class Task extends DynamixObjects {
 
   toogleList() {
     if (!document.querySelector('.dropdown .active') && this.editors.length > 0) {
+
       this.renderIcons();
       this.selectedContacts.classList.toggle('active');
     } else {
@@ -70,6 +71,7 @@ class Task extends DynamixObjects {
     this.contactbtns = document.querySelectorAll('.contacts div');
     this.contactbtns.forEach((btn) => {
       btn.addEventListener('click', (event) => {
+        event.stopPropagation();
         let id = btn.id;
         if (id == 3) {
           this.openSearchContact();
@@ -98,18 +100,23 @@ class Task extends DynamixObjects {
   }
 
   addContact(id) {
-    let checkedChild = this.contactbtns[id].lastElementChild;
+    let checkedChild = this.contactbtns[id];
+    console.log(this.contactbtns[id].querySelector('input'));
     let editor = this.contactbtns[id].innerText;
     this.fillEditorsArr(editor, checkedChild);
   }
 
   checkArr(editor) {
     return this.editors.includes(editor);
+
   }
 
   fillEditorsArr(editor, checkedChild) {
-    if (!checkedChild.checked && !this.checkArr(editor)) {
-      checkedChild.checked = true;
+    console.log(this.checkArr(editor));
+    console.log('Check', checkedChild.querySelector('input').checked);
+    if (!checkedChild.querySelector('input').checked && !this.checkArr(editor)) {
+      checkedChild.querySelector('input').checked = true;
+
       this.editors.push({
         Name: editor,
         Color: "rgb(255, 168, 0)",
@@ -117,7 +124,8 @@ class Task extends DynamixObjects {
       });
     } else {
       this.editors.splice(this.editors.indexOf(editor), 1);
-      checkedChild.checked = false;
+      checkedChild.querySelector('input').checked = false;
+
     }
   }
 
