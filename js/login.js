@@ -27,7 +27,6 @@ async function init() {
 	await loadTemplate(0);
 	setBtns();
 	checkLocalUserDates();
-	console.log(document.querySelector('#remember'));
 }
 
 function setBtns() {
