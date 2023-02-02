@@ -56,6 +56,21 @@ body {
 	position: relative;
 }
 
+/* ANCHOR Scrollbar */
+.blueScrollbar::-webkit-scrollbar {
+	width: 5px; /* Mostly for vertical scrollbars */
+	height: 5px; /* Mostly for horizontal scrollbars */
+}
+.blueScrollbar::-webkit-scrollbar-thumb {
+	/* Foreground */
+	background: var(--color-blue);
+	border-radius: 6px;
+}
+.blueScrollbar::-webkit-scrollbar-track {
+	/* Background */
+	background: var(--color-lightblue);
+}
+
 /* ANCHOR login style */
 .button_blue {
 	padding: 10px 35px;
@@ -708,7 +723,7 @@ nav div {
 	border-top-left-radius: 0;
 	color: var(--color-white);
 	background-color: var(--color-blue);
-	scale: 1.1;
+	scale: 1.05;
 }
 
 .third-line div:hover span {
@@ -726,7 +741,7 @@ nav div {
 	background-color: var(--color-white);
 	color: var(--color-blue);
 	border-top-left-radius: 0;
-	scale: 1.1;
+	scale: 1.03;
 }
 
 /*ANCHOR Legal Notice*/
@@ -1752,10 +1767,14 @@ h3 {
 	}
 }
 
+.contact-main {
+	height: calc(100vh - 97.3px);
+}
+
 .content-contact {
 	position: relative;
 	width: 100%;
-	height: 89vh;
+	height: calc(100vh - 97.3px);
 	display: flex;
 }
 /* Contactlist */

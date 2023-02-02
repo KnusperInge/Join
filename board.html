@@ -82,13 +82,14 @@
         <input class="input" type="text" placeholder="Find Task" />
         <span id="addTask_button" class="dflex-center">Add task +</span>
       </div>
-      <div class="bord-tasks">
+      <div class="bord-tasks blueScrollbar">
         <div class="bord-tasks-container">
           <div class="bord-tasks-container-head">
             <span>To do</span>
             <img src="img/plus_Icon.png" />
           </div>
-          <div class="bord-tasks-container-location" id="toDo" ondragover="allowDrop(event)" ondrop="drop('toDo')">
+          <div class="bord-tasks-container-location blueScrollbar" id="toDo" ondragover="allowDrop(event)"
+            ondrop="drop('toDo')">
           </div>
         </div>
         <div class="bord-tasks-container">
@@ -96,7 +97,7 @@
             <span>In progress</span>
             <img src="img/plus_Icon.png" />
           </div>
-          <div class="bord-tasks-container-location" id="inProgress" ondragover="allowDrop(event)"
+          <div class="bord-tasks-container-location blueScrollbar" id="inProgress" ondragover="allowDrop(event)"
             ondrop="drop('inProgress')">
           </div>
         </div>
@@ -105,7 +106,8 @@
             <span>Await feedback</span>
             <img src="img/plus_Icon.png" />
           </div>
-          <div class="bord-tasks-container-location" id="Await" ondragover="allowDrop(event)" ondrop="drop('Await')">
+          <div class="bord-tasks-container-location blueScrollbar" id="Await" ondragover="allowDrop(event)"
+            ondrop="drop('Await')">
           </div>
         </div>
         <div class="bord-tasks-container">
@@ -113,7 +115,8 @@
             <span>Done</span>
             <img src="img/plus_Icon.png" />
           </div>
-          <div class="bord-tasks-container-location" id="Done" ondragover="allowDrop(event)" ondrop="drop('Done')">
+          <div class="bord-tasks-container-location blueScrollbar" id="Done" ondragover="allowDrop(event)"
+            ondrop="drop('Done')">
           </div>
         </div>
       </div>
@@ -125,7 +128,7 @@
           <span>A-Team</span>
           <img src="img/icon_close_dark.png" />
         </div>
-        <div class="board-task-detail-body">
+        <div class="board-task-detail-body blueScrollbar">
           <div class="board-task-detail-body-firstRow">
             <input type="text" readonly="true" class=" outline-border-none"></input>
             <textarea class=" outline-border-none" readonly="true"></textarea>
@@ -186,7 +189,7 @@
               </div>
             </div>
 
-            <div class="board-task-detail-person-list"></div>
+            <div class="board-task-detail-person-list blueScrollbar"></div>
 
 
           </div>
