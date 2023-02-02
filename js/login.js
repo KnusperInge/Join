@@ -1,4 +1,4 @@
-setURL("https://martin-klimt.developerakademie.net/smallest_backend_ever");
+setURL("https://daniel-doerbaum.developerakademie.net/smallest_backend_ever");
 let userDates = [];
 
 let LoginBtn, file, Username, Usersurname, Usermail, Userpassword, localUserDates;
@@ -14,7 +14,6 @@ user = {
 
 document.addEventListener("DOMContentLoaded", init);
 
-
 addEventListener("animationend", () => {
 	if (animationEndEvent) {
 		document.getElementById("loading-page").style = "display: none;";
@@ -22,7 +21,6 @@ addEventListener("animationend", () => {
 });
 
 async function init() {
-
 	await downloadFromServer();
 	await loadTemplate(0);
 	setBtns();
@@ -35,11 +33,11 @@ function setBtns() {
 	forgotPwBtn();
 }
 function checkLocalUserDates() {
-	localUserDates = JSON.parse(localStorage.getItem('localUserDates'));
+	localUserDates = JSON.parse(localStorage.getItem("localUserDates"));
 	if (localUserDates.checked) {
 		document.querySelector("#eMailInput").value = localUserDates.localuserMail;
 		document.querySelector("#passwordInput").value = localUserDates.localUserPW;
-		document.querySelector('#remember').checked = localUserDates.checked;
+		document.querySelector("#remember").checked = localUserDates.checked;
 	}
 }
 
@@ -74,11 +72,11 @@ function checkPW(user, pw, mail) {
 		window.open((href = "./summary.html"), "_self");
 		localStorage.removeItem("user");
 		localStorage.setItem("user", JSON.stringify(userName));
-		if (document.querySelector('#remember').checked) {
-			localStorage.removeItem('localUserDates');
-			localStorage.setItem('localUserDates', JSON.stringify(setLocalUserDates(mail, pw)));
-		} else if (!document.querySelector('#remember').checked) {
-			localStorage.removeItem('localUserDates');
+		if (document.querySelector("#remember").checked) {
+			localStorage.removeItem("localUserDates");
+			localStorage.setItem("localUserDates", JSON.stringify(setLocalUserDates(mail, pw)));
+		} else if (!document.querySelector("#remember").checked) {
+			localStorage.removeItem("localUserDates");
 		}
 
 		userDates = [];
@@ -92,8 +90,8 @@ function setLocalUserDates(mail, pw) {
 	return {
 		localuserMail: mail.value,
 		localUserPW: pw.value,
-		checked: document.querySelector('#remember').checked
-	}
+		checked: document.querySelector("#remember").checked,
+	};
 }
 function signUpBtn() {
 	document.querySelector("#signupButton").addEventListener("click", (event) => {
@@ -111,7 +109,9 @@ async function setAddNewUserBtn() {
 			await backend.setItem("UserDates", JSON.stringify(userDates));
 			clearInputfields();
 			location.reload();
-		}, { once: true });
+		},
+		{ once: true }
+	);
 }
 
 function saveUserArr() {
@@ -151,7 +151,6 @@ async function loadTemplate(version) {
 	if (version == 0) {
 		file = "Temp/login.html";
 		await loadHTMLTemplate();
-
 	}
 	if (version == 1) {
 		file = "Temp/signUp.html";
@@ -173,7 +172,6 @@ async function loadHTMLTemplate(blueBackground) {
 	let resp = await fetch(file);
 	bodyTag.innerHTML = await resp.text();
 	if (blueBackground) bodyTag.style = "background-color: var(--color-blue);";
-
 }
 
 function loadChangePasswordEvent() {
