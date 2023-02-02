@@ -1380,11 +1380,9 @@ h3 {
 
 .board-task-detail-person-list {
 	display: flex;
-	flex-direction: column;
 	align-items: flex-start;
 	flex-wrap: wrap;
 	gap: 5px;
-	height: 120px;
 	width: 100%;
 	overflow-y: auto;
 }
