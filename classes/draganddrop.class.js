@@ -271,10 +271,12 @@ class DragandDrop {
 	}
 
 	// ANCHOR firstDragAndDropInit
+	draggedElemID;
 	firstDragAndDropInit() {
 		this.lists = document.querySelectorAll(".bord-tasks-container-location");
 		this.lists.forEach((list) => {
 			list.addEventListener("dragstart", this.startDraggingElement);
+			list.addEventListener("dragend", this.endDragging);
 			list.addEventListener("dragenter", this.dragEnter);
 			list.addEventListener("dragleave", this.dragLeave);
 			list.addEventListener("drop", this.dropEvent);
@@ -295,9 +297,15 @@ class DragandDrop {
 		const tasksFromDragged = [...document.getElementById(draggedFrom.id).children];
 		tasksFromDragged.forEach((task) => {
 			if (task.id == event.target.id) {
+				this.draggedElemID = task.id;
 				task.classList.add("hideTask");
 			}
 		});
+	}
+
+	endDragging(event) {
+		event.composedPath()[0].classList.remove("taskListBorder");
+		document.getElementById(this.draggedElemID).classList.remove("hideTask");
 	}
 
 	dropEvent(event) {
