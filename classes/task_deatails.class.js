@@ -7,6 +7,7 @@ class Taskdetailview extends DynamixObjects {
     super();
     this.boardElem = dAd;
     this.showTaskDetail(elemID)
+
   }
 
   showTaskDetail(elemID) {

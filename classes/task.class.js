@@ -27,6 +27,7 @@ class Task extends DynamixObjects {
 		this.loadCatListsetBtns();
 		this.setClearBtn();
 		this.setSubtask = new Subtask(this.selfTask);
+
 	}
 
 	//ANCHOR - Dropdown Buttons
@@ -39,6 +40,7 @@ class Task extends DynamixObjects {
 			});
 		});
 	}
+
 
 	openList(i) {
 		let dropdowns = document.querySelectorAll(".dropdown > .list");
