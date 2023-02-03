@@ -332,7 +332,12 @@ class Contact {
 	}
 
 	SetValues(contact) {
-		document.querySelector("#input-name").value = contact.Name + " " + contact.Surname;
+		document.querySelector("#input-name").value =
+			contact.Name.charAt(0).toUpperCase() +
+			contact.Name.slice(1) +
+			" " +
+			contact.Surname.charAt(0).toUpperCase() +
+			contact.Surname.slice(1);
 		document.querySelector("#input-phone").value = contact.Phone;
 		document.querySelector("#input-email").value = contact.Mail;
 	}
@@ -350,8 +355,7 @@ class Contact {
 	}
 
 	setEdidButtonID(contact) {
-		// button id = index in contactList + 234 to unique id in html code
-		document.querySelector(".save-edided-contact").id = contact.ID + 234;
+		document.querySelector(".save-edided-contact").id = contact.ID;
 	}
 
 	saveEdid() {
@@ -360,18 +364,22 @@ class Contact {
 	}
 
 	contactListIndex() {
-		let id = document.querySelector(".save-edided-contact").id - 234;
-		return contactList.findIndex((i) => i.ID === id);
+		let id = document.querySelector(".save-edided-contact").id;
+		return contactList.findIndex((i) => i.ID == id);
 	}
 
 	setNewValues(i) {
 		this.readInputs();
-		this.splitname();
-		contactList[i].Name = this.name;
-		contactList[i].Surname = this.surname;
-		contactList[i].Mail = this.email;
-		contactList[i].Phone = this.phone;
-		this.saveLoadReload();
+		if (this.checkForInputPattern()) {
+			this.splitname();
+			contactList[i].Name = this.name;
+			contactList[i].Surname = this.surname;
+			contactList[i].Mail = this.email;
+			contactList[i].Phone = this.phone;
+			this.saveLoadReload();
+		} else {
+			this.alertForReEnterValue();
+		}
 	}
 
 	// ANCHOR delete contact
