@@ -1,4 +1,4 @@
-setURL("https://daniel-doerbaum.developerakademie.net/smallest_backend_ever");
+setURL("https://martin-klimt.developerakademie.net/smallest_backend_ever");
 let userDates = [];
 
 let LoginBtn, file, Username, Usersurname, Usermail, Userpassword, localUserDates;
@@ -34,7 +34,7 @@ function setBtns() {
 }
 function checkLocalUserDates() {
 	localUserDates = JSON.parse(localStorage.getItem("localUserDates"));
-	if (localUserDates.checked) {
+	if (!localUserDates == [] && localUserDates.checked) {
 		document.querySelector("#eMailInput").value = localUserDates.localuserMail;
 		document.querySelector("#passwordInput").value = localUserDates.localUserPW;
 		document.querySelector("#remember").checked = localUserDates.checked;
@@ -52,7 +52,7 @@ function loginBtn() {
 function checkLogin(mail, pw) {
 	userDates = JSON.parse(backend.getItem("UserDates")) || [];
 	if (userDates.length == 0) {
-		console.error("No Userdata available!");
+		console.warning("No Userdata available!");
 	}
 
 	for (let i = 0; i < userDates.length; i++) {
