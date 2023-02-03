@@ -11,7 +11,6 @@ class Contact {
 	contactIDs = [];
 	letters = [];
 	newTask;
-	completeNames;
 	firstLoad = true;
 
 	constructor() {
@@ -228,17 +227,10 @@ class Contact {
 	createContact() {
 		this.ID = contactList.length;
 		this.readInputs();
-		this.splitname();
-		if (this.completeNames) {
-			this.successCreateContact();
-			this.createInitials();
-			this.createRandomBgColor();
-			this.newContact();
-			setTimeout(() => {
-				this.successCreateContact();
-			}, 1000);
+		if (this.checkForInputPattern()) {
+			this.continueCreateNewContact();
 		} else {
-			document.getElementById("input-name").focus();
+			this.alertForReEnterValue();
 		}
 	}
 
@@ -248,13 +240,37 @@ class Contact {
 		this.email = document.querySelector("#input-email").value;
 	}
 
+	checkForInputPattern() {
+		let input = document.getElementById("input-name");
+		let regex = /^([A-Za-zÄäÖöÜü]){1,15}\s([A-Za-zÄäÖöÜü]){1,15}$/g;
+		return regex.test(input.value);
+	}
+
+	continueCreateNewContact() {
+		this.splitname();
+		this.successCreateContact();
+		this.createInitials();
+		this.createRandomBgColor();
+		this.newContact();
+		setTimeout(() => {
+			this.successCreateContact();
+		}, 1000);
+	}
+
+	alertForReEnterValue() {
+		let inputField = document.getElementById("checkInputPattern");
+		inputField.classList.add("active");
+		inputField.focus();
+		setTimeout(() => {
+			inputField.classList.remove("active");
+		}, 3450);
+		document.getElementById("input-name").focus();
+	}
+
 	splitname() {
 		let splitname = this.Fullname.split(" ");
-		if (splitname.length == 2) {
-			this.completeNames = true;
-			this.name = splitname[0].charAt(0).toLowerCase() + splitname[0].slice(1);
-			this.surname = splitname[1].charAt(0).toLowerCase() + splitname[1].slice(1);
-		}
+		this.name = splitname[0].charAt(0).toLowerCase() + splitname[0].slice(1);
+		this.surname = splitname[1].charAt(0).toLowerCase() + splitname[1].slice(1);
 	}
 
 	successCreateContact() {

@@ -1777,6 +1777,35 @@ h3 {
 	}
 }
 
+#checkInputPattern {
+	display: none;
+	opacity: 0;
+	position: fixed;
+	background-color: var(--color-blue);
+	padding: 12px;
+	border-radius: 8px;
+	color: var(--color-white);
+	z-index: 100;
+}
+
+#checkInputPattern.active {
+	display: flex;
+	animation: alertCheckInputPattern 225ms ease-in forwards;
+}
+
+@keyframes alertCheckInputPattern {
+	100% {
+		opacity: 1;
+		animation: closeAlertCheckInputPattern 225ms ease-in forwards 3;
+	}
+}
+
+@keyframes closeAlertCheckInputPattern {
+	100% {
+		opacity: 0 !important;
+	}
+}
+
 .contact-main {
 	height: calc(100vh - 97.3px);
 }
