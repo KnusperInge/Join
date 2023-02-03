@@ -2395,3 +2395,12 @@ h3 {
 .steps ol li span:nth-child(2) {
 	color: var(--color-darkblue);
 }
+
+/* ANCHOR addtask.html right contact */
+.right-Container-task {
+	position: fixed;
+	right: 12px;
+	bottom: 12px;
+	padding: 0;
+	width: calc(100vw - 176px - 320px);
+}
