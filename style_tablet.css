@@ -323,3 +323,8 @@ nav div {
 		margin-bottom: 12px;
 	}
 }
+
+/* ANCHOR board task lists */
+.bord-tasks-container-location {
+	min-height: 100px;
+}

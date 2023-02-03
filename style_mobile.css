@@ -107,7 +107,7 @@ main {
 }
 
 .login_form span {
-	height: 40px;
+	height: fit-content;
 	font-size: 28px;
 	margin: 0px 0px 5px 0px;
 }
