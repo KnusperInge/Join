@@ -213,11 +213,10 @@ class DragandDrop {
 		setTimeout(() => {
 			loadData();
 		}, 300);
-
 		setTimeout(() => {
 			this.remove_changeStatusWindow();
-			this.loadTasks();
 		}, 300);
+		location.reload();
 	}
 
 	findTaskIndex() {
