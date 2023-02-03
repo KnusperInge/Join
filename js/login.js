@@ -52,7 +52,7 @@ function loginBtn() {
 function checkLogin(mail, pw) {
 	userDates = JSON.parse(backend.getItem("UserDates")) || [];
 	if (userDates.length == 0) {
-		console.warning("No Userdata available!");
+		console.warn("No Userdata available!");
 	}
 
 	for (let i = 0; i < userDates.length; i++) {

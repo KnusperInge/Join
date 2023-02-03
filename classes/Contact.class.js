@@ -225,7 +225,7 @@ class Contact {
 	}
 
 	createContact() {
-		this.ID = contactList.length;
+		this.ID = new Date().getTime();
 		this.readInputs();
 		if (this.checkForInputPattern()) {
 			this.continueCreateNewContact();
