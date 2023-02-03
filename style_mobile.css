@@ -486,8 +486,11 @@ main {
 }
 
 .right-Container-task {
-	top: 40px;
+	position: fixed;
+	right: 12px;
+	top: 20px;
 	height: fit-content;
+	transform: unset;
 }
 
 .right-Container-task button:nth-child(2) {
