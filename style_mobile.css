@@ -107,7 +107,7 @@ main {
 }
 
 .login_form span {
-	height: 40px;
+	height: fit-content;
 	font-size: 28px;
 	margin: 0px 0px 5px 0px;
 }
@@ -486,8 +486,11 @@ main {
 }
 
 .right-Container-task {
-	top: 40px;
-	height: unset !important;
+	position: fixed;
+	right: 12px;
+	top: 20px;
+	height: fit-content;
+	transform: unset;
 }
 
 .right-Container-task button:nth-child(2) {

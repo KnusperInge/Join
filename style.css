@@ -256,17 +256,17 @@ body {
 }
 
 .login_form span {
-  height: 82px;
+  height: fit-content;
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 40px;
   line-height: 120%;
   text-align: center;
   color: var(--color-black);
   border-bottom: 3px solid var(--color-blue);
   margin-top: -20px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .login_form input {
@@ -336,10 +336,6 @@ body {
   top: 50px;
   left: 50px;
   cursor: pointer;
-}
-
-.forgot_pw_header_span {
-  font-size: 40px !important;
 }
 
 .instructions_span {
@@ -852,15 +848,6 @@ form {
   z-index: 1;
 }
 
-.right-Container-task-contact {
-  position: absolute !important;
-  top: unset !important;
-  transform: translate(-50%, 0) !important;
-  bottom: 20px;
-  right: unset !important;
-  left: 50%;
-}
-
 .task-note span {
   background-color: var(--color-kingsblue);
   color: var(--color-white);
@@ -871,7 +858,7 @@ form {
 .task-button-box {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: fit-content;
   gap: 25px;
 }
 
@@ -2401,4 +2388,44 @@ h3 {
 
 .steps ol li span:nth-child(2) {
   color: var(--color-darkblue);
+}
+
+/* ANCHOR addtask.html right contact */
+.right-Container-task {
+  position: fixed;
+  right: 48px;
+  bottom: 64px;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* ANCHOR forgot password */
+.forgot_pw_header_span {
+  font-size: 40px;
+}
+
+/* ANCHOR sign up */
+#signUpForm {
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp_button {
+  padding: 8;
+  height: fit-content;
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.right-Container-task-contact {
+  position: absolute;
+  top: unset;
+  bottom: 20px;
+  right: unset;
+  width: 400px;
+}
+
+.task-button-box-contact {
+  justify-content: center;
 }

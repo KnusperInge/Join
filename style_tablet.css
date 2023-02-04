@@ -143,12 +143,11 @@ nav div {
 }
 
 .right-Container-task {
-	position: fixed;
-	top: calc(97.3px / 2);
-	transform: translate(0, -50%);
-	right: 12px;
+	position: absolute;
+	right: inherit;
+	transform: translate(-30%, 0);
 	width: unset;
-	height: unset;
+	height: fit-content;
 	padding: 0;
 	z-index: 3;
 }
@@ -322,4 +321,17 @@ nav div {
 	.new-content-form input {
 		margin-bottom: 12px;
 	}
+}
+
+/* ANCHOR board task lists */
+.bord-tasks-container-location {
+	min-height: 100px;
+}
+
+/* ANCHOR more task classes */
+.right-Container-task-class2 {
+	position: fixed;
+	top: calc(97.3px / 2);
+	transform: translate(0, -50%);
+	right: 12px;
 }
