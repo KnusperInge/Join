@@ -67,13 +67,14 @@ class newCategory {
     });
   }
 
-  createNewCategory() {
+  async createNewCategory() {
     Categories.push({
       name: this.newCategory,
       id: Categories.length,
       Color: this.newCategoryColor
     });
-    saveData();
+    await saveData();
+
     loadData();
     this.Task.setCategories();
     this.Task.setCategoryBtn();

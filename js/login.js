@@ -1,4 +1,4 @@
-setURL("https://martin-klimt.developerakademie.net/smallest_backend_ever");
+setURL("https://join.martinklimt.de/smallest_backend_ever");
 let userDates = [];
 
 let LoginBtn, file, Username, Usersurname, Usermail, Userpassword, localUserDates;

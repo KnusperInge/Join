@@ -1,4 +1,4 @@
-setURL("https://martin-klimt.developerakademie.net/smallest_backend_ever");
+setURL("https://join.martinklimt.de/smallest_backend_ever");
 let Tasks = [],
 	navItems = [],
 	contactList = [];
@@ -68,6 +68,7 @@ async function loadData() {
 	Tasks = (await JSON.parse(backend.getItem("Tasks"))) || [];
 	contactList = (await JSON.parse(backend.getItem("Contacts"))) || [];
 	Categories = (await JSON.parse(backend.getItem("Categories"))) || [];
+
 }
 
 function loadUser() {
